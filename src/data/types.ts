@@ -73,3 +73,25 @@ export interface Creature {
   photoLicense: string;
   photoSourceUrl: string;
 }
+
+export interface LocalAnchor {
+  id: string;
+  people: string;
+  organization: string;
+  kind: "land & culture" | "food resilience" | "animal rescue" | "small farm";
+  place: string;
+  summary: string;
+  whyThisFits: string;
+  helpAction: string;
+  kidTakeaway: string;
+  tripFit: string;
+  driveMinutes: number;
+  cost: string;
+  friction: string;
+  contactLabel: string;
+  contactUrl: string;
+  sourceUrl: string;
+  mapUrl: string;
+  verifiedAt: string;
+  topPick?: boolean;
+}

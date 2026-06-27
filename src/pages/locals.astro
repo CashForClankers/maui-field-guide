@@ -1,0 +1,238 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { localAnchors } from "../data/locals";
+import { basePath } from "../lib/paths";
+
+const topPick = localAnchors.find((anchor) => anchor.topPick)!;
+---
+
+<Layout
+  title="Local anchors"
+  description="Meet and support Maui people whose work protects land, culture, food systems, farms, and rescued animals."
+>
+  <section class="locals-hero wrap">
+    <div>
+      <p class="eyebrow">The lesson from Victor in Los Cóbanos</p>
+      <h1>Find the person, not just the place.</h1>
+      <p>
+        The most memorable local connection usually has a name, a direct way to
+        coordinate, and work worth supporting. These are five Maui leads where
+        your time or money stays close to the mission.
+      </p>
+    </div>
+    <aside class="victor-pattern">
+      <span class="trip-card-label">The local-anchor test</span>
+      <ol>
+        <li>
+          <strong>Named humans</strong><span>Not a faceless marketplace.</span>
+        </li>
+        <li>
+          <strong>Local judgment</strong><span
+            >They can tell you when not to come.</span
+          >
+        </li>
+        <li>
+          <strong>Direct support</strong><span
+            >Your effort or payment reaches the work.</span
+          >
+        </li>
+        <li>
+          <strong>Shared learning</strong><span
+            >The kids leave knowing why it matters.</span
+          >
+        </li>
+      </ol>
+    </aside>
+  </section>
+
+  <section class="local-principle">
+    <div class="wrap local-principle-inner">
+      <span>Best first move</span>
+      <p>
+        Contact one person. Ask what is useful. Build one day around the answer.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <article class="local-top-pick" id={topPick.id}>
+      <div class="local-rank">01</div>
+      <div class="local-top-copy">
+        <p class="eyebrow">Closest Maui match · {topPick.tripFit}</p>
+        <h2>{topPick.people}</h2>
+        <p class="local-org">{topPick.organization} · {topPick.place}</p>
+        <p class="local-summary">{topPick.summary}</p>
+        <blockquote>
+          “The land is chief, we are its servants.”
+          <cite>Traditional principle carried by the Lindsey ʻohana</cite>
+        </blockquote>
+      </div>
+      <dl class="local-action-list">
+        <div>
+          <dt>Why it fits you</dt>
+          <dd>{topPick.whyThisFits}</dd>
+        </div>
+        <div>
+          <dt>How your family helps</dt>
+          <dd>{topPick.helpAction}</dd>
+        </div>
+        <div>
+          <dt>Kid takeaway</dt>
+          <dd>{topPick.kidTakeaway}</dd>
+        </div>
+        <div class="local-caution">
+          <dt>Real friction</dt>
+          <dd>{topPick.friction}</dd>
+        </div>
+      </dl>
+      <div class="local-meta-row">
+        <span>≈ {topPick.driveMinutes} min drive</span>
+        <span>{topPick.cost}</span>
+      </div>
+      <div class="local-card-actions">
+        <a
+          class="button primary"
+          href={topPick.contactUrl}
+          target="_blank"
+          rel="noreferrer">{topPick.contactLabel}</a
+        >
+        <a
+          class="button secondary"
+          href={topPick.mapUrl}
+          target="_blank"
+          rel="noreferrer">Open meeting area</a
+        >
+        <a
+          class="source-link"
+          href={topPick.sourceUrl}
+          target="_blank"
+          rel="noreferrer">Why this organization is trusted →</a
+        >
+      </div>
+    </article>
+  </section>
+
+  <section class="section wrap local-options-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Four more direct paths</p>
+        <h2>Match the family’s energy.</h2>
+      </div>
+    </div>
+    <div class="local-grid">
+      {
+        localAnchors
+          .filter((anchor) => !anchor.topPick)
+          .map((anchor, index) => (
+            <article class="local-card" id={anchor.id}>
+              <div class="local-card-topline">
+                <span>0{index + 2}</span>
+                <span>{anchor.kind}</span>
+              </div>
+              <p class="local-person">{anchor.people}</p>
+              <h3>{anchor.organization}</h3>
+              <p class="local-place">
+                {anchor.place} · ≈ {anchor.driveMinutes} min
+              </p>
+              <p>{anchor.summary}</p>
+              <div class="local-trip-fit">{anchor.tripFit}</div>
+              <dl>
+                <div>
+                  <dt>Why this is more than a tour</dt>
+                  <dd>{anchor.whyThisFits}</dd>
+                </div>
+                <div>
+                  <dt>Useful support</dt>
+                  <dd>{anchor.helpAction}</dd>
+                </div>
+                <div>
+                  <dt>What the kids carry home</dt>
+                  <dd>{anchor.kidTakeaway}</dd>
+                </div>
+              </dl>
+              <details>
+                <summary>Cost, friction, and verification</summary>
+                <p>
+                  <strong>Cost:</strong> {anchor.cost}
+                </p>
+                <p>
+                  <strong>Friction:</strong> {anchor.friction}
+                </p>
+                <p>
+                  Verified {anchor.verifiedAt}. Availability still requires
+                  direct confirmation.
+                </p>
+              </details>
+              <div class="local-card-actions">
+                <a
+                  class="button primary"
+                  href={anchor.contactUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {anchor.contactLabel}
+                </a>
+                <a
+                  class="button secondary"
+                  href={anchor.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Map
+                </a>
+              </div>
+              <a
+                class="source-link"
+                href={anchor.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Primary source →
+              </a>
+            </article>
+          ))
+      }
+    </div>
+  </section>
+
+  <section class="local-etiquette wrap">
+    <div>
+      <p class="eyebrow">Do this without making yourself the project</p>
+      <h2>Help should reduce work for locals.</h2>
+    </div>
+    <ol>
+      <li>
+        <span>01</span><p>
+          Confirm first. Never treat a farm, work site, or cultural place as a
+          drop-in attraction.
+        </p>
+      </li>
+      <li>
+        <span>02</span><p>
+          Ask what is useful now. Do the assigned task even when it is less
+          photogenic.
+        </p>
+      </li>
+      <li>
+        <span>03</span><p>
+          Pay the stated rate, tip direct guides well, and buy close to the
+          producer.
+        </p>
+      </li>
+      <li>
+        <span>04</span><p>
+          Ask before photographing people, children, cultural sites, or active
+          work.
+        </p>
+      </li>
+      <li>
+        <span>05</span><p>
+          Keep the day simple: one local anchor, then food or beach downtime.
+        </p>
+      </li>
+    </ol>
+    <a class="button secondary" href={`${basePath}discover/`}
+      >Return to ranked ideas</a
+    >
+  </section>
+</Layout>

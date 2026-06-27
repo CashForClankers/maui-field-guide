@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { experiences } from "../src/data/experiences";
 import { creatures } from "../src/data/creatures";
+import { localAnchors } from "../src/data/locals";
 import { rankedExperiences, rankExperience } from "../src/lib/rank";
 
 test("experience identifiers and source URLs are safe and unique", () => {
@@ -78,5 +79,26 @@ test("creature guide keeps science, safety, maps, and photo rights visible", () 
     assert.ok(creature.photoCredit.length >= 8);
     assert.ok(creature.photoLicense.length >= 8);
     assert.ok(creature.safety.length >= 40);
+  }
+});
+
+test("local anchors use direct public sources and explicit trip friction", () => {
+  assert.ok(localAnchors.length >= 4);
+  assert.equal(localAnchors.filter((anchor) => anchor.topPick).length, 1);
+  const ids = new Set<string>();
+  for (const anchor of localAnchors) {
+    assert.equal(
+      ids.has(anchor.id),
+      false,
+      `duplicate local anchor: ${anchor.id}`,
+    );
+    ids.add(anchor.id);
+    assert.match(anchor.sourceUrl, /^https:\/\//);
+    assert.match(anchor.contactUrl, /^https:\/\//);
+    assert.match(anchor.mapUrl, /^https:\/\//);
+    assert.match(anchor.verifiedAt, /^2026-\d{2}-\d{2}$/);
+    assert.ok(anchor.people.length >= 8);
+    assert.ok(anchor.helpAction.length >= 40);
+    assert.ok(anchor.friction.length >= 40);
   }
 });

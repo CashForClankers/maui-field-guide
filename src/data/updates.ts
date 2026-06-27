@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-06-27",
+    title: "The best place can be a person",
+    note: "A new local-anchors page applies the Victor lesson from Los Cóbanos to Maui: Ekolu Lindsey and four other direct ways to help land, food systems, small farms, and rescued animals during the trip.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-06-27",
     title: "Five creatures to recognize beyond the resort",
     note: "A new photographed field guide covers honu, lauʻīpala, humuhumunukunukuāpuaʻa, Hawaiian monk seals, and aeʻo—with kid-readable science, ethical viewing distances, and high-signal places to look.",
     experienceIds: [],

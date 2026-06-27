@@ -26,8 +26,8 @@ export const tripRhythm = [
   },
   {
     date: "Sat · Jul 11",
-    title: "Upcountry field day",
-    note: "Farmers market first. Add Hosmer Grove only if the family still has energy.",
+    title: "Meet the Maui behind Maui",
+    note: "If confirmed, work with Ekolu Lindsey’s Maui Cultural Lands ʻohana. Use Kupaʻa Farms or the Upcountry market as the gentler version.",
   },
   {
     date: "Sun · Jul 12",
