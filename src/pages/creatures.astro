@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { creatures } from "../data/creatures";
+import { basePath } from "../lib/paths";
+
+const featured = [creatures[0]!, creatures[2]!, creatures[4]!] as const;
+---
+
+<Layout
+  title="Creature field guide"
+  description="A kid-readable Maui wildlife guide with real photos, science notes, ethical viewing distances, and places to look beyond Mana Kai."
+>
+  <section class="creature-hero wrap">
+    <div>
+      <p class="eyebrow">Five living field marks</p>
+      <h1>Know what you’re looking at.</h1>
+      <p>
+        Real photos, small science, and ethical places to look beyond Mana Kai.
+        These are possibilities—not animals owed to us by the island.
+      </p>
+    </div>
+    <div class="creature-collage" aria-label="Featured Maui wildlife">
+      <img
+        src={`${basePath}${featured[0].image}`}
+        alt={featured[0].imageAlt}
+        width="750"
+        height="500"
+      />
+      <img
+        src={`${basePath}${featured[1].image}`}
+        alt={featured[1].imageAlt}
+        width="960"
+        height="642"
+      />
+      <img
+        src={`${basePath}${featured[2].image}`}
+        alt={featured[2].imageAlt}
+        width="650"
+        height="433"
+      />
+    </div>
+  </section>
+
+  <section class="creature-intro">
+    <div class="wrap creature-intro-inner">
+      <strong>Field method</strong>
+      <p>Stop moving → notice shape and behavior → name it → give it space.</p>
+      <a href={`${basePath}rules/`}>Check every distance rule →</a>
+    </div>
+  </section>
+
+  <section class="section wrap creature-grid">
+    {
+      creatures.map((creature, index) => (
+        <article class="creature-card" id={creature.id}>
+          <figure class="creature-photo">
+            <img
+              src={`${basePath}${creature.image}`}
+              alt={creature.imageAlt}
+              width="960"
+              height="640"
+              loading={index < 2 ? "eager" : "lazy"}
+              decoding="async"
+            />
+            <figcaption>
+              Photo: {creature.photoCredit} · {creature.photoLicense}
+            </figcaption>
+          </figure>
+          <div class="creature-copy">
+            <div class="creature-topline">
+              <span>{creature.kind}</span>
+              <span>≈ {creature.driveMinutes} min</span>
+            </div>
+            <p class="creature-hawaiian">{creature.hawaiianName}</p>
+            <h2>{creature.commonName}</h2>
+            <p class="scientific-name">{creature.scientificName}</p>
+
+            <dl class="creature-notes">
+              <div>
+                <dt>How to know it</dt>
+                <dd>{creature.recognition}</dd>
+              </div>
+              <div>
+                <dt>Small science</dt>
+                <dd>{creature.scienceNote}</dd>
+              </div>
+              <div class="kid-mission">
+                <dt>Kid field mission</dt>
+                <dd>{creature.kidMission}</dd>
+              </div>
+              <div>
+                <dt>Where to look</dt>
+                <dd>{creature.whereToLook}</dd>
+              </div>
+              <div class="safety-note">
+                <dt>Give it room</dt>
+                <dd>{creature.safety}</dd>
+              </div>
+            </dl>
+            <div class="creature-actions">
+              <a
+                class="button primary"
+                href={creature.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open place
+              </a>
+              <a
+                class="button secondary"
+                href={creature.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read the science
+              </a>
+            </div>
+            <a
+              class="photo-source"
+              href={creature.photoSourceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Photo source and license
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="source-panel wrap">
+    <p>
+      Science checked against NOAA Fisheries, Hawaiʻi Sea Grant, and the U.S.
+      Fish & Wildlife Service on June 27, 2026. Conditions and sightings are
+      never guaranteed.
+    </p>
+    <a class="button primary" href={`${basePath}discover/`}>Plan one stop</a>
+  </section>
+</Layout>

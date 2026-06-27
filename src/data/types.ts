@@ -51,3 +51,25 @@ export interface FruitNote {
   taste: string;
   question: string;
 }
+
+export interface Creature {
+  id: string;
+  commonName: string;
+  hawaiianName: string;
+  scientificName: string;
+  kind: "reef fish" | "marine mammal" | "sea turtle" | "wetland bird";
+  image: string;
+  imageAlt: string;
+  recognition: string;
+  scienceNote: string;
+  kidMission: string;
+  whereToLook: string;
+  driveMinutes: number;
+  safety: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  mapUrl: string;
+  photoCredit: string;
+  photoLicense: string;
+  photoSourceUrl: string;
+}

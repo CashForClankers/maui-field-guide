@@ -312,6 +312,95 @@ input {
   background: var(--coral);
 }
 
+.wildlife-feature {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 78px);
+  margin-block: 0 80px;
+  padding: clamp(28px, 5vw, 58px);
+  border-radius: 32px;
+  color: white;
+  background: var(--ocean-night);
+  box-shadow: var(--shadow-raised);
+}
+
+.wildlife-feature-copy .eyebrow {
+  color: var(--mango);
+}
+
+.wildlife-feature-copy h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.wildlife-feature-copy > p:not(.eyebrow) {
+  max-width: 540px;
+  color: rgb(255 255 255 / 74%);
+  font-size: 1.04rem;
+}
+
+.wildlife-feature-copy .button {
+  margin-top: 12px;
+}
+
+.wildlife-preview {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: repeat(2, minmax(130px, 1fr));
+  gap: 8px;
+  min-height: 430px;
+}
+
+.wildlife-preview a {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  color: white;
+  background: var(--ocean);
+}
+
+.wildlife-preview a:first-child {
+  grid-row: 1 / 3;
+}
+
+.wildlife-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 180ms ease;
+}
+
+.wildlife-preview span {
+  position: absolute;
+  inset: auto 10px 10px;
+  display: block;
+  padding: 9px 11px;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 12px;
+  background: rgb(9 43 44 / 80%);
+  backdrop-filter: blur(12px);
+}
+
+.wildlife-preview strong,
+.wildlife-preview small {
+  display: block;
+}
+
+.wildlife-preview strong {
+  line-height: 1.15;
+}
+
+.wildlife-preview small {
+  margin-top: 2px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 0.68rem;
+}
+
 .update-inner {
   display: grid;
   grid-template-columns: 190px 1fr;
@@ -873,6 +962,242 @@ input {
   min-height: 65vh;
 }
 
+.creature-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.18fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 92px);
+  padding-block: clamp(64px, 9vw, 110px);
+}
+
+.creature-hero h1 {
+  margin: 0;
+  color: var(--ocean);
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.creature-hero > div:first-child > p:last-child {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 1.12rem;
+}
+
+.creature-collage {
+  display: grid;
+  min-height: 520px;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 9px;
+  transform: rotate(1deg);
+}
+
+.creature-collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 5px solid var(--shell);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.creature-collage img:first-child {
+  grid-row: 1 / 3;
+}
+
+.creature-collage img:nth-child(2) {
+  transform: rotate(-3deg);
+}
+
+.creature-collage img:nth-child(3) {
+  transform: rotate(2deg);
+}
+
+.creature-intro {
+  color: white;
+  background: var(--coral);
+}
+
+.creature-intro-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding-block: 22px;
+}
+
+.creature-intro strong {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.creature-intro p {
+  margin: 0;
+}
+
+.creature-intro a {
+  color: white;
+  font-weight: 750;
+}
+
+.creature-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.creature-card {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  border: 1px solid var(--hairline);
+  border-radius: 28px;
+  background: var(--shell);
+  box-shadow: 0 1px 0 rgb(18 58 58 / 4%);
+}
+
+.creature-card:nth-child(even) .creature-photo {
+  order: 2;
+}
+
+.creature-photo {
+  position: relative;
+  min-height: 640px;
+  margin: 0;
+  background: var(--ocean);
+}
+
+.creature-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creature-photo figcaption {
+  position: absolute;
+  inset: auto 12px 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: rgb(255 255 255 / 78%);
+  background: rgb(9 43 44 / 82%);
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  line-height: 1.35;
+  backdrop-filter: blur(12px);
+}
+
+.creature-copy {
+  min-width: 0;
+  padding: clamp(25px, 4vw, 48px);
+}
+
+.creature-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.creature-hawaiian {
+  margin: 30px 0 4px;
+  color: var(--coral);
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 3vw, 2.3rem);
+  font-style: italic;
+  line-height: 1;
+}
+
+.creature-copy h2 {
+  margin: 0;
+  color: var(--ocean);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
+}
+
+.scientific-name {
+  margin: 8px 0 26px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  font-style: italic;
+}
+
+.creature-notes,
+.creature-notes dd {
+  margin: 0;
+}
+
+.creature-notes > div {
+  padding: 15px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.creature-notes dt {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.creature-notes dd {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.creature-notes .kid-mission,
+.creature-notes .safety-note {
+  margin-inline: -14px;
+  padding-inline: 14px;
+  border-top-color: transparent;
+  border-radius: 12px;
+  background: var(--mist);
+}
+
+.creature-notes .kid-mission dt {
+  color: var(--tidepool);
+}
+
+.creature-notes .safety-note {
+  margin-top: 8px;
+  background: rgb(244 185 66 / 22%);
+}
+
+.creature-notes .safety-note dt {
+  color: var(--coral-pressed);
+}
+
+.creature-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.creature-actions .button {
+  flex: 1;
+}
+
+.photo-source {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.63rem;
+}
+
 .not-found .button {
   margin-top: 30px;
 }
@@ -910,9 +1235,14 @@ input {
 
 @media (hover: hover) {
   .experience-card:hover,
-  .fruit-card:hover {
+  .fruit-card:hover,
+  .creature-card:hover {
     box-shadow: var(--shadow);
     transform: translateY(-2px);
+  }
+
+  .wildlife-preview a:hover img {
+    transform: scale(1.035);
   }
 }
 
@@ -924,6 +1254,23 @@ input {
   .hero {
     min-height: auto;
     grid-template-columns: 1fr;
+  }
+
+  .wildlife-feature,
+  .creature-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .creature-collage {
+    min-height: 440px;
+  }
+
+  .creature-card {
+    grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  }
+
+  .creature-photo {
+    min-height: 680px;
   }
 
   .trip-card {
@@ -975,7 +1322,7 @@ input {
     inset: auto 8px 8px;
     z-index: 40;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2px;
     padding: 6px;
     border: 1px solid rgb(255 255 255 / 16%);
@@ -1010,6 +1357,65 @@ input {
   .hero {
     gap: 38px;
     padding-block: 55px;
+  }
+
+  .wildlife-feature {
+    margin-block-end: 52px;
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .wildlife-feature-copy h2 {
+    font-size: 2.55rem;
+  }
+
+  .wildlife-preview {
+    min-height: 330px;
+  }
+
+  .creature-hero {
+    gap: 38px;
+    padding-block: 52px;
+  }
+
+  .creature-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.35rem);
+  }
+
+  .creature-collage {
+    min-height: 340px;
+  }
+
+  .creature-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding-block: 20px;
+  }
+
+  .creature-intro a {
+    margin-top: 8px;
+  }
+
+  .creature-card,
+  .creature-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .creature-card:nth-child(even) .creature-photo {
+    order: 0;
+  }
+
+  .creature-photo {
+    min-height: 330px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .creature-copy {
+    padding: 24px 19px;
+  }
+
+  .creature-actions {
+    flex-direction: column;
   }
 
   .hero h1,

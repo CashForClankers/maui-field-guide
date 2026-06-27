@@ -1,12 +1,18 @@
-const CACHE = "maui-field-guide-v1";
+const CACHE = "maui-field-guide-v2";
 const scope = new URL("./", self.location.href);
 const CORE = [
   "./",
   "./discover/",
+  "./creatures/",
   "./fruit/",
   "./rules/",
   "./manifest.webmanifest",
   "./icon.svg",
+  "./creatures/honu.jpg",
+  "./creatures/yellow-tang.jpg",
+  "./creatures/reef-triggerfish.jpg",
+  "./creatures/monk-seal.jpg",
+  "./creatures/hawaiian-stilt.jpg",
 ].map((path) => new URL(path, scope).href);
 
 self.addEventListener("install", (event) => {

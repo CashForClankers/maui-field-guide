@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-06-27",
+    title: "Five creatures to recognize beyond the resort",
+    note: "A new photographed field guide covers honu, lauʻīpala, humuhumunukunukuāpuaʻa, Hawaiian monk seals, and aeʻo—with kid-readable science, ethical viewing distances, and high-signal places to look.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-06-27",
     title: "Trip-date closure and one Hāna night option",
     note: "DLNR now marks ʻĪao Valley closed through Jul 17, so it was demoted to a closure watch; Hāna Arts' Jul 9 free Summer Mele concert was added only for a deliberately planned Hāna day or overnight.",
     experienceIds: ["iao-valley", "hana-arts-summer-mele"],

@@ -1,6 +1,7 @@
 ---
 import ExperienceCard from "../components/ExperienceCard.astro";
 import Layout from "../layouts/Layout.astro";
+import { creatures } from "../data/creatures";
 import { experiences } from "../data/experiences";
 import { site, tripRhythm } from "../data/site";
 import { updates } from "../data/updates";
@@ -44,6 +45,40 @@ const latestUpdate = updates[0]!;
         <span>daily refresh</span>
       </div>
     </aside>
+  </section>
+
+  <section class="wildlife-feature wrap">
+    <div class="wildlife-feature-copy">
+      <p class="eyebrow">New · creature field guide</p>
+      <h2>See more because you know what to notice.</h2>
+      <p>
+        Five real Maui animals, photographed and explained for curious kids:
+        field marks, small science, where to look, and how much room to give.
+      </p>
+      <a class="button primary" href={`${basePath}creatures/`}
+        >Meet the five creatures</a
+      >
+    </div>
+    <div class="wildlife-preview">
+      {
+        creatures.slice(0, 3).map((creature) => (
+          <a href={`${basePath}creatures/#${creature.id}`}>
+            <img
+              src={`${basePath}${creature.image}`}
+              alt={creature.imageAlt}
+              width="480"
+              height="320"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>
+              <strong>{creature.hawaiianName}</strong>
+              <small>{creature.commonName}</small>
+            </span>
+          </a>
+        ))
+      }
+    </div>
   </section>
 
   <section class="update-band">

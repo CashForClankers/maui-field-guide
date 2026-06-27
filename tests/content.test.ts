@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { experiences } from "../src/data/experiences";
+import { creatures } from "../src/data/creatures";
 import { rankedExperiences, rankExperience } from "../src/lib/rank";
 
 test("experience identifiers and source URLs are safe and unique", () => {
@@ -57,5 +58,25 @@ test("wildlife records always carry an explicit safety statement", () => {
       experience.safety.length >= 24,
       `${experience.id} safety note is too weak`,
     );
+  }
+});
+
+test("creature guide keeps science, safety, maps, and photo rights visible", () => {
+  assert.ok(creatures.length >= 5);
+  const ids = new Set<string>();
+  for (const creature of creatures) {
+    assert.equal(
+      ids.has(creature.id),
+      false,
+      `duplicate creature: ${creature.id}`,
+    );
+    ids.add(creature.id);
+    assert.match(creature.scientificName, /\s/);
+    assert.match(creature.sourceUrl, /^https:\/\//);
+    assert.match(creature.mapUrl, /^https:\/\//);
+    assert.match(creature.photoSourceUrl, /^https:\/\//);
+    assert.ok(creature.photoCredit.length >= 8);
+    assert.ok(creature.photoLicense.length >= 8);
+    assert.ok(creature.safety.length >= 40);
   }
 });
