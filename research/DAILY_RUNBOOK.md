@@ -8,17 +8,18 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 
 ## Procedure
 
-1. Read `AGENTS.md`, `src/data/experiences.ts`, `src/data/updates.ts`, and `src/lib/rank.ts`.
+1. Read `AGENTS.md`, `src/data/experiences.ts`, `src/data/creatures.ts`, `src/data/updates.ts`, and `src/lib/rank.ts`.
 2. Check official sources first: NPS, NOAA, USFWS, Hawaiʻi DLNR, Maui County, named farms, nonprofits, and direct operators.
 3. Check the trip dates and weekday fit. The trip is Wednesday July 8 through Monday July 13, 2026.
 4. Prefer improving an existing record over adding a duplicate.
 5. Add no more than three experiences in one run. Every addition needs a primary URL, verification date, explicit kid takeaway, realistic cost, drive time, friction score, and safety note when applicable.
 6. Re-rank by changing evidence fields only. Never hard-code display order.
-7. Add one update entry describing what changed and why it matters.
-8. Run `npm run verify`.
-9. Inspect `git diff --check` and `git diff`. Reject secrets, private booking details, personal contacts, unsupported wildlife promises, or unauthorized fruit-picking advice.
-10. If there is no meaningful change, do not commit.
-11. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
+7. Re-check creature population claims and wildlife distances against NOAA, USFWS, Hawaiʻi DLNR, or University of Hawaiʻi sources. Preserve the displayed photo credit, license, and original record whenever a photo changes.
+8. Add one update entry describing what changed and why it matters.
+9. Run `npm run verify`.
+10. Inspect `git diff --check` and `git diff`. Reject secrets, private booking details, personal contacts, unsupported wildlife promises, or unauthorized fruit-picking advice.
+11. If there is no meaningful change, do not commit.
+12. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
 
 ## Seasonal questions
 
@@ -27,6 +28,7 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 - Are beach, reserve, trail, road, or park closures active?
 - Are there free cultural or nature programs during July 8–13?
 - Did admission, parking, reservation, or age rules change?
+- Did NOAA or USFWS change a viewing distance, population estimate, hotline, or seasonal nesting warning shown in the creature guide?
 - Is a candidate worth the parent effort from Mana Kai?
 
 ## Failure handling
