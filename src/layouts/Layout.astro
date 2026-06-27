@@ -1,0 +1,102 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+import { basePath } from "../lib/paths";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} · ${site.title}` : site.title;
+const currentPath = Astro.url.pathname.replace(basePath, "/");
+const navItems = [
+  { href: "", label: "Pulse", icon: "◉" },
+  { href: "discover/", label: "Discover", icon: "⌕" },
+  { href: "fruit/", label: "Fruit", icon: "✦" },
+  { href: "rules/", label: "Rules", icon: "◎" },
+];
+
+const isActive = (href: string) =>
+  href === ""
+    ? currentPath === "/" || currentPath === ""
+    : currentPath.startsWith(`/${href}`);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#123A3A" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="manifest" href={`${basePath}manifest.webmanifest`} />
+    <link rel="icon" href={`${basePath}icon.svg`} type="image/svg+xml" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href={basePath} aria-label="Maui Field Guide home">
+        <span class="brand-mark">MF</span>
+        <span>
+          <strong>Maui Field Guide</strong>
+          <small>Jul 8–13 · Mana Kai</small>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        {
+          navItems.map((item) => (
+            <a
+              href={`${basePath}${item.href}`}
+              class:list={{ active: isActive(item.href) }}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <span class="update-stamp">Updated {site.lastUpdated}</span>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer wrap">
+      <p>
+        Built for one family trip. Sources stay visible. Wildlife stays wild.
+      </p>
+      <a href={`${basePath}rules/`}>Read the field rules</a>
+    </footer>
+
+    <nav class="mobile-dock" aria-label="Mobile navigation">
+      {
+        navItems.map((item) => (
+          <a
+            href={`${basePath}${item.href}`}
+            class:list={{ active: isActive(item.href) }}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            <span aria-hidden="true">{item.icon}</span>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <script is:inline define:vars={{ base: basePath }}>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register(`${base}sw.js`).catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

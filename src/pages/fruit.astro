@@ -1,0 +1,84 @@
+---
+import ExperienceCard from "../components/ExperienceCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { experiences } from "../data/experiences";
+import { fruits } from "../data/fruits";
+import { rankedExperiences } from "../lib/rank";
+
+const fruitExperiences = rankedExperiences(
+  experiences.filter((item) => item.kind === "fruit" || item.kind === "farm"),
+);
+const signalLabel = {
+  strong: "Strong July bet",
+  possible: "Possible in July",
+  "year-round": "Usually year-round",
+};
+---
+
+<Layout title="Fruit">
+  <section class="page-head wrap fruit-head">
+    <p class="eyebrow">Taste by cultivar, not category</p>
+    <h1>Build a Maui fruit flight.</h1>
+    <p>
+      Buy from growers, ask what is ripe, and turn every piece into a small
+      sensory experiment. Picking requires explicit permission.
+    </p>
+  </section>
+
+  <section class="section wrap">
+    <div class="fruit-grid">
+      {
+        fruits.map((fruit) => (
+          <article class="fruit-card">
+            <span class:list={["season-signal", `signal-${fruit.julySignal}`]}>
+              {signalLabel[fruit.julySignal]}
+            </span>
+            <h2>{fruit.name}</h2>
+            <dl>
+              <div>
+                <dt>Look for</dt>
+                <dd>{fruit.lookFor}</dd>
+              </div>
+              <div>
+                <dt>Taste</dt>
+                <dd>{fruit.taste}</dd>
+              </div>
+              <div>
+                <dt>Ask</dt>
+                <dd>“{fruit.question}”</dd>
+              </div>
+            </dl>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="permission-band">
+    <div class="wrap">
+      <p class="eyebrow">No casual U-pick assumption</p>
+      <h2>Fruit on a tree is not automatic permission.</h2>
+      <p>
+        Do not pick from roadsides, parks, reserves, private yards, or farms
+        without a direct yes. ONO's reserved tour explicitly includes guided
+        picking; ordinary market visits do not.
+      </p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Where to start</p>
+        <h2>Ranked fruit moves</h2>
+      </div>
+    </div>
+    <div class="card-grid">
+      {
+        fruitExperiences.map((experience) => (
+          <ExperienceCard experience={experience} />
+        ))
+      }
+    </div>
+  </section>
+</Layout>

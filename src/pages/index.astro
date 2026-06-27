@@ -1,0 +1,127 @@
+---
+import ExperienceCard from "../components/ExperienceCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { experiences } from "../data/experiences";
+import { site, tripRhythm } from "../data/site";
+import { updates } from "../data/updates";
+import { basePath } from "../lib/paths";
+import { rankedExperiences } from "../lib/rank";
+
+const ranked = rankedExperiences(experiences);
+const top = ranked.slice(0, 6);
+const latestUpdate = updates[0]!;
+---
+
+<Layout>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">A living field guide · not a packed itinerary</p>
+      <h1>Find the thing they’ll still talk about.</h1>
+      <p class="hero-lede">
+        Wildlife, fruit, farms, and small Maui revelations—ranked for kid
+        delight, learning, value, and parent effort from {site.baseName}.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href={`${basePath}discover/`}
+          >What should we do?</a
+        >
+        <a class="button secondary" href={`${basePath}fruit/`}
+          >Find good fruit</a
+        >
+      </div>
+    </div>
+    <aside
+      class="trip-card"
+      data-trip-start={site.tripStart}
+      data-trip-end={site.tripEnd}
+    >
+      <span class="trip-card-label">Trip signal</span>
+      <strong id="trip-countdown">July 8–13</strong>
+      <p>Base camp: Mana Kai on Keawakapu Beach</p>
+      <div class="signal-row">
+        <span>{experiences.length} ideas</span>
+        <span>{experiences.filter((item) => item.isFree).length} free</span>
+        <span>daily refresh</span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="update-band">
+    <div class="wrap update-inner">
+      <span class="update-date">Latest · {latestUpdate.date}</span>
+      <div>
+        <h2>{latestUpdate.title}</h2>
+        <p>{latestUpdate.note}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>Highest-signal moves</h2>
+      </div>
+      <a href={`${basePath}discover/`}>See every ranked idea →</a>
+    </div>
+    <div class="card-grid">
+      {top.map((experience) => <ExperienceCard experience={experience} />)}
+    </div>
+  </section>
+
+  <section class="section wrap rhythm-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Low-friction rhythm</p>
+        <h2>One anchor, then stop.</h2>
+      </div>
+    </div>
+    <ol class="rhythm-list">
+      {
+        tripRhythm.map((day) => (
+          <li>
+            <span>{day.date}</span>
+            <div>
+              <h3>{day.title}</h3>
+              <p>{day.note}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="rules-callout wrap">
+    <span class="rule-mark">10′</span>
+    <div>
+      <p class="eyebrow">The first field rule</p>
+      <h2>Give honu ten feet. Give seals fifty.</h2>
+      <p>
+        The goal is a wild animal doing what it chose to do—not reacting to us.
+      </p>
+    </div>
+    <a class="button secondary" href={`${basePath}rules/`}>Keep everyone safe</a
+    >
+  </section>
+
+  <script>
+    const card = document.querySelector<HTMLElement>("[data-trip-start]");
+    const countdown = document.querySelector<HTMLElement>("#trip-countdown");
+    if (card && countdown) {
+      const start = new Date(`${card.dataset.tripStart}T00:00:00-10:00`);
+      const end = new Date(`${card.dataset.tripEnd}T23:59:59-10:00`);
+      const now = new Date();
+      if (now < start) {
+        const days = Math.max(
+          1,
+          Math.ceil((start.getTime() - now.getTime()) / 86_400_000),
+        );
+        countdown.textContent = `${days} day${days === 1 ? "" : "s"} until Maui`;
+      } else if (now <= end) {
+        countdown.textContent = "We’re on Maui";
+      } else {
+        countdown.textContent = "Field notes preserved";
+      }
+    }
+  </script>
+</Layout>

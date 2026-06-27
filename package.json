@@ -1,0 +1,28 @@
+{
+  "name": "maui-field-guide",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check",
+    "test": "tsx --test tests/*.test.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "verify": "npm run format:check && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@types/node": "^24.10.1",
+    "astro": "^7.0.3",
+    "prettier": "^3.9.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "tsx": "^4.20.6",
+    "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "yaml": "^2.9.0"
+  }
+}

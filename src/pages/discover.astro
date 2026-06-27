@@ -1,0 +1,109 @@
+---
+import ExperienceCard from "../components/ExperienceCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { experiences } from "../data/experiences";
+import { rankedExperiences } from "../lib/rank";
+
+const ranked = rankedExperiences(experiences);
+const filters = [
+  ["all", "All"],
+  ["nearby", "≤25 min"],
+  ["free", "Free"],
+  ["ocean", "Ocean"],
+  ["birds", "Bird life"],
+  ["wildlife", "Animals"],
+  ["fruit", "Fruit"],
+  ["farm", "Farms"],
+  ["fresh", "New"],
+];
+---
+
+<Layout title="Discover">
+  <section class="page-head wrap">
+    <p class="eyebrow">Ranked by fit, not advertising</p>
+    <h1>What should we do?</h1>
+    <p>
+      Search, tap one useful filter, then choose the first answer that clears
+      the family bar.
+    </p>
+  </section>
+
+  <section class="filter-shell wrap" aria-label="Discovery filters">
+    <label class="search-box">
+      <span class="sr-only">Search discoveries</span>
+      <input
+        id="search"
+        type="search"
+        placeholder="Search turtles, mango, free…"
+        autocomplete="off"
+      />
+    </label>
+    <div class="filter-row" role="group" aria-label="Filter discoveries">
+      {
+        filters.map(([value, label], index) => (
+          <button
+            class:list={["filter-chip", { active: index === 0 }]}
+            data-filter={value}
+            type="button"
+          >
+            {label}
+          </button>
+        ))
+      }
+    </div>
+    <p id="result-count" class="result-count" aria-live="polite">
+      {ranked.length} ideas
+    </p>
+  </section>
+
+  <section class="section wrap">
+    <div id="discovery-grid" class="card-grid">
+      {ranked.map((experience) => <ExperienceCard experience={experience} />)}
+    </div>
+    <p id="empty-state" class="empty-state" hidden>
+      No useful match. Clear the filter instead of forcing a weak option.
+    </p>
+  </section>
+
+  <script>
+    const search = document.querySelector<HTMLInputElement>("#search");
+    const chips = [
+      ...document.querySelectorAll<HTMLButtonElement>("[data-filter]"),
+    ];
+    const cards = [...document.querySelectorAll<HTMLElement>("[data-card]")];
+    const count = document.querySelector<HTMLElement>("#result-count");
+    const empty = document.querySelector<HTMLElement>("#empty-state");
+    let activeFilter = "all";
+
+    function render() {
+      const query = search?.value.trim().toLowerCase() ?? "";
+      let visible = 0;
+      for (const card of cards) {
+        const matchesText =
+          !query || (card.dataset.search ?? "").includes(query);
+        const matchesFilter =
+          activeFilter === "all" ||
+          (activeFilter === "free" && card.dataset.free === "true") ||
+          (activeFilter === "nearby" && card.dataset.nearby === "true") ||
+          (activeFilter === "fresh" && card.dataset.fresh === "true") ||
+          card.dataset.kind === activeFilter;
+        const show = matchesText && matchesFilter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
+      if (count)
+        count.textContent = `${visible} idea${visible === 1 ? "" : "s"}`;
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    search?.addEventListener("input", render);
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        activeFilter = chip.dataset.filter ?? "all";
+        for (const candidate of chips)
+          candidate.classList.toggle("active", candidate === chip);
+        render();
+      });
+    }
+  </script>
+</Layout>

@@ -1,0 +1,112 @@
+---
+import type { Experience } from "../data/types";
+import { isFresh, rankExperience } from "../lib/rank";
+
+interface Props {
+  experience: Experience;
+  compact?: boolean;
+}
+
+const { experience, compact = false } = Astro.props;
+const score = rankExperience(experience);
+const fresh = isFresh(experience);
+const kindLabels = {
+  ocean: "Ocean",
+  wildlife: "Wildlife",
+  birds: "Bird life",
+  fruit: "Fruit",
+  farm: "Farm",
+  plants: "Plant life",
+  culture: "Place + culture",
+};
+const searchable = [
+  experience.title,
+  experience.summary,
+  experience.whyItFits,
+  ...experience.tags,
+]
+  .join(" ")
+  .toLowerCase();
+---
+
+<article
+  class:list={["experience-card", `kind-${experience.kind}`, { compact }]}
+  data-card
+  data-kind={experience.kind}
+  data-free={String(experience.isFree)}
+  data-nearby={String(experience.driveMinutes <= 25)}
+  data-fresh={String(fresh)}
+  data-search={searchable}
+>
+  <div class="specimen-band"></div>
+  <div class="card-topline">
+    <span class="kind-label">{kindLabels[experience.kind]}</span>
+    <span class="score" aria-label={`Fit score ${score} out of 100`}
+      >{score} fit</span
+    >
+  </div>
+  {fresh && <span class="new-badge">New · {experience.addedAt.slice(5)}</span>}
+  <h3>{experience.title}</h3>
+  <p class="summary">{experience.summary}</p>
+
+  <dl class="field-grid">
+    <div>
+      <dt>From base</dt>
+      <dd>
+        {
+          experience.driveMinutes === 0
+            ? "Walk out"
+            : `${experience.driveMinutes} min`
+        }
+      </dd>
+    </div>
+    <div>
+      <dt>Cost</dt>
+      <dd>{experience.cost}</dd>
+    </div>
+    <div>
+      <dt>Best window</dt>
+      <dd>{experience.bestWindow}</dd>
+    </div>
+    <div>
+      <dt>Time</dt>
+      <dd>{experience.duration}</dd>
+    </div>
+  </dl>
+
+  <div class="takeaway">
+    <span>Kid insight</span>
+    <p>{experience.kidTakeaway}</p>
+  </div>
+
+  <details>
+    <summary>Field notes</summary>
+    <div class="details-body">
+      <p><strong>Why it fits:</strong> {experience.whyItFits}</p>
+      <p><strong>Age fit:</strong> {experience.ageFit}</p>
+      <p><strong>Reservation:</strong> {experience.reservation}</p>
+      <p><strong>Safety:</strong> {experience.safety}</p>
+      <div class="tag-row">
+        {experience.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+      <small>Verified {experience.verifiedAt} · {experience.confidence}</small>
+    </div>
+  </details>
+
+  <div class="card-actions">
+    <a
+      class="button primary"
+      href={experience.mapUrl}
+      target="_blank"
+      rel="noreferrer">Map</a
+    >
+    <a
+      class="button secondary"
+      href={experience.sourceUrl}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {experience.sourceLabel}
+    </a>
+  </div>
+</article>
