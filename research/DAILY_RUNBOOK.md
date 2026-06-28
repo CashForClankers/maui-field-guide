@@ -19,13 +19,14 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 9. Re-check creature population claims and wildlife distances against NOAA, USFWS, Hawaiʻi DLNR, or University of Hawaiʻi sources. Preserve the displayed photo credit, license, and original record whenever a photo changes.
 10. Re-check local-anchor availability, public contact paths, prices, and workday schedules. Keep only direct official sources and never imply that a lead is a confirmed reservation.
 11. Search for one date-fit chance to meet a named public local host or small team, join a public community workday, or directly support a Maui-led project. Require a direct source, public confirmation path, family fit, travel friction from Mana Kai, and a plain explanation of where support goes.
-12. Use Gemini once for read-only fresh-lead research and Claude Code once for read-only review when each CLI is available and authenticated. Treat their output as leads, verify claims directly, and never retry failures in a loop.
-13. Add one update entry describing what changed and why it matters.
-14. Run `npm run verify`.
-15. Inspect `git diff --check` and `git diff`. Reject secrets, private booking details, personal contacts, unsupported wildlife promises, or unauthorized fruit-picking advice.
-16. Apply the pocket evals in `/Users/bestrobot/setup-mac/.agents/skills/maui-field-guide-daily/SKILL.md`; do not publish work a person cannot verify.
-17. If there is no meaningful change, do not commit.
-18. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
+12. Use read-only agent CLIs as lead generators only, each at most once and in parallel when possible: `gemini -p` and `claude -p` for fresh-lead research, `agy -p` for an independent review pass, and `codex exec` only when a deeper second opinion is needed. Use each only when it is installed and authenticated; if one is missing or rate limited, skip it and note it. Treat all output as unverified leads, confirm every claim directly against primary sources, and never retry a failure in a loop.
+13. Improvements are not limited to events. Once the calendar is current, raise value anywhere it is genuinely warranted — discovery/experiences, the creature guide, the fruit page and its freshest-source list, local anchors, rules, plus copy, accessibility, performance, and small UX polish — always within these rules and with minimal, reversible diffs.
+14. Add one update entry describing what changed and why it matters. The Telegram status must lead with the single coolest change and its live URL.
+15. Run `npm run verify`.
+16. Inspect `git diff --check` and `git diff`. Reject secrets, private booking details, personal contacts, unsupported wildlife promises, or unauthorized fruit-picking advice.
+17. Apply the pocket evals in `/Users/bestrobot/setup-mac/.agents/skills/maui-field-guide-daily/SKILL.md`; do not publish work a person cannot verify.
+18. If there is no meaningful change, do not commit.
+19. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
 
 ## Seasonal questions
 
