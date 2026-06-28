@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-06-28",
+    title: "A free Friday evening close to base",
+    note: "Maui County's July 10 Park and Recreation Month movie night at Kamaʻole III was added as a no-reservation, near-Mana-Kai evening option; Mākena now calls out Puʻu Olaʻi's earlier weekend closing time.",
+    experienceIds: ["kam-iii-movie-night", "makena-big-beach"],
+  },
+  {
     date: "2026-06-27",
     title: "The best place can be a person",
     note: "A new local-anchors page applies the Victor lesson from Los Cóbanos to Maui: Ekolu Lindsey and four other direct ways to help land, food systems, small farms, and rescued animals during the trip.",

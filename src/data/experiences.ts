@@ -302,6 +302,43 @@ export const experiences = [
     mapUrl: "https://maps.google.com/?q=Maui+Nui+Botanical+Gardens",
   },
   {
+    id: "kam-iii-movie-night",
+    title: "Kamaʻole III free Friday movie night",
+    kind: "culture",
+    summary:
+      "A County of Maui Park and Recreation Month movie night at Kamaʻole III, with GOAT starting at sunset on the south end of the park.",
+    whyItFits:
+      "It is the closest dated public event found for the trip: free, family-friendly, and easy to bail from if everyone is tired.",
+    kidTakeaway:
+      "Public parks are shared civic spaces; a local evening event can show how residents use the same shoreline after beach hours.",
+    driveMinutes: 4,
+    duration: "Sunset movie; arrive early enough to settle in",
+    cost: "Free",
+    isFree: true,
+    ageFit: "All ages",
+    bestWindow: "Fri Jul 10 · movie starts at sunset",
+    reservation: "None listed",
+    safety:
+      "Bring alcohol-free drinks, snacks, and low-back chairs. Use normal beach-park awareness after dark and verify weather before walking or driving over.",
+    tags: ["free", "Friday", "Kīhei", "evening", "local event"],
+    metrics: {
+      kidWow: 3,
+      nature: 1,
+      local: 4,
+      value: 5,
+      learning: 2,
+      novelty: 3,
+      friction: 0,
+    },
+    confidence: "primary",
+    addedAt: "2026-06-28",
+    verifiedAt: "2026-06-28",
+    sourceLabel: "Maui County Parks calendar",
+    sourceUrl: "https://www.mauicounty.gov/Calendar.aspx?EID=13876",
+    mapUrl: "https://maps.google.com/?q=Kamaole+Beach+Park+III+Kihei",
+    scheduledDate: "2026-07-10",
+  },
+  {
     id: "hosmer-grove",
     title: "Hosmer Grove honeycreeper watch",
     kind: "birds",
@@ -569,10 +606,11 @@ export const experiences = [
     cost: "$10 parking + $5 each age 4+",
     isFree: false,
     ageFit: "All ages on shore",
-    bestWindow: "Early morning; summer park hours 5am–7:45pm",
+    bestWindow:
+      "Early morning; Big Beach/Oneuli close 7pm, while Puʻu Olaʻi closes 4pm on weekends",
     reservation: "None; pay parking on arrival",
     safety:
-      "Shore break and currents can be severe. This guide recommends land observation unless conditions and ability clearly support swimming.",
+      "Shore break and currents can be severe. This guide recommends land observation unless conditions and ability clearly support swimming; observe posted Puʻu Olaʻi rules and hours.",
     tags: ["geology", "beach", "nearby", "sketch", "waves"],
     metrics: {
       kidWow: 4,
@@ -585,9 +623,10 @@ export const experiences = [
     },
     confidence: "primary",
     addedAt: "2026-06-27",
-    verifiedAt: "2026-06-27",
-    sourceLabel: "Hawaiʻi State Parks",
-    sourceUrl: "https://dlnr.hawaii.gov/dsp/parks/maui/makena-state-park/",
+    verifiedAt: "2026-06-28",
+    sourceLabel: "Hawaiʻi DLNR Mākena hours",
+    sourceUrl:
+      "https://dlnr.hawaii.gov/dsp/announcements/puu-olai-at-makena-state-park-reopens-with-adjusted-weekend-hours/",
     mapUrl: "https://maps.google.com/?q=Makena+State+Park+Maui",
   },
   {
