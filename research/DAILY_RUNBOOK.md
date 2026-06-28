@@ -4,7 +4,7 @@ Run daily through July 13, 2026. After the trip, disable the OpenClaw job.
 
 ## Objective
 
-Keep the phone guide fresh with one strong answer fast. Find materially useful changes or additions involving wildlife, reef and ocean conditions, native birds, tropical fruit, farms, kid learning, free events, strong deals, closures, and reservations.
+Keep the phone guide fresh with one strong answer fast. Find materially useful changes or additions involving wildlife, reef and ocean conditions, native birds, tropical fruit, farms, kid learning, free events, strong deals, closures, reservations, and current opportunities to meet named local hosts or give back.
 
 ## Procedure
 
@@ -16,11 +16,14 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 6. Re-rank by changing evidence fields only. Never hard-code display order.
 7. Re-check creature population claims and wildlife distances against NOAA, USFWS, Hawaiʻi DLNR, or University of Hawaiʻi sources. Preserve the displayed photo credit, license, and original record whenever a photo changes.
 8. Re-check local-anchor availability, public contact paths, prices, and workday schedules. Keep only direct official sources and never imply that a lead is a confirmed reservation.
-9. Add one update entry describing what changed and why it matters.
-10. Run `npm run verify`.
-11. Inspect `git diff --check` and `git diff`. Reject secrets, private booking details, personal contacts, unsupported wildlife promises, or unauthorized fruit-picking advice.
-12. If there is no meaningful change, do not commit.
-13. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
+9. Search for one date-fit chance to meet a named public local host or small team, join a public community workday, or directly support a Maui-led project. Require a direct source, public confirmation path, family fit, travel friction from Mana Kai, and a plain explanation of where support goes.
+10. Use Gemini once for read-only fresh-lead research and Claude Code once for read-only review when each CLI is available and authenticated. Treat their output as leads, verify claims directly, and never retry failures in a loop.
+11. Add one update entry describing what changed and why it matters.
+12. Run `npm run verify`.
+13. Inspect `git diff --check` and `git diff`. Reject secrets, private booking details, personal contacts, unsupported wildlife promises, or unauthorized fruit-picking advice.
+14. Apply the pocket evals in `/Users/bestrobot/setup-mac/.agents/skills/maui-field-guide-daily/SKILL.md`; do not publish work a person cannot verify.
+15. If there is no meaningful change, do not commit.
+16. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
 
 ## Seasonal questions
 
@@ -31,6 +34,7 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 - Did admission, parking, reservation, or age rules change?
 - Did NOAA or USFWS change a viewing distance, population estimate, hotline, or seasonal nesting warning shown in the creature guide?
 - Did a local anchor change its workday, booking availability, public contact route, price, family suitability, or current support need?
+- Is there a new public, date-fit community workday, Maui-led project, or named host the family can meet and support?
 - Is a candidate worth the parent effort from Mana Kai?
 
 ## Failure handling
