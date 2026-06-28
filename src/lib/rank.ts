@@ -3,6 +3,7 @@ import type {
   Confidence,
   CostBand,
   Experience,
+  LocalAnchor,
 } from "../data/types";
 
 const confidencePoints: Record<Confidence, number> = {
@@ -78,6 +79,31 @@ export function rankedCalendarOptions(
     if (a.driveMinutes !== b.driveMinutes)
       return a.driveMinutes - b.driveMinutes;
     return a.title.localeCompare(b.title);
+  });
+}
+
+export function rankLocalAnchor(anchor: LocalAnchor): number {
+  const { metrics } = anchor;
+  const proximity = Math.max(0, 10 - anchor.driveMinutes / 12);
+  const raw =
+    metrics.kidWow * 4 +
+    metrics.local * 4 +
+    metrics.learning * 3 +
+    metrics.support * 3 +
+    metrics.novelty * 2 +
+    proximity -
+    metrics.friction * 4;
+
+  return Math.round(Math.max(0, Math.min(100, raw / 1.15)));
+}
+
+export function rankedLocalAnchors(anchors: LocalAnchor[]): LocalAnchor[] {
+  return [...anchors].sort((a, b) => {
+    const scoreDelta = rankLocalAnchor(b) - rankLocalAnchor(a);
+    if (scoreDelta !== 0) return scoreDelta;
+    if (a.driveMinutes !== b.driveMinutes)
+      return a.driveMinutes - b.driveMinutes;
+    return a.organization.localeCompare(b.organization);
   });
 }
 

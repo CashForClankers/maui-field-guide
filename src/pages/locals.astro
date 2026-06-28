@@ -1,9 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { localAnchors } from "../data/locals";
+import { rankedLocalAnchors } from "../lib/rank";
 import { basePath } from "../lib/paths";
 
-const topPick = localAnchors.find((anchor) => anchor.topPick)!;
+const ranked = rankedLocalAnchors(localAnchors);
+const topPick = ranked[0]!;
+const rest = ranked.slice(1);
 ---
 
 <Layout
@@ -16,8 +19,8 @@ const topPick = localAnchors.find((anchor) => anchor.topPick)!;
       <h1>Find the person, not just the place.</h1>
       <p>
         The most memorable local connection usually has a name, a direct way to
-        coordinate, and work worth supporting. These are five Maui leads where
-        your time or money stays close to the mission.
+        coordinate, and work worth supporting. These are seven Maui leads,
+        ranked by fit, where your time or money stays close to the mission.
       </p>
     </div>
     <aside class="victor-pattern">
@@ -58,14 +61,18 @@ const topPick = localAnchors.find((anchor) => anchor.topPick)!;
     <article class="local-top-pick" id={topPick.id}>
       <div class="local-rank">01</div>
       <div class="local-top-copy">
-        <p class="eyebrow">Closest Maui match · {topPick.tripFit}</p>
+        <p class="eyebrow">Top-ranked anchor · {topPick.tripFit}</p>
         <h2>{topPick.people}</h2>
         <p class="local-org">{topPick.organization} · {topPick.place}</p>
         <p class="local-summary">{topPick.summary}</p>
-        <blockquote>
-          “The land is chief, we are its servants.”
-          <cite>Traditional principle carried by the Lindsey ʻohana</cite>
-        </blockquote>
+        {
+          topPick.quote && (
+            <blockquote>
+              “{topPick.quote}”
+              {topPick.quoteCite && <cite>{topPick.quoteCite}</cite>}
+            </blockquote>
+          )
+        }
       </div>
       <dl class="local-action-list">
         <div>
@@ -89,6 +96,7 @@ const topPick = localAnchors.find((anchor) => anchor.topPick)!;
         <span>≈ {topPick.driveMinutes} min drive</span>
         <span>{topPick.cost}</span>
       </div>
+      <p class="local-contact-note">{topPick.contactNote}</p>
       <div class="local-card-actions">
         <a
           class="button primary"
@@ -115,82 +123,81 @@ const topPick = localAnchors.find((anchor) => anchor.topPick)!;
   <section class="section wrap local-options-section">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">Four more direct paths</p>
+        <p class="eyebrow">Six more direct paths</p>
         <h2>Match the family’s energy.</h2>
       </div>
     </div>
     <div class="local-grid">
       {
-        localAnchors
-          .filter((anchor) => !anchor.topPick)
-          .map((anchor, index) => (
-            <article class="local-card" id={anchor.id}>
-              <div class="local-card-topline">
-                <span>0{index + 2}</span>
-                <span>{anchor.kind}</span>
+        rest.map((anchor, index) => (
+          <article class="local-card" id={anchor.id}>
+            <div class="local-card-topline">
+              <span>0{index + 2}</span>
+              <span>{anchor.kind}</span>
+            </div>
+            <p class="local-person">{anchor.people}</p>
+            <h3>{anchor.organization}</h3>
+            <p class="local-place">
+              {anchor.place} · ≈ {anchor.driveMinutes} min
+            </p>
+            <p>{anchor.summary}</p>
+            <div class="local-trip-fit">{anchor.tripFit}</div>
+            <dl>
+              <div>
+                <dt>Why this is more than a tour</dt>
+                <dd>{anchor.whyThisFits}</dd>
               </div>
-              <p class="local-person">{anchor.people}</p>
-              <h3>{anchor.organization}</h3>
-              <p class="local-place">
-                {anchor.place} · ≈ {anchor.driveMinutes} min
+              <div>
+                <dt>Useful support</dt>
+                <dd>{anchor.helpAction}</dd>
+              </div>
+              <div>
+                <dt>What the kids carry home</dt>
+                <dd>{anchor.kidTakeaway}</dd>
+              </div>
+            </dl>
+            <details>
+              <summary>Cost, friction, and verification</summary>
+              <p>
+                <strong>Cost:</strong> {anchor.cost}
               </p>
-              <p>{anchor.summary}</p>
-              <div class="local-trip-fit">{anchor.tripFit}</div>
-              <dl>
-                <div>
-                  <dt>Why this is more than a tour</dt>
-                  <dd>{anchor.whyThisFits}</dd>
-                </div>
-                <div>
-                  <dt>Useful support</dt>
-                  <dd>{anchor.helpAction}</dd>
-                </div>
-                <div>
-                  <dt>What the kids carry home</dt>
-                  <dd>{anchor.kidTakeaway}</dd>
-                </div>
-              </dl>
-              <details>
-                <summary>Cost, friction, and verification</summary>
-                <p>
-                  <strong>Cost:</strong> {anchor.cost}
-                </p>
-                <p>
-                  <strong>Friction:</strong> {anchor.friction}
-                </p>
-                <p>
-                  Verified {anchor.verifiedAt}. Availability still requires
-                  direct confirmation.
-                </p>
-              </details>
-              <div class="local-card-actions">
-                <a
-                  class="button primary"
-                  href={anchor.contactUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {anchor.contactLabel}
-                </a>
-                <a
-                  class="button secondary"
-                  href={anchor.mapUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Map
-                </a>
-              </div>
+              <p>
+                <strong>Friction:</strong> {anchor.friction}
+              </p>
+              <p>
+                Verified {anchor.verifiedAt}. Availability still requires direct
+                confirmation.
+              </p>
+            </details>
+            <p class="local-contact-note">{anchor.contactNote}</p>
+            <div class="local-card-actions">
               <a
-                class="source-link"
-                href={anchor.sourceUrl}
+                class="button primary"
+                href={anchor.contactUrl}
                 target="_blank"
                 rel="noreferrer"
               >
-                Primary source →
+                {anchor.contactLabel}
               </a>
-            </article>
-          ))
+              <a
+                class="button secondary"
+                href={anchor.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Map
+              </a>
+            </div>
+            <a
+              class="source-link"
+              href={anchor.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Primary source →
+            </a>
+          </article>
+        ))
       }
     </div>
   </section>

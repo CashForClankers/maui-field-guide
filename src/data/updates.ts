@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-06-28",
+    title: "Local anchors now rank themselves — and teach you something",
+    note: "The Local anchors page is re-ranked by evidence (kid payoff, local depth, learning, support, novelty, drive, friction) instead of a hand-picked top slot. Two Upcountry leads with hands-on lessons join: Pueo Farm, where Angel teaches a lei-making class on a fruit-orchard tour, and Surfing Goat Dairy's evening milking. Each anchor now states its real contact path — and notes that none publicly use WhatsApp.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-06-28",
     title: "Freshest fruit by distance — coffee included",
     note: "The Fruit page now opens with a buy-it map split two ways: closest to Keawakapu and grab-it-on-the-OGG-drive. Near base adds Lava Java and Akamai's Maui-grown coffee (coffee cherry is a fruit); the airport corridor adds Maui's Fresh Produce market at Queen Kaʻahumanu and the Saturday Maui Swap Meet.",
     experienceIds: ["south-maui-gardens-market", "north-kihei-fruit-market"],

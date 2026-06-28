@@ -156,7 +156,12 @@ export interface LocalAnchor {
   id: string;
   people: string;
   organization: string;
-  kind: "land & culture" | "food resilience" | "animal rescue" | "small farm";
+  kind:
+    | "land & culture"
+    | "food resilience"
+    | "animal rescue"
+    | "small farm"
+    | "farm & lessons";
   place: string;
   summary: string;
   whyThisFits: string;
@@ -168,8 +173,18 @@ export interface LocalAnchor {
   friction: string;
   contactLabel: string;
   contactUrl: string;
+  contactNote: string;
   sourceUrl: string;
   mapUrl: string;
   verifiedAt: string;
-  topPick?: boolean;
+  metrics: {
+    kidWow: number;
+    local: number;
+    learning: number;
+    support: number;
+    novelty: number;
+    friction: number;
+  };
+  quote?: string;
+  quoteCite?: string;
 }

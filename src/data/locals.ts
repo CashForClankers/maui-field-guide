@@ -15,18 +15,29 @@ export const localAnchors = [
       "Join the Saturday maintenance day: remove invasive growth, care for native plantings, and help stabilize a cultural landscape. Gloves and tools are provided.",
     kidTakeaway:
       "A place is not scenery; it is a responsibility people inherit and practice together.",
-    tripFit: "Best fit · Sat Jul 11 · meet at 9am",
+    tripFit: "Sat Jul 11 · meet at 9am",
     driveMinutes: 52,
     cost: "Free · bring water, lunch, closed shoes, and real effort",
     friction:
       "High but meaningful: no restroom at the site, likely heat and dirt, and a long West Maui drive. Confirm before going.",
     contactLabel: "Confirm Saturday with MCL",
     contactUrl: "https://mauiculturallands.org/mcl/participate",
+    contactNote:
+      "Coordinate through the official participate page; no WhatsApp, this is a volunteer workday.",
     sourceUrl: "https://mauiculturallands.org/mcl/who-we-are",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Kakaalaneo+Drive+Lahaina+Maui",
     verifiedAt: "2026-06-27",
-    topPick: true,
+    metrics: {
+      kidWow: 3,
+      local: 5,
+      learning: 5,
+      support: 5,
+      novelty: 4,
+      friction: 4,
+    },
+    quote: "The land is chief, we are its servants.",
+    quoteCite: "Traditional principle carried by the Lindsey ʻohana",
   },
   {
     id: "kipuka-olowalu",
@@ -42,43 +53,63 @@ export const localAnchors = [
       "Sign up for a workday; tasks can include loʻi, native planting, clearing, or site care. Workdays are typically Wednesday, Thursday, and the last Sunday.",
     kidTakeaway:
       "Mālama is a verb: care becomes visible through repeated work, not a souvenir or slogan.",
-    tripFit: "Strong fit · Thu Jul 9 · typically 7:30–11:30am",
+    tripFit: "Thu Jul 9 · typically 7:30–11:30am",
     driveMinutes: 34,
     cost: "Free · reserve your family’s places in advance",
     friction:
       "Moderate-high: an early four-hour work block. Dates vary and weather can cancel, so wait for email confirmation.",
     contactLabel: "Request the Jul 9 workday",
     contactUrl: "https://kipukaolowalu.org/volunteer",
+    contactNote:
+      "Sign-up form plus email confirmation; no public WhatsApp line.",
     sourceUrl: "https://kipukaolowalu.org/team-2",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Kipuka+Olowalu+Maui",
     verifiedAt: "2026-06-27",
+    metrics: {
+      kidWow: 3,
+      local: 5,
+      learning: 5,
+      support: 5,
+      novelty: 4,
+      friction: 3,
+    },
   },
   {
-    id: "hua-momona",
-    people: "The Hua Momona farm team",
-    organization: "Hua Momona Farms & Foundation",
-    kind: "food resilience",
-    place: "Kapalua slopes · West Maui",
+    id: "pueo-farm",
+    people: "Angel, Alohi + Linda’s farm team",
+    organization: "Pueo Farm",
+    kind: "farm & lessons",
+    place: "Kula · Upcountry Maui",
     summary:
-      "A working farm and foundation that pairs a 90-minute hands-on visitor session with its larger effort to grow and distribute food for Maui residents facing food insecurity.",
+      "A small organic Upcountry farm whose 1.5-hour tour walks a citrus orchard (including Australian finger limes), dragonfruit, jaboticaba, apple bananas, mango, and avocado, with fruit tasting and a fresh coconut husking by Alohi.",
     whyThisFits:
-      "The work is small, specific, and useful: harvest, wash, weed, or sanitize alongside the team instead of buying a vague ‘give back’ package.",
+      "Named hosts, a tiny ten-guest cap, and a real lei-making class taught by Angel turn this into a person-to-person lesson rather than a packaged attraction, and the tour days fall inside your trip week.",
     helpAction:
-      "Reserve a voluntour. Your family’s task is set by current farm needs and may involve vegetables, growing trays, or light field work.",
+      "Book the small-group tour and add Angel’s lei-making class so each kid weaves and wears a lei home; the fee goes straight to a family-run farm.",
     kidTakeaway:
-      "Food security starts with ordinary repeated jobs—seeding, washing, weeding, packing—not just donations.",
-    tripFit: "Flexible backup · 90 minutes · availability required",
-    driveMinutes: 58,
-    cost: "Check current voluntour availability and terms",
+      "Fruit has a face and a grower: someone planted, tends, and names every tree you taste from.",
+    tripFit: "Wed Jul 8 or Thu Jul 9 · 10–11:30am",
+    driveMinutes: 30,
+    cost: "$60 per person · lei-making class add-on $40",
     friction:
-      "Moderate: longest drive, physical movement, and reservation required. Best paired with one West Maui stop only.",
-    contactLabel: "Check voluntour openings",
-    contactUrl: "https://www.huamomonafarms.com/voluntour",
-    sourceUrl: "https://www.huamomonafarms.com/voluntour",
+      "Low-moderate: book ahead because the tour caps at ten guests, and the Upcountry road is winding though the drive is shorter than the West Maui sites.",
+    contactLabel: "Book a Pueo Farm tour",
+    contactUrl: "https://www.pueofarm.com/farmtours",
+    contactNote:
+      "Book online; for private dates text or message Linda at (808) 283-9626 (SMS, not WhatsApp).",
+    sourceUrl: "https://www.pueofarm.com/farmtours",
     mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Hua+Momona+Farms+Maui",
-    verifiedAt: "2026-06-27",
+      "https://www.google.com/maps/search/?api=1&query=Pueo+Farm+Kula+Maui",
+    verifiedAt: "2026-06-28",
+    metrics: {
+      kidWow: 5,
+      local: 4,
+      learning: 5,
+      support: 4,
+      novelty: 5,
+      friction: 2,
+    },
   },
   {
     id: "leilani-farm-sanctuary",
@@ -101,10 +132,56 @@ export const localAnchors = [
       "Moderate: advance booking and a North Shore drive. Availability, terrain, and animal interactions can vary.",
     contactLabel: "See sanctuary availability",
     contactUrl: "https://leilanifarmsanctuary.org/faq",
+    contactNote:
+      "Reserve through the nonprofit’s booking page; no WhatsApp listed.",
     sourceUrl: "https://leilanifarmsanctuary.org/our-story/",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Leilani+Farm+Sanctuary+Maui",
     verifiedAt: "2026-06-27",
+    metrics: {
+      kidWow: 5,
+      local: 4,
+      learning: 4,
+      support: 4,
+      novelty: 4,
+      friction: 2,
+    },
+  },
+  {
+    id: "surfing-goat-dairy",
+    people: "The Surfing Goat Dairy farmers",
+    organization: "Surfing Goat Dairy",
+    kind: "farm & lessons",
+    place: "Kula · Upcountry Maui",
+    summary:
+      "A working Haleakalā-slope goat dairy where the Evening Chores & Milking tour lets kids help feed the herd, learn the milking process, and try milking a goat before the farm closes for the night.",
+    whyThisFits:
+      "It is a genuine hands-on lesson on a small Maui food business: kids do the actual chore instead of watching, and earn an ‘Official Goat Milker’ ribbon for trying.",
+    helpAction:
+      "Book the Evening Chores & Milking tour and buy the farm’s artisan goat cheese on the way out so support stays with the dairy.",
+    kidTakeaway:
+      "Milk and cheese are work: animals get fed and milked on schedule, every single evening.",
+    tripFit: "Tue–Sat · Evening Chores & Milking, ~45–60 min",
+    driveMinutes: 38,
+    cost: "≈$41.50 adult · $33 child (3–11) for the evening tour",
+    friction:
+      "Low-moderate: reserve ahead, closed Sunday and Monday, and the evening slot means an Upcountry drive back after dark.",
+    contactLabel: "Book the milking tour",
+    contactUrl: "https://surfinggoatdairy.com/pages/our-tours",
+    contactNote:
+      "Book online or call (808) 878-2870 / email sgdmaui@gmail.com; no WhatsApp listed.",
+    sourceUrl: "https://surfinggoatdairy.com/pages/our-tours",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Surfing+Goat+Dairy+Kula+Maui",
+    verifiedAt: "2026-06-28",
+    metrics: {
+      kidWow: 5,
+      local: 3,
+      learning: 4,
+      support: 3,
+      novelty: 5,
+      friction: 2,
+    },
   },
   {
     id: "kupaa-farms",
@@ -127,9 +204,55 @@ export const localAnchors = [
       "Low-moderate once confirmed. Do not arrive unannounced; this is a working family farm, not an always-open attraction.",
     contactLabel: "Ask the farm directly",
     contactUrl: "https://www.kupaafarms.com/contact",
+    contactNote:
+      "Reach the owners through the farm contact page; appointment only, no WhatsApp.",
     sourceUrl: "https://www.kupaafarms.com/about",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Kupaa+Farms+Kula+Maui",
     verifiedAt: "2026-06-27",
+    metrics: {
+      kidWow: 3,
+      local: 4,
+      learning: 4,
+      support: 4,
+      novelty: 3,
+      friction: 2,
+    },
+  },
+  {
+    id: "hua-momona",
+    people: "The Hua Momona farm team",
+    organization: "Hua Momona Farms & Foundation",
+    kind: "food resilience",
+    place: "Kapalua slopes · West Maui",
+    summary:
+      "A working farm and foundation that pairs a 90-minute hands-on visitor session with its larger effort to grow and distribute food for Maui residents facing food insecurity.",
+    whyThisFits:
+      "The work is small, specific, and useful: harvest, wash, weed, or sanitize alongside the team instead of buying a vague ‘give back’ package.",
+    helpAction:
+      "Reserve a voluntour. Your family’s task is set by current farm needs and may involve vegetables, growing trays, or light field work.",
+    kidTakeaway:
+      "Food security starts with ordinary repeated jobs—seeding, washing, weeding, packing—not just donations.",
+    tripFit: "Flexible backup · 90 minutes · availability required",
+    driveMinutes: 58,
+    cost: "Check current voluntour availability and terms",
+    friction:
+      "Moderate: longest drive, physical movement, and reservation required. Best paired with one West Maui stop only.",
+    contactLabel: "Check voluntour openings",
+    contactUrl: "https://www.huamomonafarms.com/voluntour",
+    contactNote:
+      "Request a session through the voluntour page; no WhatsApp listed.",
+    sourceUrl: "https://www.huamomonafarms.com/voluntour",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Hua+Momona+Farms+Maui",
+    verifiedAt: "2026-06-27",
+    metrics: {
+      kidWow: 3,
+      local: 4,
+      learning: 4,
+      support: 4,
+      novelty: 3,
+      friction: 4,
+    },
   },
 ] satisfies LocalAnchor[];

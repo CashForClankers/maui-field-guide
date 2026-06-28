@@ -9,8 +9,10 @@ import { fruitSources } from "../src/data/sourcing";
 import {
   rankedCalendarOptions,
   rankedExperiences,
+  rankedLocalAnchors,
   rankCalendarOption,
   rankExperience,
+  rankLocalAnchor,
 } from "../src/lib/rank";
 
 test("experience identifiers and source URLs are safe and unique", () => {
@@ -176,7 +178,6 @@ test("fruit sources carry safe links, real distances, and a corridor", () => {
 
 test("local anchors use direct public sources and explicit trip friction", () => {
   assert.ok(localAnchors.length >= 4);
-  assert.equal(localAnchors.filter((anchor) => anchor.topPick).length, 1);
   const ids = new Set<string>();
   for (const anchor of localAnchors) {
     assert.equal(
@@ -192,5 +193,24 @@ test("local anchors use direct public sources and explicit trip friction", () =>
     assert.ok(anchor.people.length >= 8);
     assert.ok(anchor.helpAction.length >= 40);
     assert.ok(anchor.friction.length >= 40);
+    assert.ok(anchor.contactNote.length >= 20);
+    if (anchor.quote) assert.ok(anchor.quote.length >= 10);
+    for (const [name, value] of Object.entries(anchor.metrics)) {
+      assert.ok(value >= 0 && value <= 5, `${anchor.id}.${name}=${value}`);
+    }
+    const score = rankLocalAnchor(anchor);
+    assert.ok(score >= 0 && score <= 100, `${anchor.id} score=${score}`);
+  }
+});
+
+test("local anchors rank by evidence without mutating source order", () => {
+  const firstOriginal = localAnchors[0]?.id;
+  const ranked = rankedLocalAnchors(localAnchors);
+  assert.equal(localAnchors[0]?.id, firstOriginal);
+  for (let index = 1; index < ranked.length; index += 1) {
+    assert.ok(
+      rankLocalAnchor(ranked[index - 1]!) >= rankLocalAnchor(ranked[index]!),
+      `local ranking inversion at ${index}`,
+    );
   }
 });
