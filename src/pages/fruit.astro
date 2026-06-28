@@ -3,6 +3,7 @@ import ExperienceCard from "../components/ExperienceCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { experiences } from "../data/experiences";
 import { fruits } from "../data/fruits";
+import { fruitSources } from "../data/sourcing";
 import { rankedExperiences } from "../lib/rank";
 
 const fruitExperiences = rankedExperiences(
@@ -13,6 +14,24 @@ const signalLabel = {
   possible: "Possible in July",
   "year-round": "Usually year-round",
 };
+const categoryLabel = {
+  coffee: "Coffee · also a fruit",
+  market: "Farmers market",
+  "swap meet": "Swap meet",
+  "farm stand": "Farm stand",
+};
+const categorySlug = {
+  coffee: "coffee",
+  market: "market",
+  "swap meet": "swap",
+  "farm stand": "stand",
+};
+const nearBase = fruitSources
+  .filter((source) => source.corridor === "near-base")
+  .sort((a, b) => a.driveFromBase - b.driveFromBase);
+const onRoute = fruitSources
+  .filter((source) => source.corridor === "airport-route")
+  .sort((a, b) => b.driveFromBase - a.driveFromBase);
 ---
 
 <Layout title="Fruit">
@@ -23,6 +42,137 @@ const signalLabel = {
       Buy from growers, ask what is ripe, and turn every piece into a small
       sensory experiment. Picking requires explicit permission.
     </p>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Freshest, closest, on the way in</p>
+        <h2>Where to actually buy it</h2>
+      </div>
+    </div>
+    <p class="source-lede">
+      Two questions decide freshness: what is closest to Keawakapu, and what you
+      can grab on the OGG→Kīhei drive without a detour. For raw produce nearest
+      base, the <strong>South Maui Gardens Thursday market</strong> (10 min) and
+      <strong>Farmers Market Maui</strong> on S. Kīhei Rd are in the ranked moves
+      below. The stops here add same-road coffee and the markets worth catching on
+      the way down from the airport.
+    </p>
+
+    <h3 class="source-group">Closest to base</h3>
+    <div class="source-grid">
+      {
+        nearBase.map((source) => (
+          <article class="source-card">
+            <div class="source-chips">
+              <span
+                class:list={[
+                  "source-tag",
+                  `cat-${categorySlug[source.category]}`,
+                ]}
+              >
+                {categoryLabel[source.category]}
+              </span>
+              <span class="source-distance">
+                {source.driveFromBase} min from base
+              </span>
+            </div>
+            <h4>{source.name}</h4>
+            <p class="source-fresh">{source.freshPick}</p>
+            <dl class="source-meta">
+              <div>
+                <dt>Where</dt>
+                <dd>{source.routeNote}</dd>
+              </div>
+              <div>
+                <dt>Open</dt>
+                <dd>{source.openLabel}</dd>
+              </div>
+              <div>
+                <dt>Trip fit</dt>
+                <dd>{source.tripFit}</dd>
+              </div>
+            </dl>
+            <div class="card-actions">
+              <a
+                class="button primary"
+                href={source.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Map
+              </a>
+              <a
+                class="button secondary"
+                href={source.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {source.sourceLabel}
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <h3 class="source-group">On the drive from OGG</h3>
+    <div class="source-grid">
+      {
+        onRoute.map((source) => (
+          <article class="source-card">
+            <div class="source-chips">
+              <span
+                class:list={[
+                  "source-tag",
+                  `cat-${categorySlug[source.category]}`,
+                ]}
+              >
+                {categoryLabel[source.category]}
+              </span>
+              <span class="source-distance">
+                {source.driveFromBase} min from base
+              </span>
+            </div>
+            <h4>{source.name}</h4>
+            <p class="source-fresh">{source.freshPick}</p>
+            <dl class="source-meta">
+              <div>
+                <dt>Where</dt>
+                <dd>{source.routeNote}</dd>
+              </div>
+              <div>
+                <dt>Open</dt>
+                <dd>{source.openLabel}</dd>
+              </div>
+              <div>
+                <dt>Trip fit</dt>
+                <dd>{source.tripFit}</dd>
+              </div>
+            </dl>
+            <div class="card-actions">
+              <a
+                class="button primary"
+                href={source.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Map
+              </a>
+              <a
+                class="button secondary"
+                href={source.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {source.sourceLabel}
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   <section class="section wrap">

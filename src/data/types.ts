@@ -113,6 +113,23 @@ export interface FruitNote {
   question: string;
 }
 
+export interface FruitSource {
+  id: string;
+  name: string;
+  category: "coffee" | "market" | "swap meet" | "farm stand";
+  corridor: "near-base" | "airport-route";
+  driveFromBase: number;
+  routeNote: string;
+  openLabel: string;
+  freshPick: string;
+  tripFit: string;
+  confidence: Confidence;
+  verifiedAt: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  mapUrl: string;
+}
+
 export interface Creature {
   id: string;
   commonName: string;

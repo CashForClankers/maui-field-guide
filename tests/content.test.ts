@@ -5,6 +5,7 @@ import { experiences } from "../src/data/experiences";
 import { creatures } from "../src/data/creatures";
 import { calendarOptions } from "../src/data/events";
 import { localAnchors } from "../src/data/locals";
+import { fruitSources } from "../src/data/sourcing";
 import {
   rankedCalendarOptions,
   rankedExperiences,
@@ -151,6 +152,26 @@ test("creature guide keeps science, safety, maps, and photo rights visible", () 
     assert.ok(creature.photoLicense.length >= 8);
     assert.ok(creature.safety.length >= 40);
   }
+});
+
+test("fruit sources carry safe links, real distances, and a corridor", () => {
+  assert.ok(fruitSources.length >= 4);
+  const ids = new Set<string>();
+  const corridors = new Set<string>();
+  for (const source of fruitSources) {
+    assert.match(source.id, /^[a-z0-9-]+$/);
+    assert.equal(ids.has(source.id), false, `duplicate source: ${source.id}`);
+    ids.add(source.id);
+    corridors.add(source.corridor);
+    assert.match(source.sourceUrl, /^https:\/\//);
+    assert.match(source.mapUrl, /^https:\/\//);
+    assert.match(source.verifiedAt, /^2026-\d{2}-\d{2}$/);
+    assert.ok(source.driveFromBase >= 0 && source.driveFromBase <= 180);
+    assert.ok(source.freshPick.length >= 24);
+    assert.ok(source.routeNote.length >= 16);
+  }
+  assert.ok(corridors.has("near-base"));
+  assert.ok(corridors.has("airport-route"));
 });
 
 test("local anchors use direct public sources and explicit trip friction", () => {

@@ -1459,6 +1459,119 @@ input {
   margin-top: 4px;
 }
 
+.source-lede {
+  max-width: 720px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.source-group {
+  margin: 28px 0 14px;
+  color: var(--ocean);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.source-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  background: var(--shell);
+}
+
+.source-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.source-tag {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: white;
+  background: var(--leaf);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.source-tag.cat-coffee {
+  color: var(--ocean-night);
+  background: var(--mango);
+}
+
+.source-tag.cat-market {
+  background: var(--leaf);
+}
+
+.source-tag.cat-swap {
+  background: var(--tidepool);
+}
+
+.source-distance {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.source-card h4 {
+  margin: 14px 0 8px;
+  color: var(--ocean);
+  font-size: 1.12rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.source-fresh {
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.source-meta {
+  margin: 0 0 18px;
+}
+
+.source-meta div {
+  padding: 10px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.source-meta dt {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.source-meta dd {
+  margin: 4px 0 0;
+}
+
+.source-card .card-actions {
+  margin-top: auto;
+}
+
 .permission-band {
   padding-block: 70px;
   color: white;
@@ -2612,6 +2725,7 @@ input {
 
   .card-grid,
   .fruit-grid,
+  .source-grid,
   .rules-grid {
     grid-template-columns: 1fr;
   }

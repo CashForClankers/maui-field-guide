@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-06-28",
+    title: "Freshest fruit by distance — coffee included",
+    note: "The Fruit page now opens with a buy-it map split two ways: closest to Keawakapu and grab-it-on-the-OGG-drive. Near base adds Lava Java and Akamai's Maui-grown coffee (coffee cherry is a fruit); the airport corridor adds Maui's Fresh Produce market at Queen Kaʻahumanu and the Saturday Maui Swap Meet.",
+    experienceIds: ["south-maui-gardens-market", "north-kihei-fruit-market"],
+  },
+  {
+    date: "2026-06-28",
     title: "A real trip calendar, not another list",
     note: "The new Events index starts with 22 dated and flexible options for Jul 8–13—including Pāʻia Mantokuji's O-Bon festival and four close ProArts shows—ranked by distance, cost, kid payoff, local meaning, certainty, and effort; fixed-time events can be added directly to a calendar.",
     experienceIds: ["kam-iii-movie-night", "south-maui-gardens-market"],
