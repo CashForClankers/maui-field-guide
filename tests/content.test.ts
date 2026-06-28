@@ -80,7 +80,7 @@ test("calendar index stays sourced, trip-bound, and rankable", () => {
     ids.add(option.id);
     assert.ok(option.dates.length >= 1, `${option.id} has no trip date`);
     for (const date of option.dates) {
-      assert.ok(date >= "2026-07-08" && date <= "2026-07-13");
+      assert.ok(date >= "2026-07-08" && date <= "2026-07-12");
     }
     assert.match(option.sourceUrl, /^https:\/\//);
     assert.match(option.mapUrl, /^https:\/\//);

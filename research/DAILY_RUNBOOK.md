@@ -10,8 +10,8 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 
 1. Read `AGENTS.md`, `research/EVENT_INDEX.md`, `src/data/events.ts`, `src/data/experiences.ts`, `src/data/creatures.ts`, `src/data/locals.ts`, `src/data/updates.ts`, and `src/lib/rank.ts`.
 2. Check official sources first: NPS, NOAA, USFWS, Hawaiʻi DLNR, Maui County, named farms, nonprofits, and direct operators.
-3. Check the trip dates and weekday fit. The trip is Wednesday July 8 through Monday July 13, 2026.
-4. Re-check every dated calendar option whose official source may have changed, then scan the source lanes in `research/EVENT_INDEX.md` for new July 8–13 inventory.
+3. Check the trip dates and weekday fit. The activity window is Wednesday July 8 through Sunday July 12, 2026; Monday July 13 is reserved for checkout and airport travel.
+4. Re-check every dated calendar option whose official source may have changed, then scan the source lanes in `research/EVENT_INDEX.md` for new July 8–12 inventory.
 5. Prefer improving an existing record over adding a duplicate. Add no more than three calendar options in one run, and reject generic attractions without a specific trip-date reason.
 6. Every calendar addition needs applicable trip dates, current cost, realistic drive time from Mana Kai, reservation status, age fit, certainty, friction, safety, and a direct source. Only add `.ics` metadata when date and time are exact.
 7. Add general experiences only when they do not primarily belong on the calendar surface. Every addition needs a primary URL, verification date, explicit kid takeaway, realistic cost, drive time, friction score, and safety note when applicable.
@@ -32,7 +32,7 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 - Which local fruits are actually available now? Ask growers; do not infer year-round stock.
 - Are any farms explicitly offering guided picking? Ordinary roadside trees and private land are not permission.
 - Are beach, reserve, trail, road, or park closures active?
-- Are there free cultural or nature programs during July 8–13?
+- Are there free cultural or nature programs during July 8–12?
 - Did admission, parking, reservation, or age rules change?
 - Did NOAA or USFWS change a viewing distance, population estimate, hotline, or seasonal nesting warning shown in the creature guide?
 - Did a local anchor change its workday, booking availability, public contact route, price, family suitability, or current support need?

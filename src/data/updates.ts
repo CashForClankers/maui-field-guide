@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-06-28",
+    title: "July 13 is now a travel day",
+    note: "Monday is kept clear for checkout and the airport, so flexible activities and phone-calendar reminders now stop on Sunday, July 12.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-06-28",
     title: "Local anchors now rank themselves — and teach you something",
     note: "The Local anchors page is re-ranked by evidence (kid payoff, local depth, learning, support, novelty, drive, friction) instead of a hand-picked top slot. Two Upcountry leads with hands-on lessons join: Pueo Farm, where Angel teaches a lei-making class on a fruit-orchard tour, and Surfing Goat Dairy's evening milking. Each anchor now states its real contact path — and notes that none publicly use WhatsApp.",
     experienceIds: [],

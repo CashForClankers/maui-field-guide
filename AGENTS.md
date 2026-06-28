@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Maintain a phone-first family discovery guide for a July 8–13, 2026 Maui trip based at Mana Kai Maui in Kīhei.
+Maintain a phone-first family discovery guide for a July 8–13, 2026 Maui trip based at Mana Kai Maui in Kīhei. July 13 is a travel day; calendar activities must fit July 8–12.
 
 ## Content rules
 

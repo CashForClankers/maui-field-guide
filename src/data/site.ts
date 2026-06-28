@@ -36,7 +36,7 @@ export const tripRhythm = [
   },
   {
     date: "Mon · Jul 13",
-    title: "One last taste",
-    note: "Nearby fruit stand, beach look, and leave with one thing each kid learned.",
+    title: "Travel day",
+    note: "Keep the day clear for checkout and the airport; no scheduled outing.",
   },
 ];

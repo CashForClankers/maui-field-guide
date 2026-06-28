@@ -1,6 +1,6 @@
 # Maui event index
 
-The Events page is a decision index for July 8–13, 2026—not a general tourism directory. The daily scout should make it more current and more useful, not merely larger.
+The Events page is a decision index for the July 8–12, 2026 activity window—not a general tourism directory. Monday, July 13 is a travel day and must remain free of calendar options. The daily scout should make the index more current and more useful, not merely larger.
 
 ## Source lanes
 
@@ -17,7 +17,7 @@ Check these in order and retain direct URLs:
 
 Add an option only when it has at least one of these:
 
-- a hard date inside July 8–13;
+- a hard date inside July 8–12;
 - a recurring weekday that exactly matches the trip;
 - limited inventory or a reservation decision worth making before arrival;
 - unusually strong family value within 30 minutes of Mana Kai;
@@ -30,7 +30,7 @@ Do not add generic beaches, shopping centers, restaurants, or tours merely becau
 - Re-check exact date, local time, venue, admission, age limits, and reservation status.
 - When an option also exists in `src/data/experiences.ts`, keep its `experienceId` reference valid and reconcile shared facts in both records.
 - Remove or demote cancellations, closures, sold-out inventory, and stale recurring claims.
-- Keep `dates` inside the trip window.
+- Keep `dates` inside the July 8–12 activity window.
 - Use `confidence: "verify"` when exact inventory is not public.
 - Generate calendar metadata only for a fixed date with defensible start and end times.
 - Prefer one strong new option or one useful correction over three weak additions.

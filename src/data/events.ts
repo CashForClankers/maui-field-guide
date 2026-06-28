@@ -1,12 +1,11 @@
 import type { CalendarOption, TripDate } from "./types";
 
-const everyTripDay: TripDate[] = [
+const everyActivityDay: TripDate[] = [
   "2026-07-08",
   "2026-07-09",
   "2026-07-10",
   "2026-07-11",
   "2026-07-12",
-  "2026-07-13",
 ];
 
 export const calendarOptions = [
@@ -602,8 +601,8 @@ export const calendarOptions = [
       "This turns an iconic view into a sourced cultural and landscape experience, but only if the family accepts the early start and altitude.",
     decisionNote:
       "Reserve a sunrise date first; the $1 vehicle slot is separate from park admission.",
-    dates: everyTripDay,
-    dateLabel: "Daily · Jul 8–13",
+    dates: everyActivityDay,
+    dateLabel: "Daily · Jul 8–12",
     timeLabel: "About 15 min before sunrise",
     driveMinutes: 95,
     duration: "Brief talk plus summit time",
@@ -642,8 +641,8 @@ export const calendarOptions = [
       "This is the best close, free, low-effort way to give beach observations scientific context.",
     decisionNote:
       "Keep this as a heat, wind, or low-energy backup on a weekday.",
-    dates: ["2026-07-08", "2026-07-09", "2026-07-10", "2026-07-13"],
-    dateLabel: "Wed–Fri or Mon",
+    dates: ["2026-07-08", "2026-07-09", "2026-07-10"],
+    dateLabel: "Wed–Fri",
     timeLabel: "9:30am–2:30pm",
     driveMinutes: 15,
     duration: "45–75 min",
@@ -682,8 +681,8 @@ export const calendarOptions = [
       "It is the strongest nearby bird stop and fits before the heat without consuming the day.",
     decisionNote:
       "Use it as a 45-minute dawn anchor, not a guaranteed sighting checklist.",
-    dates: everyTripDay,
-    dateLabel: "Any morning · Jul 8–13",
+    dates: everyActivityDay,
+    dateLabel: "Any morning · Jul 8–12",
     timeLabel: "Early morning",
     driveMinutes: 25,
     duration: "45–90 min",
@@ -757,8 +756,8 @@ export const calendarOptions = [
     whyItFits:
       "It is a modestly priced, weather-proof way to add difficult human history to a trip otherwise dominated by landscapes.",
     decisionNote: "Pair with a Kahului errand or arrival/departure route.",
-    dates: ["2026-07-08", "2026-07-09", "2026-07-13"],
-    dateLabel: "Wed, Thu, or Mon",
+    dates: ["2026-07-08", "2026-07-09"],
+    dateLabel: "Wed or Thu",
     timeLabel: "10am–2pm · last entry 1pm",
     driveMinutes: 28,
     duration: "45–75 min",
@@ -795,8 +794,8 @@ export const calendarOptions = [
       "It is expensive but reliable when wind, sun, fatigue, or poor visibility cancel a real-ocean plan.",
     decisionNote:
       "Do not pre-commit unless the forecast or family energy makes certainty worth the price.",
-    dates: everyTripDay,
-    dateLabel: "Daily · Jul 8–13",
+    dates: everyActivityDay,
+    dateLabel: "Daily · Jul 8–12",
     timeLabel: "9am–5pm",
     driveMinutes: 30,
     duration: "2–3 hours",
@@ -833,8 +832,8 @@ export const calendarOptions = [
       "It is expensive, but the field access, growing-cycle lesson, tasting, and take-home pineapple are unusually concrete.",
     decisionNote:
       "A genuine fruit splurge; book a morning slot only if the kids care about how food grows.",
-    dates: everyTripDay,
-    dateLabel: "Daily slots · Jul 8–13",
+    dates: everyActivityDay,
+    dateLabel: "Daily slots · Jul 8–12",
     timeLabel: "Morning preferred",
     driveMinutes: 52,
     duration: "90 min plus drive",
@@ -872,7 +871,7 @@ export const calendarOptions = [
       "The fee directly supports animal care, giving this paid encounter a clear purpose beyond entertainment.",
     decisionNote:
       "Check live booking inventory before choosing a date; tours are age 7+.",
-    dates: everyTripDay,
+    dates: everyActivityDay,
     dateLabel: "By live reservation",
     timeLabel: "Reserved 60–75 min tour",
     driveMinutes: 62,
@@ -911,8 +910,8 @@ export const calendarOptions = [
       "It is close enough to remain a low-commitment park stop while still feeling distinct from the hotel beach.",
     decisionNote:
       "Treat it as a geology and shore-observation outing, not an automatic swim plan.",
-    dates: everyTripDay,
-    dateLabel: "Any day · Jul 8–13",
+    dates: everyActivityDay,
+    dateLabel: "Any day · Jul 8–12",
     timeLabel: "Early morning preferred",
     driveMinutes: 15,
     duration: "45–90 min",
