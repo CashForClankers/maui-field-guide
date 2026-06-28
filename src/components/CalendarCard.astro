@@ -1,0 +1,154 @@
+---
+import type { CalendarOption } from "../data/types";
+import { basePath } from "../lib/paths";
+import { isCalendarOptionFresh, rankCalendarOption } from "../lib/rank";
+
+interface Props {
+  option: CalendarOption;
+  featured?: boolean;
+}
+
+const { option, featured = false } = Astro.props;
+const score = rankCalendarOption(option);
+const fresh = isCalendarOptionFresh(option);
+const normalizeSearch = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase();
+const searchable = [
+  option.title,
+  option.summary,
+  option.whyItFits,
+  option.dateLabel,
+  ...option.tags,
+].join(" ");
+const kindLabel = option.kind.replace(/^./, (letter) => letter.toUpperCase());
+const sourceStatus = {
+  primary: "Source checked",
+  mixed: "Confirm one detail",
+  verify: "Check availability",
+}[option.confidence];
+---
+
+<article
+  id={option.id}
+  class:list={["calendar-card", { featured }]}
+  data-calendar-card
+  data-dates={option.dates.join(",")}
+  data-cost={option.costBand}
+  data-nearby={String(option.driveMinutes <= 25)}
+  data-booking={String(option.bookingRequired)}
+  data-search={normalizeSearch(searchable)}
+>
+  <div class="calendar-card-topline">
+    <span class="calendar-kind">{kindLabel}</span>
+    <span
+      class="calendar-score"
+      aria-label={`Calendar fit ${score} out of 100`}
+    >
+      <strong>{score}</strong> fit
+    </span>
+  </div>
+
+  <div class="calendar-date-line">
+    <span>{option.dateLabel}</span>
+    <span>{option.timeLabel}</span>
+  </div>
+
+  <div class="calendar-badges">
+    {
+      fresh && (
+        <span class="new-badge">Indexed · {option.addedAt.slice(5)}</span>
+      )
+    }
+    <span class:list={["source-status", `status-${option.confidence}`]}>
+      {sourceStatus}
+    </span>
+  </div>
+  <h2>{option.title}</h2>
+  <p class="calendar-summary">{option.summary}</p>
+
+  <dl class="calendar-facts">
+    <div>
+      <dt>From Mana Kai</dt>
+      <dd>
+        {option.driveMinutes === 0 ? "Walk out" : `${option.driveMinutes} min`}
+      </dd>
+    </div>
+    <div>
+      <dt>Cost</dt>
+      <dd>{option.cost}</dd>
+    </div>
+    <div>
+      <dt>Time needed</dt>
+      <dd>{option.duration}</dd>
+    </div>
+    <div>
+      <dt>Age fit</dt>
+      <dd>{option.ageFit}</dd>
+    </div>
+  </dl>
+
+  <div class="calendar-decision">
+    <span>Calendar call</span>
+    <p>{option.decisionNote}</p>
+  </div>
+
+  <div class="rank-strip" aria-label="Ranking factors">
+    <span><strong>{option.metrics.kidWow}/5</strong> kid wow</span>
+    <span><strong>{option.metrics.local}/5</strong> local</span>
+    <span><strong>{option.metrics.value}/5</strong> value</span>
+    <span><strong>{option.metrics.friction}/5</strong> effort</span>
+  </div>
+
+  <details>
+    <summary>What to know</summary>
+    <div class="calendar-details">
+      <p><strong>Why it fits:</strong> {option.whyItFits}</p>
+      <p><strong>Reservation:</strong> {option.reservation}</p>
+      <p><strong>Safety:</strong> {option.safety}</p>
+      {
+        option.calendar && (
+          <p>
+            <strong>Calendar time basis:</strong> {option.calendar.basis}
+          </p>
+        )
+      }
+      <div class="tag-row">
+        {option.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+      <small>Checked {option.verifiedAt} · {sourceStatus}</small>
+    </div>
+  </details>
+
+  <div class="calendar-actions">
+    {
+      option.calendar && (
+        <a
+          class="button primary"
+          href={`${basePath}events/calendar/${option.id}.ics`}
+          download={`${option.id}.ics`}
+        >
+          Add to calendar
+        </a>
+      )
+    }
+    <a
+      class="button secondary"
+      href={option.mapUrl}
+      target="_blank"
+      rel="noreferrer"
+    >
+      Map
+    </a>
+    <a
+      class="source-link"
+      href={option.sourceUrl}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {option.sourceLabel} ↗
+    </a>
+  </div>
+</article>

@@ -3,8 +3,14 @@ import test from "node:test";
 
 import { experiences } from "../src/data/experiences";
 import { creatures } from "../src/data/creatures";
+import { calendarOptions } from "../src/data/events";
 import { localAnchors } from "../src/data/locals";
-import { rankedExperiences, rankExperience } from "../src/lib/rank";
+import {
+  rankedCalendarOptions,
+  rankedExperiences,
+  rankCalendarOption,
+  rankExperience,
+} from "../src/lib/rank";
 
 test("experience identifiers and source URLs are safe and unique", () => {
   const ids = new Set<string>();
@@ -48,6 +54,71 @@ test("scheduled discoveries fall inside the trip window", () => {
     if (!experience.scheduledDate) continue;
     assert.ok(experience.scheduledDate >= "2026-07-08");
     assert.ok(experience.scheduledDate <= "2026-07-13");
+  }
+});
+
+test("calendar index stays sourced, trip-bound, and rankable", () => {
+  assert.ok(calendarOptions.length > 0);
+  const ids = new Set<string>();
+  const canonicalExperienceIds = new Set(experiences.map((item) => item.id));
+  const referencedExperienceIds = new Set<string>();
+  const validTime = /^([01]\d|2[0-3]):[0-5]\d$/;
+  const minutes = (value: string) => {
+    const [hour, minute] = value.split(":").map(Number);
+    return hour! * 60 + minute!;
+  };
+  for (const option of calendarOptions) {
+    assert.match(option.id, /^[a-z0-9-]+$/);
+    assert.equal(
+      ids.has(option.id),
+      false,
+      `duplicate calendar id: ${option.id}`,
+    );
+    ids.add(option.id);
+    assert.ok(option.dates.length >= 1, `${option.id} has no trip date`);
+    for (const date of option.dates) {
+      assert.ok(date >= "2026-07-08" && date <= "2026-07-13");
+    }
+    assert.match(option.sourceUrl, /^https:\/\//);
+    assert.match(option.mapUrl, /^https:\/\//);
+    assert.ok(option.decisionNote.length >= 30);
+    if (option.experienceId) {
+      assert.ok(
+        canonicalExperienceIds.has(option.experienceId),
+        `${option.id} references missing experience ${option.experienceId}`,
+      );
+      assert.equal(
+        referencedExperienceIds.has(option.experienceId),
+        false,
+        `duplicate canonical experience reference: ${option.experienceId}`,
+      );
+      referencedExperienceIds.add(option.experienceId);
+    }
+    for (const [name, value] of Object.entries(option.metrics)) {
+      assert.ok(value >= 0 && value <= 5, `${option.id}.${name}=${value}`);
+    }
+    const score = rankCalendarOption(option);
+    assert.ok(score >= 0 && score <= 100, `${option.id} score=${score}`);
+    if (option.calendar) {
+      assert.ok(new Set<string>(option.dates).has(option.calendar.date));
+      assert.match(option.calendar.startTime, validTime);
+      assert.match(option.calendar.endTime, validTime);
+      assert.ok(
+        minutes(option.calendar.endTime) > minutes(option.calendar.startTime),
+        `${option.id} calendar end must follow start`,
+      );
+      assert.ok(option.calendar.basis.length >= 20);
+    }
+  }
+
+  const ranked = rankedCalendarOptions(calendarOptions);
+  assert.equal(ranked[0]?.id, "kam-iii-goat-movie");
+  for (let index = 1; index < ranked.length; index += 1) {
+    assert.ok(
+      rankCalendarOption(ranked[index - 1]!) >=
+        rankCalendarOption(ranked[index]!),
+      `calendar ranking inversion at ${index}`,
+    );
   }
 });
 

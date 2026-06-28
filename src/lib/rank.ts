@@ -1,4 +1,9 @@
-import type { Confidence, Experience } from "../data/types";
+import type {
+  CalendarOption,
+  Confidence,
+  CostBand,
+  Experience,
+} from "../data/types";
 
 const confidencePoints: Record<Confidence, number> = {
   primary: 6,
@@ -36,6 +41,51 @@ export function rankedExperiences(experiences: Experience[]): Experience[] {
 
 export function isFresh(experience: Experience, today = new Date()): boolean {
   const added = new Date(`${experience.addedAt}T12:00:00Z`);
+  const ageDays = (today.getTime() - added.getTime()) / 86_400_000;
+  return ageDays >= 0 && ageDays <= 7;
+}
+
+const costPoints: Record<CostBand, number> = {
+  free: 10,
+  budget: 7,
+  paid: 3,
+  splurge: 0,
+};
+
+export function rankCalendarOption(option: CalendarOption): number {
+  const { metrics } = option;
+  const proximity = Math.max(0, 12 - option.driveMinutes / 7);
+  const raw =
+    metrics.kidWow * 4 +
+    metrics.local * 4 +
+    metrics.value * 3 +
+    metrics.novelty * 3 +
+    metrics.certainty * 3 +
+    proximity +
+    costPoints[option.costBand] +
+    confidencePoints[option.confidence] -
+    metrics.friction * 4;
+
+  return Math.round(Math.max(0, Math.min(100, raw / 1.12)));
+}
+
+export function rankedCalendarOptions(
+  options: CalendarOption[],
+): CalendarOption[] {
+  return [...options].sort((a, b) => {
+    const scoreDelta = rankCalendarOption(b) - rankCalendarOption(a);
+    if (scoreDelta !== 0) return scoreDelta;
+    if (a.driveMinutes !== b.driveMinutes)
+      return a.driveMinutes - b.driveMinutes;
+    return a.title.localeCompare(b.title);
+  });
+}
+
+export function isCalendarOptionFresh(
+  option: CalendarOption,
+  today = new Date(),
+): boolean {
+  const added = new Date(`${option.addedAt}T12:00:00Z`);
   const ageDays = (today.getTime() - added.getTime()) / 86_400_000;
   return ageDays >= 0 && ageDays <= 7;
 }

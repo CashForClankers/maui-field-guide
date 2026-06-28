@@ -1,0 +1,267 @@
+---
+import CalendarCard from "../../components/CalendarCard.astro";
+import { calendarOptions } from "../../data/events";
+import { experiences } from "../../data/experiences";
+import Layout from "../../layouts/Layout.astro";
+import { rankedCalendarOptions, rankCalendarOption } from "../../lib/rank";
+
+const ranked = rankedCalendarOptions(calendarOptions);
+const topCalls = [
+  { label: "Best easy", option: ranked[0]! },
+  {
+    label: "Best paid",
+    option: ranked.find((item) => ["paid", "splurge"].includes(item.costBand))!,
+  },
+  {
+    label: "One night",
+    option: ranked.find((item) => item.tags.includes("O-Bon"))!,
+  },
+];
+const iaoClosure = experiences.find((item) => item.id === "iao-valley")!;
+const days = [
+  ["all", "Whole trip"],
+  ["2026-07-08", "Wed 8"],
+  ["2026-07-09", "Thu 9"],
+  ["2026-07-10", "Fri 10"],
+  ["2026-07-11", "Sat 11"],
+  ["2026-07-12", "Sun 12"],
+  ["2026-07-13", "Mon 13"],
+];
+const quickFilters = [
+  ["all", "Everything"],
+  ["free", "Free"],
+  ["nearby", "≤25 min"],
+  ["budget", "Free + budget"],
+  ["booking", "Needs booking"],
+];
+---
+
+<Layout
+  title="Events"
+  description="Ranked Maui events, parks, markets, and experiences for July 8–13, 2026, refreshed daily from Mana Kai."
+>
+  <section class="calendar-hero wrap">
+    <div>
+      <p class="eyebrow">Jul 8–13 · indexed every morning</p>
+      <h1>Worth putting on the calendar.</h1>
+      <p>
+        Real local events, open parks, markets, and a few paid
+        experiences—ranked by distance from Mana Kai, cost, kid payoff, local
+        meaning, certainty, and parent effort.
+      </p>
+    </div>
+    <aside class="calendar-index-card">
+      <span>Live shortlist</span>
+      <strong>{calendarOptions.length}</strong>
+      <p>researched options now</p>
+      <dl>
+        <div>
+          <dt>Free</dt>
+          <dd>
+            {calendarOptions.filter((item) => item.costBand === "free").length}
+          </dd>
+        </div>
+        <div>
+          <dt>Nearby</dt>
+          <dd>
+            {calendarOptions.filter((item) => item.driveMinutes <= 25).length}
+          </dd>
+        </div>
+        <div>
+          <dt>Addable</dt>
+          <dd>{calendarOptions.filter((item) => item.calendar).length}</dd>
+        </div>
+      </dl>
+      <small>OpenClaw re-checks this index daily at 5:35am Pacific.</small>
+    </aside>
+  </section>
+
+  <aside class="calendar-closure wrap">
+    <span>Do not calendar yet</span>
+    <div>
+      <strong>ʻĪao Valley is listed closed through Jul 17.</strong>
+      <p>
+        The closure currently covers the full trip. The daily scout will restore
+        it as an option only if Hawaiʻi State Parks changes the notice.
+      </p>
+    </div>
+    <a href={iaoClosure.sourceUrl} target="_blank" rel="noreferrer"
+      >Check DLNR notice ↗</a
+    >
+  </aside>
+
+  <section class="calendar-top-band">
+    <div class="wrap">
+      <p class="eyebrow">Best first decisions</p>
+      <div class="calendar-top-calls">
+        {
+          topCalls.map(({ label, option }) => (
+            <a href={`#${option.id}`}>
+              <span>{label}</span>
+              <div>
+                <strong>{option.title}</strong>
+                <small>
+                  {option.dateLabel} · {option.driveMinutes} min ·{" "}
+                  {rankCalendarOption(option)} fit
+                </small>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="calendar-filter-shell" aria-label="Calendar filters">
+    <div class="wrap">
+      <div class="calendar-filter-topline">
+        <label class="search-box">
+          <span class="sr-only">Search calendar options</span>
+          <input
+            id="calendar-search"
+            type="search"
+            placeholder="Search movie, fruit, wildlife…"
+            autocomplete="off"
+          />
+        </label>
+        <p id="calendar-result-count" class="result-count" aria-live="polite">
+          {ranked.length} options
+        </p>
+      </div>
+      <div class="calendar-filter-group">
+        <span>Day</span>
+        <div class="filter-row" role="group" aria-label="Filter by trip day">
+          {
+            days.map(([value, label], index) => (
+              <button
+                class:list={["filter-chip", { active: index === 0 }]}
+                data-day-filter={value}
+                type="button"
+                aria-pressed={index === 0 ? "true" : "false"}
+              >
+                {label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+      <div class="calendar-filter-group">
+        <span>Cost + effort</span>
+        <div
+          class="filter-row"
+          role="group"
+          aria-label="Filter by cost and effort"
+        >
+          {
+            quickFilters.map(([value, label], index) => (
+              <button
+                class:list={["filter-chip", { active: index === 0 }]}
+                data-quick-filter={value}
+                type="button"
+                aria-pressed={index === 0 ? "true" : "false"}
+              >
+                {label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div id="calendar-grid" class="calendar-grid">
+      {ranked.map((option) => <CalendarCard option={option} />)}
+    </div>
+    <p id="calendar-empty" class="empty-state" hidden>
+      No strong match for that combination. Clear one filter instead of forcing
+      the day.
+    </p>
+  </section>
+
+  <section class="calendar-method wrap">
+    <div>
+      <p class="eyebrow">How the ranking works</p>
+      <h2>Good ideas lose points when they cost the whole day.</h2>
+    </div>
+    <p>
+      Fit is a personalized heuristic. It directly rewards kid payoff,
+      Maui-specific meaning, value, novelty, source certainty, and proximity to
+      Mana Kai. The single effort rating rolls reservation pressure, physical
+      difficulty, and fragile logistics together. Free is useful—not
+      automatically best.
+    </p>
+  </section>
+
+  <script>
+    const search = document.querySelector<HTMLInputElement>("#calendar-search");
+    const dayChips = [
+      ...document.querySelectorAll<HTMLButtonElement>("[data-day-filter]"),
+    ];
+    const quickChips = [
+      ...document.querySelectorAll<HTMLButtonElement>("[data-quick-filter]"),
+    ];
+    const cards = [
+      ...document.querySelectorAll<HTMLElement>("[data-calendar-card]"),
+    ];
+    const count = document.querySelector<HTMLElement>("#calendar-result-count");
+    const empty = document.querySelector<HTMLElement>("#calendar-empty");
+    let activeDay = "all";
+    let activeQuick = "all";
+    const normalizeSearch = (value: string) =>
+      value
+        .normalize("NFD")
+        .replace(/\p{Diacritic}/gu, "")
+        .toLowerCase();
+
+    function renderCalendar() {
+      const query = normalizeSearch(search?.value.trim() ?? "");
+      let visible = 0;
+      for (const card of cards) {
+        const dates = (card.dataset.dates ?? "").split(",");
+        const matchesDay = activeDay === "all" || dates.includes(activeDay);
+        const matchesText =
+          !query || (card.dataset.search ?? "").includes(query);
+        const matchesQuick =
+          activeQuick === "all" ||
+          (activeQuick === "free" && card.dataset.cost === "free") ||
+          (activeQuick === "nearby" && card.dataset.nearby === "true") ||
+          (activeQuick === "budget" &&
+            ["free", "budget"].includes(card.dataset.cost ?? "")) ||
+          (activeQuick === "booking" && card.dataset.booking === "true");
+        const show = matchesDay && matchesText && matchesQuick;
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
+      if (count)
+        count.textContent = `${visible} option${visible === 1 ? "" : "s"}`;
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    function selectChip(
+      chips: HTMLButtonElement[],
+      selected: HTMLButtonElement,
+    ) {
+      for (const chip of chips)
+        chip.classList.toggle("active", chip === selected);
+      for (const chip of chips)
+        chip.setAttribute("aria-pressed", String(chip === selected));
+    }
+
+    search?.addEventListener("input", renderCalendar);
+    for (const chip of dayChips) {
+      chip.addEventListener("click", () => {
+        activeDay = chip.dataset.dayFilter ?? "all";
+        selectChip(dayChips, chip);
+        renderCalendar();
+      });
+    }
+    for (const chip of quickChips) {
+      chip.addEventListener("click", () => {
+        activeQuick = chip.dataset.quickFilter ?? "all";
+        selectChip(quickChips, chip);
+        renderCalendar();
+      });
+    }
+  </script>
+</Layout>

@@ -2,6 +2,7 @@
 import ExperienceCard from "../components/ExperienceCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { creatures } from "../data/creatures";
+import { calendarOptions } from "../data/events";
 import { experiences } from "../data/experiences";
 import { site, tripRhythm } from "../data/site";
 import { updates } from "../data/updates";
@@ -23,11 +24,11 @@ const latestUpdate = updates[0]!;
         delight, learning, value, and parent effort from {site.baseName}.
       </p>
       <div class="hero-actions">
-        <a class="button primary" href={`${basePath}discover/`}
-          >What should we do?</a
+        <a class="button primary" href={`${basePath}events/`}
+          >Open the trip calendar</a
         >
-        <a class="button secondary" href={`${basePath}fruit/`}
-          >Find good fruit</a
+        <a class="button secondary" href={`${basePath}discover/`}
+          >Explore every idea</a
         >
       </div>
     </div>
@@ -41,10 +42,43 @@ const latestUpdate = updates[0]!;
       <p>Base camp: Mana Kai on Keawakapu Beach</p>
       <div class="signal-row">
         <span>{experiences.length} ideas</span>
+        <span>{calendarOptions.length} calendar picks</span>
         <span>{experiences.filter((item) => item.isFree).length} free</span>
         <span>daily refresh</span>
       </div>
     </aside>
+  </section>
+
+  <section class="calendar-home wrap">
+    <div>
+      <p class="eyebrow">New · daily event index</p>
+      <h2>Know what is worth calendaring before the good slots disappear.</h2>
+      <p>
+        The July 8–13 shortlist now separates hard-dated local events from
+        flexible parks and paid experiences, then ranks all of them by distance,
+        cost, kid payoff, local meaning, and effort.
+      </p>
+      <a class="button primary" href={`${basePath}events/`}
+        >See {calendarOptions.length} calendar options</a
+      >
+    </div>
+    <ol>
+      <li>
+        <span>01</span><strong>Kamaʻole III movie night</strong><small
+          >Fri Jul 10 · free · 4 min</small
+        >
+      </li>
+      <li>
+        <span>02</span><strong>Kīhei Canoe Club paddle</strong><small
+          >Thu Jul 9 · $50 · book early</small
+        >
+      </li>
+      <li>
+        <span>03</span><strong>Sunday community market</strong><small
+          >Sun Jul 12 · free entry</small
+        >
+      </li>
+    </ol>
   </section>
 
   <section class="wildlife-feature wrap">

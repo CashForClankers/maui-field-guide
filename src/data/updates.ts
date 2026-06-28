@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-06-28",
+    title: "A real trip calendar, not another list",
+    note: "The new Events index starts with 22 dated and flexible options for Jul 8–13—including Pāʻia Mantokuji's O-Bon festival and four close ProArts shows—ranked by distance, cost, kid payoff, local meaning, certainty, and effort; fixed-time events can be added directly to a calendar.",
+    experienceIds: ["kam-iii-movie-night", "south-maui-gardens-market"],
+  },
+  {
+    date: "2026-06-28",
     title: "A free Friday evening close to base",
     note: "Maui County's July 10 Park and Recreation Month movie night at Kamaʻole III was added as a no-reservation, near-Mana-Kai evening option; Mākena now calls out Puʻu Olaʻi's earlier weekend closing time.",
     experienceIds: ["kam-iii-movie-night", "makena-big-beach"],

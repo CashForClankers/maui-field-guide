@@ -3,6 +3,67 @@ export type ExperienceKind =
 
 export type Confidence = "primary" | "mixed" | "verify";
 
+export type TripDate =
+  | "2026-07-08"
+  | "2026-07-09"
+  | "2026-07-10"
+  | "2026-07-11"
+  | "2026-07-12"
+  | "2026-07-13";
+
+export type CalendarKind =
+  | "local event"
+  | "nature"
+  | "culture"
+  | "market"
+  | "hands-on"
+  | "paid experience";
+
+export type CostBand = "free" | "budget" | "paid" | "splurge";
+
+export interface CalendarOption {
+  id: string;
+  experienceId?: string;
+  title: string;
+  kind: CalendarKind;
+  summary: string;
+  whyItFits: string;
+  decisionNote: string;
+  dates: TripDate[];
+  dateLabel: string;
+  timeLabel: string;
+  driveMinutes: number;
+  duration: string;
+  cost: string;
+  costBand: CostBand;
+  ageFit: string;
+  reservation: string;
+  bookingRequired: boolean;
+  safety: string;
+  tags: string[];
+  metrics: {
+    kidWow: number;
+    local: number;
+    value: number;
+    novelty: number;
+    certainty: number;
+    friction: number;
+  };
+  confidence: Confidence;
+  addedAt: string;
+  verifiedAt: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  mapUrl: string;
+  calendar?: {
+    date: TripDate;
+    startTime: string;
+    endTime: string;
+    location: string;
+    basis: string;
+  };
+}
+
 export interface Experience {
   id: string;
   title: string;

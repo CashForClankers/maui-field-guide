@@ -59,6 +59,9 @@ Use local system fonts for instant loading.
 - **Specimen band:** 7px colored top edge communicating content family.
 - **Inputs:** 52px height, shell fill, 999px radius, 2px ocean focus ring.
 - **Navigation:** compact sticky top rail plus a four-item mobile bottom dock.
+- **Calendar controls:** two horizontal chip rails—trip day first, then cost/effort—plus a full-width mobile search field.
+- **Calendar cards:** date and time lead the hierarchy; score, distance, cost, and the plain-language “calendar call” remain visible before expansion.
+- **Calendar download:** fixed events may expose a coral `Add to calendar` action; flexible ideas never pretend to have a fixed time.
 - **New marker:** coral pill with a visible date, never an unexplained dot.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 
@@ -68,6 +71,7 @@ Use local system fonts for instant loading.
 - Content max-width: 1180px; reading width: 720px.
 - Mobile gutter: 16px; desktop gutter: 32px.
 - Cards: one column under 640px, two columns from 640px, three from 980px.
+- Calendar cards: one column under 720px and two columns above it; featured decisions stay readable without equal-weight card walls.
 - Radius scale: 8px, 12px, 18px, 28px, 999px.
 - Keep a strong single recommendation before the broader card grid.
 
@@ -96,7 +100,7 @@ Use local system fonts for instant loading.
 
 ## 8. Responsive Behavior
 
-- **Mobile `<640px`:** single cards, bottom navigation, filters scroll horizontally, 16px gutters.
+- **Mobile `<640px`:** single cards, six-item bottom navigation, filters scroll horizontally, 14px gutters.
 - **Tablet `640–979px`:** two-card grid, top navigation remains compact.
 - **Desktop `>=980px`:** three-card grid, bottom navigation disappears, optional sticky filter rail.
 - Minimum touch target: 44px; primary targets: 48px.
@@ -106,4 +110,4 @@ Use local system fonts for instant loading.
 
 Quick tokens: ocean `#123A3A`, coral `#E85D4A`, mango `#F4B942`, sand `#F5F0E5`, shell `#FFFDF8`.
 
-Implementation prompt: “Build a fast Maui naturalist field guide using warm sand, deep-ocean ink, guava-coral actions, serif editorial headlines, rounded specimen cards, explicit field labels, and one strong answer before the full grid. Preserve 44px touch targets and full utility at 360px.”
+Implementation prompt: “Build a fast Maui naturalist field guide using warm sand, deep-ocean ink, guava-coral actions, serif editorial headlines, rounded specimen and calendar cards, explicit field labels, and one strong answer before the full grid. Calendar decisions lead with date, distance, cost, and certainty. Preserve 44px touch targets and full utility at 360px.”

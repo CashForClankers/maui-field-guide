@@ -1,8 +1,9 @@
-const CACHE = "maui-field-guide-v3";
+const CACHE = "maui-field-guide-v4";
 const scope = new URL("./", self.location.href);
 const CORE = [
   "./",
   "./discover/",
+  "./events/",
   "./creatures/",
   "./locals/",
   "./fruit/",
@@ -49,9 +50,12 @@ self.addEventListener("fetch", (event) => {
         return response;
       })
       .catch(() =>
-        caches
-          .match(event.request)
-          .then((cached) => cached ?? caches.match(scope.href)),
+        caches.match(event.request).then((cached) => {
+          if (cached) return cached;
+          if (event.request.mode === "navigate")
+            return caches.match(scope.href);
+          return Response.error();
+        }),
       ),
   );
 });

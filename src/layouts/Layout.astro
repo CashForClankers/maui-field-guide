@@ -13,6 +13,7 @@ const pageTitle = title ? `${title} · ${site.title}` : site.title;
 const currentPath = Astro.url.pathname.replace(basePath, "/");
 const navItems = [
   { href: "", label: "Pulse", icon: "◉" },
+  { href: "events/", label: "Events", icon: "▦" },
   { href: "discover/", label: "Discover", icon: "⌕" },
   { href: "creatures/", label: "Wildlife", icon: "✺" },
   { href: "locals/", label: "Locals", icon: "◇" },
@@ -73,7 +74,7 @@ const isActive = (href: string) =>
 
     <footer class="footer wrap">
       <p>
-        Built for one family trip. Sources stay visible. Wildlife stays wild.
+        Built for one family trip. Sources stay visible. Plans stay flexible.
       </p>
       <a href={`${basePath}rules/`}>Read the field rules</a>
     </footer>
