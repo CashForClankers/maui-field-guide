@@ -62,6 +62,7 @@ Use local system fonts for instant loading.
 - **Calendar controls:** two horizontal chip rails—trip day first, then cost/effort—plus a full-width mobile search field.
 - **Calendar cards:** date and time lead the hierarchy; score, distance, cost, and the plain-language “calendar call” remain visible before expansion.
 - **Calendar download:** fixed events may expose a coral `Add to calendar` action; flexible ideas never pretend to have a fixed time.
+- **Flexible calendar reminder:** “Add to calendar” expands trip-day pills with 44px targets; downloads are all-day planning reminders and put the suggested window in the notes.
 - **New marker:** coral pill with a visible date, never an unexplained dot.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 

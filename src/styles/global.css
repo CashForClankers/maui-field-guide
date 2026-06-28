@@ -823,6 +823,61 @@ input {
   margin-left: auto;
 }
 
+.calendar-card .calendar-picker {
+  flex: 1 1 100%;
+  margin: 0;
+  border: 0;
+}
+
+.calendar-card .calendar-picker summary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 10px 13px;
+  border-radius: 999px;
+  color: white;
+  background: var(--coral-pressed);
+  font-size: 0.78rem;
+  list-style: none;
+}
+
+.calendar-card .calendar-picker summary::-webkit-details-marker {
+  display: none;
+}
+
+.calendar-card .calendar-picker[open] summary {
+  background: var(--ocean-night);
+}
+
+.calendar-picker > p {
+  margin: 10px 0 8px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.calendar-day-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.calendar-day-links a {
+  display: inline-flex;
+  min-width: 62px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 11px;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  color: var(--ocean);
+  background: var(--shell);
+  font-family: var(--mono);
+  font-size: 0.69rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
 .calendar-method {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
@@ -2571,6 +2626,11 @@ input {
 
   .calendar-actions .source-link {
     margin: 8px 0 0;
+  }
+
+  .calendar-card .calendar-picker summary {
+    width: 100%;
+    justify-content: center;
   }
 
   .calendar-method {

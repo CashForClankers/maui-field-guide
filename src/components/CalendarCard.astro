@@ -29,6 +29,16 @@ const sourceStatus = {
   mixed: "Confirm one detail",
   verify: "Check availability",
 }[option.confidence];
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  weekday: "short",
+  day: "numeric",
+  timeZone: "Pacific/Honolulu",
+});
+const calendarDates = option.dates.map((date) => ({
+  date,
+  label: dateFormatter.format(new Date(`${date}T12:00:00Z`)),
+  href: `${basePath}events/calendar/${option.id}/${date}.ics`,
+}));
 ---
 
 <article
@@ -132,6 +142,32 @@ const sourceStatus = {
         >
           Add to calendar
         </a>
+      )
+    }
+    {
+      !option.calendar && calendarDates.length === 1 && (
+        <a
+          class="button primary"
+          href={calendarDates[0]!.href}
+          download={`${option.id}-${calendarDates[0]!.date}.ics`}
+        >
+          Add to calendar
+        </a>
+      )
+    }
+    {
+      !option.calendar && calendarDates.length > 1 && (
+        <details class="calendar-picker">
+          <summary>Add to calendar</summary>
+          <p>Pick a day. The suggested window will be saved in the notes.</p>
+          <div class="calendar-day-links">
+            {calendarDates.map(({ date, label, href }) => (
+              <a href={href} download={`${option.id}-${date}.ics`}>
+                {label}
+              </a>
+            ))}
+          </div>
+        </details>
       )
     }
     <a
