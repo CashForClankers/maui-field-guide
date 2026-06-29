@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-06-29",
+    title: "Closest Maui-grown coffee got closer",
+    note: "The Fruit page now adds Akamai Coffee's Wailea Village stop as the closest official Akamai run from Mana Kai, fixes Lava Java's Kīhei location note, and refreshes the July 10 Kamaʻole III movie plus Pāʻia Mantokuji O-Bon evidence from current public schedules.",
+    experienceIds: ["kam-iii-movie-night"],
+  },
+  {
     date: "2026-06-28",
     title: "July 13 is now a travel day",
     note: "Monday is kept clear for checkout and the airport, so flexible activities and phone-calendar reminders now stop on Sunday, July 12.",

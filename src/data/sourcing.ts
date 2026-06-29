@@ -6,20 +6,41 @@ import type { FruitSource } from "./types";
 export const fruitSources = [
   {
     id: "lava-java-roasters",
-    name: "Lava Java Coffee Roasters of Maui",
+    name: "Lava Java Coffee Roasters of Maui · S. Kīhei",
     category: "coffee",
     corridor: "near-base",
-    driveFromBase: 4,
-    routeNote: "Rainbow Mall on S. Kīhei Rd, a few minutes north of Mana Kai.",
+    driveFromBase: 7,
+    routeNote:
+      "Official site lists Kai Ani Village, 1367 S. Kīhei Rd, and Kīhei Kalama Village, 1941-A S. Kīhei Rd.",
     openLabel: "Daily mornings · verify current hours",
     freshPick:
-      "100% Maui-grown beans roasted on-site — the closest cup of true island estate coffee to Keawakapu.",
+      "100% Maui-grown beans roasted on-site, with two public Kīhei addresses from the operator.",
     tripFit: "Any morning walk-up before the beach.",
     confidence: "mixed",
-    verifiedAt: "2026-06-28",
+    verifiedAt: "2026-06-29",
     sourceLabel: "Lava Java Maui",
     sourceUrl: "https://lavajavamaui.com/",
-    mapUrl: "https://maps.google.com/?q=Lava+Java+Coffee+Roasters+Kihei",
+    mapUrl:
+      "https://maps.google.com/?q=Lava+Java+Coffee+Roasters+1367+S+Kihei+Rd",
+  },
+  {
+    id: "akamai-coffee-wailea",
+    name: "Akamai Coffee Co. · Wailea Village",
+    category: "coffee",
+    corridor: "near-base",
+    driveFromBase: 6,
+    routeNote:
+      "116 Wailea Ike — the closest official Akamai location to Mana Kai.",
+    openLabel: "Daily · verify current hours",
+    freshPick:
+      "100% Maui coffee and locally roasted beans without driving north into Kīhei traffic.",
+    tripFit:
+      "Best quick coffee-and-beans stop before a Wailea or Mākena morning.",
+    confidence: "mixed",
+    verifiedAt: "2026-06-29",
+    sourceLabel: "Akamai Coffee Co.",
+    sourceUrl: "https://www.akamaicoffee.com/",
+    mapUrl: "https://maps.google.com/?q=Akamai+Coffee+116+Wailea+Ike",
   },
   {
     id: "akamai-coffee-kihei",
