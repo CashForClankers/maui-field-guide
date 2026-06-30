@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-06-30",
+    title: "A Kīhei community conference with keiki support",
+    note: "The Events page now adds the July 9–10 Maui Nui Women’s Conference only as a family-fit adult choice: exact Kīhei dates, posted schedule, ticketed keiki programming, meals included, local vendors, and a clear warning that it is not a drop-in kid activity.",
+    experienceIds: [],
+  },
+  {
     date: "2026-06-29",
     title: "Closest Maui-grown coffee got closer",
     note: "The Fruit page now adds Akamai Coffee's Wailea Village stop as the closest official Akamai run from Mana Kai, fixes Lava Java's Kīhei location note, and refreshes the July 10 Kamaʻole III movie plus Pāʻia Mantokuji O-Bon evidence from current public schedules.",
