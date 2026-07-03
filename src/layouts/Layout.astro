@@ -12,7 +12,8 @@ const { title, description = site.description } = Astro.props;
 const pageTitle = title ? `${title} · ${site.title}` : site.title;
 const currentPath = Astro.url.pathname.replace(basePath, "/");
 const navItems = [
-  { href: "", label: "Pulse", icon: "◉" },
+  { href: "", label: "Pulse", icon: "◉", mobileHidden: true },
+  { href: "daily/", label: "Daily", icon: "↻" },
   { href: "events/", label: "Events", icon: "▦" },
   { href: "discover/", label: "Discover", icon: "⌕" },
   { href: "creatures/", label: "Wildlife", icon: "✺" },
@@ -82,7 +83,7 @@ const isActive = (href: string) =>
     <nav class="mobile-dock" aria-label="Mobile navigation">
       {
         navItems
-          .filter((item) => !item.desktopOnly)
+          .filter((item) => !item.desktopOnly && !item.mobileHidden)
           .map((item) => (
             <a
               href={`${basePath}${item.href}`}

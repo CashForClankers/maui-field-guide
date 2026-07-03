@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { dailyBrief } from "../data/daily";
+import { updates } from "../data/updates";
+import { basePath } from "../lib/paths";
+
+const previousUpdates = updates.filter(
+  (update) => update.date !== dailyBrief.date,
+);
+---
+
+<Layout
+  title="Daily"
+  description="The latest verified Maui Field Guide research, additions, closures, and decisions for July 8–12, 2026."
+>
+  <section class="daily-hero wrap">
+    <div class="daily-hero-copy">
+      <p class="eyebrow">Daily scout · {dailyBrief.dateLabel}</p>
+      <h1>What changed today.</h1>
+      <p class="daily-lede">{dailyBrief.headline}</p>
+      <p>{dailyBrief.summary}</p>
+    </div>
+    <aside class="daily-signal">
+      <span>Trip signal</span>
+      <strong>{dailyBrief.countdown}</strong>
+      <p>Research checked against direct public sources.</p>
+      <small>Last scout: {dailyBrief.date}</small>
+    </aside>
+  </section>
+
+  <section class="daily-top wrap" aria-labelledby="daily-top-title">
+    <div>
+      <p class="eyebrow">Best new finding</p>
+      <h2 id="daily-top-title">{dailyBrief.topFinding.title}</h2>
+      <p>{dailyBrief.topFinding.detail}</p>
+    </div>
+    <a
+      class="button primary"
+      href={`${basePath}events/#${dailyBrief.topFinding.eventId}`}
+    >
+      {dailyBrief.topFinding.action}
+    </a>
+  </section>
+
+  <section class="section wrap daily-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Source sweep</p>
+        <h2>Verified today</h2>
+      </div>
+      <p>New evidence and facts worth keeping fresh.</p>
+    </div>
+    <div class="daily-check-grid">
+      {
+        dailyBrief.checks.map((check) => (
+          <article class="daily-check-card">
+            <div class="daily-check-topline">
+              <span>{check.label}</span>
+              <small class:list={[`daily-status-${check.status}`]}>
+                {check.status}
+              </small>
+            </div>
+            <p>{check.detail}</p>
+            <a href={check.sourceUrl} target="_blank" rel="noreferrer">
+              {check.sourceLabel} ↗
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="daily-watch-band">
+    <div class="wrap">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Do not skip</p>
+          <h2>Watch before you go</h2>
+        </div>
+      </div>
+      <div class="daily-watch-list">
+        {
+          dailyBrief.watch.map((item) => (
+            <article>
+              <span aria-hidden="true">!</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+                <a href={item.sourceUrl} target="_blank" rel="noreferrer">
+                  {item.sourceLabel} ↗
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap daily-log">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Research log</p>
+        <h2>What the scout has added</h2>
+      </div>
+      <p>Newest first. Every item remains editable as sources change.</p>
+    </div>
+    <ol>
+      {
+        previousUpdates.map((update) => (
+          <li>
+            <time datetime={update.date}>{update.date}</time>
+            <div>
+              <h3>{update.title}</h3>
+              <p>{update.note}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="daily-method wrap">
+    <p class="eyebrow">How this stays honest</p>
+    <h2>Primary sources first. One useful change beats ten weak links.</h2>
+    <p>
+      The daily scout checks exact dates, closures, costs, age fit, drive
+      friction, reservations, and safety. Uncertain leads stay unpublished or
+      visibly marked for verification.
+    </p>
+  </section>
+</Layout>

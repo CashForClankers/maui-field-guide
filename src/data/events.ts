@@ -585,6 +585,52 @@ export const calendarOptions = [
     mapUrl: "https://maps.google.com/?q=Kakaalaneo+Drive+Maui",
   },
   {
+    id: "waihee-hilt-workday",
+    title: "Waiheʻe loko iʻa kalo workday",
+    kind: "hands-on",
+    summary:
+      "A Hawaiʻi Land Trust stewardship morning with Ka Poholima Kāʻeo caring for the coastal refuge’s connected fishpond and kalo landscape.",
+    whyItFits:
+      "It is a directly registered, exact-date way to contribute as a family, and the official waiver explicitly accommodates minors with a parent or guardian.",
+    decisionNote:
+      "Choose this over a second Saturday market only if four hours of real outdoor work fits the children’s energy and ages.",
+    dates: ["2026-07-11"],
+    dateLabel: "Sat · Jul 11",
+    timeLabel: "8am–noon",
+    driveMinutes: 45,
+    duration: "4 hours plus drive",
+    cost: "Free · optional donation on registration form",
+    costBand: "free",
+    ageFit: "Minors accepted with guardian waiver · confirm task fit",
+    reservation: "Official registration and waiver required",
+    bookingRequired: true,
+    safety:
+      "This is outdoor stewardship, not a tour; ask HILT about terrain, footwear, weather, and age-appropriate tasks before committing, and bring water and sun protection.",
+    tags: ["Saturday", "volunteer", "wetland", "kalo", "family waiver"],
+    metrics: {
+      kidWow: 4,
+      local: 5,
+      value: 5,
+      novelty: 5,
+      certainty: 5,
+      friction: 3,
+    },
+    confidence: "primary",
+    addedAt: "2026-07-02",
+    verifiedAt: "2026-07-02",
+    sourceLabel: "Hawaiʻi Land Trust",
+    sourceUrl: "https://www.hilt.org/volunteer",
+    mapUrl:
+      "https://maps.google.com/?q=Waihee+Coastal+Dunes+and+Wetlands+Refuge+Maui",
+    calendar: {
+      date: "2026-07-11",
+      startTime: "08:00",
+      endTime: "12:00",
+      location: "Waiheʻe Coastal Dunes & Wetlands Refuge, Maui",
+      basis: "Hawaiʻi Land Trust's official July 11 volunteer schedule",
+    },
+  },
+  {
     id: "maui-sunday-market",
     title: "Maui Sunday Market",
     kind: "local event",

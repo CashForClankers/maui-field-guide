@@ -64,6 +64,7 @@ Use local system fonts for instant loading.
 - **Calendar download:** fixed events may expose a coral `Add to calendar` action; flexible ideas never pretend to have a fixed time.
 - **Flexible calendar reminder:** “Add to calendar” expands trip-day pills with 44px targets; downloads are all-day planning reminders and put the suggested window in the notes.
 - **New marker:** coral pill with a visible date, never an unexplained dot.
+- **Daily brief:** one decisive finding first, followed by compact source-check cards, an explicit watch band, and a chronological research log.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 
 ## 5. Layout Principles
@@ -101,7 +102,7 @@ Use local system fonts for instant loading.
 
 ## 8. Responsive Behavior
 
-- **Mobile `<640px`:** single cards, six-item bottom navigation, filters scroll horizontally, 14px gutters.
+- **Mobile `<640px`:** single cards, six-item bottom navigation with Daily replacing the redundant home link, filters scroll horizontally, 14px gutters.
 - **Tablet `640–979px`:** two-card grid, top navigation remains compact.
 - **Desktop `>=980px`:** three-card grid, bottom navigation disappears, optional sticky filter rail.
 - Minimum touch target: 44px; primary targets: 48px.

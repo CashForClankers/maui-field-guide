@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { experiences } from "../src/data/experiences";
 import { creatures } from "../src/data/creatures";
+import { dailyBrief } from "../src/data/daily";
 import { calendarOptions } from "../src/data/events";
 import { localAnchors } from "../src/data/locals";
 import { fruitSources } from "../src/data/sourcing";
@@ -122,6 +123,21 @@ test("calendar index stays sourced, trip-bound, and rankable", () => {
         rankCalendarOption(ranked[index]!),
       `calendar ranking inversion at ${index}`,
     );
+  }
+});
+
+test("daily brief stays current, sourced, and linked to a calendar option", () => {
+  assert.match(dailyBrief.date, /^2026-\d{2}-\d{2}$/);
+  assert.ok(
+    calendarOptions.some(
+      (option) => option.id === dailyBrief.topFinding.eventId,
+    ),
+    `daily top finding references missing event ${dailyBrief.topFinding.eventId}`,
+  );
+  assert.ok(dailyBrief.checks.length >= 1);
+  for (const item of [...dailyBrief.checks, ...dailyBrief.watch]) {
+    assert.match(item.sourceUrl, /^https:\/\//);
+    assert.ok(item.detail.length >= 30);
   }
 });
 

@@ -13,6 +13,7 @@ A phone-first, source-backed family discovery guide for Maui, July 8–13, 2026,
 ## Guide surfaces
 
 - **Pulse:** current trip signal, new research, top-ranked ideas, and trip rhythm.
+- **Daily:** the latest scout finding, direct-source confirmations, closure/watch items, and chronological research log.
 - **Events:** July 8–12 calendar candidates ranked by cost, proximity, kid payoff, local meaning, certainty, and effort, with timed `.ics` downloads for fixed events and day-picker reminders for flexible options. July 13 remains a travel day.
 - **Discover:** searchable and filterable activities ranked for this family.
 - **Wildlife:** five photographed creatures with field marks, kid-readable science, ethical viewing rules, and photo licensing.

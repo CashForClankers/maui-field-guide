@@ -1,8 +1,9 @@
-const CACHE = "maui-field-guide-v5";
+const CACHE = "maui-field-guide-v6";
 const scope = new URL("./", self.location.href);
 const CORE = [
   "./",
   "./discover/",
+  "./daily/",
   "./events/",
   "./creatures/",
   "./locals/",

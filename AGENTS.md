@@ -21,7 +21,7 @@ Maintain a phone-first family discovery guide for a July 8–13, 2026 Maui trip 
 2. Search for date-relevant openings, closures, events, fruit availability, wildlife conditions, and value opportunities.
 3. Re-verify the calendar index first. Add at most three strong calendar options or improve stale records; do not grow the index with generic attractions.
 4. Improve general discoveries only when the evidence does not belong primarily in the calendar index.
-5. Update `src/data/updates.ts` with a concise human-readable change note.
+5. Update `src/data/daily.ts` with the latest brief and `src/data/updates.ts` with a concise human-readable change note.
 6. Run `npm run verify`.
 7. Commit and push only if verification passes and the diff contains no private trip details or credentials.
 

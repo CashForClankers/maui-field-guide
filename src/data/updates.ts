@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-07-02",
+    title: "A daily brief—and a second Saturday service choice",
+    note: "The new Daily page turns each scout run into a readable briefing: what changed, what was reconfirmed, what remains closed, and the strongest new decision. Today adds Hawaiʻi Land Trust’s exact July 11 Waiheʻe loko iʻa kalo workday with direct registration and a guardian waiver for minors.",
+    experienceIds: [],
+  },
+  {
     date: "2026-06-30",
     title: "A Kīhei community conference with keiki support",
     note: "The Events page now adds the July 9–10 Maui Nui Women’s Conference only as a family-fit adult choice: exact Kīhei dates, posted schedule, ticketed keiki programming, meals included, local vendors, and a clear warning that it is not a drop-in kid activity.",

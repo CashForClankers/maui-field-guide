@@ -105,6 +105,33 @@ export interface DailyUpdate {
   experienceIds: string[];
 }
 
+export interface DailyBrief {
+  date: string;
+  dateLabel: string;
+  countdown: string;
+  headline: string;
+  summary: string;
+  topFinding: {
+    title: string;
+    detail: string;
+    eventId: string;
+    action: string;
+  };
+  checks: {
+    label: string;
+    status: "new" | "confirmed" | "watch";
+    detail: string;
+    sourceLabel: string;
+    sourceUrl: string;
+  }[];
+  watch: {
+    title: string;
+    detail: string;
+    sourceLabel: string;
+    sourceUrl: string;
+  }[];
+}
+
 export interface FruitNote {
   name: string;
   julySignal: "strong" | "possible" | "year-round";
