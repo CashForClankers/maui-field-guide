@@ -43,10 +43,10 @@ export const calendarOptions = [
     },
     confidence: "primary",
     addedAt: "2026-06-28",
-    verifiedAt: "2026-06-29",
+    verifiedAt: "2026-07-03",
     sourceLabel: "Maui County calendar",
     sourceUrl:
-      "https://www.mauicounty.gov/Calendar.aspx?EID=13876&calType=0&day=22&month=7&year=2026",
+      "https://www.mauicounty.gov/Calendar.aspx?EID=13876&calType=0&day=1&month=7&year=2026",
     mapUrl: "https://maps.google.com/?q=Kamaole+Beach+Park+III+Kihei",
     calendar: {
       date: "2026-07-10",

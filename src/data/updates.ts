@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-03",
+    title: "Free movie night reconfirmed, stale service lead rejected",
+    note: "Today’s scout reverified Maui County’s July 10 GOAT movie at Kamaʻole III as the easiest exact-date family win, kept the July 11 Waiheʻe workday confirmed, and rejected a Kaʻehu volunteer lead because the direct listings now point outside July 8–12.",
+    experienceIds: ["kam-iii-movie-night"],
+  },
+  {
+    date: "2026-07-03",
     title: "The Daily tab now ranks the real priorities",
     note: "The Daily page now opens a live top-five trip ranking from the same evidence model as the Events page. Today’s wildlife check also clarifies that July at Keālia is about resident aeʻo and ʻalae keʻokeʻo—with possible chicks and protective pond closures—not winter migrants.",
     experienceIds: ["kealia-pond"],

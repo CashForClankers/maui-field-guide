@@ -4,17 +4,26 @@ export const dailyBrief = {
   date: "2026-07-03",
   dateLabel: "Fri · Jul 3",
   countdown: "5 days to arrival",
-  headline: "The Daily tab now tells you what to prioritize.",
+  headline: "The free GOAT movie still looks like the easiest exact-date win.",
   summary:
-    "A live top-five ranking now turns the research pile into a decision list. Today’s source sweep also sharpened what wildlife to look for in July, reconfirmed the Waiheʻe workday, and kept current closures visible.",
+    "Today’s calendar-first sweep rechecked the strongest July 8–12 options and rejected a stale Kaʻehu volunteer lead because the direct listings now point outside the trip window. The close, free Kamaʻole III movie and Waiheʻe workday remain the clearest low-friction and give-back decisions.",
   topFinding: {
-    title: "Waiheʻe loko iʻa kalo workday",
+    title: "GOAT movie night at Kamaʻole III",
     detail:
-      "Sat Jul 11 · 8am–noon · free · about 45 min from Mana Kai · minors supported through the official guardian waiver",
-    eventId: "waihee-hilt-workday",
-    action: "Review the service option",
+      "Fri Jul 10 · starts at sunset · free · about 4 min from Mana Kai · bring alcohol-free drinks, snacks, and low-back seating",
+    eventId: "kam-iii-goat-movie",
+    action: "Add the free movie night",
   },
   checks: [
+    {
+      label: "Closest exact event",
+      status: "confirmed",
+      detail:
+        "Maui County still lists GOAT for Friday, July 10 at Kamaʻole III Beach Park, south end, starting at sunset with free admission.",
+      sourceLabel: "Maui County calendar",
+      sourceUrl:
+        "https://www.mauicounty.gov/Calendar.aspx?EID=13876&calType=0&day=1&month=7&year=2026",
+    },
     {
       label: "Service",
       status: "confirmed",
@@ -51,6 +60,14 @@ export const dailyBrief = {
     },
   ],
   watch: [
+    {
+      title: "Kaʻehu did not clear the date-fit bar",
+      detail:
+        "A HandsOn lead suggested Kaʻehu Mālama ʻĀina, but the direct Pacific Whale Foundation event page currently lists July 15 and the open HandsOn detail shows August 19, so it stays off the July 8–12 calendar.",
+      sourceLabel: "Pacific Whale Foundation",
+      sourceUrl:
+        "https://pacificwhale.org/event/ka%CA%BBehu-volunteering-opportunity/",
+    },
     {
       title: "ʻĪao remains off the calendar",
       detail:
