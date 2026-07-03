@@ -225,6 +225,31 @@ export interface Creature {
   photoSourceUrl: string;
 }
 
+export type CreaturePlaceEvidence =
+  "documented site" | "official habitat fit" | "low-confidence watch";
+
+export interface CreaturePlace {
+  id: string;
+  creatureId: Creature["id"];
+  name: string;
+  coordinates?: string;
+  driveMinutes: number;
+  reason: string;
+  parking: string;
+  timing: string;
+  caveat: string;
+  evidence: CreaturePlaceEvidence;
+  verifiedAt: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  mapUrl: string;
+  metrics: {
+    signal: number;
+    ease: number;
+    safety: number;
+  };
+}
+
 export interface LocalAnchor {
   id: string;
   people: string;

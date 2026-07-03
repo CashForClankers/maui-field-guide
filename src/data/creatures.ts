@@ -1,4 +1,4 @@
-import type { Creature } from "./types";
+import type { Creature, CreaturePlace } from "./types";
 
 export const creatures = [
   {
@@ -322,3 +322,478 @@ export const creatures = [
       "https://commons.wikimedia.org/wiki/File:Geopelia_striata_Big_Island_Hawaii.JPG",
   },
 ] satisfies Creature[];
+
+export const creaturePlaces = [
+  {
+    id: "honu-keawakapu",
+    creatureId: "honu",
+    name: "Keawakapu Beach · north access",
+    coordinates: "20.702045, -156.444191",
+    driveMinutes: 0,
+    reason:
+      "Start from shore at the reef beside Mana Kai; it is the lowest-friction check and the County explicitly notes marine-life observation here.",
+    parking:
+      "Walk from Mana Kai, or use the public lot across South Kīhei Road at Kilohana Drive.",
+    timing: "Calm early morning; scan from shore before deciding to enter.",
+    caveat:
+      "No lifeguard. A turtle may never appear; keep the NOAA 10-foot buffer.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Keawakapu access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.702045%2C-156.444191",
+    metrics: { signal: 3, ease: 5, safety: 3 },
+  },
+  {
+    id: "honu-hookipa",
+    creatureId: "honu",
+    name: "Hoʻokipa Lookout",
+    coordinates: "20.934421, -156.355848",
+    driveMinutes: 38,
+    reason:
+      "A paved overlook makes a dry-land scan easy, with no need to enter powerful north-shore water.",
+    parking:
+      "Use the signed Lookout Point lot: 38 paved and 25 unpaved spaces are listed by the County.",
+    timing: "Pair with a north-shore day; use zoom from the overlook.",
+    caveat:
+      "This is a scan point, not a turtle appointment. Do not descend to crowd resting wildlife.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Hoʻokipa Beach Park",
+    sourceUrl:
+      "https://www.mauicounty.gov/Facilities/Facility/Details/Hookipa-Beach-Park-169",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.934421%2C-156.355848",
+    metrics: { signal: 4, ease: 4, safety: 5 },
+  },
+  {
+    id: "yellow-tang-ulua",
+    creatureId: "yellow-tang",
+    name: "Ulua–Mōkapu reef edge",
+    coordinates: "20.690531, -156.443670",
+    driveMinutes: 7,
+    reason:
+      "The closest named public reef access with parking, showers, restrooms, and a clear sand-to-rock edge to scan.",
+    parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+    timing: "Calm early morning, staying over sand and looking toward rock.",
+    caveat:
+      "No lifeguard. Reef habitat fits the fish; an individual sighting is not documented or assured.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Ulua–Mōkapu Beach Parks",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+    metrics: { signal: 4, ease: 5, safety: 3 },
+  },
+  {
+    id: "yellow-tang-ahihi",
+    creatureId: "yellow-tang",
+    name: "ʻĀhihi-Kīnaʻu · Kanahena lot",
+    driveMinutes: 24,
+    reason:
+      "A protected no-take reserve with a designated activity zone and official visitor map.",
+    parking:
+      "Park only in the paid Kanahena lot; roadside stopping and shoulder parking are prohibited.",
+    timing:
+      "Arrive early, read the posted activity map, and enter only if conditions allow.",
+    caveat:
+      "Daily access is posted 5:30 a.m.–7:30 p.m.; $10 per car, card only. Anchialine pools are closed.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi DLNR · ʻĀhihi-Kīnaʻu visitor rules",
+    sourceUrl: "https://dlnr.hawaii.gov/ecosystems/nars/maui/ahihi-kinau-2/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Ahihi-Kinau+Natural+Area+Reserve+Parking+Lot",
+    metrics: { signal: 5, ease: 2, safety: 3 },
+  },
+  {
+    id: "triggerfish-ahihi",
+    creatureId: "reef-triggerfish",
+    name: "ʻĀhihi-Kīnaʻu · Kanahena lot",
+    driveMinutes: 24,
+    reason:
+      "The reserve protects reef animals and its official activity map directs visitors to the lawful water-access zone.",
+    parking:
+      "Use the paid Kanahena lot only; do not park or unload on the reserve road shoulder.",
+    timing:
+      "Calm early morning; inspect the sand-and-rock boundary without feeding fish.",
+    caveat:
+      "Posted access 5:30 a.m.–7:30 p.m.; $10 per car, card only. Follow closures and signs on arrival.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi DLNR · ʻĀhihi-Kīnaʻu visitor rules",
+    sourceUrl: "https://dlnr.hawaii.gov/ecosystems/nars/maui/ahihi-kinau-2/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Ahihi-Kinau+Natural+Area+Reserve+Parking+Lot",
+    metrics: { signal: 5, ease: 2, safety: 3 },
+  },
+  {
+    id: "triggerfish-ulua",
+    creatureId: "reef-triggerfish",
+    name: "Ulua–Mōkapu reef edge",
+    coordinates: "20.690531, -156.443670",
+    driveMinutes: 7,
+    reason:
+      "A much easier first look: public facilities and a compact reef edge close to the family’s base.",
+    parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+    timing: "Calm early morning; watch the bottom where sand meets rock.",
+    caveat:
+      "No lifeguard. Never feed fish, put hands in holes, or stand on reef.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Ulua–Mōkapu Beach Parks",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+    metrics: { signal: 3, ease: 5, safety: 3 },
+  },
+  {
+    id: "monk-seal-hookipa",
+    creatureId: "hawaiian-monk-seal",
+    name: "Hoʻokipa Lookout",
+    coordinates: "20.934421, -156.355848",
+    driveMinutes: 38,
+    reason:
+      "The elevated, paved lookout supports a wide beach scan without walking the strand in search of a resting seal.",
+    parking:
+      "Use the signed Lookout Point lot rather than the beach-level lots.",
+    timing:
+      "A short scan when already on the north shore; binoculars or phone zoom only.",
+    caveat:
+      "No reliable appointment. Stay 50 feet away—150 feet for a mother and pup—and obey ropes.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Hoʻokipa Beach Park",
+    sourceUrl:
+      "https://www.mauicounty.gov/Facilities/Facility/Details/Hookipa-Beach-Park-169",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.934421%2C-156.355848",
+    metrics: { signal: 4, ease: 4, safety: 5 },
+  },
+  {
+    id: "monk-seal-keawakapu",
+    creatureId: "hawaiian-monk-seal",
+    name: "Keawakapu shoreline walk",
+    coordinates: "20.702045, -156.444191",
+    driveMinutes: 0,
+    reason:
+      "The no-drive fallback is simply to scan the open beach during an ordinary walk, never to seek or approach a seal.",
+    parking:
+      "Walk from Mana Kai; public overflow is across the road at Kilohana Drive.",
+    timing:
+      "Any normal beach walk; check far ahead before continuing along the sand.",
+    caveat:
+      "Low-confidence watch only. If a seal is present, stop well back and give it the beach.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Keawakapu access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.702045%2C-156.444191",
+    metrics: { signal: 1, ease: 5, safety: 4 },
+  },
+  {
+    id: "stilt-boardwalk",
+    creatureId: "hawaiian-stilt",
+    name: "Keālia Coastal Boardwalk",
+    coordinates: "20.796345, -156.489581",
+    driveMinutes: 18,
+    reason:
+      "The strongest easy family stop: the refuge specifically names aeʻo viewing and the boardwalk crosses wetland habitat.",
+    parking:
+      "Use the 14-stall boardwalk lot off North Kīhei Road; do not route to the separate refuge headquarters.",
+    timing: "Early morning; boardwalk hours are posted as 6:30 a.m.–7 p.m.",
+    caveat:
+      "Stay on the boardwalk and back away if adults alarm-call; July can include chicks and closures.",
+    evidence: "documented site",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "USFWS · Keālia visit and access",
+    sourceUrl: "https://www.fws.gov/refuge/kealia-pond/visit-us",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.796345%2C-156.489581",
+    metrics: { signal: 5, ease: 5, safety: 5 },
+  },
+  {
+    id: "stilt-headquarters",
+    creatureId: "hawaiian-stilt",
+    name: "Keālia visitor center · Kanuimanu Ponds",
+    coordinates: "20.795050, -156.466150",
+    driveMinutes: 17,
+    reason:
+      "Staff updates plus flat pond levees make this the better choice when the weekday visitor center is open.",
+    parking:
+      "Enter at Milepost 6 on Maui Veterans Highway and use the visitor-center lot.",
+    timing: "Weekdays; visitor center currently posts 9 a.m.–3 p.m.",
+    caveat:
+      "This is a different entrance from the coastal boardwalk. Check gate hours and seasonal trail closures.",
+    evidence: "documented site",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "USFWS · Keālia visit and access",
+    sourceUrl: "https://www.fws.gov/refuge/kealia-pond/visit-us",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.795050%2C-156.466150",
+    metrics: { signal: 5, ease: 4, safety: 5 },
+  },
+  {
+    id: "spinner-la-perouse",
+    creatureId: "spinner-dolphin",
+    name: "Keoneʻōʻio · La Perouse Bay shore",
+    coordinates: "20.597272, -156.422682",
+    driveMinutes: 34,
+    reason:
+      "NOAA identifies La Perouse Bay as essential daytime spinner-dolphin habitat; observe from shore only.",
+    parking:
+      "Use the rough Keoneʻōʻio end-of-road lot; never stop on the reserve road shoulder.",
+    timing: "A distant shore scan, not a swim or dolphin-directed trip.",
+    caveat:
+      "The time-area closure shown by NOAA is proposed, not final. The active 50-yard federal rule still applies.",
+    evidence: "documented site",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "NOAA Fisheries · proposed La Perouse habitat map",
+    sourceUrl:
+      "https://www.fisheries.noaa.gov/resource/map/maps-proposed-time-area-closures-hawaiian-spinner-dolphins",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.597272%2C-156.422682",
+    metrics: { signal: 5, ease: 2, safety: 4 },
+  },
+  {
+    id: "spinner-makena-landing",
+    creatureId: "spinner-dolphin",
+    name: "Mākena Landing · dry-land scan",
+    coordinates: "20.653776, -156.440785",
+    driveMinutes: 18,
+    reason:
+      "A closer public shoreline viewpoint for an incidental scan across open water, with no pursuit or bay entry.",
+    parking:
+      "Use the marked Mākena Landing public lot; leave if it is full rather than roadside-park.",
+    timing:
+      "Only while already there for a shore stop; a sighting is unlikely and never the plan.",
+    caveat:
+      "Low-confidence watch. Federal law prohibits approaching or remaining within 50 yards.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "NOAA Fisheries · spinner dolphin viewing rule",
+    sourceUrl:
+      "https://www.fisheries.noaa.gov/action/final-rule-prohibit-swimming-and-approaching-hawaiian-spinner-dolphins",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.653776%2C-156.440785",
+    metrics: { signal: 1, ease: 4, safety: 4 },
+  },
+  {
+    id: "octopus-ulua",
+    creatureId: "day-octopus",
+    name: "Ulua–Mōkapu reef edge",
+    coordinates: "20.690531, -156.443670",
+    driveMinutes: 7,
+    reason:
+      "The easiest patient search over a small reef patch, with a signed public lot and facilities.",
+    parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+    timing:
+      "Calm early morning; hold still and watch one patch of rubble for a full minute.",
+    caveat:
+      "No lifeguard. Habitat fit only—never reach into a hole or pry at an animal.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Ulua–Mōkapu Beach Parks",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+    metrics: { signal: 4, ease: 5, safety: 3 },
+  },
+  {
+    id: "octopus-ahihi",
+    creatureId: "day-octopus",
+    name: "ʻĀhihi-Kīnaʻu · Kanahena lot",
+    driveMinutes: 24,
+    reason:
+      "Protected no-take reef habitat offers the stronger ecological fit when access and ocean conditions are good.",
+    parking: "Use the paid Kanahena lot only; roadside stopping is prohibited.",
+    timing: "Arrive early and use only the activity-map access zone.",
+    caveat:
+      "Posted access 5:30 a.m.–7:30 p.m.; $10 per car, card only. Pools and closed areas stay closed.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi DLNR · ʻĀhihi-Kīnaʻu visitor rules",
+    sourceUrl: "https://dlnr.hawaii.gov/ecosystems/nars/maui/ahihi-kinau-2/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Ahihi-Kinau+Natural+Area+Reserve+Parking+Lot",
+    metrics: { signal: 5, ease: 2, safety: 3 },
+  },
+  {
+    id: "shearwater-kamaole",
+    creatureId: "wedge-tailed-shearwater",
+    name: "Kamaʻole III · lawn and seaward scan",
+    coordinates: "20.721331, -156.447401",
+    driveMinutes: 5,
+    reason:
+      "DLNR documented monitored ʻuaʻu kani burrows here; the lawful observation is from established lawn and paths only.",
+    parking: "Use the County park lot with 82 spaces at 2800 South Kīhei Road.",
+    timing: "Dusk listening from pavement or mown lawn; keep lights low.",
+    caveat:
+      "Never seek a burrow, step into rough vegetation, use flash, or approach a calling bird.",
+    evidence: "documented site",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi DLNR · Maui ʻuaʻu kani monitoring",
+    sourceUrl: "https://dlnr.hawaii.gov/dofaw/fw-announcements/nr15-059f/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.721331%2C-156.447401",
+    metrics: { signal: 5, ease: 5, safety: 4 },
+  },
+  {
+    id: "shearwater-molokini",
+    creatureId: "wedge-tailed-shearwater",
+    name: "Molokini · view from a lawful boat",
+    coordinates: "20.632871, -156.496028",
+    driveMinutes: 20,
+    reason:
+      "DLNR identifies ʻuaʻu kani as Molokini’s main seabird residents, so the crossing is the strongest open-water scan.",
+    parking:
+      "Use the operator’s assigned harbor check-in and parking instructions; there is no public landing on the islet.",
+    timing:
+      "Watch the air and water on an existing lawful crossing—do not book solely for a bird sighting.",
+    caveat:
+      "Molokini is a closed seabird sanctuary: no landing or climbing. Boat access and wildlife are never assured.",
+    evidence: "documented site",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi DLNR · Maui offshore islet sanctuaries",
+    sourceUrl:
+      "https://dlnr.hawaii.gov/wildlife/sanctuaries/mauioffshoreislets/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.632871%2C-156.496028",
+    metrics: { signal: 5, ease: 1, safety: 4 },
+  },
+  {
+    id: "bat-mana-kai",
+    creatureId: "hawaiian-hoary-bat",
+    name: "Mana Kai · open sky at dusk",
+    coordinates: "20.704932, -156.446466",
+    driveMinutes: 0,
+    reason:
+      "The right first move is no move: watch the open sky near trees from the family’s own grounds.",
+    parking: "No drive or special parking; observe from a lawful common area.",
+    timing: "Ten quiet minutes around dusk; look for solitary, erratic flight.",
+    caveat:
+      "Low-confidence habitat watch only. DLNR’s seasonal detail is from Hawaiʻi Island, not a Maui-site promise.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi DLNR · ʻōpeʻapeʻa ecology",
+    sourceUrl: "https://dlnr.hawaii.gov/wildlife/opeapea/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+    metrics: { signal: 1, ease: 5, safety: 5 },
+  },
+  {
+    id: "bat-kalama",
+    creatureId: "hawaiian-hoary-bat",
+    name: "Kalama Park · open lawn at dusk",
+    coordinates: "20.731544, -156.453037",
+    driveMinutes: 9,
+    reason:
+      "A large public park with mature landscaping and open sky gives a clear flight silhouette without entering habitat.",
+    parking: "Use one of the County park’s four lots; 282 spaces are listed.",
+    timing: "Dusk only when already nearby; remain in lit public areas.",
+    caveat:
+      "Low-confidence habitat watch, not a known roost. Never touch a grounded bat.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Kalama Park access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Kalama-Park-207",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.731544%2C-156.453037",
+    metrics: { signal: 1, ease: 4, safety: 4 },
+  },
+  {
+    id: "chicken-mana-kai",
+    creatureId: "red-junglefowl",
+    name: "Mana Kai · lawns and parking edge",
+    coordinates: "20.704932, -156.446466",
+    driveMinutes: 0,
+    reason:
+      "Begin on site: ordinary lawns and paved edges are the lowest-effort place to notice feral chickens without feeding them.",
+    parking: "No drive; observe only from lawful resort common areas.",
+    timing: "Early morning, when calls make birds easier to locate.",
+    caveat:
+      "No individual bird is guaranteed. Keep away from hens with chicks and never feed them.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Nature · Hawaiian feral chicken genetics",
+    sourceUrl: "https://www.nature.com/articles/s41437-022-00589-z",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+    metrics: { signal: 3, ease: 5, safety: 5 },
+  },
+  {
+    id: "chicken-kalama",
+    creatureId: "red-junglefowl",
+    name: "Kalama Park · open lawns",
+    coordinates: "20.731544, -156.453037",
+    driveMinutes: 9,
+    reason:
+      "Large public lawns and four parking lots make this an easy incidental check during another Kīhei stop.",
+    parking:
+      "Use any signed County park lot; do not stop traffic to watch a bird.",
+    timing: "Morning, paired with the playground or coastal walk.",
+    caveat:
+      "Access is documented; animal presence is not. Watch, do not feed or corner.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Kalama Park access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Kalama-Park-207",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.731544%2C-156.453037",
+    metrics: { signal: 2, ease: 5, safety: 5 },
+  },
+  {
+    id: "zebra-dove-mana-kai",
+    creatureId: "zebra-dove",
+    name: "Mana Kai · lawn edge",
+    coordinates: "20.704932, -156.446466",
+    driveMinutes: 0,
+    reason:
+      "Listen first from the resort grounds; the soft rising call is more useful than driving to a speculative hotspot.",
+    parking:
+      "No drive; stay in lawful common areas and keep away from occupied rooms.",
+    timing: "Quiet morning, watching the ground beneath trees and shrubs.",
+    caveat:
+      "Low-confidence watch only. Do not feed birds around patios or parking areas.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Hawaiʻi Public Radio · Zebra dove field marks",
+    sourceUrl:
+      "https://www.hawaiipublicradio.org/podcast/manu-minute/2022-10-06/manu-minute-the-zebra-dove",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+    metrics: { signal: 3, ease: 5, safety: 5 },
+  },
+  {
+    id: "zebra-dove-kalama",
+    creatureId: "zebra-dove",
+    name: "Kalama Park · mature landscaping",
+    coordinates: "20.731544, -156.453037",
+    driveMinutes: 9,
+    reason:
+      "The park’s open lawns and mature landscaping make an easy secondary listen while doing something else nearby.",
+    parking:
+      "Use one of four signed County lots; the park lists ample parking.",
+    timing: "Morning; listen beneath ambient road and playground noise.",
+    caveat:
+      "Access is documented, not dove abundance. Never bait birds with food.",
+    evidence: "low-confidence watch",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Kalama Park access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Kalama-Park-207",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.731544%2C-156.453037",
+    metrics: { signal: 2, ease: 5, safety: 5 },
+  },
+] satisfies CreaturePlace[];

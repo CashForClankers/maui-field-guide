@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { creatures } from "../data/creatures";
+import { creaturePlaces, creatures } from "../data/creatures";
 import { basePath } from "../lib/paths";
+import { rankedCreaturePlaces } from "../lib/rank";
 
 const getCreature = (id: string) => {
   const creature = creatures.find((item) => item.id === id);
@@ -22,6 +23,11 @@ const habitatFilters = [
   ["wetland", "Wetland"],
   ["resort grounds", "Resort & dusk"],
 ] as const;
+
+const getCreaturePlaces = (creatureId: string) =>
+  rankedCreaturePlaces(
+    creaturePlaces.filter((place) => place.creatureId === creatureId),
+  );
 ---
 
 <Layout
@@ -34,7 +40,8 @@ const habitatFilters = [
       <h1>Know what you’re looking at.</h1>
       <p>
         Real photos, small science, and ethical places to look beyond Mana Kai.
-        These are possibilities—not animals owed to us by the island.
+        Every animal now has ranked exact pins and parking notes. These are
+        possibilities—not animals owed to us by the island.
       </p>
     </div>
     <div class="creature-collage" aria-label="Featured Maui wildlife">
@@ -160,14 +167,88 @@ const habitatFilters = [
                 <dd>{creature.safety}</dd>
               </div>
             </dl>
+            <section
+              class="creature-places"
+              aria-labelledby={`${creature.id}-places-title`}
+            >
+              <div class="creature-places-head">
+                <div>
+                  <p class="eyebrow">Ranked field map</p>
+                  <h3 id={`${creature.id}-places-title`}>Best places to try</h3>
+                </div>
+                <p>Ranked by evidence, access, safety, and drive.</p>
+              </div>
+              <ol>
+                {getCreaturePlaces(creature.id).map((place, placeIndex) => (
+                  <li class="creature-place">
+                    <a
+                      class="creature-place-map"
+                      href={place.mapUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open map for ranked place ${placeIndex + 1}: ${place.name}`}
+                    >
+                      <span class="creature-place-pin" aria-hidden="true">
+                        {placeIndex + 1}
+                      </span>
+                      <span>Open exact pin</span>
+                      {place.coordinates && <small>{place.coordinates}</small>}
+                    </a>
+                    <div class="creature-place-copy">
+                      <div class="creature-place-title">
+                        <div>
+                          <span>#{placeIndex + 1}</span>
+                          <h4>{place.name}</h4>
+                        </div>
+                        <span
+                          class={`evidence evidence-${place.evidence.replaceAll(" ", "-")}`}
+                        >
+                          {place.evidence}
+                        </span>
+                      </div>
+                      <p>{place.reason}</p>
+                      <dl>
+                        <div>
+                          <dt>Drive</dt>
+                          <dd>
+                            {place.driveMinutes === 0
+                              ? "Walk / on site"
+                              : `≈ ${place.driveMinutes} min`}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>Park / enter</dt>
+                          <dd>{place.parking}</dd>
+                        </div>
+                        <div>
+                          <dt>Best try</dt>
+                          <dd>{place.timing}</dd>
+                        </div>
+                      </dl>
+                      <p class="creature-place-caveat">{place.caveat}</p>
+                      <a
+                        class="creature-place-source"
+                        href={place.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Access evidence · {place.sourceLabel}
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
             <div class="creature-actions">
               <a
                 class="button primary"
-                href={creature.mapUrl}
+                href={
+                  getCreaturePlaces(creature.id)[0]?.mapUrl ?? creature.mapUrl
+                }
                 target="_blank"
                 rel="noreferrer"
               >
-                Open place
+                Open #1 map
               </a>
               <a
                 class="button secondary"
@@ -197,9 +278,10 @@ const habitatFilters = [
 
   <section class="source-panel wrap">
     <p>
-      Science checked against NOAA Fisheries, Hawaiʻi DLNR, NOAA Ocean Service,
-      Hawaiʻi Sea Grant, and the U.S. Fish & Wildlife Service on July 3, 2026.
-      Conditions and sightings are never guaranteed.
+      Science and access checked against NOAA Fisheries, Hawaiʻi DLNR, Maui
+      County, NOAA Ocean Service, Hawaiʻi Sea Grant, and the U.S. Fish &
+      Wildlife Service on July 3, 2026. Coordinates are map pins, not wildlife
+      locations. Conditions and sightings are never guaranteed.
     </p>
     <a class="button primary" href={`${basePath}discover/`}>Plan one stop</a>
   </section>

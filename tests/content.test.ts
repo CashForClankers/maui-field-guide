@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { experiences } from "../src/data/experiences";
-import { creatures } from "../src/data/creatures";
+import { creaturePlaces, creatures } from "../src/data/creatures";
 import { dailyBrief } from "../src/data/daily";
 import { calendarOptions } from "../src/data/events";
 import { localAnchors } from "../src/data/locals";
@@ -10,9 +10,11 @@ import { fieldMissions } from "../src/data/missions";
 import { fruitSources } from "../src/data/sourcing";
 import {
   rankedCalendarOptions,
+  rankedCreaturePlaces,
   rankedExperiences,
   rankedLocalAnchors,
   rankCalendarOption,
+  rankCreaturePlace,
   rankExperience,
   rankLocalAnchor,
 } from "../src/lib/rank";
@@ -188,6 +190,49 @@ test("creature guide keeps science, safety, maps, and photo rights visible", () 
     assert.ok(creature.photoCredit.length >= 8);
     assert.ok(creature.photoLicense.length >= 8);
     assert.ok(creature.safety.length >= 40);
+  }
+});
+
+test("every creature has ranked, sourced field-map options", () => {
+  const creatureIds = new Set(creatures.map((creature) => creature.id));
+  const placeIds = new Set<string>();
+  for (const place of creaturePlaces) {
+    assert.equal(placeIds.has(place.id), false, `duplicate place: ${place.id}`);
+    placeIds.add(place.id);
+    assert.ok(
+      creatureIds.has(place.creatureId),
+      `${place.id} references missing creature ${place.creatureId}`,
+    );
+    assert.match(place.sourceUrl, /^https:\/\//);
+    assert.match(place.mapUrl, /^https:\/\/www\.google\.com\/maps\/search/);
+    assert.match(place.verifiedAt, /^2026-\d{2}-\d{2}$/);
+    assert.ok(place.parking.length >= 30, `${place.id} parking is too vague`);
+    assert.ok(place.caveat.length >= 40, `${place.id} caveat is too weak`);
+    for (const [name, value] of Object.entries(place.metrics)) {
+      assert.ok(value >= 0 && value <= 5, `${place.id}.${name}=${value}`);
+    }
+    const score = rankCreaturePlace(place);
+    assert.ok(score >= 0 && score <= 100, `${place.id} score=${score}`);
+  }
+
+  for (const creature of creatures) {
+    const sourceOrder = creaturePlaces.filter(
+      (place) => place.creatureId === creature.id,
+    );
+    const firstOriginal = sourceOrder[0]?.id;
+    assert.ok(
+      sourceOrder.length >= 2,
+      `${creature.id} needs at least two places`,
+    );
+    const ranked = rankedCreaturePlaces(sourceOrder);
+    assert.equal(sourceOrder[0]?.id, firstOriginal);
+    for (let index = 1; index < ranked.length; index += 1) {
+      assert.ok(
+        rankCreaturePlace(ranked[index - 1]!) >=
+          rankCreaturePlace(ranked[index]!),
+        `${creature.id} place ranking inversion at ${index}`,
+      );
+    }
   }
 });
 

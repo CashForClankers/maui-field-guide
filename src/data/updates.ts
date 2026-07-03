@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-03",
+    title: "Every animal now opens an exact ranked field map",
+    note: "Wildlife cards now rank two practical observation places by evidence, access, safety, and drive. Each shows an exact pin when verified, the closest lawful parking or entry, timing, access evidence, and an explicit confidence label—without treating a map pin as a promised sighting.",
+    experienceIds: ["kealia-pond", "keawakapu-reef-ritual"],
+  },
+  {
+    date: "2026-07-03",
     title: "A daily adventure—and four separate research lanes",
     note: "The Daily page now turns Keālia into a concrete dawn bird-detective mission with a three-step field plan and NOAA fallback. A new four-lane pulse keeps adventure, experience, give-back, and closure research visible without letting one broad scout flatten them together.",
     experienceIds: ["kealia-pond", "noaa-sanctuary-center"],

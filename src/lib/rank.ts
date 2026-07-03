@@ -2,9 +2,38 @@ import type {
   CalendarOption,
   Confidence,
   CostBand,
+  CreaturePlace,
   Experience,
   LocalAnchor,
 } from "../data/types";
+
+const creatureEvidencePoints: Record<CreaturePlace["evidence"], number> = {
+  "documented site": 18,
+  "official habitat fit": 10,
+  "low-confidence watch": 2,
+};
+
+export function rankCreaturePlace(place: CreaturePlace): number {
+  const proximity = Math.max(0, 20 - place.driveMinutes / 2);
+  const raw =
+    place.metrics.signal * 7 +
+    place.metrics.ease * 5 +
+    place.metrics.safety * 4 +
+    proximity +
+    creatureEvidencePoints[place.evidence];
+
+  return Math.round(Math.max(0, Math.min(100, raw / 1.15)));
+}
+
+export function rankedCreaturePlaces(places: CreaturePlace[]): CreaturePlace[] {
+  return [...places].sort((a, b) => {
+    const scoreDelta = rankCreaturePlace(b) - rankCreaturePlace(a);
+    if (scoreDelta !== 0) return scoreDelta;
+    if (a.driveMinutes !== b.driveMinutes)
+      return a.driveMinutes - b.driveMinutes;
+    return a.name.localeCompare(b.name);
+  });
+}
 
 const confidencePoints: Record<Confidence, number> = {
   primary: 6,

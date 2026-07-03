@@ -69,6 +69,15 @@ export const dailyBrief = {
   ],
   checks: [
     {
+      label: "Wildlife field maps",
+      status: "new",
+      detail:
+        "Every creature now has two ranked observation access points with exact pins when verified, parking or entry instructions, and an evidence label that separates documented sites from habitat fits and low-confidence watches.",
+      sourceLabel: "Maui County · Ulua–Mōkapu access",
+      sourceUrl:
+        "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    },
+    {
       label: "Closest exact event",
       status: "confirmed",
       detail:

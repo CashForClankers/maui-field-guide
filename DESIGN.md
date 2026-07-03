@@ -69,6 +69,7 @@ Use local system fonts for instant loading.
 - **Research pulse:** four compact, labeled lanes—adventure, experience, give-back, and closure—so freshness work remains visibly orthogonal.
 - **Field Passport:** a dark, edge-to-edge gallery band shared by every page. It begins collapsed, shows device-local progress, and expands into six 44px-target missions that connect otherwise separate site sections.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
+- **Creature field maps:** every animal gets a ranked in-card place list. Each place leads with a large tappable schematic map tile, numbered exact pin, coordinates when verified, drive, parking, timing, access evidence, and a visible confidence label. Ranking comes from evidence, ease, safety, and proximity—not anecdotal sighting promises.
 
 ## 5. Layout Principles
 
