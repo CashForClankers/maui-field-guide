@@ -136,6 +136,24 @@ test("daily brief stays current, sourced, and linked to a calendar option", () =
     `daily top finding references missing event ${dailyBrief.topFinding.eventId}`,
   );
   assert.ok(dailyBrief.checks.length >= 1);
+  assert.ok(
+    experiences.some(
+      (experience) => experience.id === dailyBrief.adventure.experienceId,
+    ),
+    `daily adventure references missing experience ${dailyBrief.adventure.experienceId}`,
+  );
+  assert.equal(dailyBrief.adventure.fieldPlan.length, 3);
+  assert.equal(dailyBrief.researchPulse.length, 4);
+  assert.deepEqual(
+    new Set(dailyBrief.researchPulse.map((item) => item.lane)),
+    new Set(["adventure", "experience", "give-back", "closure"]),
+  );
+  assert.match(dailyBrief.adventure.sourceUrl, /^https:\/\//);
+  assert.match(dailyBrief.adventure.accessSourceUrl, /^https:\/\//);
+  for (const item of dailyBrief.researchPulse) {
+    assert.match(item.sourceUrl, /^https:\/\//);
+    assert.ok(item.finding.length >= 30);
+  }
   for (const item of [...dailyBrief.checks, ...dailyBrief.watch]) {
     assert.match(item.sourceUrl, /^https:\/\//);
     assert.ok(item.detail.length >= 30);

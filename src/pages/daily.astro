@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { dailyBrief } from "../data/daily";
 import { calendarOptions } from "../data/events";
+import { experiences } from "../data/experiences";
 import { updates } from "../data/updates";
 import { basePath } from "../lib/paths";
 import { rankedCalendarOptions, rankCalendarOption } from "../lib/rank";
@@ -10,6 +11,9 @@ const previousUpdates = updates.filter(
   (update) => update.date !== dailyBrief.date,
 );
 const mustSee = rankedCalendarOptions(calendarOptions).slice(0, 5);
+const dailyAdventure = experiences.find(
+  (experience) => experience.id === dailyBrief.adventure.experienceId,
+)!;
 ---
 
 <Layout
@@ -43,6 +47,73 @@ const mustSee = rankedCalendarOptions(calendarOptions).slice(0, 5);
     >
       {dailyBrief.topFinding.action}
     </a>
+  </section>
+
+  <section class="daily-adventure wrap" aria-labelledby="daily-adventure-title">
+    <div class="daily-adventure-lead">
+      <p class="eyebrow">Adventure of the day</p>
+      <h2 id="daily-adventure-title">{dailyBrief.adventure.title}</h2>
+      <p>{dailyBrief.adventure.pitch}</p>
+      <div class="daily-adventure-meta" aria-label="Adventure logistics">
+        <span>{dailyAdventure.driveMinutes} min from base</span>
+        <span>{dailyAdventure.cost}</span>
+        <span>{dailyAdventure.duration}</span>
+      </div>
+      <a
+        class="button primary"
+        href={`${basePath}discover/#${dailyAdventure.id}`}
+      >
+        Open full field notes
+      </a>
+    </div>
+    <div class="daily-adventure-plan">
+      <p class="eyebrow">Three-step field plan</p>
+      <ol>
+        {dailyBrief.adventure.fieldPlan.map((step) => <li>{step}</li>)}
+      </ol>
+      <p><strong>Plan B:</strong> {dailyBrief.adventure.planB}</p>
+      <a href={dailyBrief.adventure.sourceUrl} target="_blank" rel="noreferrer">
+        {dailyBrief.adventure.sourceLabel} ↗
+      </a>
+      <a
+        href={dailyBrief.adventure.accessSourceUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {dailyBrief.adventure.accessSourceLabel} ↗
+      </a>
+    </div>
+  </section>
+
+  <section class="section wrap daily-pulse" aria-labelledby="daily-pulse-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Experience research</p>
+        <h2 id="daily-pulse-title">Today’s four-lane pulse</h2>
+      </div>
+      <p>
+        Separate lanes prevent a calendar check from crowding out a better
+        adventure, local connection, or closure warning.
+      </p>
+    </div>
+    <div class="daily-pulse-grid">
+      {
+        dailyBrief.researchPulse.map((item) => (
+          <article>
+            <div class="daily-check-topline">
+              <span>{item.lane}</span>
+              <small class:list={[`daily-status-${item.status}`]}>
+                {item.status}
+              </small>
+            </div>
+            <p>{item.finding}</p>
+            <a href={item.sourceUrl} target="_blank" rel="noreferrer">
+              {item.sourceLabel} ↗
+            </a>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   <section

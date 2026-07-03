@@ -12,6 +12,7 @@ const score = rankExperience(experience);
 const fresh = isFresh(experience);
 const kindLabels = {
   ocean: "Ocean",
+  adventure: "On the water",
   wildlife: "Wildlife",
   birds: "Bird life",
   fruit: "Fruit",
@@ -30,6 +31,7 @@ const searchable = [
 ---
 
 <article
+  id={experience.id}
   class:list={["experience-card", `kind-${experience.kind}`, { compact }]}
   data-card
   data-kind={experience.kind}

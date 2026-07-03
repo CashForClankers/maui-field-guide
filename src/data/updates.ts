@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-03",
+    title: "A daily adventure—and four separate research lanes",
+    note: "The Daily page now turns Keālia into a concrete dawn bird-detective mission with a three-step field plan and NOAA fallback. A new four-lane pulse keeps adventure, experience, give-back, and closure research visible without letting one broad scout flatten them together.",
+    experienceIds: ["kealia-pond", "noaa-sanctuary-center"],
+  },
+  {
+    date: "2026-07-03",
     title: "A field passport—and six more animals to notice",
     note: "Every page now carries six device-local family missions connecting wildlife, fruit, local people, stewardship, and safety. The wildlife guide grows from five to eleven sourced animals—including naiʻa, heʻe, ʻuaʻu kani, and ʻopeʻapeʻa—with habitat filters, while homepage event and local shortlists now come directly from ranking functions.",
     experienceIds: ["kealia-pond", "south-maui-gardens-market"],

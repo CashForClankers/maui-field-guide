@@ -65,6 +65,8 @@ Use local system fonts for instant loading.
 - **Flexible calendar reminder:** “Add to calendar” expands trip-day pills with 44px targets; downloads are all-day planning reminders and put the suggested window in the notes.
 - **New marker:** coral pill with a visible date, never an unexplained dot.
 - **Daily brief:** one decisive finding first, followed by compact source-check cards, an explicit watch band, and a chronological research log.
+- **Daily adventure:** one practical field mission with visible drive, cost, duration, a three-step plan, and a lower-friction fallback.
+- **Research pulse:** four compact, labeled lanes—adventure, experience, give-back, and closure—so freshness work remains visibly orthogonal.
 - **Field Passport:** a dark, edge-to-edge gallery band shared by every page. It begins collapsed, shows device-local progress, and expands into six 44px-target missions that connect otherwise separate site sections.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 

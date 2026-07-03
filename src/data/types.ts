@@ -1,5 +1,12 @@
 export type ExperienceKind =
-  "ocean" | "wildlife" | "birds" | "fruit" | "farm" | "plants" | "culture";
+  | "ocean"
+  | "adventure"
+  | "wildlife"
+  | "birds"
+  | "fruit"
+  | "farm"
+  | "plants"
+  | "culture";
 
 export type Confidence = "primary" | "mixed" | "verify";
 
@@ -117,6 +124,24 @@ export interface DailyBrief {
     eventId: string;
     action: string;
   };
+  adventure: {
+    experienceId: string;
+    title: string;
+    pitch: string;
+    fieldPlan: string[];
+    planB: string;
+    sourceLabel: string;
+    sourceUrl: string;
+    accessSourceLabel: string;
+    accessSourceUrl: string;
+  };
+  researchPulse: {
+    lane: "adventure" | "experience" | "give-back" | "closure";
+    status: "new" | "confirmed" | "watch";
+    finding: string;
+    sourceLabel: string;
+    sourceUrl: string;
+  }[];
   checks: {
     label: string;
     status: "new" | "confirmed" | "watch";

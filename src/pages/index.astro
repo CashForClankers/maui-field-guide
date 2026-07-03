@@ -2,6 +2,7 @@
 import ExperienceCard from "../components/ExperienceCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { creatures } from "../data/creatures";
+import { dailyBrief } from "../data/daily";
 import { calendarOptions } from "../data/events";
 import { experiences } from "../data/experiences";
 import { site, tripRhythm } from "../data/site";
@@ -93,11 +94,11 @@ const latestUpdate = updates[0]!;
       <p class="eyebrow">New · creature field guide</p>
       <h2>See more because you know what to notice.</h2>
       <p>
-        Five real Maui animals, photographed and explained for curious kids:
+        Eleven real Maui animals, photographed and explained for curious kids:
         field marks, small science, where to look, and how much room to give.
       </p>
       <a class="button primary" href={`${basePath}creatures/`}
-        >Meet the five creatures</a
+        >Meet the eleven creatures</a
       >
     </div>
     <div class="wildlife-preview">
@@ -131,6 +132,30 @@ const latestUpdate = updates[0]!;
       </div>
       <a href={`${basePath}daily/`}>Open today’s brief →</a>
     </div>
+  </section>
+
+  <section
+    class="home-daily-pulse wrap"
+    aria-labelledby="home-daily-pulse-title"
+  >
+    <div>
+      <p class="eyebrow">Today’s adventure pulse</p>
+      <h2 id="home-daily-pulse-title">{dailyBrief.adventure.title}</h2>
+      <p>{dailyBrief.adventure.pitch}</p>
+      <a class="button primary" href={`${basePath}daily/`}
+        >Open the field plan</a
+      >
+    </div>
+    <ul aria-label="Daily research lanes">
+      {
+        dailyBrief.researchPulse.map((item) => (
+          <li>
+            <span>{item.lane}</span>
+            <strong>{item.status}</strong>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <section class="local-home wrap">

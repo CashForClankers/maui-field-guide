@@ -14,6 +14,59 @@ export const dailyBrief = {
     eventId: "kam-iii-goat-movie",
     action: "Add the free movie night",
   },
+  adventure: {
+    experienceId: "kealia-pond",
+    title: "Keālia sunrise bird detective",
+    pitch:
+      "Use the coastal boardwalk as a 45-minute family field mission: find the pink legs of an aeʻo, the white shield of an ʻalae keʻokeʻo, and one sign that this wetland is a nursery—not empty land.",
+    fieldPlan: [
+      "Arrive near the 6:30am boardwalk opening, before heat and the rest of the day build.",
+      "Let each kid choose one field mark, one behavior, and one question; photograph without approaching wildlife.",
+      "Treat every closure rope and sign as part of the lesson: aeʻo breeding and fledging can restrict pond access through July.",
+    ],
+    planB:
+      "If access, weather, or family energy is wrong, use the free NOAA Kīhei visitor center on a weekday from 9:30am–2:30pm.",
+    sourceLabel: "USFWS breeding-season guidance",
+    sourceUrl: "https://www.fws.gov/refuge/kealia-pond/species",
+    accessSourceLabel: "USFWS hours and access",
+    accessSourceUrl: "https://www.fws.gov/refuge/kealia-pond/visit-us",
+  },
+  researchPulse: [
+    {
+      lane: "adventure",
+      status: "new",
+      finding:
+        "Keālia now has an explicit dawn field plan built around resident aeʻo and ʻalae keʻokeʻo, not an unrealistic summer migrant checklist.",
+      sourceLabel: "U.S. Fish & Wildlife Service",
+      sourceUrl: "https://www.fws.gov/refuge/kealia-pond/species",
+    },
+    {
+      lane: "experience",
+      status: "confirmed",
+      finding:
+        "The free NOAA Kīhei visitor center remains the strongest low-effort indoor marine-learning fallback, open weekdays 9:30am–2:30pm.",
+      sourceLabel: "NOAA Sanctuary",
+      sourceUrl:
+        "https://hawaiihumpbackwhale.noaa.gov/visit/visitor-centers.html",
+    },
+    {
+      lane: "give-back",
+      status: "confirmed",
+      finding:
+        "Hawaiʻi Land Trust still publishes the July 11 Waiheʻe loko iʻa kalo workday, 8am–noon, with a direct registration path.",
+      sourceLabel: "Hawaiʻi Land Trust",
+      sourceUrl: "https://www.hilt.org/volunteer",
+    },
+    {
+      lane: "closure",
+      status: "watch",
+      finding:
+        "ʻĪao Valley remains closed through July 17, so it stays out of the trip calendar despite its normal reservation details.",
+      sourceLabel: "Hawaiʻi DLNR",
+      sourceUrl:
+        "https://dlnr.hawaii.gov/dsp/parks/maui/iao-valley-state-monument/",
+    },
+  ],
   checks: [
     {
       label: "Closest exact event",

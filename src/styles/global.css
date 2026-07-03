@@ -1154,6 +1154,10 @@ input {
   background: var(--tidepool);
 }
 
+.kind-adventure .specimen-band {
+  background: var(--coral);
+}
+
 .kind-wildlife .specimen-band,
 .kind-birds .specimen-band {
   background: var(--bird);
@@ -3172,6 +3176,170 @@ input {
   color: var(--muted);
 }
 
+.daily-adventure {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 1px;
+  margin-block: 28px 18px;
+  overflow: hidden;
+  border: 1px solid var(--ocean);
+  border-radius: 28px;
+  background: var(--ocean);
+  box-shadow: var(--shadow);
+}
+
+.daily-adventure-lead,
+.daily-adventure-plan {
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.daily-adventure-lead {
+  color: white;
+  background: var(--ocean);
+}
+
+.daily-adventure-lead .eyebrow {
+  color: var(--mango);
+}
+
+.daily-adventure-lead h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 5vw, 4.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.daily-adventure-lead > p:not(.eyebrow) {
+  max-width: 680px;
+  color: rgb(255 255 255 / 78%);
+}
+
+.daily-adventure-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 22px;
+}
+
+.daily-adventure-meta span {
+  padding: 8px 11px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.daily-adventure-plan {
+  background: var(--shell);
+}
+
+.daily-adventure-plan ol {
+  margin: 20px 0 24px;
+  padding-left: 24px;
+}
+
+.daily-adventure-plan li {
+  padding: 0 0 15px 8px;
+  color: var(--muted);
+}
+
+.daily-adventure-plan > p {
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+}
+
+.daily-adventure-plan > a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--ocean);
+  font-weight: 800;
+}
+
+.daily-pulse {
+  padding-block: 54px 18px;
+}
+
+.daily-pulse-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.daily-pulse-grid article {
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  background: var(--shell);
+}
+
+.daily-pulse-grid article > p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.daily-pulse-grid article > a {
+  min-height: 44px;
+  align-content: center;
+  margin-top: auto;
+  color: var(--ocean);
+  font-weight: 800;
+}
+
+.home-daily-pulse {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: clamp(32px, 7vw, 88px);
+  padding-block: clamp(54px, 8vw, 96px);
+}
+
+.home-daily-pulse h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--ocean);
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.home-daily-pulse > div > p:not(.eyebrow) {
+  max-width: 680px;
+  color: var(--muted);
+}
+
+.home-daily-pulse ul {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--hairline);
+  list-style: none;
+}
+
+.home-daily-pulse li {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-daily-pulse li strong {
+  color: var(--coral-pressed);
+}
+
 .daily-section {
   padding-top: 54px;
 }
@@ -3415,11 +3583,20 @@ input {
   color: rgb(255 255 255 / 75%);
 }
 
+@media (max-width: 980px) and (min-width: 721px) {
+  .daily-pulse-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .daily-hero,
   .daily-top,
+  .daily-adventure,
+  .daily-pulse-grid,
   .daily-check-grid,
-  .daily-watch-list {
+  .daily-watch-list,
+  .home-daily-pulse {
     grid-template-columns: 1fr;
   }
 
@@ -3433,6 +3610,10 @@ input {
   }
 
   .daily-check-card {
+    min-height: 0;
+  }
+
+  .daily-pulse-grid article {
     min-height: 0;
   }
 

@@ -19,7 +19,7 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 9. Re-check creature population claims and wildlife distances against NOAA, USFWS, Hawaiʻi DLNR, or University of Hawaiʻi sources. Preserve the displayed photo credit, license, and original record whenever a photo changes.
 10. Re-check local-anchor availability, public contact paths, prices, and workday schedules. Keep only direct official sources and never imply that a lead is a confirmed reservation.
 11. Search for one date-fit chance to meet a named public local host or small team, join a public community workday, or directly support a Maui-led project. Require a direct source, public confirmation path, family fit, travel friction from Mana Kai, and a plain explanation of where support goes.
-12. Use read-only agent CLIs as lead generators only, each at most once and in parallel when possible: `gemini -p` and `claude -p` for fresh-lead research, `agy -p` for an independent review pass, and `codex exec` only when a deeper second opinion is needed. Use each only when it is installed and authenticated; if one is missing or rate limited, skip it and note it. Treat all output as unverified leads, confirm every claim directly against primary sources, and never retry a failure in a loop.
+12. Consume `research/.daily-adventure-handoff.md` when it exists and is dated today. The 4:50am command cron produces it with Agy research and one Claude Code plan-mode fallback, so the publisher must not call those CLIs again for the same lead search. Treat the handoff as unverified leads, confirm every useful claim directly against primary sources, and ignore stale handoffs. Use `codex exec` only when a deeper second opinion is genuinely needed. If the handoff is missing or a provider is rate limited, note that once and continue without retry loops.
 13. Improvements are not limited to events. Once the calendar is current, raise value anywhere it is genuinely warranted — discovery/experiences, the creature guide, the fruit page and its freshest-source list, local anchors, rules, plus copy, accessibility, performance, and small UX polish — always within these rules and with minimal, reversible diffs.
 14. Update `src/data/daily.ts` with the current scout date, strongest finding, direct-source checks, and active watch items; add one update entry describing what changed and why it matters. The Telegram status must lead with the single coolest change and its live URL.
 15. Run `npm run verify`.
@@ -27,6 +27,12 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 17. Apply the pocket evals in `/Users/bestrobot/setup-mac/.agents/skills/maui-field-guide-daily/SKILL.md`; do not publish work a person cannot verify.
 18. If there is no meaningful change, do not commit.
 19. If changed and verified, commit with `Daily Maui refresh: YYYY-MM-DD`, push `main`, and confirm the Pages workflow started.
+
+## Orthogonal automation lanes
+
+- **4:50am · adventure research:** `scripts/cron-adventure-research.sh` asks Agy for current leads and falls back once to Claude Code plan mode. It writes an ignored, date-stamped handoff and never edits published data.
+- **5:35am · evidence + publish:** the OpenClaw/Codex scout consumes the handoff, independently verifies sources, makes minimal site changes, runs the full verification suite, and publishes only meaningful work.
+- **6:30am · live QA:** `scripts/cron-live-qa.sh` asks Claude Code for a read-only check of the deployed site and Pages state. It cannot edit, commit, push, or trigger workflows.
 
 ## Seasonal questions
 
