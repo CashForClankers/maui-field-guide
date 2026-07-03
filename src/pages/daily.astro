@@ -1,12 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { dailyBrief } from "../data/daily";
+import { calendarOptions } from "../data/events";
 import { updates } from "../data/updates";
 import { basePath } from "../lib/paths";
+import { rankedCalendarOptions, rankCalendarOption } from "../lib/rank";
 
 const previousUpdates = updates.filter(
   (update) => update.date !== dailyBrief.date,
 );
+const mustSee = rankedCalendarOptions(calendarOptions).slice(0, 5);
 ---
 
 <Layout
@@ -40,6 +43,54 @@ const previousUpdates = updates.filter(
     >
       {dailyBrief.topFinding.action}
     </a>
+  </section>
+
+  <section
+    class="section wrap daily-ranking"
+    aria-labelledby="daily-ranking-title"
+  >
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Ranked for this trip</p>
+        <h2 id="daily-ranking-title">What you should totally see.</h2>
+      </div>
+      <p>
+        Recomputed from kid payoff, Maui meaning, value, certainty, distance,
+        and parent effort.
+      </p>
+    </div>
+    <ol>
+      {
+        mustSee.map((option, index) => {
+          const score = rankCalendarOption(option);
+          return (
+            <li>
+              <span class="daily-rank-number" aria-hidden="true">
+                {index + 1}
+              </span>
+              <a href={`${basePath}events/#${option.id}`}>
+                <div>
+                  <strong>{option.title}</strong>
+                  <small>
+                    {option.dateLabel} · {option.driveMinutes} min from Mana Kai
+                  </small>
+                </div>
+                <span
+                  class="daily-rank-score"
+                  aria-label={`Trip fit ${score} out of 100`}
+                >
+                  {score} fit
+                </span>
+              </a>
+              <p>{option.decisionNote}</p>
+            </li>
+          );
+        })
+      }
+    </ol>
+    <a class="button secondary" href={`${basePath}events/`}
+      >See the full ranked calendar</a
+    >
   </section>
 
   <section class="section wrap daily-section">

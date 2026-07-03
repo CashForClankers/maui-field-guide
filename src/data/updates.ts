@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-07-03",
+    title: "The Daily tab now ranks the real priorities",
+    note: "The Daily page now opens a live top-five trip ranking from the same evidence model as the Events page. Today’s wildlife check also clarifies that July at Keālia is about resident aeʻo and ʻalae keʻokeʻo—with possible chicks and protective pond closures—not winter migrants.",
+    experienceIds: ["kealia-pond"],
+  },
+  {
     date: "2026-07-02",
     title: "A daily brief—and a second Saturday service choice",
     note: "The new Daily page turns each scout run into a readable briefing: what changed, what was reconfirmed, what remains closed, and the strongest new decision. Today adds Hawaiʻi Land Trust’s exact July 11 Waiheʻe loko iʻa kalo workday with direct registration and a guardian waiver for minors.",

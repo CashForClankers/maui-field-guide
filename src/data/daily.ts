@@ -1,27 +1,35 @@
 import type { DailyBrief } from "./types";
 
 export const dailyBrief = {
-  date: "2026-07-02",
-  dateLabel: "Thu · Jul 2",
-  countdown: "6 days to arrival",
-  headline: "A second real way to give back on Saturday.",
+  date: "2026-07-03",
+  dateLabel: "Fri · Jul 3",
+  countdown: "5 days to arrival",
+  headline: "The Daily tab now tells you what to prioritize.",
   summary:
-    "Hawaiʻi Land Trust now gives the family a directly registered Waiheʻe workday alongside the higher-friction Maui Cultural Lands option. Today’s source sweep also reconfirmed the closest free nature stops and the closures that should stay off the plan.",
+    "A live top-five ranking now turns the research pile into a decision list. Today’s source sweep also sharpened what wildlife to look for in July, reconfirmed the Waiheʻe workday, and kept current closures visible.",
   topFinding: {
     title: "Waiheʻe loko iʻa kalo workday",
     detail:
       "Sat Jul 11 · 8am–noon · free · about 45 min from Mana Kai · minors supported through the official guardian waiver",
     eventId: "waihee-hilt-workday",
-    action: "See the ranked calendar card",
+    action: "Review the service option",
   },
   checks: [
     {
       label: "Service",
-      status: "new",
+      status: "confirmed",
       detail:
-        "Hawaiʻi Land Trust lists the Waiheʻe workday for July 11 and links directly to registration.",
+        "Hawaiʻi Land Trust still lists the Waiheʻe loko iʻa kalo workday for July 11, 8am–noon, with direct registration.",
       sourceLabel: "Hawaiʻi Land Trust",
       sourceUrl: "https://www.hilt.org/volunteer",
+    },
+    {
+      label: "Wildlife timing",
+      status: "new",
+      detail:
+        "July is still aeʻo breeding and fledging season at Keālia. Look for resident Hawaiian stilts and coots; winter migrants arrive later, and pond areas may close to protect chicks.",
+      sourceLabel: "U.S. Fish & Wildlife Service",
+      sourceUrl: "https://www.fws.gov/refuge/kealia-pond/species",
     },
     {
       label: "Close + free",
@@ -33,20 +41,13 @@ export const dailyBrief = {
         "https://hawaiihumpbackwhale.noaa.gov/visit/visitor-centers.html",
     },
     {
-      label: "Bird stop",
+      label: "Summit",
       status: "confirmed",
       detail:
-        "Keālia’s coastal boardwalk remains open daily; the refuge’s visitor center is a separate weekday stop.",
-      sourceLabel: "U.S. Fish & Wildlife Service",
-      sourceUrl: "https://www.fws.gov/refuge/kealia-pond/visit-us",
-    },
-    {
-      label: "Evenings",
-      status: "confirmed",
-      detail:
-        "ProArts still lists Waiakoa Jul 8, Jazz Organ Summit Jul 10, Kalani Peʻa Jul 11, and Magic in Paradise Jul 12.",
-      sourceLabel: "ProArts July calendar",
-      sourceUrl: "https://proartsmaui.org/all-events/month/2026-07/",
+        "NPS lists the sunrise orientation every day through October 31; the talk is free, but sunrise entry still needs a $1 vehicle reservation plus park admission.",
+      sourceLabel: "National Park Service",
+      sourceUrl:
+        "https://www.nps.gov/planyourvisit/event-details.htm?id=632bbd02-00bc-facb-ec92627ee0c0468e",
     },
   ],
   watch: [
@@ -59,9 +60,16 @@ export const dailyBrief = {
         "https://dlnr.hawaii.gov/dsp/parks/maui/iao-valley-state-monument/",
     },
     {
-      title: "Haleakalā is open, with two caveats",
+      title: "Keālia access can protect nesting birds",
       detail:
-        "Summit sunrise still requires the $1 vehicle reservation, and NPS says the Pools of ʻOheʻo are not open for swimming.",
+        "The boardwalk is open daily, but follow all refuge closures and signs if nesting aeʻo make parts of the ponds temporarily inaccessible.",
+      sourceLabel: "U.S. Fish & Wildlife Service",
+      sourceUrl: "https://www.fws.gov/refuge/kealia-pond/visit-us",
+    },
+    {
+      title: "No swimming at the Pools of ʻOheʻo",
+      detail:
+        "NPS says the pools can be viewed from Kūloa Point Trail but remain inaccessible for swimming.",
       sourceLabel: "National Park Service alerts",
       sourceUrl: "https://www.nps.gov/hale/planyourvisit/conditions.htm",
     },

@@ -5,7 +5,7 @@ export const site = {
   tripStart: "2026-07-08",
   tripEnd: "2026-07-13",
   baseName: "Mana Kai · Keawakapu Beach",
-  lastUpdated: "2026-07-02",
+  lastUpdated: "2026-07-03",
 };
 
 export const tripRhythm = [

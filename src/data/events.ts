@@ -617,7 +617,7 @@ export const calendarOptions = [
     },
     confidence: "primary",
     addedAt: "2026-07-02",
-    verifiedAt: "2026-07-02",
+    verifiedAt: "2026-07-03",
     sourceLabel: "Hawaiʻi Land Trust",
     sourceUrl: "https://www.hilt.org/volunteer",
     mapUrl:
@@ -708,7 +708,7 @@ export const calendarOptions = [
     },
     confidence: "primary",
     addedAt: "2026-06-28",
-    verifiedAt: "2026-06-28",
+    verifiedAt: "2026-07-03",
     sourceLabel: "National Park Service",
     sourceUrl:
       "https://www.nps.gov/planyourvisit/event-details.htm?id=632BBD02-00BC-FACB-EC92627EE0C0468E",
@@ -747,7 +747,7 @@ export const calendarOptions = [
     },
     confidence: "primary",
     addedAt: "2026-06-28",
-    verifiedAt: "2026-06-27",
+    verifiedAt: "2026-07-03",
     sourceLabel: "NOAA visitor centers",
     sourceUrl:
       "https://hawaiihumpbackwhale.noaa.gov/visit/visitor-centers.html",
@@ -788,7 +788,7 @@ export const calendarOptions = [
     },
     confidence: "primary",
     addedAt: "2026-06-28",
-    verifiedAt: "2026-06-27",
+    verifiedAt: "2026-07-03",
     sourceLabel: "U.S. Fish & Wildlife Service",
     sourceUrl: "https://www.fws.gov/refuge/kealia-pond/visit-us",
     mapUrl: "https://maps.google.com/?q=Kealia+Pond+National+Wildlife+Refuge",
