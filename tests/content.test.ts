@@ -174,7 +174,7 @@ test("wildlife records always carry an explicit safety statement", () => {
 });
 
 test("creature guide keeps science, safety, maps, and photo rights visible", () => {
-  assert.ok(creatures.length >= 5);
+  assert.ok(creatures.length >= 14);
   const ids = new Set<string>();
   for (const creature of creatures) {
     assert.equal(
@@ -227,11 +227,18 @@ test("every creature has ranked, sourced field-map options", () => {
     const ranked = rankedCreaturePlaces(sourceOrder);
     assert.equal(sourceOrder[0]?.id, firstOriginal);
     for (let index = 1; index < ranked.length; index += 1) {
+      const previous = ranked[index - 1]!;
+      const current = ranked[index]!;
       assert.ok(
-        rankCreaturePlace(ranked[index - 1]!) >=
-          rankCreaturePlace(ranked[index]!),
-        `${creature.id} place ranking inversion at ${index}`,
+        previous.driveMinutes <= current.driveMinutes,
+        `${creature.id} proximity inversion at ${index}`,
       );
+      if (previous.driveMinutes === current.driveMinutes) {
+        assert.ok(
+          rankCreaturePlace(previous) >= rankCreaturePlace(current),
+          `${creature.id} evidence inversion at ${index}`,
+        );
+      }
     }
   }
 });

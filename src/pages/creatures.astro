@@ -173,10 +173,12 @@ const getCreaturePlaces = (creatureId: string) =>
             >
               <div class="creature-places-head">
                 <div>
-                  <p class="eyebrow">Ranked field map</p>
-                  <h3 id={`${creature.id}-places-title`}>Best places to try</h3>
+                  <p class="eyebrow">Closest field maps</p>
+                  <h3 id={`${creature.id}-places-title`}>
+                    Nearest places to try
+                  </h3>
                 </div>
-                <p>Ranked by evidence, access, safety, and drive.</p>
+                <p>Sorted from Mana Kai by drive, then evidence.</p>
               </div>
               <ol>
                 {getCreaturePlaces(creature.id).map((place, placeIndex) => (

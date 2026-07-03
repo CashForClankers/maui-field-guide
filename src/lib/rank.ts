@@ -27,10 +27,10 @@ export function rankCreaturePlace(place: CreaturePlace): number {
 
 export function rankedCreaturePlaces(places: CreaturePlace[]): CreaturePlace[] {
   return [...places].sort((a, b) => {
-    const scoreDelta = rankCreaturePlace(b) - rankCreaturePlace(a);
-    if (scoreDelta !== 0) return scoreDelta;
     if (a.driveMinutes !== b.driveMinutes)
       return a.driveMinutes - b.driveMinutes;
+    const scoreDelta = rankCreaturePlace(b) - rankCreaturePlace(a);
+    if (scoreDelta !== 0) return scoreDelta;
     return a.name.localeCompare(b.name);
   });
 }

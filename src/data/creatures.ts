@@ -321,6 +321,97 @@ export const creatures = [
     photoSourceUrl:
       "https://commons.wikimedia.org/wiki/File:Geopelia_striata_Big_Island_Hawaii.JPG",
   },
+  {
+    id: "moorish-idol",
+    commonName: "Moorish idol",
+    hawaiianName: "Kihikihi",
+    scientificName: "Zanclus cornutus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/moorish-idol.jpg",
+    imageAlt:
+      "A Moorish idol with bold black, white, and yellow bands swimming over reef",
+    recognition:
+      "A tall disk-shaped body crossed by black, white, and yellow bands, an orange patch on the snout, a black tail, and one long white dorsal streamer.",
+    scienceNote:
+      "Kihikihi are the only living species in their family. They are common in Hawaiʻi from rocky shallows to deep reef and use a slightly extended jaw to pull sponge and other food from crevices.",
+    kidMission:
+      "Use the color test: orange jaw plus black tail means Moorish idol. A similar bannerfish has a white jaw and yellow tail.",
+    whereToLook:
+      "Start from shore at Keawakapu beside Mana Kai, then try the compact reef edge at Ulua–Mōkapu only when the water is calm.",
+    driveMinutes: 0,
+    safety:
+      "Watch from shore first. If entering, stay over sand, keep fins off reef, and leave immediately if surf, current, visibility, or comfort changes.",
+    sourceLabel: "Waikīkī Aquarium · Moorish idol",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/fishes/moorish-idol/moorish-idol/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Diego Delso / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:%C3%8Ddolo_moro_(Zanclus_cornutus),_Anilao,_Filipinas,_2023-08-22,_DD_188.jpg",
+  },
+  {
+    id: "hawaiian-cleaner-wrasse",
+    commonName: "Hawaiian cleaner wrasse",
+    scientificName: "Labroides phthirophagus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/hawaiian-cleaner-wrasse.jpg",
+    imageAlt:
+      "A small Hawaiian cleaner wrasse with a purple body and bright yellow head",
+    recognition:
+      "Small—about four inches—with a bright yellow head fading into magenta and purple. Juveniles are black with one broad electric-blue stripe.",
+    scienceNote:
+      "This fish occurs only in the Hawaiian Islands. It runs reef cleaning stations where larger fish pause while the wrasse removes tiny crustacean parasites, mucus, and some scales.",
+    kidMission:
+      "Look for a bigger fish holding unusually still with fins, mouth, or gill covers spread. The tiny dancer nearby may be its cleaner.",
+    whereToLook:
+      "Try the closest calm reef edge from Keawakapu, then Ulua–Mōkapu. Look for cleaning behavior rather than chasing one tiny fish.",
+    driveMinutes: 0,
+    safety:
+      "Observe without surrounding a cleaning station. Stay over sand, never touch coral, and do not follow client fish or block their route away.",
+    sourceLabel: "Waikīkī Aquarium · Hawaiian cleaner wrasse",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/fishes/wrasses/hawaiian-cleaner-wrasse/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Dwayne Meadows / NOAA",
+    photoLicense: "Public domain",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Labroides_phthirophagus.jpg",
+  },
+  {
+    id: "rock-boring-urchin",
+    commonName: "Rock-boring urchin",
+    hawaiianName: "ʻIna",
+    scientificName: "Echinometra mathaei",
+    kind: "echinoderm",
+    habitat: "reef",
+    image: "creatures/rock-boring-urchin.jpg",
+    imageAlt: "A tan rock-boring urchin wedged into a shallow reef crevice",
+    recognition:
+      "A small oval urchin, usually green-gray, tan, or pink, packed into its own shallow rock hollow. Short sturdy spines radiate around five paired rows of tube feet.",
+    scienceNote:
+      "This is Hawaiʻi’s most common shallow-water urchin. Its spines and scraping jaws enlarge a natural rock hollow as it grows, while the animal grazes algae from wave-washed reef.",
+    kidMission:
+      "Without touching, count the five-part pattern. Can you spot five zones of tube feet alternating with five zones of spines?",
+    whereToLook:
+      "From Keawakapu or Ulua–Mōkapu, inspect wet rock and shallow reef crevices only from a stable, respectful position.",
+    driveMinutes: 0,
+    safety:
+      "Never pull an urchin from its hole or put hands and feet into reef crevices. Avoid wave-washed rock, sharp reef, and any water entry in poor conditions.",
+    sourceLabel: "Waikīkī Aquarium · rock-boring urchin",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/invertebrates/echinoderms/rock-boring-urchin/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Blowing Puffer Fish / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Echinometra_mathaei_BPF.jpg",
+  },
 ] satisfies Creature[];
 
 export const creaturePlaces = [
@@ -795,5 +886,138 @@ export const creaturePlaces = [
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=20.731544%2C-156.453037",
     metrics: { signal: 2, ease: 5, safety: 5 },
+  },
+  {
+    id: "moorish-idol-keawakapu",
+    creatureId: "moorish-idol",
+    name: "Keawakapu · Mana Kai reef edge",
+    coordinates: "20.704932, -156.446466",
+    driveMinutes: 0,
+    reason:
+      "The on-site reef edge is the first check because Moorish idols can forage in rocky shallows and are visible from shore when water is clear.",
+    parking:
+      "No drive: use only Mana Kai common access, or the public Keawakapu lot across South Kīhei Road at Kilohana Drive.",
+    timing: "Calm early morning; scan from dry sand before considering entry.",
+    caveat:
+      "Official habitat fit, not a site-specific sighting record. No lifeguard; never enter rough or cloudy water.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Keawakapu access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+    metrics: { signal: 4, ease: 5, safety: 3 },
+  },
+  {
+    id: "moorish-idol-ulua",
+    creatureId: "moorish-idol",
+    name: "Ulua–Mōkapu reef edge",
+    coordinates: "20.690531, -156.443670",
+    driveMinutes: 7,
+    reason:
+      "A compact, named public reef access with parking and a clear sand-to-rock boundary for a second look.",
+    parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+    timing: "Calm early morning; look low over reef and rocky shallows.",
+    caveat:
+      "No lifeguard. The species is common in Hawaiʻi, but this exact access point never guarantees an encounter.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Ulua–Mōkapu Beach Parks",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+    metrics: { signal: 4, ease: 5, safety: 3 },
+  },
+  {
+    id: "cleaner-wrasse-keawakapu",
+    creatureId: "hawaiian-cleaner-wrasse",
+    name: "Keawakapu · Mana Kai reef edge",
+    coordinates: "20.704932, -156.446466",
+    driveMinutes: 0,
+    reason:
+      "Start with the reef beside the hotel and search for the behavior—a larger fish posing still—rather than trying to chase a four-inch wrasse.",
+    parking:
+      "No drive: use Mana Kai common access, or the public Keawakapu lot across South Kīhei Road at Kilohana Drive.",
+    timing:
+      "Calm early morning with good visibility; watch one reef patch patiently.",
+    caveat:
+      "Habitat fit only. A cleaning station is never assured, and poor visibility makes this tiny fish impractical to find.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Keawakapu access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+    metrics: { signal: 2, ease: 5, safety: 3 },
+  },
+  {
+    id: "cleaner-wrasse-ulua",
+    creatureId: "hawaiian-cleaner-wrasse",
+    name: "Ulua–Mōkapu reef edge",
+    coordinates: "20.690531, -156.443670",
+    driveMinutes: 7,
+    reason:
+      "The compact reef edge is a practical second observation site for patient cleaning-station behavior.",
+    parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+    timing:
+      "Calm early morning; stay still and let fish resume normal behavior.",
+    caveat:
+      "No lifeguard. Do not crowd client fish, follow a cleaner, touch reef, or treat the map pin as a sighting report.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Ulua–Mōkapu Beach Parks",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+    metrics: { signal: 3, ease: 5, safety: 3 },
+  },
+  {
+    id: "rock-boring-urchin-keawakapu",
+    creatureId: "rock-boring-urchin",
+    name: "Keawakapu · Mana Kai reef edge",
+    coordinates: "20.704932, -156.446466",
+    driveMinutes: 0,
+    reason:
+      "The nearest lawful look is the hotel’s own reef edge, where the species’ preferred shallow rock crevices can be inspected without a special trip.",
+    parking:
+      "No drive: use Mana Kai common access, or the public Keawakapu lot across South Kīhei Road at Kilohana Drive.",
+    timing:
+      "Calm, clear water; inspect from dry sand or over sand without touching rock.",
+    caveat:
+      "Habitat fit only. Never balance on wet reef or reach into a hole; a missed sighting is safer than a closer look.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Keawakapu access",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+    metrics: { signal: 4, ease: 5, safety: 3 },
+  },
+  {
+    id: "rock-boring-urchin-ulua",
+    creatureId: "rock-boring-urchin",
+    name: "Ulua–Mōkapu reef edge",
+    coordinates: "20.690531, -156.443670",
+    driveMinutes: 7,
+    reason:
+      "A compact second reef access where shallow crevices can be scanned while keeping hands and feet away.",
+    parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+    timing:
+      "Calm early morning; look into rock hollows without stepping onto reef.",
+    caveat:
+      "No lifeguard. Urchin spines and reef can puncture skin; observation never requires touching or extraction.",
+    evidence: "official habitat fit",
+    verifiedAt: "2026-07-03",
+    sourceLabel: "Maui County · Ulua–Mōkapu Beach Parks",
+    sourceUrl:
+      "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+    metrics: { signal: 4, ease: 5, safety: 3 },
   },
 ] satisfies CreaturePlace[];

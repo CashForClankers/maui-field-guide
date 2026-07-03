@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-03",
+    title: "Three more reef creatures—now with nearest places first",
+    note: "Kihikihi, the endemic Hawaiian cleaner wrasse, and ʻina join the field guide with real photos and kid-readable behavior clues. Every animal’s maps now sort by travel time from Mana Kai first, while evidence labels still distinguish habitat fits from documented sites.",
+    experienceIds: ["keawakapu-reef-ritual"],
+  },
+  {
+    date: "2026-07-03",
     title: "Every animal now opens an exact ranked field map",
     note: "Wildlife cards now rank two practical observation places by evidence, access, safety, and drive. Each shows an exact pin when verified, the closest lawful parking or entry, timing, access evidence, and an explicit confidence label—without treating a map pin as a promised sighting.",
     experienceIds: ["kealia-pond", "keawakapu-reef-ritual"],

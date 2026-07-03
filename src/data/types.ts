@@ -207,7 +207,8 @@ export interface Creature {
     | "seabird"
     | "land bird"
     | "land mammal"
-    | "cephalopod";
+    | "cephalopod"
+    | "echinoderm";
   habitat: CreatureHabitat;
   image: string;
   imageAlt: string;

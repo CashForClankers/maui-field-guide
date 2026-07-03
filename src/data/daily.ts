@@ -69,6 +69,15 @@ export const dailyBrief = {
   ],
   checks: [
     {
+      label: "Closest wildlife",
+      status: "new",
+      detail:
+        "Kihikihi, Hawaiian cleaner wrasse, and rock-boring ʻina now start with the on-site Keawakapu reef edge, and every creature map sorts by travel time from Mana Kai before evidence breaks a tie.",
+      sourceLabel: "Waikīkī Aquarium · Hawaiian reef animal guides",
+      sourceUrl:
+        "https://www.waikikiaquarium.org/experience/animal-guide/fishes/moorish-idol/moorish-idol/",
+    },
+    {
       label: "Wildlife field maps",
       status: "new",
       detail:
