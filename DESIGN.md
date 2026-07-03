@@ -4,7 +4,7 @@
 
 - A pocket naturalist journal crossed with a calm family travel field guide.
 - Warm, sun-bleached surfaces; deep-ocean ink; one guava-coral action color.
-- Consumer-friendly softness adapted from Airbnb, without marketplace imagery or booking chrome.
+- Museum-gallery focus adapted from Apple: one decisive artifact or answer at a time, with utility chrome kept quiet.
 - Editorial hierarchy, fast scanning, low decoration, and useful content above the fold.
 - Cards resemble labeled specimens rather than listings.
 
@@ -65,6 +65,7 @@ Use local system fonts for instant loading.
 - **Flexible calendar reminder:** “Add to calendar” expands trip-day pills with 44px targets; downloads are all-day planning reminders and put the suggested window in the notes.
 - **New marker:** coral pill with a visible date, never an unexplained dot.
 - **Daily brief:** one decisive finding first, followed by compact source-check cards, an explicit watch band, and a chronological research log.
+- **Field Passport:** a dark, edge-to-edge gallery band shared by every page. It begins collapsed, shows device-local progress, and expands into six 44px-target missions that connect otherwise separate site sections.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 
 ## 5. Layout Principles
@@ -80,6 +81,7 @@ Use local system fonts for instant loading.
 ## 6. Depth & Elevation
 
 - Canvas and editorial sections are flat.
+- Alternate occasional full-width dark bands with the sand canvas so major cross-site ideas feel like distinct gallery rooms.
 - Cards use the card shadow only on hover-capable devices.
 - Sticky navigation uses a translucent shell surface with a 1px border.
 - Modals are avoided; details expand in-flow.
@@ -92,6 +94,7 @@ Use local system fonts for instant loading.
 - Explain what children can notice or learn.
 - Show verification dates and primary-source links.
 - Use warm color sparingly to highlight action and freshness.
+- Let persistent interactive state stay device-local and say so plainly.
 
 ### Don't
 
@@ -99,6 +102,7 @@ Use local system fonts for instant loading.
 - Do not display equal-weight walls of options.
 - Do not hide safety caveats in footnotes.
 - Do not depend on hover, animation, or perfect connectivity.
+- Do not let hand-written homepage shortlists drift away from ranking functions.
 
 ## 8. Responsive Behavior
 
@@ -112,4 +116,4 @@ Use local system fonts for instant loading.
 
 Quick tokens: ocean `#123A3A`, coral `#E85D4A`, mango `#F4B942`, sand `#F5F0E5`, shell `#FFFDF8`.
 
-Implementation prompt: “Build a fast Maui naturalist field guide using warm sand, deep-ocean ink, guava-coral actions, serif editorial headlines, rounded specimen and calendar cards, explicit field labels, and one strong answer before the full grid. Calendar decisions lead with date, distance, cost, and certainty. Preserve 44px touch targets and full utility at 360px.”
+Implementation prompt: “Build a fast Maui naturalist field guide using warm sand, deep-ocean ink, guava-coral actions, serif editorial headlines, and Apple-like gallery focus: one strong answer before the full grid, with rare edge-to-edge dark bands for cross-site ideas. Use rounded specimen and calendar cards, explicit field labels, and device-local field missions. Calendar decisions lead with date, distance, cost, and certainty. Preserve 44px touch targets and full utility at 360px.”

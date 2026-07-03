@@ -45,6 +45,7 @@ const filters = [
             class:list={["filter-chip", { active: index === 0 }]}
             data-filter={value}
             type="button"
+            aria-pressed={index === 0 ? "true" : "false"}
           >
             {label}
           </button>
@@ -102,6 +103,8 @@ const filters = [
         activeFilter = chip.dataset.filter ?? "all";
         for (const candidate of chips)
           candidate.classList.toggle("active", candidate === chip);
+        for (const candidate of chips)
+          candidate.setAttribute("aria-pressed", String(candidate === chip));
         render();
       });
     }

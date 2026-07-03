@@ -6,6 +6,7 @@ import { creatures } from "../src/data/creatures";
 import { dailyBrief } from "../src/data/daily";
 import { calendarOptions } from "../src/data/events";
 import { localAnchors } from "../src/data/locals";
+import { fieldMissions } from "../src/data/missions";
 import { fruitSources } from "../src/data/sourcing";
 import {
   rankedCalendarOptions,
@@ -228,5 +229,29 @@ test("local anchors rank by evidence without mutating source order", () => {
       rankLocalAnchor(ranked[index - 1]!) >= rankLocalAnchor(ranked[index]!),
       `local ranking inversion at ${index}`,
     );
+  }
+});
+
+test("field passport missions are unique, actionable, and internally routed", () => {
+  assert.equal(fieldMissions.length, 6);
+  const ids = new Set<string>();
+  for (const mission of fieldMissions) {
+    assert.match(mission.id, /^[a-z0-9-]+$/);
+    assert.equal(
+      ids.has(mission.id),
+      false,
+      `duplicate mission: ${mission.id}`,
+    );
+    ids.add(mission.id);
+    assert.ok(mission.title.length >= 12);
+    assert.ok(mission.prompt.length >= 40);
+    assert.doesNotMatch(mission.href, /^(?:https?:|\/)/);
+    if (mission.href.startsWith("creatures/#")) {
+      const creatureId = mission.href.split("#")[1];
+      assert.ok(
+        creatures.some((creature) => creature.id === creatureId),
+        `${mission.id} references missing creature ${creatureId}`,
+      );
+    }
   }
 });

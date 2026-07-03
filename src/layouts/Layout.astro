@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import FieldPassport from "../components/FieldPassport.astro";
 import { site } from "../data/site";
 import { basePath } from "../lib/paths";
 
@@ -72,6 +73,8 @@ const isActive = (href: string) =>
     <main>
       <slot />
     </main>
+
+    <FieldPassport />
 
     <footer class="footer wrap">
       <p>

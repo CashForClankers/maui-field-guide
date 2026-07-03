@@ -132,6 +132,15 @@ export interface DailyBrief {
   }[];
 }
 
+export interface FieldMission {
+  id: string;
+  category: "notice" | "taste" | "connect" | "care";
+  title: string;
+  prompt: string;
+  href: string;
+  action: string;
+}
+
 export interface FruitNote {
   name: string;
   julySignal: "strong" | "possible" | "year-round";
@@ -157,12 +166,24 @@ export interface FruitSource {
   mapUrl: string;
 }
 
+export type CreatureHabitat =
+  "reef" | "open ocean" | "shoreline" | "wetland" | "resort grounds";
+
 export interface Creature {
   id: string;
   commonName: string;
-  hawaiianName: string;
+  hawaiianName?: string;
   scientificName: string;
-  kind: "reef fish" | "marine mammal" | "sea turtle" | "wetland bird";
+  kind:
+    | "reef fish"
+    | "marine mammal"
+    | "sea turtle"
+    | "wetland bird"
+    | "seabird"
+    | "land bird"
+    | "land mammal"
+    | "cephalopod";
+  habitat: CreatureHabitat;
   image: string;
   imageAlt: string;
   recognition: string;

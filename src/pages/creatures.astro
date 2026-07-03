@@ -3,7 +3,25 @@ import Layout from "../layouts/Layout.astro";
 import { creatures } from "../data/creatures";
 import { basePath } from "../lib/paths";
 
-const featured = [creatures[0]!, creatures[2]!, creatures[4]!] as const;
+const getCreature = (id: string) => {
+  const creature = creatures.find((item) => item.id === id);
+  if (!creature) throw new Error(`Missing featured creature: ${id}`);
+  return creature;
+};
+const featured = [
+  getCreature("honu"),
+  getCreature("spinner-dolphin"),
+  getCreature("wedge-tailed-shearwater"),
+] as const;
+
+const habitatFilters = [
+  ["all", "All"],
+  ["reef", "Reef"],
+  ["open ocean", "Open ocean"],
+  ["shoreline", "Shoreline"],
+  ["wetland", "Wetland"],
+  ["resort grounds", "Resort & dusk"],
+] as const;
 ---
 
 <Layout
@@ -12,7 +30,7 @@ const featured = [creatures[0]!, creatures[2]!, creatures[4]!] as const;
 >
   <section class="creature-hero wrap">
     <div>
-      <p class="eyebrow">Five living field marks</p>
+      <p class="eyebrow">{creatures.length} living field marks</p>
       <h1>Know what you’re looking at.</h1>
       <p>
         Real photos, small science, and ethical places to look beyond Mana Kai.
@@ -49,10 +67,49 @@ const featured = [creatures[0]!, creatures[2]!, creatures[4]!] as const;
     </div>
   </section>
 
-  <section class="section wrap creature-grid">
+  <section class="filter-shell wrap" aria-label="Wildlife filters">
+    <label class="search-box">
+      <span class="sr-only">Search wildlife</span>
+      <input
+        id="creature-search"
+        type="search"
+        placeholder="Search dolphin, reef, dusk…"
+        autocomplete="off"
+      />
+    </label>
+    <div
+      class="filter-row"
+      role="group"
+      aria-label="Filter wildlife by habitat"
+    >
+      {
+        habitatFilters.map(([value, label], index) => (
+          <button
+            class:list={["filter-chip", { active: index === 0 }]}
+            data-filter={value}
+            type="button"
+            aria-pressed={index === 0 ? "true" : "false"}
+          >
+            {label}
+          </button>
+        ))
+      }
+    </div>
+    <p id="creature-result-count" class="result-count" aria-live="polite">
+      {creatures.length} animals
+    </p>
+  </section>
+
+  <section class="section wrap creature-grid" id="creature-grid">
     {
       creatures.map((creature, index) => (
-        <article class="creature-card" id={creature.id}>
+        <article
+          class="creature-card"
+          id={creature.id}
+          data-card
+          data-habitat={creature.habitat}
+          data-search={`${creature.commonName} ${creature.hawaiianName ?? ""} ${creature.kind} ${creature.habitat}`.toLowerCase()}
+        >
           <figure class="creature-photo">
             <img
               src={`${basePath}${creature.image}`}
@@ -69,9 +126,15 @@ const featured = [creatures[0]!, creatures[2]!, creatures[4]!] as const;
           <div class="creature-copy">
             <div class="creature-topline">
               <span>{creature.kind}</span>
-              <span>≈ {creature.driveMinutes} min</span>
+              <span>
+                {creature.driveMinutes === 0
+                  ? "On site"
+                  : `≈ ${creature.driveMinutes} min`}
+              </span>
             </div>
-            <p class="creature-hawaiian">{creature.hawaiianName}</p>
+            {creature.hawaiianName && (
+              <p class="creature-hawaiian">{creature.hawaiianName}</p>
+            )}
             <h2>{creature.commonName}</h2>
             <p class="scientific-name">{creature.scientificName}</p>
 
@@ -127,14 +190,57 @@ const featured = [creatures[0]!, creatures[2]!, creatures[4]!] as const;
         </article>
       ))
     }
+    <p id="creature-empty-state" class="empty-state" hidden>
+      No animal matches that filter. Clear the search or pick a wider habitat.
+    </p>
   </section>
 
   <section class="source-panel wrap">
     <p>
-      Science checked against NOAA Fisheries, Hawaiʻi Sea Grant, and the U.S.
-      Fish & Wildlife Service on June 27, 2026. Conditions and sightings are
-      never guaranteed.
+      Science checked against NOAA Fisheries, Hawaiʻi DLNR, NOAA Ocean Service,
+      Hawaiʻi Sea Grant, and the U.S. Fish & Wildlife Service on July 3, 2026.
+      Conditions and sightings are never guaranteed.
     </p>
     <a class="button primary" href={`${basePath}discover/`}>Plan one stop</a>
   </section>
+
+  <script>
+    const search = document.querySelector<HTMLInputElement>("#creature-search");
+    const chips = [
+      ...document.querySelectorAll<HTMLButtonElement>("[data-filter]"),
+    ];
+    const cards = [...document.querySelectorAll<HTMLElement>("[data-card]")];
+    const count = document.querySelector<HTMLElement>("#creature-result-count");
+    const empty = document.querySelector<HTMLElement>("#creature-empty-state");
+    let activeFilter = "all";
+
+    function render() {
+      const query = search?.value.trim().toLowerCase() ?? "";
+      let visible = 0;
+      for (const card of cards) {
+        const matchesText =
+          !query || (card.dataset.search ?? "").includes(query);
+        const matchesFilter =
+          activeFilter === "all" || card.dataset.habitat === activeFilter;
+        const show = matchesText && matchesFilter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      }
+      if (count)
+        count.textContent = `${visible} animal${visible === 1 ? "" : "s"}`;
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    search?.addEventListener("input", render);
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        activeFilter = chip.dataset.filter ?? "all";
+        for (const candidate of chips)
+          candidate.classList.toggle("active", candidate === chip);
+        for (const candidate of chips)
+          candidate.setAttribute("aria-pressed", String(candidate === chip));
+        render();
+      });
+    }
+  </script>
 </Layout>

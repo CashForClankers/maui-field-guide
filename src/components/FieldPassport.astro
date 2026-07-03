@@ -1,0 +1,121 @@
+---
+import { fieldMissions } from "../data/missions";
+import { basePath } from "../lib/paths";
+
+const categoryLabels = {
+  notice: "Notice",
+  taste: "Taste",
+  connect: "Connect",
+  care: "Care",
+};
+---
+
+<section class="passport-band" aria-labelledby="passport-title">
+  <div class="wrap">
+    <details class="field-passport" data-field-passport>
+      <summary>
+        <div>
+          <p class="eyebrow">Across the whole guide</p>
+          <h2 id="passport-title">Maui Field Passport</h2>
+          <p>Six small missions. One family story.</p>
+        </div>
+        <div class="passport-progress">
+          <strong data-passport-count>0 / {fieldMissions.length}</strong>
+          <span>complete</span>
+          <i aria-hidden="true"><b data-passport-meter></b></i>
+        </div>
+      </summary>
+
+      <div class="passport-body">
+        <p class="passport-privacy">
+          Progress stays in this browser only. Nothing is uploaded.
+        </p>
+        <ol>
+          {
+            fieldMissions.map((mission, index) => (
+              <li>
+                <input
+                  id={`mission-${mission.id}`}
+                  type="checkbox"
+                  data-mission-id={mission.id}
+                />
+                <label for={`mission-${mission.id}`}>
+                  <span>
+                    {String(index + 1).padStart(2, "0")} ·{" "}
+                    {categoryLabels[mission.category]}
+                  </span>
+                  <strong>{mission.title}</strong>
+                  <small>{mission.prompt}</small>
+                </label>
+                <a href={`${basePath}${mission.href}`}>{mission.action} →</a>
+              </li>
+            ))
+          }
+        </ol>
+        <button class="passport-reset" type="button" data-passport-reset>
+          Reset passport
+        </button>
+      </div>
+    </details>
+  </div>
+</section>
+
+<script>
+  const passport = document.querySelector<HTMLElement>("[data-field-passport]");
+  const storageKey = "maui-field-passport-v1";
+
+  if (passport) {
+    const boxes = [
+      ...passport.querySelectorAll<HTMLInputElement>("[data-mission-id]"),
+    ];
+    const count = passport.querySelector<HTMLElement>("[data-passport-count]");
+    const meter = passport.querySelector<HTMLElement>("[data-passport-meter]");
+    const reset = passport.querySelector<HTMLButtonElement>(
+      "[data-passport-reset]",
+    );
+
+    const read = () => {
+      try {
+        const value = JSON.parse(localStorage.getItem(storageKey) ?? "[]");
+        return new Set<string>(Array.isArray(value) ? value : []);
+      } catch {
+        return new Set<string>();
+      }
+    };
+
+    const write = () => {
+      const completed = boxes
+        .filter((box) => box.checked)
+        .map((box) => box.dataset.missionId ?? "")
+        .filter(Boolean);
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(completed));
+      } catch {
+        // The checklist still works for this page when storage is unavailable.
+      }
+    };
+
+    const render = () => {
+      const completed = boxes.filter((box) => box.checked).length;
+      if (count) count.textContent = `${completed} / ${boxes.length}`;
+      if (meter) meter.style.width = `${(completed / boxes.length) * 100}%`;
+    };
+
+    const saved = read();
+    for (const box of boxes) {
+      box.checked = saved.has(box.dataset.missionId ?? "");
+      box.addEventListener("change", () => {
+        write();
+        render();
+      });
+    }
+
+    reset?.addEventListener("click", () => {
+      for (const box of boxes) box.checked = false;
+      write();
+      render();
+    });
+
+    render();
+  }
+</script>

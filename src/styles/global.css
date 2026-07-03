@@ -2388,6 +2388,194 @@ input {
   margin-top: 30px;
 }
 
+.passport-band {
+  padding-block: 42px;
+  color: white;
+  background: var(--ocean-night);
+}
+
+.field-passport {
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 28px;
+  background: rgb(255 255 255 / 4%);
+}
+
+.field-passport > summary {
+  display: flex;
+  min-height: 132px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px 32px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.field-passport > summary::-webkit-details-marker {
+  display: none;
+}
+
+.field-passport > summary .eyebrow {
+  color: var(--mango);
+}
+
+.field-passport > summary h2,
+.field-passport > summary p {
+  margin: 0;
+}
+
+.field-passport > summary h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.7rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.field-passport > summary div > p:last-child {
+  margin-top: 8px;
+  color: rgb(255 255 255 / 67%);
+}
+
+.passport-progress {
+  width: min(220px, 32vw);
+  flex: 0 0 auto;
+}
+
+.passport-progress strong,
+.passport-progress span {
+  display: block;
+}
+
+.passport-progress strong {
+  color: var(--mango);
+  font-family: var(--mono);
+  font-size: 1.1rem;
+}
+
+.passport-progress span {
+  color: rgb(255 255 255 / 55%);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.passport-progress i {
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 16%);
+}
+
+.passport-progress b {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--mango);
+  transition: width 180ms ease;
+}
+
+.passport-body {
+  padding: 0 32px 32px;
+}
+
+.passport-privacy {
+  margin: 0 0 18px;
+  color: rgb(255 255 255 / 55%);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+
+.passport-body ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.passport-body li {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-content: start;
+  gap: 0 12px;
+  padding: 18px;
+  border: 1px solid rgb(255 255 255 / 13%);
+  border-radius: 18px;
+  background: rgb(255 255 255 / 6%);
+}
+
+.passport-body input {
+  width: 24px;
+  height: 24px;
+  margin: 2px 0 0;
+  accent-color: var(--mango);
+}
+
+.passport-body label {
+  cursor: pointer;
+}
+
+.passport-body label > span,
+.passport-body label > strong,
+.passport-body label > small {
+  display: block;
+}
+
+.passport-body label > span {
+  color: var(--mango);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.passport-body label > strong {
+  margin-top: 8px;
+  line-height: 1.25;
+}
+
+.passport-body label > small {
+  margin-top: 7px;
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.passport-body li > a {
+  grid-column: 2;
+  min-height: 44px;
+  align-content: center;
+  margin-top: 10px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.passport-body input:checked + label > strong {
+  color: rgb(255 255 255 / 48%);
+  text-decoration: line-through;
+}
+
+.passport-reset {
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  color: rgb(255 255 255 / 62%);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -2511,6 +2699,10 @@ input {
   .rules-callout .button {
     grid-column: 2;
     justify-self: start;
+  }
+
+  .passport-body ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -2851,6 +3043,25 @@ input {
   .field-rules article {
     grid-template-columns: 44px 1fr;
     gap: 12px;
+  }
+
+  .field-passport > summary {
+    min-height: 0;
+    align-items: stretch;
+    flex-direction: column;
+    padding: 24px 20px;
+  }
+
+  .passport-progress {
+    width: 100%;
+  }
+
+  .passport-body {
+    padding: 0 20px 22px;
+  }
+
+  .passport-body ol {
+    grid-template-columns: 1fr;
   }
 
   .source-panel,
