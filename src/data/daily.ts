@@ -1,18 +1,18 @@
 import type { DailyBrief } from "./types";
 
 export const dailyBrief = {
-  date: "2026-07-03",
-  dateLabel: "Fri · Jul 3",
-  countdown: "5 days to arrival",
-  headline: "The free GOAT movie still looks like the easiest exact-date win.",
+  date: "2026-07-04",
+  dateLabel: "Sat · Jul 4",
+  countdown: "4 days to arrival",
+  headline: "Kīpuka Olowalu is now the clearest early-trip give-back move.",
   summary:
-    "Today’s calendar-first sweep rechecked the strongest July 8–12 options and rejected a stale Kaʻehu volunteer lead because the direct listings now point outside the trip window. The close, free Kamaʻole III movie and Waiheʻe workday remain the clearest low-friction and give-back decisions.",
+    "Today’s publisher consumed the same-day handoff, reverified the dated calendar against primary sources, and added only the one lead that cleared the bar: Kīpuka Olowalu’s official Wednesday/Thursday volunteer workdays. The close GOAT movie, Waiheʻe workday, NOAA center, and Haleakalā sunrise reservation rules still check out from direct sources.",
   topFinding: {
-    title: "GOAT movie night at Kamaʻole III",
+    title: "Kīpuka Olowalu volunteer workday",
     detail:
-      "Fri Jul 10 · starts at sunset · free · about 4 min from Mana Kai · bring alcohol-free drinks, snacks, and low-back seating",
-    eventId: "kam-iii-goat-movie",
-    action: "Add the free movie night",
+      "Wed Jul 8 or Thu Jul 9 · 7:30–11:30am · free · about 34 min from Mana Kai · signup first and wait for email confirmation",
+    eventId: "kipuka-olowalu-workday",
+    action: "Request a Kīpuka workday",
   },
   adventure: {
     experienceId: "kealia-pond",
@@ -51,11 +51,11 @@ export const dailyBrief = {
     },
     {
       lane: "give-back",
-      status: "confirmed",
+      status: "new",
       finding:
-        "Hawaiʻi Land Trust still publishes the July 11 Waiheʻe loko iʻa kalo workday, 8am–noon, with a direct registration path.",
-      sourceLabel: "Hawaiʻi Land Trust",
-      sourceUrl: "https://www.hilt.org/volunteer",
+        "Kīpuka Olowalu publishes Wednesday and Thursday volunteer days, 7:30–11:30am, with public signup and email confirmation; its team page names the local staff and board behind the work.",
+      sourceLabel: "Kīpuka Olowalu",
+      sourceUrl: "https://kipukaolowalu.org/volunteer",
     },
     {
       lane: "closure",
@@ -69,22 +69,20 @@ export const dailyBrief = {
   ],
   checks: [
     {
-      label: "Closest wildlife",
+      label: "Best new give-back lead",
       status: "new",
       detail:
-        "Kihikihi, Hawaiian cleaner wrasse, and rock-boring ʻina now start with the on-site Keawakapu reef edge, and every creature map sorts by travel time from Mana Kai before evidence breaks a tie.",
-      sourceLabel: "Waikīkī Aquarium · Hawaiian reef animal guides",
-      sourceUrl:
-        "https://www.waikikiaquarium.org/experience/animal-guide/fishes/moorish-idol/moorish-idol/",
+        "Kīpuka Olowalu now has a calendar card for Wed Jul 8 or Thu Jul 9, built from the official volunteer schedule and team page rather than a third-party voluntour listing.",
+      sourceLabel: "Kīpuka Olowalu team page",
+      sourceUrl: "https://kipukaolowalu.org/team-2",
     },
     {
-      label: "Wildlife field maps",
-      status: "new",
+      label: "Calendar recheck",
+      status: "confirmed",
       detail:
-        "Every creature now has two ranked observation access points with exact pins when verified, parking or entry instructions, and an evidence label that separates documented sites from habitat fits and low-confidence watches.",
-      sourceLabel: "Maui County · Ulua–Mōkapu access",
-      sourceUrl:
-        "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+        "Maui County still lists the July 10 South District GOAT movie at Kamaʻole III; Hawaiʻi Land Trust still lists the July 11 Waiheʻe loko iʻa kalo workday.",
+      sourceLabel: "Maui County calendar",
+      sourceUrl: "https://www.mauicounty.gov/calendar.aspx",
     },
     {
       label: "Closest exact event",
@@ -124,13 +122,19 @@ export const dailyBrief = {
       label: "Summit",
       status: "confirmed",
       detail:
-        "NPS lists the sunrise orientation every day through October 31; the talk is free, but sunrise entry still needs a $1 vehicle reservation plus park admission.",
-      sourceLabel: "National Park Service",
-      sourceUrl:
-        "https://www.nps.gov/planyourvisit/event-details.htm?id=632bbd02-00bc-facb-ec92627ee0c0468e",
+        "NPS still says sunrise entry reservations are required from 3–7am, released 60 days out at 7am HST with a smaller 48-hour release.",
+      sourceLabel: "National Park Service sunrise rules",
+      sourceUrl: "https://www.nps.gov/hale/planyourvisit/sunrise.htm",
     },
   ],
   watch: [
+    {
+      title: "Kīpuka is not booked until they reply",
+      detail:
+        "The public schedule fits Jul 8 and Jul 9, but Kīpuka says dates vary and volunteer days can be cancelled for weather, so the family should wait for email confirmation.",
+      sourceLabel: "Kīpuka Olowalu volunteer page",
+      sourceUrl: "https://kipukaolowalu.org/volunteer",
+    },
     {
       title: "Kaʻehu did not clear the date-fit bar",
       detail:

@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-07-04",
+    title: "Kīpuka Olowalu clears the give-back bar",
+    note: "The Events page now adds Kīpuka Olowalu's Wed/Thu volunteer workday as the strongest early-trip stewardship option: direct signup, email confirmation, named public team, free participation, and clear weather/age-task caveats.",
+    experienceIds: [],
+  },
+  {
     date: "2026-07-03",
     title: "Three more reef creatures—now with nearest places first",
     note: "Kihikihi, the endemic Hawaiian cleaner wrasse, and ʻina join the field guide with real photos and kid-readable behavior clues. Every animal’s maps now sort by travel time from Mana Kai first, while evidence labels still distinguish habitat fits from documented sites.",
