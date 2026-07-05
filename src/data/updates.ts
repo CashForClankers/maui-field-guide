@@ -3,6 +3,16 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-05",
+    title: "Surf lesson deal sheet added near Mana Kai",
+    note: "The Discover page now has three Kīhei surf-lesson leads to contact before booking: Maui Beach Boys as the cheapest direct-call lead, Auntie Snorkel's discounted Maui WaveRiders channel, and Surf Club Maui as the people-first small-class/instructor-fit check.",
+    experienceIds: [
+      "maui-beach-boys-surf-deal",
+      "auntie-snorkel-waveriders-surf",
+      "surf-club-maui-instructor-fit",
+    ],
+  },
+  {
+    date: "2026-07-05",
     title: "A hands-on goat-milking slot clears the calendar bar",
     note: "The Events page now promotes Surfing Goat Dairy's 3pm Evening Chore & Milking tour for Wed-Sat: direct schedule, posted family pricing, real farm chores, cheese tasting, and a clear Sunday/Monday closure caveat.",
     experienceIds: [],

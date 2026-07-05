@@ -892,6 +892,118 @@ export const experiences = [
     mapUrl: "https://maps.google.com/?q=Auntie+Snorkel+Rainbow+Mall+Kihei",
   },
   {
+    id: "maui-beach-boys-surf-deal",
+    title: "Maui Beach Boys direct-call surf deal",
+    kind: "adventure",
+    summary:
+      "A Kīhei surf-school lead advertising two-hour lessons, group classes as low as $75, and a direct phone path for promotions and discounts.",
+    whyItFits:
+      "It is the cheapest published direct-school price found near the Kīhei beginner breaks; call before booking anything pricier.",
+    kidTakeaway:
+      "A real deal hunt means asking the human operator what is actually available for your family size and skill level.",
+    driveMinutes: 8,
+    duration: "2 hr",
+    cost: "Group classes as low as $75; call 808-283-7114 for current promos",
+    isFree: false,
+    ageFit: "Beginner families; confirm minimum age and group fit",
+    bestWindow: "Morning lessons; confirm surf and instructor availability",
+    reservation: "Advance reservation required; direct phone path listed",
+    safety:
+      "Use a licensed instructor; cancel or reschedule if surf, wind, visibility, or kid comfort is wrong.",
+    tags: ["surf", "lesson", "good deal", "Kīhei", "call first"],
+    metrics: {
+      kidWow: 5,
+      nature: 3,
+      local: 4,
+      value: 5,
+      learning: 4,
+      novelty: 4,
+      friction: 2,
+    },
+    confidence: "primary",
+    addedAt: "2026-07-05",
+    verifiedAt: "2026-07-05",
+    sourceLabel: "Maui Beach Boys · surf lessons",
+    sourceUrl: "https://mauibeachboys.com/",
+    mapUrl: "https://maps.google.com/?q=Maui+Beach+Boys+Kihei",
+  },
+  {
+    id: "auntie-snorkel-waveriders-surf",
+    title: "Auntie Snorkel discounted Maui WaveRiders booking",
+    kind: "adventure",
+    summary:
+      "A local Kīhei shop sells Maui WaveRiders surf lessons at a posted discount: semi-private from $99.95 per surfer and private from $144.95, with text/call help.",
+    whyItFits:
+      "It keeps the lesson at the Cove/Kalama beginner zone, adds a local activity-desk contact, and beats Maui WaveRiders' own posted $105/$150 lesson prices by a little.",
+    kidTakeaway:
+      "Same operator, different booking channel: compare the fine print before assuming the first price is the best price.",
+    driveMinutes: 8,
+    duration: "2 hr plus possible board use after",
+    cost: "$99.95 semi-private; $144.95 private; plus tax",
+    isFree: false,
+    ageFit: "Ages 4+ listed; private recommended for young or hesitant kids",
+    bestWindow: "7:30, 9:00, 10:00, or 11:30am, Mon-Sat, conditions allowing",
+    reservation:
+      "Book online or text/call Auntie Snorkel at 808-298-3021 for availability",
+    safety:
+      "Confirm conditions and cancellation terms. Lesson includes board, rash guard, surf shoes, and water-safety land lesson.",
+    tags: ["surf", "lesson", "good deal", "Kīhei", "kids"],
+    metrics: {
+      kidWow: 5,
+      nature: 3,
+      local: 4,
+      value: 4,
+      learning: 4,
+      novelty: 4,
+      friction: 2,
+    },
+    confidence: "primary",
+    addedAt: "2026-07-05",
+    verifiedAt: "2026-07-05",
+    sourceLabel: "Auntie Snorkel · Kihei surf lessons",
+    sourceUrl:
+      "https://www.auntiesnorkel.com/maui-shop/maui-island-activities-tours/kihei-surf-lessons-with-maui-waveriders/",
+    mapUrl: "https://maps.google.com/?q=Maui+WaveRiders+2021+South+Kihei+Road",
+  },
+  {
+    id: "surf-club-maui-instructor-fit",
+    title: "Surf Club Maui small-class instructor check",
+    kind: "adventure",
+    summary:
+      "A family-run Kīhei surf school with small beginner classes, private and semi-private options, gear included, and text/WhatsApp/email contact paths.",
+    whyItFits:
+      "Use this as the people-first option: ask who is best with young or nervous kids before choosing a cheaper group class.",
+    kidTakeaway:
+      "The right teacher can matter more than the board: a good instructor reads both waves and people.",
+    driveMinutes: 8,
+    duration: "2 hr",
+    cost: "Verify current class price when booking",
+    isFree: false,
+    ageFit:
+      "Group lessons list ages 12+; ask about private or semi-private for younger kids",
+    bestWindow: "8:00am, 10:00am, sometimes noon; six days a week",
+    reservation:
+      "Book online, text/call 808-283-7913, email surfclubmaui@gmail.com, or use their public WhatsApp link",
+    safety:
+      "Ask which break they will use that day and whether conditions fit first-timers. Water shoes, surf shirt, and board are listed as included.",
+    tags: ["surf", "lesson", "local people", "Kīhei", "kids"],
+    metrics: {
+      kidWow: 5,
+      nature: 3,
+      local: 5,
+      value: 3,
+      learning: 5,
+      novelty: 4,
+      friction: 2,
+    },
+    confidence: "primary",
+    addedAt: "2026-07-05",
+    verifiedAt: "2026-07-05",
+    sourceLabel: "Surf Club Maui · Kihei lessons",
+    sourceUrl: "https://surfclubmaui.com/surfing-lessons-kihei-maui/",
+    mapUrl: "https://maps.google.com/?q=Surf+Club+Maui+1900+South+Kihei+Road",
+  },
+  {
     id: "kihei-canoe-club-paddle",
     title: "Kihei Canoe Club visitor outrigger paddle",
     kind: "adventure",
