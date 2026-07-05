@@ -16,7 +16,11 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import os from "node:os";
-import { classifyTaxon } from "./lib/notable-sightings.mjs";
+import {
+  classifyTaxon,
+  isWithinCooldown,
+  selectFindings,
+} from "./lib/notable-sightings.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
@@ -33,11 +37,12 @@ const HEADERS = {
 const MANA_KAI = { lat: 20.7049, lng: -156.4465 };
 const RADIUS_KM = 60; // whole Maui plus the inter-island whale channels
 const LOOKBACK_DAYS = 3; // buffer for iNaturalist's own upload/ID lag
-const TELEGRAM_CHAT_ID = "8298807334";
 const TELEGRAM_ENV_PATH = path.join(
   os.homedir(),
   ".claude/channels/telegram/.env",
 );
+const WATCHLIST_COOLDOWN_DAYS = 3;
+const FALLBACK_COOLDOWN_DAYS = 14;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -50,11 +55,15 @@ async function getJSON(url) {
 }
 
 function loadState() {
-  if (!existsSync(statePath)) return { seenIds: {} };
+  if (!existsSync(statePath)) return { seenIds: {}, taxonLastAlertedAt: {} };
   try {
-    return JSON.parse(readFileSync(statePath, "utf8"));
+    const parsed = JSON.parse(readFileSync(statePath, "utf8"));
+    return {
+      seenIds: parsed.seenIds ?? {},
+      taxonLastAlertedAt: parsed.taxonLastAlertedAt ?? {},
+    };
   } catch {
-    return { seenIds: {} };
+    return { seenIds: {}, taxonLastAlertedAt: {} };
   }
 }
 
@@ -64,35 +73,49 @@ function saveState(state) {
   for (const [id, seenAt] of Object.entries(state.seenIds)) {
     if (new Date(seenAt).getTime() >= cutoff) pruned[id] = seenAt;
   }
-  writeFileSync(statePath, JSON.stringify({ seenIds: pruned }, null, 2) + "\n");
+  writeFileSync(
+    statePath,
+    JSON.stringify(
+      { seenIds: pruned, taxonLastAlertedAt: state.taxonLastAlertedAt },
+      null,
+      2,
+    ) + "\n",
+  );
 }
 
-function readTelegramToken() {
+function readTelegramConfig() {
   if (!existsSync(TELEGRAM_ENV_PATH)) return undefined;
   const contents = readFileSync(TELEGRAM_ENV_PATH, "utf8");
-  const match = contents.match(/TELEGRAM_BOT_TOKEN=(.+)/);
-  return match?.[1]?.trim();
+  const value = (key) =>
+    contents.match(new RegExp(`^${key}=(.+)$`, "m"))?.[1]?.trim();
+  return {
+    token: value("TELEGRAM_BOT_TOKEN"),
+    chatId: value("TELEGRAM_CHAT_ID"),
+  };
 }
 
 async function sendTelegramMessage(text) {
-  const token = readTelegramToken();
-  if (!token) {
+  const config = readTelegramConfig();
+  if (!config?.token || !config.chatId) {
     process.stderr.write(
-      "No Telegram bot token found; skipping notification (would have sent):\n" +
+      "Telegram token or chat ID missing; skipping notification (would have sent):\n" +
         text +
         "\n",
     );
     return false;
   }
-  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      chat_id: TELEGRAM_CHAT_ID,
-      text,
-      disable_web_page_preview: "true",
-    }),
-  });
+  const res = await fetch(
+    `https://api.telegram.org/bot${config.token}/sendMessage`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        chat_id: config.chatId,
+        text,
+        disable_web_page_preview: "true",
+      }),
+    },
+  );
   if (!res.ok) {
     process.stderr.write(
       `Telegram send failed: ${res.status} ${await res.text()}\n`,
@@ -112,6 +135,7 @@ async function fetchRecentObservations() {
       lat: String(MANA_KAI.lat),
       lng: String(MANA_KAI.lng),
       radius: String(RADIUS_KM),
+      taxon_id: "1",
       d1,
       quality_grade: qualityGrade,
       captive: "false",
@@ -135,8 +159,12 @@ function formatMessage(findings) {
     "",
   ];
   for (const find of findings) {
+    const grade =
+      find.qualityGrade === "research"
+        ? "research-grade"
+        : "awaiting community ID";
     lines.push(
-      `• ${find.commonName ?? find.scientificName} (${find.scientificName})`,
+      `• ${find.commonName ?? find.scientificName} (${find.scientificName}) · ${grade}`,
     );
     lines.push(`  ${find.reason}`);
     lines.push(
@@ -144,6 +172,21 @@ function formatMessage(findings) {
         find.placeGuess ? ` near ${find.placeGuess}` : ""
       } — ${find.uri}`,
     );
+  }
+  const deepDive = findings.find((find) => find.context);
+  if (deepDive) {
+    lines.push("");
+    lines.push(`🔎 Field note: ${deepDive.context.fieldNote}`);
+    lines.push(`Research: ${deepDive.context.researchUrl}`);
+    if (deepDive.context.experience) {
+      lines.push(
+        `Try this: ${deepDive.context.experience}${
+          deepDive.context.experienceUrl
+            ? ` ${deepDive.context.experienceUrl}`
+            : ""
+        }`,
+      );
+    }
   }
   lines.push("");
   lines.push(
@@ -166,13 +209,26 @@ async function main() {
 
     const classification = classifyTaxon(taxon);
     if (!classification.notable) continue;
+    const lastTaxonAlert = state.taxonLastAlertedAt[String(taxon.id)];
+    const cooldownDays = classification.watchlisted
+      ? WATCHLIST_COOLDOWN_DAYS
+      : FALLBACK_COOLDOWN_DAYS;
+    if (isWithinCooldown(lastTaxonAlert, cooldownDays)) {
+      continue;
+    }
 
     seenThisRun.add(obs.id);
     findings.push({
       id: obs.id,
+      taxonId: taxon.id,
       scientificName: taxon.name,
       commonName: taxon.preferred_common_name,
       reason: classification.reason,
+      score:
+        (classification.score ?? 0) +
+        (obs.quality_grade === "research" ? 10 : 0),
+      context: classification.context,
+      qualityGrade: obs.quality_grade,
       observedOn: obs.observed_on,
       placeGuess: obs.place_guess,
       uri: obs.uri,
@@ -184,10 +240,9 @@ async function main() {
     return;
   }
 
-  // Cap a single push to the 5 most recent so it stays skimmable.
-  const toSend = findings
-    .sort((a, b) => (b.observedOn ?? "").localeCompare(a.observedOn ?? ""))
-    .slice(0, 5);
+  // Keep one observation per species and cap the push to five high-signal
+  // finds so a burst of records from one taxon cannot dominate the alert.
+  const toSend = selectFindings(findings);
 
   const dryRun = process.argv.includes("--dry-run");
   if (dryRun) {
@@ -198,8 +253,10 @@ async function main() {
 
   const sent = await sendTelegramMessage(formatMessage(toSend));
   if (sent) {
-    for (const find of findings) {
-      state.seenIds[String(find.id)] = new Date().toISOString();
+    const alertedAt = new Date().toISOString();
+    for (const find of toSend) {
+      state.seenIds[String(find.id)] = alertedAt;
+      state.taxonLastAlertedAt[String(find.taxonId)] = alertedAt;
     }
     saveState(state);
     process.stderr.write(`Sent alert for ${toSend.length} sighting(s).\n`);

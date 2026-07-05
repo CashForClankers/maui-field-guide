@@ -299,6 +299,23 @@ export interface CreatureSighting {
   generatedAt?: string;
 }
 
+export interface WildlifeSpotlight {
+  id: string;
+  commonName: string;
+  scientificName: string;
+  signal: string;
+  whyInteresting: string;
+  fieldMark: string;
+  experience: string;
+  experienceUrl: string;
+  observationUrl: string;
+  verifiedAt: string;
+  researchLinks: {
+    label: string;
+    url: string;
+  }[];
+}
+
 export interface LocalAnchor {
   id: string;
   people: string;

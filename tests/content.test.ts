@@ -9,6 +9,7 @@ import { localAnchors } from "../src/data/locals";
 import { fieldMissions } from "../src/data/missions";
 import { fruitSources } from "../src/data/sourcing";
 import { creatureSightings } from "../src/data/sightings";
+import { wildlifeSpotlights } from "../src/data/wildlifeSpotlights";
 import {
   rankedCalendarOptions,
   rankedCreaturePlaces,
@@ -240,6 +241,28 @@ test("every creature has ranked, sourced field-map options", () => {
           `${creature.id} evidence inversion at ${index}`,
         );
       }
+    }
+  }
+});
+
+test("wildlife spotlights triangulate community records with deeper research", () => {
+  assert.equal(wildlifeSpotlights.length, 3);
+  const ids = new Set<string>();
+  for (const spotlight of wildlifeSpotlights) {
+    assert.equal(ids.has(spotlight.id), false, `duplicate: ${spotlight.id}`);
+    ids.add(spotlight.id);
+    assert.match(spotlight.scientificName, /\s/);
+    assert.match(
+      spotlight.observationUrl,
+      /^https:\/\/www\.inaturalist\.org\/observations\/\d+$/,
+    );
+    assert.match(spotlight.experienceUrl, /^https:\/\//);
+    assert.ok(spotlight.whyInteresting.length >= 100);
+    assert.ok(spotlight.fieldMark.length >= 80);
+    assert.ok(spotlight.researchLinks.length >= 2);
+    for (const link of spotlight.researchLinks) {
+      assert.match(link.url, /^https:\/\//);
+      assert.equal(link.url.includes("inaturalist.org"), false);
     }
   }
 });

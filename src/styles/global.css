@@ -2661,6 +2661,103 @@ input {
   font-weight: 700;
 }
 
+.wildlife-pulse {
+  padding-top: 22px;
+}
+
+.wildlife-pulse-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  align-items: end;
+}
+
+.wildlife-pulse-heading h2 {
+  margin: 5px 0 0;
+  color: var(--ocean);
+}
+
+.wildlife-pulse-heading > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.wildlife-pulse-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.wildlife-pulse-card {
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--ocean) 15%, transparent);
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 28px rgb(28 81 89 / 7%);
+}
+
+.wildlife-pulse-signal {
+  margin: 0 0 8px;
+  color: var(--coral-pressed);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.wildlife-pulse-card h3 {
+  margin: 0;
+  color: var(--ocean);
+  font-size: 1.18rem;
+}
+
+.wildlife-pulse-card > p:not(.wildlife-pulse-signal, .scientific-name) {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.wildlife-pulse-card dl {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.wildlife-pulse-card dt {
+  color: var(--leaf);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.wildlife-pulse-card dd {
+  margin: 3px 0 0;
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.wildlife-pulse-links {
+  display: grid;
+  gap: 7px;
+}
+
+.wildlife-pulse-links a {
+  color: var(--ocean);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .wildlife-pulse-heading,
+  .wildlife-pulse-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .evidence-low-confidence-watch {
   color: var(--muted);
   background: var(--sand);

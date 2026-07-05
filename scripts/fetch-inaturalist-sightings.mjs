@@ -6,7 +6,7 @@
 // the ethical/accuracy notes this script follows (no exact pins, no "not
 // seen" claims, research-grade + non-captive only).
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, renameSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -122,6 +122,7 @@ async function fetchSighting(creature) {
 async function main() {
   const creatures = extractCreatures();
   const sightings = [];
+  const failures = [];
   for (const creature of creatures) {
     process.stderr.write(
       `Fetching ${creature.id} (${creature.scientificName})...\n`,
@@ -131,9 +132,17 @@ async function main() {
       sightings.push(sighting);
     } catch (err) {
       process.stderr.write(`  failed: ${err.message}\n`);
-      sightings.push({ creatureId: creature.id, recentObservations: 0 });
+      failures.push(creature.id);
     }
     await sleep(1100);
+  }
+
+  if (failures.length > 0) {
+    throw new Error(
+      `Refusing to replace cached sightings after ${failures.length} API failure(s): ${failures.join(
+        ", ",
+      )}`,
+    );
   }
 
   const generatedAt = new Date().toISOString().slice(0, 10);
@@ -167,7 +176,9 @@ async function main() {
     "",
   ];
 
-  writeFileSync(outPath, lines.join("\n"));
+  const tempPath = `${outPath}.tmp`;
+  writeFileSync(tempPath, lines.join("\n"));
+  renameSync(tempPath, outPath);
   process.stderr.write(`Wrote ${sightings.length} sightings to ${outPath}\n`);
 }
 

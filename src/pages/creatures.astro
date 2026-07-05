@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { animalSupplyStores } from "../data/animalSupplies";
 import { creaturePlaces, creatures } from "../data/creatures";
 import { creatureSightings, sightingsGeneratedAt } from "../data/sightings";
+import { wildlifeSpotlights } from "../data/wildlifeSpotlights";
 import { basePath } from "../lib/paths";
 import { rankedCreaturePlaces } from "../lib/rank";
 
@@ -69,9 +70,10 @@ const getCreaturePlaces = (creatureId: string) =>
       <h1>Know what you’re looking at.</h1>
       <p>
         Real photos, small science, and ethical places to look beyond Mana Kai.
-        Every animal now has ranked exact pins, parking notes, and live
-        community sighting counts from iNaturalist. These are possibilities—not
-        animals owed to us by the island.
+        Every animal has ranked exact pins and parking notes; animals with
+        qualifying records also show live community sighting evidence from
+        iNaturalist. These are possibilities—not animals owed to us by the
+        island.
       </p>
     </div>
     <div class="creature-collage" aria-label="Featured Maui wildlife">
@@ -101,6 +103,66 @@ const getCreaturePlaces = (creatureId: string) =>
       <strong>Field method</strong>
       <p>Stop moving → notice shape and behavior → name it → give it space.</p>
       <a href={`${basePath}rules/`}>Check every distance rule →</a>
+    </div>
+  </section>
+
+  <section
+    class="section wrap wildlife-pulse"
+    aria-labelledby="wildlife-pulse-title"
+  >
+    <div class="wildlife-pulse-heading">
+      <div>
+        <p class="eyebrow">Fresh signals, deeper stories</p>
+        <h2 id="wildlife-pulse-title">Three animals worth learning now</h2>
+      </div>
+      <p>
+        Recent community records are the spark. Agency, museum, and direct
+        experience sources supply the science and a realistic way to follow the
+        curiosity.
+      </p>
+    </div>
+    <div class="wildlife-pulse-grid">
+      {
+        wildlifeSpotlights.map((spotlight) => (
+          <article class="wildlife-pulse-card">
+            <p class="wildlife-pulse-signal">{spotlight.signal}</p>
+            <h3>{spotlight.commonName}</h3>
+            <p class="scientific-name">{spotlight.scientificName}</p>
+            <p>{spotlight.whyInteresting}</p>
+            <dl>
+              <div>
+                <dt>Field mark</dt>
+                <dd>{spotlight.fieldMark}</dd>
+              </div>
+              <div>
+                <dt>Experience</dt>
+                <dd>{spotlight.experience}</dd>
+              </div>
+            </dl>
+            <div class="wildlife-pulse-links">
+              <a
+                href={spotlight.observationUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Community record →
+              </a>
+              {spotlight.researchLinks.map((link) => (
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.label} →
+                </a>
+              ))}
+              <a
+                href={spotlight.experienceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Plan the experience →
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 

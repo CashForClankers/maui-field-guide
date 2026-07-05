@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-05",
+    title: "Fresh wildlife signals now open into deeper field stories",
+    note: "The creature guide turns three notable community records—grey reef shark, kole, and nēnē—into compact field stories with recognition clues, agency or museum research, and a realistic family experience. The alert lane now filters out plants, labels tentative IDs, favors diverse high-signal finds, and cools down repeat species.",
+    experienceIds: ["maui-ocean-center"],
+  },
+  {
+    date: "2026-07-05",
     title: "Real photos land on the Fruit page",
     note: "Each of the 8 fruit cards now shows a licensed photo of the actual fruit, and a new canoe-and-native-plant section adds five plants (kalo, niu, kukui, hala, ʻilima) with photos, kid-readable takeaways, and where to spot each one—most at Maui Nui Botanical Gardens.",
     experienceIds: ["maui-nui-botanical"],

@@ -68,6 +68,15 @@ export const dailyBrief = {
   ],
   checks: [
     {
+      label: "Wildlife signal → field story",
+      status: "new",
+      detail:
+        "Recent grey reef shark, kole, and nēnē records now open into identification clues, deeper agency or museum research, and one realistic family experience instead of ending at an observation link.",
+      sourceLabel: "Florida Museum grey reef shark profile",
+      sourceUrl:
+        "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/grey-reef-shark/",
+    },
+    {
       label: "Best new dated lead",
       status: "new",
       detail:
