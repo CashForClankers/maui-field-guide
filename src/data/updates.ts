@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-05",
+    title: "Live community sighting counts join every creature card",
+    note: "Each of the 35 field-guide animals now shows real iNaturalist evidence—how many research-grade sightings volunteer naturalists logged within 30 miles of Mana Kai in the past year, the most recent date and rough place, and a link to the public observation. Counts come from the public iNaturalist API and are framed as evidence of recent activity, never a promise of what you'll see.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-07-05",
     title: "Twenty-one more reef neighbors—without the endless scroll",
     note: "The wildlife guide grows from 14 to 35 sourced creatures, adding surgeonfish, butterflyfish, wrasses, morays, rays, sharks, coral, and reef recyclers. Compact quick-ID cards, two filter rails, native expansions, 21 additional licensed photos, and one-tap expand/collapse keep the larger guide practical on a phone.",
     experienceIds: ["keawakapu-reef-ritual"],

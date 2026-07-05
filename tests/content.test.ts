@@ -8,6 +8,7 @@ import { calendarOptions } from "../src/data/events";
 import { localAnchors } from "../src/data/locals";
 import { fieldMissions } from "../src/data/missions";
 import { fruitSources } from "../src/data/sourcing";
+import { creatureSightings } from "../src/data/sightings";
 import {
   rankedCalendarOptions,
   rankedCreaturePlaces,
@@ -324,4 +325,33 @@ test("field passport missions are unique, actionable, and internally routed", ()
       );
     }
   }
+});
+
+test("iNaturalist sightings reference real creatures and public observations", () => {
+  const creatureIds = new Set(creatures.map((creature) => creature.id));
+  const seen = new Set<string>();
+  for (const sighting of creatureSightings) {
+    assert.ok(
+      creatureIds.has(sighting.creatureId),
+      `sighting references unknown creature: ${sighting.creatureId}`,
+    );
+    assert.equal(
+      seen.has(sighting.creatureId),
+      false,
+      `duplicate sighting entry: ${sighting.creatureId}`,
+    );
+    seen.add(sighting.creatureId);
+    assert.ok(sighting.recentObservations >= 0);
+    if (sighting.observationUrl) {
+      assert.match(
+        sighting.observationUrl,
+        /^https:\/\/www\.inaturalist\.org\/observations\/\d+$/,
+      );
+    }
+  }
+  assert.equal(
+    creatureSightings.length,
+    creatures.length,
+    "every creature should have a sightings entry (even if zero observations)",
+  );
 });

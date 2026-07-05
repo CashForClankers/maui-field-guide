@@ -1,8 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { creaturePlaces, creatures } from "../data/creatures";
+import { creatureSightings, sightingsGeneratedAt } from "../data/sightings";
 import { basePath } from "../lib/paths";
 import { rankedCreaturePlaces } from "../lib/rank";
+
+const getSighting = (id: string) =>
+  creatureSightings.find((item) => item.creatureId === id);
+
+const sightingDateLabel = (iso: string) =>
+  new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 
 const getCreature = (id: string) => {
   const creature = creatures.find((item) => item.id === id);
@@ -57,8 +68,9 @@ const getCreaturePlaces = (creatureId: string) =>
       <h1>Know what you’re looking at.</h1>
       <p>
         Real photos, small science, and ethical places to look beyond Mana Kai.
-        Every animal now has ranked exact pins and parking notes. These are
-        possibilities—not animals owed to us by the island.
+        Every animal now has ranked exact pins, parking notes, and live
+        community sighting counts from iNaturalist. These are possibilities—not
+        animals owed to us by the island.
       </p>
     </div>
     <div class="creature-collage" aria-label="Featured Maui wildlife">
@@ -245,6 +257,43 @@ const getCreaturePlaces = (creatureId: string) =>
                   </>
                 </div>
               </dl>
+              {(() => {
+                const sighting = getSighting(creature.id);
+                if (!sighting || sighting.recentObservations === 0) return null;
+                return (
+                  <p class="creature-sighting-fact">
+                    <span class="creature-sighting-badge">
+                      Community-documented
+                    </span>{" "}
+                    {sighting.recentObservations} research-grade iNaturalist{" "}
+                    {sighting.recentObservations === 1
+                      ? "sighting"
+                      : "sightings"}{" "}
+                    within ~30 miles of Mana Kai in the past year
+                    {sighting.mostRecentDate && (
+                      <>
+                        , most recent{" "}
+                        {sightingDateLabel(sighting.mostRecentDate)}
+                        {sighting.mostRecentPlaceGuess &&
+                          ` near ${sighting.mostRecentPlaceGuess}`}
+                      </>
+                    )}
+                    . Not a promise of what you’ll see today.
+                    {sighting.observationUrl && (
+                      <>
+                        {" "}
+                        <a
+                          href={sighting.observationUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          See the observation →
+                        </a>
+                      </>
+                    )}
+                  </p>
+                );
+              })()}
               <section
                 class="creature-places"
                 aria-labelledby={`${creature.id}-places-title`}
@@ -368,7 +417,10 @@ const getCreaturePlaces = (creatureId: string) =>
       Science and access checked against NOAA Fisheries, Hawaiʻi DLNR, Maui
       County, NOAA Ocean Service, Hawaiʻi Sea Grant, and the U.S. Fish &
       Wildlife Service on July 5, 2026. Coordinates are map pins, not wildlife
-      locations. Conditions and sightings are never guaranteed.
+      locations. Conditions and sightings are never guaranteed. Community
+      sighting counts pulled from the public iNaturalist API (research-grade,
+      non-captive records within 50km of Mana Kai) on {sightingsGeneratedAt};
+      credit to the volunteer naturalists who logged each observation.
     </p>
     <a class="button primary" href={`${basePath}discover/`}>Plan one stop</a>
   </section>

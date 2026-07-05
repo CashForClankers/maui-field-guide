@@ -2538,6 +2538,35 @@ input {
   background: var(--leaf);
 }
 
+.creature-sighting-fact {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--mist);
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.creature-sighting-badge {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--leaf);
+  color: white;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.creature-sighting-fact a {
+  color: var(--ocean);
+  font-weight: 700;
+}
+
 .evidence-low-confidence-watch {
   color: var(--muted);
   background: var(--sand);

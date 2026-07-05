@@ -254,6 +254,16 @@ export interface CreaturePlace {
   };
 }
 
+export interface CreatureSighting {
+  creatureId: Creature["id"];
+  recentObservations: number;
+  mostRecentDate?: string;
+  mostRecentPlaceGuess?: string;
+  observationUrl?: string;
+  radiusKm?: number;
+  generatedAt?: string;
+}
+
 export interface LocalAnchor {
   id: string;
   people: string;
