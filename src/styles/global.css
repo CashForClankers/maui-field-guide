@@ -1486,6 +1486,99 @@ input {
   background: var(--shell);
 }
 
+.fruit-photo,
+.plant-photo {
+  position: relative;
+  margin: -24px -24px 18px;
+  height: 200px;
+  background: var(--ocean);
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+}
+
+.fruit-photo img,
+.plant-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--ocean);
+}
+
+.fruit-photo figcaption,
+.plant-photo figcaption {
+  position: absolute;
+  inset: auto 10px 10px;
+  padding: 6px 9px;
+  border-radius: 9px;
+  color: rgb(255 255 255 / 78%);
+  background: rgb(9 43 44 / 82%);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  line-height: 1.35;
+  backdrop-filter: blur(12px);
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.plant-card {
+  padding: 24px;
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  background: var(--shell);
+}
+
+.plant-role {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--leaf);
+  color: var(--ocean-night);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.plant-role.role-native-plant {
+  background: var(--coral-pressed);
+}
+
+.plant-copy h3 {
+  margin: 4px 0 2px;
+  color: var(--ocean);
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}
+
+.plant-copy dl {
+  margin: 14px 0 0;
+}
+
+.plant-copy dl div {
+  padding: 10px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.plant-copy dt {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.plant-copy dd {
+  margin: 4px 0 0;
+}
+
 .season-signal {
   margin: 0;
   background: var(--leaf);

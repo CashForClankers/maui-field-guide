@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-05",
+    title: "Real photos land on the Fruit page",
+    note: "Each of the 8 fruit cards now shows a licensed photo of the actual fruit, and a new canoe-and-native-plant section adds five plants (kalo, niu, kukui, hala, ʻilima) with photos, kid-readable takeaways, and where to spot each one—most at Maui Nui Botanical Gardens.",
+    experienceIds: ["maui-nui-botanical"],
+  },
+  {
+    date: "2026-07-05",
     title: "Live community sighting counts join every creature card",
     note: "Each of the 35 field-guide animals now shows real iNaturalist evidence—how many research-grade sightings volunteer naturalists logged within 30 miles of Mana Kai in the past year, the most recent date and rough place, and a link to the public observation. Counts come from the public iNaturalist API and are framed as evidence of recent activity, never a promise of what you'll see.",
     experienceIds: [],

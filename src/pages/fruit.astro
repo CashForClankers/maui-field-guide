@@ -3,8 +3,10 @@ import ExperienceCard from "../components/ExperienceCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { experiences } from "../data/experiences";
 import { fruits } from "../data/fruits";
+import { plants } from "../data/plants";
 import { fruitSources } from "../data/sourcing";
 import { rankedExperiences } from "../lib/rank";
+import { basePath } from "../lib/paths";
 
 const fruitExperiences = rankedExperiences(
   experiences.filter((item) => item.kind === "fruit" || item.kind === "farm"),
@@ -176,10 +178,29 @@ const onRoute = fruitSources
   </section>
 
   <section class="section wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Eight to know by sight</p>
+        <h2>What's actually growing in July</h2>
+      </div>
+    </div>
     <div class="fruit-grid">
       {
         fruits.map((fruit) => (
           <article class="fruit-card">
+            <figure class="fruit-photo">
+              <img
+                src={`${basePath}${fruit.image}`}
+                alt={fruit.imageAlt}
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                {fruit.photoCredit} · {fruit.photoLicense}
+              </figcaption>
+            </figure>
             <span class:list={["season-signal", `signal-${fruit.julySignal}`]}>
               {signalLabel[fruit.julySignal]}
             </span>
@@ -198,6 +219,14 @@ const onRoute = fruitSources
                 <dd>“{fruit.question}”</dd>
               </div>
             </dl>
+            <a
+              class="photo-source"
+              href={fruit.photoSourceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Photo source and license
+            </a>
           </article>
         ))
       }
@@ -213,6 +242,76 @@ const onRoute = fruitSources
         without a direct yes. ONO's reserved tour explicitly includes guided
         picking; ordinary market visits do not.
       </p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Brought by canoe, or native to begin with</p>
+        <h2>Plants worth noticing beyond the fruit bowl</h2>
+      </div>
+    </div>
+    <p class="source-lede">
+      These are the living plants behind the food, craft, and lei you'll see all
+      over Maui—most on display at Maui Nui Botanical Gardens' canoe-plant
+      collection.
+    </p>
+    <div class="plant-grid">
+      {
+        plants.map((plant) => (
+          <article class="plant-card">
+            <figure class="plant-photo">
+              <img
+                src={`${basePath}${plant.image}`}
+                alt={plant.imageAlt}
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                {plant.photoCredit} · {plant.photoLicense}
+              </figcaption>
+            </figure>
+            <div class="plant-copy">
+              <span
+                class:list={[
+                  "plant-role",
+                  `role-${plant.role.replace(" ", "-")}`,
+                ]}
+              >
+                {plant.role}
+              </span>
+              <p class="creature-hawaiian">{plant.hawaiianName}</p>
+              <h3>{plant.commonName}</h3>
+              <p class="scientific-name">{plant.scientificName}</p>
+              <dl>
+                <div>
+                  <dt>Recognize it</dt>
+                  <dd>{plant.recognition}</dd>
+                </div>
+                <div>
+                  <dt>Kid takeaway</dt>
+                  <dd>{plant.kidTakeaway}</dd>
+                </div>
+                <div>
+                  <dt>Where to see it</dt>
+                  <dd>{plant.whereToSee}</dd>
+                </div>
+              </dl>
+              <a
+                class="photo-source"
+                href={plant.photoSourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Photo source and license
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 

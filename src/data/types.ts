@@ -172,6 +172,27 @@ export interface FruitNote {
   lookFor: string;
   taste: string;
   question: string;
+  image: string;
+  imageAlt: string;
+  photoCredit: string;
+  photoLicense: string;
+  photoSourceUrl: string;
+}
+
+export interface NativePlant {
+  id: string;
+  commonName: string;
+  hawaiianName: string;
+  scientificName: string;
+  role: "canoe plant" | "native plant";
+  recognition: string;
+  kidTakeaway: string;
+  whereToSee: string;
+  image: string;
+  imageAlt: string;
+  photoCredit: string;
+  photoLicense: string;
+  photoSourceUrl: string;
 }
 
 export interface FruitSource {
