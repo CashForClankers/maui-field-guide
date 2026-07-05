@@ -212,6 +212,20 @@ export interface FruitSource {
   mapUrl: string;
 }
 
+export interface AnimalSupplyStore {
+  id: string;
+  name: string;
+  driveMinutes: number;
+  address: string;
+  whatFor: string;
+  hoursLabel: string;
+  confidence: Confidence;
+  verifiedAt: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  mapUrl: string;
+}
+
 export type CreatureHabitat =
   "reef" | "open ocean" | "shoreline" | "wetland" | "resort grounds";
 

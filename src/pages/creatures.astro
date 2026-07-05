@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { animalSupplyStores } from "../data/animalSupplies";
 import { creaturePlaces, creatures } from "../data/creatures";
 import { creatureSightings, sightingsGeneratedAt } from "../data/sightings";
 import { basePath } from "../lib/paths";
@@ -410,6 +411,64 @@ const getCreaturePlaces = (creatureId: string) =>
     <p id="creature-empty-state" class="empty-state" hidden>
       No animal matches that filter. Clear the search or pick a wider habitat.
     </p>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Not wild — ordinary retail, no appointment</p>
+        <h2>Where to see (or buy feed for) baby chicks and barnyard animals</h2>
+      </div>
+    </div>
+    <p class="source-lede">
+      These are working Kahului feed stores, not attractions or sanctuaries.
+      They regularly stock live chicks, ducklings, and rabbits alongside feed
+      and coops — a low-friction way to see baby farm animals up close on a
+      supply run. Hours are third-party aggregated, so call ahead.
+    </p>
+    <div class="source-grid">
+      {
+        animalSupplyStores.map((store) => (
+          <article class="source-card">
+            <div class="source-chips">
+              <span class="source-distance">
+                ≈ {store.driveMinutes} min from base
+              </span>
+            </div>
+            <h4>{store.name}</h4>
+            <p class="source-fresh">{store.whatFor}</p>
+            <dl class="source-meta">
+              <div>
+                <dt>Where</dt>
+                <dd>{store.address}</dd>
+              </div>
+              <div>
+                <dt>Hours</dt>
+                <dd>{store.hoursLabel}</dd>
+              </div>
+            </dl>
+            <div class="card-actions">
+              <a
+                class="button primary"
+                href={store.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Map
+              </a>
+              <a
+                class="button secondary"
+                href={store.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {store.sourceLabel}
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   <section class="source-panel wrap">

@@ -1005,6 +1005,92 @@ export const creatures = [
     photoSourceUrl:
       "https://commons.wikimedia.org/wiki/File:Balistapus_undulatus.jpg",
   },
+  {
+    id: "goldring-surgeonfish",
+    commonName: "Goldring surgeonfish",
+    hawaiianName: "Kole",
+    scientificName: "Ctenochaetus strigosus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/goldring-surgeonfish.jpg",
+    imageAlt:
+      "A brown goldring surgeonfish with a bright yellow ring around its eye",
+    recognition:
+      "A compact brown-olive oval fish with faint blue-gray body stripes and one unmistakable field mark: a vivid gold-yellow ring circling each eye.",
+    scienceNote:
+      "Endemic to Hawaiʻi. Unlike tangs that bite algae, kole use flexible bristle-like teeth to sift fine diatoms and detritus off rock and sand, a different feeding niche on the same reef.",
+    kidMission:
+      "Find the gold eye-ring first, then watch the mouth work the rock surface—count how many spots it sifts in 20 seconds.",
+    whereToLook:
+      "Common on shallow reef flats and rock rubble close to shore, often alone or loosely scattered rather than in tight schools.",
+    driveMinutes: 7,
+    safety:
+      "Like other surgeonfish it carries a tail-base spine; keep hands and fins away and never corner it against rock.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "NasserHalaweh / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Acanthuridae_Ctenochaetus_strigosus_1.jpg",
+  },
+  {
+    id: "grey-reef-shark",
+    commonName: "Grey reef shark",
+    scientificName: "Carcharhinus amblyrhynchos",
+    kind: "shark",
+    habitat: "open ocean",
+    image: "creatures/grey-reef-shark.jpg",
+    imageAlt: "A grey reef shark cruising over a reef drop-off",
+    recognition:
+      "A stocky gray-bronze shark with a broad rounded snout, large eyes, and a wide black rear margin on the tail fin; the first dorsal fin is plain or only faintly white-tipped.",
+    scienceNote:
+      "One of the most common reef sharks across the Indo-Pacific, but the IUCN lists it as endangered because reef-shark populations recover slowly from fishing pressure. It patrols reef drop-offs and channels, often circling in loose groups by day.",
+    kidMission:
+      "From a boat or a lawful deep-channel view, count how many times the shark passes the same stretch of reef before it turns.",
+    whereToLook:
+      "An incidental sighting on a boat dive or snorkel trip along a reef drop-off or channel—never a reason to swim out searching for one.",
+    driveMinutes: 20,
+    safety:
+      "Stay calm, keep distance, never spearfish or carry bait nearby, and follow the dive or boat operator's instructions immediately if one appears.",
+    sourceLabel: "Hawaiʻi DLNR · gray reef shark",
+    sourceUrl: "https://dlnr.hawaii.gov/sharks/sharks/gray-reef-shark/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Maalaea+Harbor+Maui",
+    photoCredit: "Marek Ślusarczyk (Tupungato) / Wikimedia Commons",
+    photoLicense: "CC BY 3.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:20_Shark_in_Valencia_Oceanarium_-_Grey_Reef_Shark,_Carcharhinus_amblyrhynchos_-_Creative_Commons.jpg",
+  },
+  {
+    id: "teated-sea-cucumber",
+    commonName: "Teated sea cucumber (black teatfish)",
+    scientificName: "Holothuria whitmaei",
+    kind: "echinoderm",
+    habitat: "reef",
+    image: "creatures/teated-sea-cucumber.jpg",
+    imageAlt:
+      "A large black teated sea cucumber with raised bumps on a reef flat",
+    recognition:
+      "A large, uniformly black sea cucumber—up to about two feet long—with a stiff sand-dusted skin and 5 to 10 raised, teat-like bumps along its underside edge.",
+    scienceNote:
+      "Heavily targeted worldwide for the dried sea cucumber (bêche-de-mer) trade, which is why the IUCN lists it as endangered. As a deposit feeder it processes large volumes of reef sediment, recycling nutrients and helping keep sand clean.",
+    kidMission:
+      "If you find one, look for the row of raised teat-like bumps without touching—that field mark separates it from smaller, smoother sea cucumbers.",
+    whereToLook:
+      "An uncommon, lucky find on quiet reef flats and sandy lagoon margins; genuinely rare on Maui, so treat any sighting as a bonus, not a plan.",
+    driveMinutes: 7,
+    safety:
+      "Never lift, squeeze, or collect any sea cucumber—this species is protected by its endangered status and stressed animals can eject internal material defensively.",
+    sourceLabel: "IUCN Red List · Holothuria whitmaei",
+    sourceUrl: "https://www.iucnredlist.org/species/pdf/1615368",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Don Loarie / Wikimedia Commons",
+    photoLicense: "CC BY 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Holothuria_whitmaei_(19260385).jpg",
+  },
 ] satisfies Creature[];
 
 const expandedCreatureIds = [
@@ -1029,6 +1115,9 @@ const expandedCreatureIds = [
   "whitetip-reef-shark",
   "dussumiers-surgeonfish",
   "orange-lined-triggerfish",
+  "goldring-surgeonfish",
+  "grey-reef-shark",
+  "teated-sea-cucumber",
 ] as const;
 
 function expandedCreaturePlaces(
