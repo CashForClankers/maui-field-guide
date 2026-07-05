@@ -1,18 +1,18 @@
 import type { DailyBrief } from "./types";
 
 export const dailyBrief = {
-  date: "2026-07-04",
-  dateLabel: "Sat · Jul 4",
-  countdown: "4 days to arrival",
-  headline: "Kīpuka Olowalu is now the clearest early-trip give-back move.",
+  date: "2026-07-05",
+  dateLabel: "Sun · Jul 5",
+  countdown: "3 days to arrival",
+  headline: "Surfing Goat is now the cleanest hands-on farm chore slot.",
   summary:
-    "Today’s publisher consumed the same-day handoff, reverified the dated calendar against primary sources, and added only the one lead that cleared the bar: Kīpuka Olowalu’s official Wednesday/Thursday volunteer workdays. The close GOAT movie, Waiheʻe workday, NOAA center, and Haleakalā sunrise reservation rules still check out from direct sources.",
+    "Today’s publisher consumed the same-day handoff, reverified the calendar against primary sources, and promoted only the one lead with public trip-window evidence: Surfing Goat Dairy’s 3pm Evening Chore & Milking tour, Wed-Sat. Kō‘ie‘ie Fishpond and Honu Watch remain useful call-ahead leads because their direct pages do not publish exact July 8–12 slots.",
   topFinding: {
-    title: "Kīpuka Olowalu volunteer workday",
+    title: "Surfing Goat evening milking tour",
     detail:
-      "Wed Jul 8 or Thu Jul 9 · 7:30–11:30am · free · about 34 min from Mana Kai · signup first and wait for email confirmation",
-    eventId: "kipuka-olowalu-workday",
-    action: "Request a Kīpuka workday",
+      "Wed-Sat Jul 8–11 · 3pm · 45–60 min · $41.50 adult / $33 child age 3–11 · about 38 min from Mana Kai",
+    eventId: "surfing-goat-evening-milking",
+    action: "Book the 3pm milking tour",
   },
   adventure: {
     experienceId: "kealia-pond",
@@ -42,18 +42,17 @@ export const dailyBrief = {
     },
     {
       lane: "experience",
-      status: "confirmed",
+      status: "new",
       finding:
-        "The free NOAA Kīhei visitor center remains the strongest low-effort indoor marine-learning fallback, open weekdays 9:30am–2:30pm.",
-      sourceLabel: "NOAA Sanctuary",
-      sourceUrl:
-        "https://hawaiihumpbackwhale.noaa.gov/visit/visitor-centers.html",
+        "Surfing Goat Dairy posts the Evening Chore & Milking tour Tue-Sat at 3pm, with a 45-60 minute duration, cheese tasting, hands-on milking, and family pricing.",
+      sourceLabel: "Surfing Goat Dairy",
+      sourceUrl: "https://surfinggoatdairy.com/pages/our-tours",
     },
     {
       lane: "give-back",
-      status: "new",
+      status: "confirmed",
       finding:
-        "Kīpuka Olowalu publishes Wednesday and Thursday volunteer days, 7:30–11:30am, with public signup and email confirmation; its team page names the local staff and board behind the work.",
+        "Kīpuka Olowalu stays the strongest early-trip stewardship option already on the calendar; today’s handoff did not surface a better dated give-back replacement.",
       sourceLabel: "Kīpuka Olowalu",
       sourceUrl: "https://kipukaolowalu.org/volunteer",
     },
@@ -69,12 +68,12 @@ export const dailyBrief = {
   ],
   checks: [
     {
-      label: "Best new give-back lead",
+      label: "Best new dated lead",
       status: "new",
       detail:
-        "Kīpuka Olowalu now has a calendar card for Wed Jul 8 or Thu Jul 9, built from the official volunteer schedule and team page rather than a third-party voluntour listing.",
-      sourceLabel: "Kīpuka Olowalu team page",
-      sourceUrl: "https://kipukaolowalu.org/team-2",
+        "Surfing Goat Dairy now has a calendar card for Wed-Sat Jul 8-11 because the official pages publish the 3pm tour schedule, 45-60 minute duration, and $41.50/$33 pricing.",
+      sourceLabel: "Surfing Goat Dairy tour schedule",
+      sourceUrl: "https://surfinggoatdairy.com/pages/our-tour-schedule",
     },
     {
       label: "Calendar recheck",
@@ -83,6 +82,14 @@ export const dailyBrief = {
         "Maui County still lists the July 10 South District GOAT movie at Kamaʻole III; Hawaiʻi Land Trust still lists the July 11 Waiheʻe loko iʻa kalo workday.",
       sourceLabel: "Maui County calendar",
       sourceUrl: "https://www.mauicounty.gov/calendar.aspx",
+    },
+    {
+      label: "Farm chore details",
+      status: "new",
+      detail:
+        "The direct tours page says the evening chore tour includes feeding, learning the milking process, trying milking, fresh cheese, and an optional cheese flight.",
+      sourceLabel: "Surfing Goat Dairy tours",
+      sourceUrl: "https://surfinggoatdairy.com/pages/our-tours",
     },
     {
       label: "Closest exact event",
@@ -129,19 +136,26 @@ export const dailyBrief = {
   ],
   watch: [
     {
-      title: "Kīpuka is not booked until they reply",
+      title: "Kō‘ie‘ie Fishpond needs a dated confirmation",
       detail:
-        "The public schedule fits Jul 8 and Jul 9, but Kīpuka says dates vary and volunteer days can be cancelled for weather, so the family should wait for email confirmation.",
-      sourceLabel: "Kīpuka Olowalu volunteer page",
-      sourceUrl: "https://kipukaolowalu.org/volunteer",
+        "Maui Fishpond Association is a strong near-base service lead, but the direct volunteer page did not publish a July 8–12 family workday in today’s check.",
+      sourceLabel: "Maui Fishpond Association",
+      sourceUrl: "https://mauifishpondassociation.org/volunteer",
     },
     {
-      title: "Kaʻehu did not clear the date-fit bar",
+      title: "Honu Watch is a conservation watch item, not a plan yet",
       detail:
-        "A HandsOn lead suggested Kaʻehu Mālama ʻĀina, but the direct Pacific Whale Foundation event page currently lists July 15 and the open HandsOn detail shows August 19, so it stays off the July 8–12 calendar.",
-      sourceLabel: "Pacific Whale Foundation",
+        "Hawaiʻi Wildlife Fund confirms May–October turtle nesting season and volunteer paths, but the public Honu Watch page does not provide current south-Maui site hours for a family drop-in plan.",
+      sourceLabel: "Hawaiʻi Wildlife Fund",
       sourceUrl:
-        "https://pacificwhale.org/event/ka%CA%BBehu-volunteering-opportunity/",
+        "https://www.wildhawaii.org/our-work/conservation/green-sea-turtle-honu-watch/",
+    },
+    {
+      title: "Surfing Goat is not a Sunday option",
+      detail:
+        "The dairy lists Tuesday-Saturday hours and is closed every Sunday and Monday, so the new card deliberately stops at Saturday, July 11.",
+      sourceLabel: "Surfing Goat Dairy tour schedule",
+      sourceUrl: "https://surfinggoatdairy.com/pages/our-tour-schedule",
     },
     {
       title: "ʻĪao remains off the calendar",

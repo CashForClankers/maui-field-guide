@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-07-05",
+    title: "A hands-on goat-milking slot clears the calendar bar",
+    note: "The Events page now promotes Surfing Goat Dairy's 3pm Evening Chore & Milking tour for Wed-Sat: direct schedule, posted family pricing, real farm chores, cheese tasting, and a clear Sunday/Monday closure caveat.",
+    experienceIds: [],
+  },
+  {
     date: "2026-07-04",
     title: "Kīpuka Olowalu clears the give-back bar",
     note: "The Events page now adds Kīpuka Olowalu's Wed/Thu volunteer workday as the strongest early-trip stewardship option: direct signup, email confirmation, named public team, free participation, and clear weather/age-task caveats.",
