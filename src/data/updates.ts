@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-05",
+    title: "Twenty-one more reef neighbors—without the endless scroll",
+    note: "The wildlife guide grows from 14 to 35 sourced creatures, adding surgeonfish, butterflyfish, wrasses, morays, rays, sharks, coral, and reef recyclers. Compact quick-ID cards, two filter rails, native expansions, 21 additional licensed photos, and one-tap expand/collapse keep the larger guide practical on a phone.",
+    experienceIds: ["keawakapu-reef-ritual"],
+  },
+  {
+    date: "2026-07-05",
     title: "Surf lesson deal sheet added near Mana Kai",
     note: "The Discover page now has three Kīhei surf-lesson leads to contact before booking: Maui Beach Boys as the cheapest direct-call lead, Auntie Snorkel's discounted Maui WaveRiders channel, and Surf Club Maui as the people-first small-class/instructor-fit check.",
     experienceIds: [

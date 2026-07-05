@@ -70,6 +70,7 @@ Use local system fonts for instant loading.
 - **Field Passport:** a dark, edge-to-edge gallery band shared by every page. It begins collapsed, shows device-local progress, and expands into six 44px-target missions that connect otherwise separate site sections.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 - **Creature field maps:** every animal gets an in-card place list sorted closest from Mana Kai, with evidence breaking equal-distance ties. Each place leads with a large tappable schematic map tile, numbered exact pin, coordinates when verified, drive, parking, timing, access evidence, and a visible confidence label—not anecdotal sighting promises.
+- **Creature directory:** wildlife defaults to compact photo-led specimen cards. Quick ID, name, kind, and nearest-drive cue stay visible; science, kid mission, safety, maps, and source links expand in-flow through native accessible details. Habitat and animal-family filters form two horizontal rails, with visible expand/collapse controls for deliberate deep reading.
 
 ## 5. Layout Principles
 
@@ -103,13 +104,14 @@ Use local system fonts for instant loading.
 
 - Do not use generic tropical gradients, palm-tree wallpaper, or luau clichés.
 - Do not display equal-weight walls of options.
+- Do not force every wildlife fact and map open while a family is scanning dozens of species.
 - Do not hide safety caveats in footnotes.
 - Do not depend on hover, animation, or perfect connectivity.
 - Do not let hand-written homepage shortlists drift away from ranking functions.
 
 ## 8. Responsive Behavior
 
-- **Mobile `<640px`:** single cards, six-item bottom navigation with Daily replacing the redundant home link, filters scroll horizontally, 14px gutters.
+- **Mobile `<640px`:** single cards, six-item bottom navigation with Daily replacing the redundant home link, filters scroll horizontally, 14px gutters. Wildlife cards use a 124px photo rail beside quick ID copy and expand to full-width details without a modal.
 - **Tablet `640–979px`:** two-card grid, top navigation remains compact.
 - **Desktop `>=980px`:** three-card grid, bottom navigation disappears, optional sticky filter rail.
 - Minimum touch target: 44px; primary targets: 48px.

@@ -117,6 +117,14 @@ export const dailyBrief = {
       sourceUrl: "https://www.fws.gov/refuge/kealia-pond/species",
     },
     {
+      label: "Reef field guide",
+      status: "new",
+      detail:
+        "The creature directory now covers 35 animals with quick field marks, expandable safety and maps, and a wider Maui reef set checked against Hawaiʻi Sea Grant and Waikīkī Aquarium references.",
+      sourceLabel: "University of Hawaiʻi Sea Grant reef guide",
+      sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    },
+    {
       label: "Close + free",
       status: "confirmed",
       detail:

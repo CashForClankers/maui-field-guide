@@ -3886,3 +3886,284 @@ input {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Compact wildlife directory: quick field marks first, depth on demand. */
+.creature-type-row {
+  margin-top: 4px;
+}
+
+.filter-chip-secondary {
+  min-height: 40px;
+  padding-block: 7px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.filter-chip-secondary.active {
+  border-color: var(--tidepool);
+  color: var(--ocean);
+  background: var(--mist);
+}
+
+.creature-directory-tools {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.creature-directory-tools > div {
+  display: flex;
+  gap: 4px;
+}
+
+.text-button {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 0;
+  color: var(--ocean);
+  background: transparent;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.creature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px;
+}
+
+.creature-card,
+.creature-card:nth-child(even) {
+  display: block;
+  min-width: 0;
+  border-top: 7px solid var(--tidepool);
+  border-radius: 18px;
+}
+
+.creature-glance {
+  display: grid;
+  grid-template-columns: 188px minmax(0, 1fr);
+  min-height: 240px;
+}
+
+.creature-card:nth-child(even) .creature-photo {
+  order: 0;
+}
+
+.creature-photo {
+  min-height: 0;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.creature-photo figcaption {
+  inset: auto 8px 8px;
+  padding: 6px 7px;
+  font-size: 0.55rem;
+}
+
+.creature-photo-placeholder {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 7px;
+  padding: 16px;
+  color: white;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgb(255 255 255 / 13%) 0 2px,
+      transparent 3px
+    ),
+    linear-gradient(145deg, var(--tidepool), var(--ocean));
+  text-align: center;
+}
+
+.creature-photo-placeholder span,
+.creature-photo-placeholder small {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.creature-photo-placeholder strong {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  border: 2px solid rgb(255 255 255 / 70%);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+}
+
+.creature-copy {
+  padding: 22px;
+}
+
+.creature-hawaiian {
+  margin-top: 20px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.creature-copy h2 {
+  font-size: clamp(1.55rem, 3.4vw, 2.25rem);
+}
+
+.creature-quick-id {
+  margin-top: 18px;
+  padding-top: 13px;
+  border-top: 1px solid var(--hairline);
+}
+
+.creature-quick-id span {
+  color: var(--tidepool);
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.creature-quick-id p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.creature-details {
+  border-top: 1px solid var(--hairline);
+}
+
+.creature-details > summary {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 22px;
+  color: var(--ocean);
+  font-weight: 850;
+  cursor: pointer;
+  list-style: none;
+}
+
+.creature-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.creature-details > summary > span:last-child {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: var(--mist);
+  font-size: 1.3rem;
+  transition: transform 160ms ease;
+}
+
+.creature-details[open] > summary > span:last-child {
+  transform: rotate(45deg);
+}
+
+.creature-details-body {
+  padding: 0 22px 24px;
+}
+
+.creature-details .creature-places {
+  margin-top: 20px;
+}
+
+.creature-details .creature-place {
+  grid-template-columns: 116px minmax(0, 1fr);
+}
+
+.creature-details .creature-place-map {
+  padding-inline: 8px;
+}
+
+@media (max-width: 900px) {
+  .creature-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .creature-glance {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .filter-shell {
+    position: static;
+  }
+
+  .creature-directory-tools {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .creature-directory-tools > div {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .creature-glance {
+    grid-template-columns: 124px minmax(0, 1fr);
+    min-height: 210px;
+  }
+
+  .creature-copy {
+    padding: 16px 15px;
+  }
+
+  .creature-copy h2 {
+    font-size: 1.42rem;
+  }
+
+  .creature-hawaiian {
+    margin-top: 12px;
+    font-size: 1.25rem;
+  }
+
+  .creature-topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .creature-quick-id {
+    margin-top: 12px;
+  }
+
+  .creature-quick-id p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    font-size: 0.82rem;
+  }
+
+  .creature-details > summary {
+    padding-inline: 15px;
+  }
+
+  .creature-details-body {
+    padding: 0 15px 20px;
+  }
+
+  .creature-details .creature-place {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

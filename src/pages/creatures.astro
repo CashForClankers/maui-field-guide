@@ -24,6 +24,23 @@ const habitatFilters = [
   ["resort grounds", "Resort & dusk"],
 ] as const;
 
+const typeFilters = [
+  ["all", "Everything"],
+  ["fish", "Fish"],
+  ["small-ocean", "Coral & invertebrates"],
+  ["large-ocean", "Large ocean life"],
+  ["land-air", "Birds & land life"],
+] as const;
+
+const creatureGroup = (kind: (typeof creatures)[number]["kind"]) => {
+  if (kind === "reef fish") return "fish";
+  if (["echinoderm", "cephalopod", "coral"].includes(kind))
+    return "small-ocean";
+  if (["ray", "shark", "marine mammal", "sea turtle"].includes(kind))
+    return "large-ocean";
+  return "land-air";
+};
+
 const getCreaturePlaces = (creatureId: string) =>
   rankedCreaturePlaces(
     creaturePlaces.filter((place) => place.creatureId === creatureId),
@@ -102,9 +119,41 @@ const getCreaturePlaces = (creatureId: string) =>
         ))
       }
     </div>
-    <p id="creature-result-count" class="result-count" aria-live="polite">
-      {creatures.length} animals
-    </p>
+    <div
+      class="filter-row creature-type-row"
+      role="group"
+      aria-label="Filter wildlife by type"
+    >
+      {
+        typeFilters.map(([value, label], index) => (
+          <button
+            class:list={[
+              "filter-chip",
+              "filter-chip-secondary",
+              { active: index === 0 },
+            ]}
+            data-group-filter={value}
+            type="button"
+            aria-pressed={index === 0 ? "true" : "false"}
+          >
+            {label}
+          </button>
+        ))
+      }
+    </div>
+    <div class="creature-directory-tools">
+      <p id="creature-result-count" class="result-count" aria-live="polite">
+        {creatures.length} animals
+      </p>
+      <div>
+        <button id="expand-creatures" class="text-button" type="button"
+          >Expand visible</button
+        >
+        <button id="collapse-creatures" class="text-button" type="button"
+          >Collapse all</button
+        >
+      </div>
+    </div>
   </section>
 
   <section class="section wrap creature-grid" id="creature-grid">
@@ -115,161 +164,197 @@ const getCreaturePlaces = (creatureId: string) =>
           id={creature.id}
           data-card
           data-habitat={creature.habitat}
-          data-search={`${creature.commonName} ${creature.hawaiianName ?? ""} ${creature.kind} ${creature.habitat}`.toLowerCase()}
+          data-group={creatureGroup(creature.kind)}
+          data-search={`${creature.commonName} ${creature.hawaiianName ?? ""} ${creature.scientificName} ${creature.kind} ${creature.habitat} ${creature.recognition}`.toLowerCase()}
         >
-          <figure class="creature-photo">
-            <img
-              src={`${basePath}${creature.image}`}
-              alt={creature.imageAlt}
-              width="960"
-              height="640"
-              loading={index < 2 ? "eager" : "lazy"}
-              decoding="async"
-            />
-            <figcaption>
-              Photo: {creature.photoCredit} · {creature.photoLicense}
-            </figcaption>
-          </figure>
-          <div class="creature-copy">
-            <div class="creature-topline">
-              <span>{creature.kind}</span>
-              <span>
-                {creature.driveMinutes === 0
-                  ? "On site"
-                  : `≈ ${creature.driveMinutes} min`}
-              </span>
-            </div>
-            {creature.hawaiianName && (
-              <p class="creature-hawaiian">{creature.hawaiianName}</p>
+          <div class="creature-glance">
+            {creature.image ? (
+              <figure class="creature-photo">
+                <img
+                  src={`${basePath}${creature.image}`}
+                  alt={creature.imageAlt ?? creature.commonName}
+                  width="960"
+                  height="640"
+                  loading={index < 4 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+                <figcaption>
+                  {creature.photoCredit} · {creature.photoLicense}
+                </figcaption>
+              </figure>
+            ) : (
+              <div
+                class="creature-photo creature-photo-placeholder"
+                role="img"
+                aria-label={`No field photo yet for ${creature.commonName}`}
+              >
+                <span>{creature.kind}</span>
+                <strong>{creature.commonName.slice(0, 1)}</strong>
+                <small>Field mark card</small>
+              </div>
             )}
-            <h2>{creature.commonName}</h2>
-            <p class="scientific-name">{creature.scientificName}</p>
-
-            <dl class="creature-notes">
-              <div>
-                <dt>How to know it</dt>
-                <dd>{creature.recognition}</dd>
+            <div class="creature-copy">
+              <div class="creature-topline">
+                <span>{creature.kind}</span>
+                <span>
+                  {creature.driveMinutes === 0
+                    ? "On site"
+                    : `≈ ${creature.driveMinutes} min`}
+                </span>
               </div>
-              <div>
-                <dt>Small science</dt>
-                <dd>{creature.scienceNote}</dd>
+              {creature.hawaiianName && (
+                <p class="creature-hawaiian">{creature.hawaiianName}</p>
+              )}
+              <h2>{creature.commonName}</h2>
+              <p class="scientific-name">{creature.scientificName}</p>
+              <div class="creature-quick-id">
+                <span>Quick ID</span>
+                <p>{creature.recognition}</p>
               </div>
-              <div class="kid-mission">
-                <dt>Kid field mission</dt>
-                <dd>{creature.kidMission}</dd>
-              </div>
-              <div>
-                <dt>Where to look</dt>
-                <dd>{creature.whereToLook}</dd>
-              </div>
-              <div class="safety-note">
-                <dt>Give it room</dt>
-                <dd>{creature.safety}</dd>
-              </div>
-            </dl>
-            <section
-              class="creature-places"
-              aria-labelledby={`${creature.id}-places-title`}
-            >
-              <div class="creature-places-head">
+            </div>
+          </div>
+          <details class="creature-details">
+            <summary>
+              <span>Learn, map & safety</span>
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div class="creature-details-body">
+              <dl class="creature-notes">
                 <div>
-                  <p class="eyebrow">Closest field maps</p>
-                  <h3 id={`${creature.id}-places-title`}>
-                    Nearest places to try
-                  </h3>
+                  <>
+                    <dt>Small science</dt>
+                    <dd>{creature.scienceNote}</dd>
+                  </>
                 </div>
-                <p>Sorted from Mana Kai by drive, then evidence.</p>
-              </div>
-              <ol>
-                {getCreaturePlaces(creature.id).map((place, placeIndex) => (
-                  <li class="creature-place">
-                    <a
-                      class="creature-place-map"
-                      href={place.mapUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open map for ranked place ${placeIndex + 1}: ${place.name}`}
-                    >
-                      <span class="creature-place-pin" aria-hidden="true">
-                        {placeIndex + 1}
-                      </span>
-                      <span>Open exact pin</span>
-                      {place.coordinates && <small>{place.coordinates}</small>}
-                    </a>
-                    <div class="creature-place-copy">
-                      <div class="creature-place-title">
-                        <div>
-                          <span>#{placeIndex + 1}</span>
-                          <h4>{place.name}</h4>
-                        </div>
-                        <span
-                          class={`evidence evidence-${place.evidence.replaceAll(" ", "-")}`}
-                        >
-                          {place.evidence}
-                        </span>
-                      </div>
-                      <p>{place.reason}</p>
-                      <dl>
-                        <div>
-                          <dt>Drive</dt>
-                          <dd>
-                            {place.driveMinutes === 0
-                              ? "Walk / on site"
-                              : `≈ ${place.driveMinutes} min`}
-                          </dd>
-                        </div>
-                        <div>
-                          <dt>Park / enter</dt>
-                          <dd>{place.parking}</dd>
-                        </div>
-                        <div>
-                          <dt>Best try</dt>
-                          <dd>{place.timing}</dd>
-                        </div>
-                      </dl>
-                      <p class="creature-place-caveat">{place.caveat}</p>
+                <div class="kid-mission">
+                  <>
+                    <dt>Kid field mission</dt>
+                    <dd>{creature.kidMission}</dd>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <dt>Where to look</dt>
+                    <dd>{creature.whereToLook}</dd>
+                  </>
+                </div>
+                <div class="safety-note">
+                  <>
+                    <dt>Give it room</dt>
+                    <dd>{creature.safety}</dd>
+                  </>
+                </div>
+              </dl>
+              <section
+                class="creature-places"
+                aria-labelledby={`${creature.id}-places-title`}
+              >
+                <div class="creature-places-head">
+                  <div>
+                    <>
+                      <p class="eyebrow">Closest field maps</p>
+                      <h3 id={`${creature.id}-places-title`}>
+                        Nearest places to try
+                      </h3>
+                    </>
+                  </div>
+                  <p>Sorted from Mana Kai by drive, then evidence.</p>
+                </div>
+                <ol>
+                  {getCreaturePlaces(creature.id).map((place, placeIndex) => (
+                    <li class="creature-place">
                       <a
-                        class="creature-place-source"
-                        href={place.sourceUrl}
+                        class="creature-place-map"
+                        href={place.mapUrl}
                         target="_blank"
                         rel="noreferrer"
+                        aria-label={`Open map for ranked place ${placeIndex + 1}: ${place.name}`}
                       >
-                        Access evidence · {place.sourceLabel}
+                        <span class="creature-place-pin" aria-hidden="true">
+                          {placeIndex + 1}
+                        </span>
+                        <span>Open exact pin</span>
+                        {place.coordinates && (
+                          <small>{place.coordinates}</small>
+                        )}
                       </a>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </section>
-            <div class="creature-actions">
-              <a
-                class="button primary"
-                href={
-                  getCreaturePlaces(creature.id)[0]?.mapUrl ?? creature.mapUrl
-                }
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open #1 map
-              </a>
-              <a
-                class="button secondary"
-                href={creature.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Read the science
-              </a>
+                      <div class="creature-place-copy">
+                        <div class="creature-place-title">
+                          <div>
+                            <span>#{placeIndex + 1}</span>
+                            <h4>{place.name}</h4>
+                          </div>
+                          <span
+                            class={`evidence evidence-${place.evidence.replaceAll(" ", "-")}`}
+                          >
+                            {place.evidence}
+                          </span>
+                        </div>
+                        <p>{place.reason}</p>
+                        <dl>
+                          <div>
+                            <dt>Drive</dt>
+                            <dd>
+                              {place.driveMinutes === 0
+                                ? "Walk / on site"
+                                : `≈ ${place.driveMinutes} min`}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt>Park / enter</dt>
+                            <dd>{place.parking}</dd>
+                          </div>
+                          <div>
+                            <dt>Best try</dt>
+                            <dd>{place.timing}</dd>
+                          </div>
+                        </dl>
+                        <p class="creature-place-caveat">{place.caveat}</p>
+                        <a
+                          class="creature-place-source"
+                          href={place.sourceUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Access evidence · {place.sourceLabel}
+                        </a>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+              <div class="creature-actions">
+                <a
+                  class="button primary"
+                  href={
+                    getCreaturePlaces(creature.id)[0]?.mapUrl ?? creature.mapUrl
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open #1 map
+                </a>
+                <a
+                  class="button secondary"
+                  href={creature.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Read the science
+                </a>
+              </div>
+              {creature.photoSourceUrl && (
+                <a
+                  class="photo-source"
+                  href={creature.photoSourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Photo source and license
+                </a>
+              )}
             </div>
-            <a
-              class="photo-source"
-              href={creature.photoSourceUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Photo source and license
-            </a>
-          </div>
+          </details>
         </article>
       ))
     }
@@ -282,7 +367,7 @@ const getCreaturePlaces = (creatureId: string) =>
     <p>
       Science and access checked against NOAA Fisheries, Hawaiʻi DLNR, Maui
       County, NOAA Ocean Service, Hawaiʻi Sea Grant, and the U.S. Fish &
-      Wildlife Service on July 3, 2026. Coordinates are map pins, not wildlife
+      Wildlife Service on July 5, 2026. Coordinates are map pins, not wildlife
       locations. Conditions and sightings are never guaranteed.
     </p>
     <a class="button primary" href={`${basePath}discover/`}>Plan one stop</a>
@@ -293,10 +378,19 @@ const getCreaturePlaces = (creatureId: string) =>
     const chips = [
       ...document.querySelectorAll<HTMLButtonElement>("[data-filter]"),
     ];
+    const groupChips = [
+      ...document.querySelectorAll<HTMLButtonElement>("[data-group-filter]"),
+    ];
     const cards = [...document.querySelectorAll<HTMLElement>("[data-card]")];
     const count = document.querySelector<HTMLElement>("#creature-result-count");
     const empty = document.querySelector<HTMLElement>("#creature-empty-state");
+    const expand =
+      document.querySelector<HTMLButtonElement>("#expand-creatures");
+    const collapse = document.querySelector<HTMLButtonElement>(
+      "#collapse-creatures",
+    );
     let activeFilter = "all";
+    let activeGroup = "all";
 
     function render() {
       const query = search?.value.trim().toLowerCase() ?? "";
@@ -306,8 +400,11 @@ const getCreaturePlaces = (creatureId: string) =>
           !query || (card.dataset.search ?? "").includes(query);
         const matchesFilter =
           activeFilter === "all" || card.dataset.habitat === activeFilter;
-        const show = matchesText && matchesFilter;
+        const matchesGroup =
+          activeGroup === "all" || card.dataset.group === activeGroup;
+        const show = matchesText && matchesFilter && matchesGroup;
         card.hidden = !show;
+        if (!show) card.querySelector("details")?.removeAttribute("open");
         if (show) visible += 1;
       }
       if (count)
@@ -326,5 +423,25 @@ const getCreaturePlaces = (creatureId: string) =>
         render();
       });
     }
+    for (const chip of groupChips) {
+      chip.addEventListener("click", () => {
+        activeGroup = chip.dataset.groupFilter ?? "all";
+        for (const candidate of groupChips)
+          candidate.classList.toggle("active", candidate === chip);
+        for (const candidate of groupChips)
+          candidate.setAttribute("aria-pressed", String(candidate === chip));
+        render();
+      });
+    }
+    expand?.addEventListener("click", () => {
+      for (const card of cards) {
+        if (!card.hidden)
+          card.querySelector("details")?.setAttribute("open", "");
+      }
+    });
+    collapse?.addEventListener("click", () => {
+      for (const card of cards)
+        card.querySelector("details")?.removeAttribute("open");
+    });
   </script>
 </Layout>

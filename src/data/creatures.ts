@@ -412,9 +412,774 @@ export const creatures = [
     photoSourceUrl:
       "https://commons.wikimedia.org/wiki/File:Echinometra_mathaei_BPF.jpg",
   },
+  {
+    id: "achilles-tang",
+    commonName: "Achilles tang",
+    hawaiianName: "Pākuʻikuʻi",
+    scientificName: "Acanthurus achilles",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/achilles-tang.jpg",
+    imageAlt: "A dark Achilles tang with a vivid orange tail patch",
+    recognition:
+      "A near-black oval body with one blazing orange teardrop beside the tail and a white blade-like tail spine.",
+    scienceNote:
+      "A surge-zone surgeonfish built for oxygen-rich water. Its narrow mouth scrapes algae while the tail spine is defense, not a tool for people to test.",
+    kidMission:
+      "Find the orange teardrop first, then watch whether the fish holds position against moving water.",
+    whereToLook:
+      "Scan clear, wave-washed reef edges from shore or over sand; it favors more surge than yellow tang usually do.",
+    driveMinutes: 7,
+    safety:
+      "Do not enter surge to follow one. Keep hands away from every surgeonfish tail spine and fins off reef.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "FakirNL / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Acanthurus_achilles_in_Ouwehands_Dierenpark_03.jpg",
+  },
+  {
+    id: "convict-tang",
+    commonName: "Convict tang",
+    hawaiianName: "Manini",
+    scientificName: "Acanthurus triostegus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/convict-tang.jpg",
+    imageAlt: "A pale convict tang with narrow black vertical bars",
+    recognition:
+      "Pale silver with five narrow black bars, including one through the eye—like a tiny reef zebra.",
+    scienceNote:
+      "Manini often graze in groups. Many small mouths cropping algae at once can clear a visible feeding patch.",
+    kidMission:
+      "Count bars on one fish, then count how many neighbors turn together when the school changes direction.",
+    whereToLook:
+      "Shallow reef flats and the sand-rock boundary in calm, clear morning water.",
+    driveMinutes: 0,
+    safety:
+      "Watch a school pass; never herd it toward shore or stand on reef for a better angle.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Brian Gratwicke / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Convict_Surgeonfish,_Acanthurus_triostegus.jpg",
+  },
+  {
+    id: "orangespine-unicornfish",
+    commonName: "Orangespine unicornfish",
+    scientificName: "Naso lituratus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/orangespine-unicornfish.jpg",
+    imageAlt: "A gray orangespine unicornfish with orange lips and tail spines",
+    recognition:
+      "Slate gray with orange lips, a dark face mask, and two bright orange plates at the tail base.",
+    scienceNote:
+      "Despite the family name, this species lacks a long forehead horn. The orange tail plates are fixed scalpels used for defense.",
+    kidMission:
+      "Use three clues in order: orange mouth, black mask, orange tail plates.",
+    whereToLook:
+      "Clear reef slopes and edges where larger herbivores cruise between feeding patches.",
+    driveMinutes: 7,
+    safety:
+      "Never corner or touch a surgeonfish; its tail plates can cut. Stay over sand and let it choose the distance.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "Rjcastillo / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Naso_lituratus_A74265620241123.jpg",
+  },
+  {
+    id: "milletseed-butterflyfish",
+    commonName: "Milletseed butterflyfish",
+    scientificName: "Chaetodon miliaris",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/milletseed-butterflyfish.jpg",
+    imageAlt: "A yellow milletseed butterflyfish covered in small dark spots",
+    recognition:
+      "A yellow oval sprinkled with neat black dots, plus a black eye bar and one dark patch near the tail.",
+    scienceNote:
+      "This butterflyfish is endemic to Hawaiʻi and often plucks drifting zooplankton above the reef instead of biting coral.",
+    kidMission:
+      "Look for a fish hovering above the reef and pecking at invisible specks in the water.",
+    whereToLook:
+      "Above shallow reef, especially where a small current carries plankton past the fish.",
+    driveMinutes: 0,
+    safety:
+      "Observe without swimming into a feeding group; watch current and remain over sand.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Alfonsin11 / Wikimedia Commons",
+    photoLicense: "CC BY-SA 3.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:SNORKELING_IN_MAUI,_HAWAII.jpg",
+  },
+  {
+    id: "raccoon-butterflyfish",
+    commonName: "Raccoon butterflyfish",
+    hawaiianName: "Kīkākapu",
+    scientificName: "Chaetodon lunula",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/raccoon-butterflyfish.jpg",
+    imageAlt: "A yellow raccoon butterflyfish with a broad black eye mask",
+    recognition:
+      "Yellow body, broad black raccoon mask, white forehead band, and diagonal dark lines behind the head.",
+    scienceNote:
+      "A nighttime feeder that shelters close to reef by day, using its narrow snout to take small invertebrates.",
+    kidMission:
+      "Compare its wide mask with the thin eye stripe on the milletseed butterflyfish.",
+    whereToLook:
+      "Near ledges and reef crevices; paired fish may stay close together.",
+    driveMinutes: 7,
+    safety:
+      "Do not shine lights into holes or reach under ledges. Keep the reef between you and your curiosity.",
+    sourceLabel: "Waikīkī Aquarium · butterflyfish biology",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/fishes/butterflyfishes/tinkers-butterflyfish/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "Brian Gratwicke / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Raccoon_butterflyfish,_Chaetodon_lunula.jpg",
+  },
+  {
+    id: "saddle-wrasse",
+    commonName: "Saddle wrasse",
+    hawaiianName: "Hīnālea lauwili",
+    scientificName: "Thalassoma duperrey",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/saddle-wrasse.jpg",
+    imageAlt: "Two colorful saddle wrasses feeding above reef",
+    recognition:
+      "A fast green-blue wrasse with a red-orange saddle behind the head; smaller fish can look browner and less vivid.",
+    scienceNote:
+      "Endemic to Hawaiʻi and famous for changing color and sex as social roles shift within a group.",
+    kidMission:
+      "Follow with your eyes, not your fins: how many sharp turns can it make in ten seconds?",
+    whereToLook:
+      "Almost any healthy shallow reef edge, weaving close to rock and rubble.",
+    driveMinutes: 0,
+    safety:
+      "Fast fish tempt chasing. Hold position instead and keep fins high above the bottom.",
+    sourceLabel: "Waikīkī Aquarium · Hawaiian marine communities",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/exhibits/hawaiian-marine-communities/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Brocken Inaglory / Wikimedia Commons",
+    photoLicense: "CC BY-SA 2.5",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Two_Saddle_Wrasse_are_feeding_on_sea_urchin.jpg",
+  },
+  {
+    id: "bird-wrasse",
+    commonName: "Bird wrasse",
+    scientificName: "Gomphosus varius",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/bird-wrasse.jpg",
+    imageAlt: "A green-blue bird wrasse with a long curved snout",
+    recognition:
+      "The long curved beak is unmistakable; adults may be deep blue-green while females and juveniles are paler brown-white.",
+    scienceNote:
+      "Its beak-like snout probes narrow reef gaps for small crustaceans that rounder fish cannot reach.",
+    kidMission:
+      "Watch the beak: count how many different cracks it checks before moving on.",
+    whereToLook: "Reef faces with many cracks and small ledges.",
+    driveMinutes: 7,
+    safety:
+      "Never put your own fingers into the holes a wrasse investigates; reef crevices belong to wildlife.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "H. Zell / Wikimedia Commons",
+    photoLicense: "CC BY-SA 3.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Gomphosus_varius_-_Wilhelma_01.jpg",
+  },
+  {
+    id: "hawaiian-sergeant",
+    commonName: "Hawaiian sergeant",
+    scientificName: "Abudefduf abdominalis",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/hawaiian-sergeant.jpg",
+    imageAlt:
+      "A silvery Hawaiian sergeant with dark bars and yellow upper body",
+    recognition:
+      "A sturdy silver fish with five dark bars and a yellow wash across the upper back.",
+    scienceNote:
+      "Found only around Hawaiʻi and nearby Johnston Atoll. Males darken while guarding eggs attached to reef surfaces.",
+    kidMission:
+      "If one fish keeps circling one patch, back away and see whether it is guarding eggs.",
+    whereToLook:
+      "Shallow reef and rocky edges, sometimes in loose groups above the bottom.",
+    driveMinutes: 0,
+    safety:
+      "Give territorial fish extra room and never inspect or touch an egg patch.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "NOAA Photo Library / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Corl0096_(28009595452).jpg",
+  },
+  {
+    id: "hawaiian-dascyllus",
+    commonName: "Hawaiian dascyllus",
+    scientificName: "Dascyllus albisella",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/hawaiian-dascyllus.jpg",
+    imageAlt: "A round Hawaiian dascyllus hovering near branching coral",
+    recognition:
+      "Young fish are pale with a dark head and dark fins; adults become charcoal gray with a round, high-backed shape.",
+    scienceNote:
+      "An endemic damselfish that uses branching coral as a shelter tower, darting out for plankton and back into cover.",
+    kidMission:
+      "Pick one coral head from far away and count how many times a fish leaves and returns.",
+    whereToLook:
+      "Near intact branching coral, never by swimming directly over or between branches.",
+    driveMinutes: 7,
+    safety:
+      "Coral is alive and fragile. Stay well above it and never use it to steady yourself.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "NOAA Photo Library / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Corl0066_(28034439531).jpg",
+  },
+  {
+    id: "bluespotted-cornetfish",
+    commonName: "Bluespotted cornetfish",
+    hawaiianName: "Nūnū",
+    scientificName: "Fistularia commersonii",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/bluespotted-cornetfish.jpg",
+    imageAlt: "A very long, slender cornetfish hovering above reef",
+    recognition:
+      "A pencil-thin fish with a tube snout, tiny tail flag, and a body that can look blue-green or brown.",
+    scienceNote:
+      "It is an ambush hunter that can shadow larger fish, using them as moving cover before darting at small prey.",
+    kidMission:
+      "Look for a straight line that does not belong: can you spot the fish before it moves?",
+    whereToLook:
+      "Hovering above sand channels and reef edges, sometimes nearly vertical.",
+    driveMinutes: 0,
+    safety:
+      "Do not chase a camouflaged hunter into deeper water. Keep your own route and shore position clear.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Diego Delso / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Pez_corneta_pintada_(Fistularia_commersonii),_Anilao,_Filipinas,_2023-08-23,_DD_177.jpg",
+  },
+  {
+    id: "spotted-eagle-ray",
+    commonName: "Spotted eagle ray",
+    hawaiianName: "Hīhīmanu",
+    scientificName: "Aetobatus ocellatus",
+    kind: "ray",
+    habitat: "open ocean",
+    image: "creatures/spotted-eagle-ray.jpg",
+    imageAlt: "A spotted eagle ray gliding with its long tail trailing behind",
+    recognition:
+      "A dark kite-shaped back scattered with white spots, a projecting duck-bill snout, and a very long whip tail.",
+    scienceNote:
+      "Flattened tooth plates crush buried clams and snails. The ray uses its snout and wing beats to expose prey in sand.",
+    kidMission:
+      "From a boat or shore, compare wing motion with a bird: flap, glide, or both?",
+    whereToLook:
+      "An incidental clear-water sighting over sand or beside reef—not a reason to swim farther offshore.",
+    driveMinutes: 18,
+    safety:
+      "Never pursue, touch, or block a ray. Stay clear of the tail and let it leave in any direction.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · interactive reef",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Makena+Landing+Maui",
+    photoCredit: "BEDO Thailand / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Aetobatus_ocellatus.jpg",
+  },
+  {
+    id: "shingle-urchin",
+    commonName: "Shingle urchin",
+    hawaiianName: "Hāʻukeʻuke",
+    scientificName: "Colobocentrotus atratus",
+    kind: "echinoderm",
+    habitat: "shoreline",
+    image: "creatures/shingle-urchin.jpg",
+    imageAlt: "A dark shingle urchin clinging to wave-washed Hawaiian rock",
+    recognition:
+      "A low purple-black dome covered in smooth overlapping plates instead of long spines.",
+    scienceNote:
+      "Its shingle-like spines, low profile, and powerful tube feet are adaptations for clinging inside the full force of surf.",
+    kidMission:
+      "From dry ground, compare its shape with a stream-smoothed pebble. Why would low and round beat tall and spiky?",
+    whereToLook:
+      "Wave-hit lava rock only from a stable dry viewpoint; never enter the impact zone to find one.",
+    driveMinutes: 24,
+    safety:
+      "Wave-washed rock can be deadly. Observation is from dry, lawful ground with no climbing or tidepool handling.",
+    sourceLabel: "Waikīkī Aquarium · shingle urchin",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/invertebrates/echinoderms/shingle-urchin/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Ahihi+Kinau+Natural+Area+Reserve+Maui",
+    photoCredit: "Dayna Bubenicek / Wikimedia Commons",
+    photoLicense: "CC BY-SA 4.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Colobocentrotus_atratus.jpg",
+  },
+  {
+    id: "cushion-star",
+    commonName: "Cushion star",
+    scientificName: "Culcita novaeguineae",
+    kind: "echinoderm",
+    habitat: "reef",
+    image: "creatures/cushion-star.jpg",
+    imageAlt: "A thick five-sided cushion star viewed from below",
+    recognition:
+      "A plump pentagon that looks more like a patterned pillow than a five-armed sea star.",
+    scienceNote:
+      "Its arms become so inflated that only the five-part outline remains obvious; hundreds of tube feet still work underneath.",
+    kidMission:
+      "Find the hidden star: trace five corners in the cushion shape without touching it.",
+    whereToLook:
+      "On reef rubble or sand near coral, usually as a lucky stationary find.",
+    driveMinutes: 7,
+    safety:
+      "Never lift or turn a sea star. Keep it submerged, untouched, and exactly where it is.",
+    sourceLabel: "Waikīkī Aquarium · echinoderm guide",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/invertebrates/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "Nick Hobgood / Wikimedia Commons",
+    photoLicense: "CC BY-SA 3.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Culcita_novaeguineae.jpg",
+  },
+  {
+    id: "long-spine-porcupinefish",
+    commonName: "Long-spine porcupinefish",
+    scientificName: "Diodon holocanthus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/long-spine-porcupinefish.jpg",
+    imageAlt: "A spotted long-spine porcupinefish with large round eyes",
+    recognition:
+      "Big round eyes, a blunt beak, dark spots, and long flattened spines lying against the body when relaxed.",
+    scienceNote:
+      "It inflates only under severe threat. The spines stand up as the body expands, so making one puff is animal harassment, not a trick.",
+    kidMission:
+      "Spot the beak and resting spines while the fish stays calm—success means it never inflates.",
+    whereToLook: "Under ledges and near holes, often resting quietly by day.",
+    driveMinutes: 7,
+    safety:
+      "Never touch, corner, lift, or try to inflate a puffer or porcupinefish.",
+    sourceLabel: "Waikīkī Aquarium · edge-of-reef animals",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/exhibits/edge-of-the-reef/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "NOAA / Wikimedia Commons",
+    photoLicense: "Public domain",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Diodon_holocanthus.jpg",
+  },
+  {
+    id: "snowflake-moray",
+    commonName: "Snowflake moray",
+    hawaiianName: "Puhi kāpā",
+    scientificName: "Echidna nebulosa",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/snowflake-moray.jpg",
+    imageAlt: "A snowflake moray patterned with black and yellow starbursts",
+    recognition:
+      "Creamy white with black starbursts and yellow flecks, plus a blunt pebble-crushing snout.",
+    scienceNote:
+      "Its rounded teeth are built for crabs and other hard-shelled prey, unlike fish-eating morays with sharper teeth.",
+    kidMission:
+      "Watch the mouth open and close: the eel is pumping water over its gills, not threatening you.",
+    whereToLook:
+      "A head peeking from a reef hole; the rest of the eel may stay completely hidden.",
+    driveMinutes: 0,
+    safety:
+      "Never feed an eel or put hands into any hole. Give the animal an open exit.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "David Burdick / NOAA",
+    photoLicense: "Public domain",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Echidna_nebulosa.jpg",
+  },
+  {
+    id: "whitemouth-moray",
+    commonName: "Whitemouth moray",
+    scientificName: "Gymnothorax meleagris",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/whitemouth-moray.jpg",
+    imageAlt: "A dark whitemouth moray with white spots and a white mouth",
+    recognition:
+      "Dark brown or black with many small white spots and a startlingly white mouth lining.",
+    scienceNote:
+      "Morays have a second set of jaws in the throat that moves forward to pull prey back for swallowing.",
+    kidMission:
+      "Use only the pattern: tiny white body spots plus a white mouth. Do not move closer to confirm.",
+    whereToLook:
+      "Reef crevices and ledges, usually with only the head visible.",
+    driveMinutes: 7,
+    safety:
+      "No feeding and no hands in holes. A hidden eel needs distance, not a portrait.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "David Burdick / NOAA",
+    photoLicense: "Public domain",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Gymnothorax_meleagris.jpg",
+  },
+  {
+    id: "black-sea-cucumber",
+    commonName: "Black sea cucumber",
+    hawaiianName: "Loli",
+    scientificName: "Holothuria atra",
+    kind: "echinoderm",
+    habitat: "reef",
+    image: "creatures/black-sea-cucumber.jpg",
+    imageAlt: "A black sea cucumber partly dusted with reef sand",
+    recognition:
+      "A thick black cylinder often dusted with sand, leaving bead-like strings of cleaned sediment behind.",
+    scienceNote:
+      "A reef recycler: it swallows sand for organic particles and returns processed sediment, helping turn over the seafloor.",
+    kidMission:
+      "Trace a sand trail with your eyes and find the recycler at one end—without touching either.",
+    whereToLook: "Quiet sandy patches beside reef and in shallow lagoons.",
+    driveMinutes: 0,
+    safety:
+      "Never squeeze, lift, or provoke one; stressed sea cucumbers can eject defensive material.",
+    sourceLabel: "Waikīkī Aquarium · black sea cucumber",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/animal-guide/invertebrates/echinoderms/sea-cucumbers/black-sea-cucumber/",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Keawakapu+Beach+Maui",
+    photoCredit: "Philippe Bourjon / Wikimedia Commons",
+    photoLicense: "CC BY-SA 3.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Holothuria_atra.jpg",
+  },
+  {
+    id: "cauliflower-coral",
+    commonName: "Cauliflower coral",
+    hawaiianName: "Koʻa",
+    scientificName: "Pocillopora meandrina",
+    kind: "coral",
+    habitat: "reef",
+    image: "creatures/cauliflower-coral.jpg",
+    imageAlt: "A branching cauliflower coral colony on a Hawaiian reef",
+    recognition:
+      "Compact branching heads with knobby ridges, often cream, brown, or pink and shaped like cauliflower florets.",
+    scienceNote:
+      "A coral head is a colony of tiny animals. Each polyp builds skeleton while microscopic algae in its tissue turn sunlight into food.",
+    kidMission:
+      "From above, look for one colony with many repeated branch tips—one neighborhood, thousands of animals.",
+    whereToLook:
+      "Clear shallow reef, viewed from enough height that no fin or foot can touch it.",
+    driveMinutes: 7,
+    safety:
+      "Never stand on, kick, collect, or handle coral. Mineral sunscreen and shade are better reef choices than careless contact.",
+    sourceLabel: "Waikīkī Aquarium · edge of the reef",
+    sourceUrl:
+      "https://www.waikikiaquarium.org/experience/exhibits/edge-of-the-reef/",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "Dwayne Meadows / NOAA",
+    photoLicense: "Public domain",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Pocillopora_meandrina.jpg",
+  },
+  {
+    id: "whitetip-reef-shark",
+    commonName: "Whitetip reef shark",
+    scientificName: "Triaenodon obesus",
+    kind: "shark",
+    habitat: "open ocean",
+    image: "creatures/whitetip-reef-shark.jpg",
+    imageAlt: "A whitetip reef shark cruising above the seafloor",
+    recognition:
+      "Slender gray body with bright white tips on the first dorsal fin and upper tail lobe.",
+    scienceNote:
+      "Unlike many sharks, it can pump water across its gills while resting and may lie on sand beneath reef ledges by day.",
+    kidMission:
+      "From a lawful boat or distant viewpoint, find the two white fin tips—then let the shark keep its resting place.",
+    whereToLook:
+      "An incidental reef or boat sighting only; never search under ledges or swim toward one.",
+    driveMinutes: 20,
+    safety:
+      "Stay calm, keep distance, never feed or pursue, and follow lifeguard or operator instructions immediately.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · interactive reef",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Maalaea+Harbor+Maui",
+    photoCredit: "Leonard Low / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Triaenodon_obesus.jpg",
+  },
+  {
+    id: "dussumiers-surgeonfish",
+    commonName: "Dussumier’s surgeonfish",
+    hawaiianName: "Palani",
+    scientificName: "Acanthurus dussumieri",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/dussumiers-surgeonfish.jpg",
+    imageAlt: "A Dussumier's surgeonfish with blue lines and a pale tail",
+    recognition:
+      "Fine blue lines over a gray-brown body, a yellow eye ring, and a white tail with dark speckles.",
+    scienceNote:
+      "A large grazer that helps remove algae and detritus from reef surfaces; its colors intensify as it matures.",
+    kidMission:
+      "Find the eye ring, then the pale tail. Can you see the tiny blue lines only after the big clues?",
+    whereToLook:
+      "Deeper reef edges and clear channels where larger surgeonfish cruise.",
+    driveMinutes: 7,
+    safety:
+      "Give large surgeonfish room and avoid their tail scalpels. Never follow one into deeper water.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "NOAA Photo Library / Wikimedia Commons",
+    photoLicense: "Public domain",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Acanthurus_dussumieri.jpg",
+  },
+  {
+    id: "orange-lined-triggerfish",
+    commonName: "Orange-lined triggerfish",
+    scientificName: "Balistapus undulatus",
+    kind: "reef fish",
+    habitat: "reef",
+    image: "creatures/orange-lined-triggerfish.jpg",
+    imageAlt: "A dark triggerfish crossed by bright diagonal orange lines",
+    recognition:
+      "Dark green body crossed by many diagonal orange lines, with an orange tail base and blue-green face marks.",
+    scienceNote:
+      "The first dorsal spine locks upright like a trigger, helping the fish wedge itself into reef crevices.",
+    kidMission:
+      "Count orange diagonal lines without losing track when the fish turns sideways.",
+    whereToLook:
+      "Close to reef faces and holes, often alone and moving deliberately.",
+    driveMinutes: 7,
+    safety:
+      "Triggerfish can defend space. Back away from repeated turns toward you and never reach into a refuge hole.",
+    sourceLabel: "University of Hawaiʻi Sea Grant · reef fish guide",
+    sourceUrl: "https://seagrant.soest.hawaii.edu/?da_image=41729",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ulua+Beach+Maui",
+    photoCredit: "Leonard Low / Wikimedia Commons",
+    photoLicense: "CC BY 2.0",
+    photoSourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Balistapus_undulatus.jpg",
+  },
 ] satisfies Creature[];
 
+const expandedCreatureIds = [
+  "achilles-tang",
+  "convict-tang",
+  "orangespine-unicornfish",
+  "milletseed-butterflyfish",
+  "raccoon-butterflyfish",
+  "saddle-wrasse",
+  "bird-wrasse",
+  "hawaiian-sergeant",
+  "hawaiian-dascyllus",
+  "bluespotted-cornetfish",
+  "spotted-eagle-ray",
+  "shingle-urchin",
+  "cushion-star",
+  "long-spine-porcupinefish",
+  "snowflake-moray",
+  "whitemouth-moray",
+  "black-sea-cucumber",
+  "cauliflower-coral",
+  "whitetip-reef-shark",
+  "dussumiers-surgeonfish",
+  "orange-lined-triggerfish",
+] as const;
+
+function expandedCreaturePlaces(
+  creatureId: (typeof expandedCreatureIds)[number],
+): CreaturePlace[] {
+  const creature = creatures.find((item) => item.id === creatureId);
+  if (!creature) throw new Error(`Missing expanded creature: ${creatureId}`);
+
+  if (creature.habitat === "open ocean") {
+    return [
+      {
+        id: `${creatureId}-makena-landing`,
+        creatureId,
+        name: "Mākena Landing · shore scan",
+        coordinates: "20.653776, -156.440785",
+        driveMinutes: 18,
+        reason:
+          "A public shoreline for an incidental clear-water scan without turning the animal into a pursuit.",
+        parking:
+          "Use the marked Mākena Landing public lot; leave if full rather than parking on the road.",
+        timing: "Calm morning while already there; scan from shore first.",
+        caveat:
+          "Habitat fit only. Never swim offshore or book a trip for a promised wild encounter.",
+        evidence: "official habitat fit",
+        verifiedAt: "2026-07-05",
+        sourceLabel: "Maui County · Mākena Landing access",
+        sourceUrl:
+          "https://www.mauicounty.gov/facilities/facility/details/Makena-Landing-Park-251",
+        mapUrl:
+          "https://www.google.com/maps/search/?api=1&query=20.653776%2C-156.440785",
+        metrics: { signal: 2, ease: 4, safety: 4 },
+      },
+      {
+        id: `${creatureId}-maalaea`,
+        creatureId,
+        name: "Māʻalaea Harbor · lawful boat crossing",
+        driveMinutes: 20,
+        reason:
+          "Open-water wildlife is best treated as a possible bonus on an existing operator-led crossing.",
+        parking: "Follow the booked operator’s harbor and parking directions.",
+        timing: "Morning crossing; let crew set every wildlife distance.",
+        caveat:
+          "No sighting is assured. Never ask a captain to chase, surround, feed, or crowd wildlife.",
+        evidence: "low-confidence watch",
+        verifiedAt: "2026-07-05",
+        sourceLabel: "Hawaiʻi DLNR · ocean recreation safety",
+        sourceUrl: "https://dlnr.hawaii.gov/dobor/ocean-safety/",
+        mapUrl:
+          "https://www.google.com/maps/search/?api=1&query=Maalaea+Harbor+Maui",
+        metrics: { signal: 2, ease: 2, safety: 4 },
+      },
+    ];
+  }
+
+  if (creature.habitat === "shoreline") {
+    return [
+      {
+        id: `${creatureId}-ahihi-shore`,
+        creatureId,
+        name: "ʻĀhihi-Kīnaʻu · dry shoreline look",
+        driveMinutes: 24,
+        reason:
+          "Protected lava shoreline matches wave-zone habitat, but the safe observation point remains dry and lawful.",
+        parking:
+          "Use the paid Kanahena lot only; roadside stopping is prohibited.",
+        timing: "Daylight, from dry stable ground after reading posted signs.",
+        caveat:
+          "Never enter wave impact, climb wet lava, or cross a closure for an animal.",
+        evidence: "official habitat fit",
+        verifiedAt: "2026-07-05",
+        sourceLabel: "Hawaiʻi DLNR · ʻĀhihi-Kīnaʻu rules",
+        sourceUrl:
+          "https://dlnr.hawaii.gov/ecosystems/nars/maui/ahihi-kinau-2/",
+        mapUrl:
+          "https://www.google.com/maps/search/?api=1&query=Ahihi-Kinau+Natural+Area+Reserve+Parking+Lot",
+        metrics: { signal: 3, ease: 2, safety: 3 },
+      },
+      {
+        id: `${creatureId}-keawakapu-shore`,
+        creatureId,
+        name: "Keawakapu · dry reef-edge scan",
+        coordinates: "20.704932, -156.446466",
+        driveMinutes: 0,
+        reason:
+          "A no-drive chance to inspect exposed shoreline texture from dry sand without entering the wave zone.",
+        parking:
+          "Walk from Mana Kai, or use the public lot across South Kīhei Road at Kilohana Drive.",
+        timing: "Daylight and calm conditions; remain on stable dry sand.",
+        caveat:
+          "Low-confidence watch only. Never climb wet rock or approach breaking waves for a closer look.",
+        evidence: "low-confidence watch",
+        verifiedAt: "2026-07-05",
+        sourceLabel: "Maui County · Keawakapu access",
+        sourceUrl:
+          "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+        mapUrl:
+          "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+        metrics: { signal: 1, ease: 5, safety: 4 },
+      },
+    ];
+  }
+
+  return [
+    {
+      id: `${creatureId}-keawakapu`,
+      creatureId,
+      name: "Keawakapu · Mana Kai reef edge",
+      coordinates: "20.704932, -156.446466",
+      driveMinutes: 0,
+      reason:
+        "The lowest-friction first look is the nearby sand-to-reef edge, scanned from shore before any water entry.",
+      parking:
+        "Walk from Mana Kai, or use the public lot across South Kīhei Road at Kilohana Drive.",
+      timing: "Calm, clear early morning; stop at the first safety doubt.",
+      caveat:
+        "Official habitat fit, not a sighting record. No lifeguard; never touch or stand on reef.",
+      evidence: "official habitat fit",
+      verifiedAt: "2026-07-05",
+      sourceLabel: "Maui County · Keawakapu access",
+      sourceUrl:
+        "https://www.mauicounty.gov/facilities/facility/details/Keawakapu-I-Beach-Park-Parking-Lot-385",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=20.704932%2C-156.446466",
+      metrics: { signal: 3, ease: 5, safety: 3 },
+    },
+    {
+      id: `${creatureId}-ulua`,
+      creatureId,
+      name: "Ulua–Mōkapu reef edge",
+      coordinates: "20.690531, -156.443670",
+      driveMinutes: 7,
+      reason:
+        "A compact public reef access with parking and a clear sand-to-rock boundary for a second patient look.",
+      parking: "Use the signed Ulua Beach public lot off Halealiʻi Place.",
+      timing: "Calm early morning, staying over sand and away from coral.",
+      caveat:
+        "Habitat fit only. Water conditions and animal presence are never guaranteed.",
+      evidence: "official habitat fit",
+      verifiedAt: "2026-07-05",
+      sourceLabel: "Maui County · Ulua–Mōkapu access",
+      sourceUrl:
+        "https://www.mauicounty.gov/facilities/facility/details/Ulua-M333kapu-Beach-388",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=20.690531%2C-156.443670",
+      metrics: { signal: 4, ease: 5, safety: 3 },
+    },
+  ];
+}
+
 export const creaturePlaces = [
+  ...expandedCreatureIds.flatMap(expandedCreaturePlaces),
   {
     id: "honu-keawakapu",
     creatureId: "honu",
