@@ -1157,4 +1157,41 @@ export const experiences = [
     sourceUrl: "https://mauisnorkeling.com/maalaea-harbor/",
     mapUrl: "https://maps.google.com/?q=Maalaea+Harbor+Slip+64+Maui",
   },
+  {
+    id: "malolo-molokini-turtle-town",
+    title: "Malolo Molokini crater snorkel deal",
+    kind: "adventure",
+    summary:
+      "A discounted 5.5-hour Maʻalaea Harbor catamaran trip into Molokini's sunken volcanic crater, plus a second Turtle Town stop, with breakfast and lunch included.",
+    whyItFits:
+      "This is the best-priced verified route into Molokini itself—clearer water and reef fish inside a National Marine Sanctuary that shore snorkeling can't match.",
+    kidTakeaway:
+      "Molokini is a drowned volcanic crescent: its curved wall blocks waves and current, which is why the water inside stays so much clearer than the open coast.",
+    driveMinutes: 20,
+    duration: "5.5 hr (6:30am–~12pm)",
+    cost: "$149.95 adult · $109.95 child 4–12 · infants 0–3 free",
+    isFree: false,
+    ageFit: "Minimum age 4; all ages welcome with an adult",
+    bestWindow: "Morning departure 6:30am for calmest water",
+    reservation: "Book ahead; free cancellation up to 72 hours prior",
+    safety:
+      "Life jackets and snorkel gear provided. Confirm swim comfort for younger kids before booking; conditions can cancel or reroute the trip.",
+    tags: ["boat", "Molokini", "sanctuary", "snorkel", "good deal"],
+    metrics: {
+      kidWow: 5,
+      nature: 5,
+      local: 2,
+      value: 4,
+      learning: 4,
+      novelty: 4,
+      friction: 2,
+    },
+    confidence: "primary",
+    addedAt: "2026-07-05",
+    verifiedAt: "2026-07-05",
+    sourceLabel: "Auntie Snorkel · Malolo Molokini & Turtle Town tour",
+    sourceUrl:
+      "https://www.auntiesnorkel.com/maui-shop/maui-island-activities-tours/malolo-molokini-and-turtle-town-snorkel-tour/",
+    mapUrl: "https://maps.google.com/?q=Maalaea+Harbor+Maui",
+  },
 ] satisfies Experience[];

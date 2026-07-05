@@ -90,6 +90,12 @@ export const updates = [
     experienceIds: ["kam-iii-movie-night"],
   },
   {
+    date: "2026-07-05",
+    title: "A verified good deal into Molokini itself",
+    note: "The prior boat listings covered Turtle Town and DIY launches but skipped Molokini crater directly. Added the Malolo catamaran's discounted 5.5-hour Maʻalaea trip ($149.95 adult, $109.95 child 4–12), the cheapest verified route into the sanctuary crater with breakfast and lunch included.",
+    experienceIds: ["malolo-molokini-turtle-town"],
+  },
+  {
     date: "2026-06-28",
     title: "July 13 is now a travel day",
     note: "Monday is kept clear for checkout and the airport, so flexible activities and phone-calendar reminders now stop on Sunday, July 12.",
