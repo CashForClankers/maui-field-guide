@@ -2758,6 +2758,216 @@ input {
   }
 }
 
+.inat-discovery {
+  margin-top: 34px;
+  padding: 44px 0 48px;
+  overflow: hidden;
+  color: white;
+  background: var(--ocean);
+}
+
+.inat-discovery-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+  gap: 28px;
+  align-items: end;
+}
+
+.inat-discovery-heading .eyebrow {
+  color: #9bd7d0;
+}
+
+.inat-discovery-heading h2 {
+  max-width: 640px;
+  margin: 6px 0 0;
+  color: white;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 3.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.inat-discovery-heading > p {
+  margin: 0;
+  color: rgb(255 255 255 / 72%);
+  line-height: 1.55;
+}
+
+.inat-discovery-reel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.inat-discovery-card {
+  --inat-accent: #9bd7d0;
+  display: flex;
+  min-height: 390px;
+  padding: 18px;
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-top: 6px solid var(--inat-accent);
+  border-radius: 18px;
+  color: white;
+  background: rgb(255 255 255 / 7%);
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.inat-accent-tidepool {
+  --inat-accent: #60c4bb;
+}
+
+.inat-accent-mango {
+  --inat-accent: #f4b942;
+}
+
+.inat-accent-coral {
+  --inat-accent: #f57b68;
+}
+
+.inat-accent-leaf {
+  --inat-accent: #91bd7f;
+}
+
+.inat-accent-bird {
+  --inat-accent: #e56d88;
+}
+
+.inat-accent-mist {
+  --inat-accent: #c8d8d4;
+}
+
+.inat-discovery-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--inat-accent);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.inat-discovery-card > strong {
+  margin-top: 30px;
+  color: var(--inat-accent);
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1;
+}
+
+.inat-discovery-card h3 {
+  margin: 9px 0 0;
+  color: white;
+  font-size: 1.12rem;
+}
+
+.inat-discovery-card > p {
+  margin: 10px 0 0;
+  color: rgb(255 255 255 / 70%);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.inat-field-prompt {
+  margin: 18px 0;
+  padding: 11px 12px;
+  border-radius: 10px;
+  background: rgb(0 0 0 / 17%);
+}
+
+.inat-field-prompt span {
+  color: var(--inat-accent);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.inat-field-prompt p {
+  margin: 4px 0 0;
+  color: rgb(255 255 255 / 82%);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.inat-discovery-action {
+  display: flex;
+  min-height: 44px;
+  margin-top: auto;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 900;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inat-discovery-card:focus-visible {
+  outline: 3px solid white;
+  outline-offset: -4px;
+}
+
+@media (hover: hover) {
+  .inat-discovery-card:hover {
+    border-color: var(--inat-accent);
+    background: rgb(255 255 255 / 11%);
+    transform: translateY(-2px);
+  }
+}
+
+.inat-discovery-note {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(255 255 255 / 18%);
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.inat-discovery-note p {
+  max-width: 760px;
+  margin: 0;
+}
+
+.inat-discovery-note a {
+  flex: 0 0 auto;
+  min-height: 44px;
+  color: white;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .inat-discovery-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .inat-discovery-reel {
+    width: calc(100% + 16px);
+    grid-auto-columns: min(84vw, 330px);
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    padding: 2px 16px 14px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .inat-discovery-card {
+    min-height: 410px;
+    scroll-snap-align: start;
+  }
+
+  .inat-discovery-note {
+    display: grid;
+  }
+}
+
 .evidence-low-confidence-watch {
   color: var(--muted);
   background: var(--sand);

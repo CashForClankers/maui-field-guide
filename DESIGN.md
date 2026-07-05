@@ -71,6 +71,7 @@ Use local system fonts for instant loading.
 - **Images:** optional; when used, require meaningful alt text and 4:3 cropping. The interface must remain complete without them.
 - **Creature field maps:** every animal gets an in-card place list sorted closest from Mana Kai, with evidence breaking equal-distance ties. Each place leads with a large tappable schematic map tile, numbered exact pin, coordinates when verified, drive, parking, timing, access evidence, and a visible confidence label—not anecdotal sighting promises.
 - **Creature directory:** wildlife defaults to compact photo-led specimen cards. Quick ID, name, kind, and nearest-drive cue stay visible; science, kid mission, safety, maps, and source links expand in-flow through native accessible details. Habitat and animal-family filters form two horizontal rails, with visible expand/collapse controls for deliberate deep reading.
+- **Community atlas handoff:** end the curated creature grid with a full-width Night Reef gallery room. Six linked specimen doors expose cached species counts and open iNaturalist in species-first grid view. Desktop uses a 3×2 card grid; mobile becomes an 84vw horizontal snap reel with the next card visibly peeking in. Each door carries one category color, a field prompt, a 44px action row, and explicit community-evidence/privacy language.
 
 ## 5. Layout Principles
 

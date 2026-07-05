@@ -316,6 +316,18 @@ export interface WildlifeSpotlight {
   }[];
 }
 
+export interface INaturalistDiscoveryTrail {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  fieldPrompt: string;
+  speciesCount: number;
+  url: string;
+  accent: "tidepool" | "mango" | "coral" | "leaf" | "bird" | "mist";
+  generatedAt: string;
+}
+
 export interface LocalAnchor {
   id: string;
   people: string;

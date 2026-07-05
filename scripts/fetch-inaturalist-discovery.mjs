@@ -1,0 +1,167 @@
+#!/usr/bin/env node
+// Build static iNaturalist discovery doors for the end of the creature guide.
+// Each door links to iNaturalist's species-grid view; only aggregate species
+// counts are cached here, never observation locations.
+
+import { renameSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const projectRoot = path.resolve(__dirname, "..");
+const outPath = path.join(projectRoot, "src/data/inaturalistDiscovery.ts");
+const BASE = "https://api.inaturalist.org/v1";
+const HEADERS = {
+  "User-Agent":
+    "maui-field-guide-discovery/1.0 (static family field-guide links)",
+};
+const CENTER = { lat: "20.7049", lng: "-156.4465", radius: "50" };
+const d1 = new Date(Date.now() - 365 * 86_400_000).toISOString().slice(0, 10);
+
+const trails = [
+  {
+    id: "animal-atlas",
+    label: "The wide door",
+    title: "Every animal logged nearby",
+    description:
+      "Move past the shortlist into a species-first atlas of community-documented animals—from familiar reef residents to insects no guide card could hold.",
+    fieldPrompt:
+      "Pick the strangest silhouette, then learn one field mark before opening its observations.",
+    accent: "tidepool",
+    filters: { taxon_id: "1" },
+  },
+  {
+    id: "reef-fish",
+    label: "Shape school",
+    title: "Reef fish, species by species",
+    description:
+      "Compare surgeonfish, wrasses, butterflyfish, eels, and other ray-finned neighbors in a visual species grid built from local records.",
+    fieldPrompt:
+      "Choose one body shape—disc, needle, ribbon, or torpedo—and see how many variations the reef made.",
+    accent: "mango",
+    filters: { taxon_id: "47178" },
+  },
+  {
+    id: "nudibranchs",
+    label: "Tiny weirdos",
+    title: "The nudibranch kaleidoscope",
+    description:
+      "Sea slugs reward a slower scale of looking: branching backs, impossible colors, mimicry, camouflage, and species smaller than a thumb.",
+    fieldPrompt:
+      "Find one that looks like coral, one like a leaf, and one like something from another planet.",
+    accent: "coral",
+    filters: { taxon_id: "47113" },
+  },
+  {
+    id: "birds",
+    label: "Coast to crater",
+    title: "Maui’s bird spectrum",
+    description:
+      "Open one species reel spanning wetland stilts, seabirds, summit endemics, forest birds, and the introduced neighbors mixed among them.",
+    fieldPrompt:
+      "Sort by color in your head: red forest bird, black-and-white wetland bird, brown ground bird.",
+    accent: "bird",
+    filters: { taxon_id: "3" },
+  },
+  {
+    id: "conservation-watch",
+    label: "Handle with care",
+    title: "Threatened species evidence",
+    description:
+      "A conservation-status filter reveals which nearby records carry extra ecological weight without turning obscured locations into destination pins.",
+    fieldPrompt:
+      "Read the species story first; treat the map as regional evidence and keep every encounter low-impact.",
+    accent: "mist",
+    filters: { taxon_id: "1", threatened: "true" },
+  },
+  {
+    id: "plants-and-fungi",
+    label: "Beyond animals",
+    title: "Plants, fungi, and lichens",
+    description:
+      "Species discovery does not stop when the creature cards end. Follow the same community lens into flowers, ferns, mushrooms, and lichens.",
+    fieldPrompt:
+      "Look for three textures—silver, waxy, and lace-like—without picking or leaving the trail.",
+    accent: "leaf",
+    filters: { taxon_ids: "47126,47170" },
+  },
+];
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function getSpeciesCount(filters) {
+  const params = new URLSearchParams({
+    ...CENTER,
+    d1,
+    quality_grade: "research",
+    captive: "false",
+    ...filters,
+    per_page: "1",
+  });
+  const response = await fetch(
+    `${BASE}/observations/species_counts?${params}`,
+    {
+      headers: HEADERS,
+    },
+  );
+  if (!response.ok) {
+    throw new Error(
+      `${response.status} ${response.statusText} while fetching ${params}`,
+    );
+  }
+  const payload = await response.json();
+  return payload.total_results ?? 0;
+}
+
+async function main() {
+  const generatedAt = new Date().toISOString().slice(0, 10);
+  const enriched = [];
+  for (const trail of trails) {
+    process.stderr.write(`Fetching ${trail.id} species count...\n`);
+    const speciesCount = await getSpeciesCount(trail.filters);
+    const webParams = new URLSearchParams({
+      ...CENTER,
+      d1,
+      quality_grade: "research",
+      captive: "false",
+      photos: "true",
+      ...trail.filters,
+      view: "species",
+      subview: "grid",
+    });
+    enriched.push({
+      ...trail,
+      speciesCount,
+      url: `https://www.inaturalist.org/observations?${webParams}`,
+      generatedAt,
+    });
+    await sleep(1100);
+  }
+
+  const lines = [
+    "// Generated by scripts/fetch-inaturalist-discovery.mjs — do not hand-edit.",
+    "// Aggregate research-grade species counts and public iNaturalist search URLs;",
+    "// no observation coordinates are stored here.",
+    'import type { INaturalistDiscoveryTrail } from "./types";',
+    "",
+    `export const inaturalistDiscoveryGeneratedAt = ${JSON.stringify(generatedAt)};`,
+    "",
+    `export const inaturalistDiscoveryTrails = ${JSON.stringify(
+      enriched.map(({ filters: _filters, ...trail }) => trail),
+      null,
+      2,
+    )} satisfies INaturalistDiscoveryTrail[];`,
+    "",
+  ];
+  const tempPath = `${outPath}.tmp`;
+  writeFileSync(tempPath, lines.join("\n"));
+  renameSync(tempPath, outPath);
+  process.stderr.write(`Wrote ${enriched.length} discovery trails.\n`);
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

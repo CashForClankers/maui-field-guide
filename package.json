@@ -13,6 +13,8 @@
     "format:check": "prettier --check .",
     "verify": "npm run format:check && npm run test && npm run build",
     "sightings:refresh": "node scripts/fetch-inaturalist-sightings.mjs",
+    "sightings:discovery:refresh": "node scripts/fetch-inaturalist-discovery.mjs",
+    "wildlife:refresh": "npm run sightings:refresh && npm run sightings:discovery:refresh",
     "sightings:notable": "node scripts/check-notable-sightings.mjs",
     "sightings:notable:dry-run": "node scripts/check-notable-sightings.mjs --dry-run"
   },

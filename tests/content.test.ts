@@ -9,6 +9,7 @@ import { localAnchors } from "../src/data/locals";
 import { fieldMissions } from "../src/data/missions";
 import { fruitSources } from "../src/data/sourcing";
 import { creatureSightings } from "../src/data/sightings";
+import { inaturalistDiscoveryTrails } from "../src/data/inaturalistDiscovery";
 import { wildlifeSpotlights } from "../src/data/wildlifeSpotlights";
 import {
   rankedCalendarOptions,
@@ -265,6 +266,40 @@ test("wildlife spotlights triangulate community records with deeper research", (
       assert.equal(link.url.includes("inaturalist.org"), false);
     }
   }
+});
+
+test("iNaturalist discovery doors expand beyond the curated creature reel", () => {
+  assert.equal(inaturalistDiscoveryTrails.length, 6);
+  const ids = new Set<string>();
+  for (const trail of inaturalistDiscoveryTrails) {
+    assert.equal(ids.has(trail.id), false, `duplicate trail: ${trail.id}`);
+    ids.add(trail.id);
+    assert.ok(trail.speciesCount > 0, `${trail.id} has no species evidence`);
+    assert.ok(trail.description.length >= 100);
+    assert.ok(trail.fieldPrompt.length >= 60);
+    const url = new URL(trail.url);
+    assert.equal(url.origin, "https://www.inaturalist.org");
+    assert.equal(url.pathname, "/observations");
+    assert.equal(url.searchParams.get("quality_grade"), "research");
+    assert.equal(url.searchParams.get("captive"), "false");
+    assert.equal(url.searchParams.get("view"), "species");
+    assert.equal(url.searchParams.get("subview"), "grid");
+    assert.equal(url.searchParams.get("radius"), "50");
+    assert.equal(url.searchParams.get("lat"), "20.7049");
+    assert.equal(url.searchParams.get("lng"), "-156.4465");
+    const d1 = url.searchParams.get("d1") ?? "";
+    assert.match(d1, /^\d{4}-\d{2}-\d{2}$/);
+    assert.equal(url.searchParams.get("photos"), "true");
+    assert.match(trail.generatedAt, /^2026-\d{2}-\d{2}$/);
+    assert.equal(
+      (Date.parse(trail.generatedAt) - Date.parse(d1)) / 86_400_000,
+      365,
+    );
+  }
+  assert.ok(
+    inaturalistDiscoveryTrails[0]!.speciesCount > creatures.length * 5,
+    "the atlas handoff should materially expand beyond the curated guide",
+  );
 });
 
 test("fruit sources carry safe links, real distances, and a corridor", () => {

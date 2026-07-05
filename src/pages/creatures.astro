@@ -3,6 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import { animalSupplyStores } from "../data/animalSupplies";
 import { creaturePlaces, creatures } from "../data/creatures";
 import { creatureSightings, sightingsGeneratedAt } from "../data/sightings";
+import {
+  inaturalistDiscoveryGeneratedAt,
+  inaturalistDiscoveryTrails,
+} from "../data/inaturalistDiscovery";
 import { wildlifeSpotlights } from "../data/wildlifeSpotlights";
 import { basePath } from "../lib/paths";
 import { rankedCreaturePlaces } from "../lib/rank";
@@ -473,6 +477,67 @@ const getCreaturePlaces = (creatureId: string) =>
     <p id="creature-empty-state" class="empty-state" hidden>
       No animal matches that filter. Clear the search or pick a wider habitat.
     </p>
+  </section>
+
+  <section class="inat-discovery" aria-labelledby="inat-discovery-title">
+    <div class="wrap">
+      <div class="inat-discovery-heading">
+        <div>
+          <p class="eyebrow">The field guide keeps going</p>
+          <h2 id="inat-discovery-title">Open the 900-species door.</h2>
+        </div>
+        <p>
+          These cards are the curated reel. iNaturalist holds the sprawling
+          community atlas behind it—organized here into six good rabbit holes,
+          all research-grade and shown in species-first view.
+        </p>
+      </div>
+      <div class="inat-discovery-reel" role="list">
+        {
+          inaturalistDiscoveryTrails.map((trail, index) => (
+            <a
+              class={`inat-discovery-card inat-accent-${trail.accent}`}
+              href={trail.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              role="listitem"
+            >
+              <div class="inat-discovery-card-top">
+                <span>Door {String(index + 1).padStart(2, "0")}</span>
+                <span>{trail.label}</span>
+              </div>
+              <strong>
+                {trail.speciesCount.toLocaleString("en-US")} species
+              </strong>
+              <h3>{trail.title}</h3>
+              <p>{trail.description}</p>
+              <div class="inat-field-prompt">
+                <span>Try this</span>
+                <p>{trail.fieldPrompt}</p>
+              </div>
+              <span class="inat-discovery-action">
+                Open live species reel <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+      <div class="inat-discovery-note">
+        <p>
+          Counts cover the past year within 50km of Mana Kai and were refreshed
+          on {inaturalistDiscoveryGeneratedAt}. Community records show what
+          people documented—not what is present today. Sensitive locations may
+          be obscured; never use this as a collection or approach map.
+        </p>
+        <a
+          href="https://help.inaturalist.org/en/support/solutions/articles/151000194901-how-do-identifications-work-"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn how community identification works →
+        </a>
+      </div>
+    </div>
   </section>
 
   <section class="section wrap">

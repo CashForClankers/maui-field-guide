@@ -3,6 +3,12 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-05",
+    title: "The 38-card wildlife reel now opens into a 900-species atlas",
+    note: "A dark gallery handoff at the end of the creature directory opens six live, species-first iNaturalist paths: all animals, reef fish, nudibranchs, birds, threatened wildlife, and a plants-and-fungi detour. Each carries a cached local species count, a kid-readable field prompt, and explicit privacy and no-guarantee framing.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-07-05",
     title: "Fresh wildlife signals now open into deeper field stories",
     note: "The creature guide turns three notable community records—grey reef shark, kole, and nēnē—into compact field stories with recognition clues, agency or museum research, and a realistic family experience. The alert lane now filters out plants, labels tentative IDs, favors diverse high-signal finds, and cools down repeat species.",
     experienceIds: ["maui-ocean-center"],

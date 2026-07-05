@@ -68,6 +68,14 @@ export const dailyBrief = {
   ],
   checks: [
     {
+      label: "Wildlife guide opens wider",
+      status: "new",
+      detail:
+        "The curated creature cards now end with six species-first iNaturalist doors covering the full local animal atlas, reef fish, nudibranchs, birds, threatened wildlife, and plants plus fungi.",
+      sourceLabel: "iNaturalist search URL guide",
+      sourceUrl: "https://www.inaturalist.org/pages/search+urls",
+    },
+    {
       label: "Wildlife signal → field story",
       status: "new",
       detail:
