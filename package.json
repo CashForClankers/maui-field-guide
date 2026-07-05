@@ -11,7 +11,10 @@
     "test": "tsx --test tests/*.test.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "verify": "npm run format:check && npm run test && npm run build"
+    "verify": "npm run format:check && npm run test && npm run build",
+    "sightings:refresh": "node scripts/fetch-inaturalist-sightings.mjs",
+    "sightings:notable": "node scripts/check-notable-sightings.mjs",
+    "sightings:notable:dry-run": "node scripts/check-notable-sightings.mjs --dry-run"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

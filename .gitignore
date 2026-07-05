@@ -4,3 +4,4 @@ dist/
 .DS_Store
 npm-debug.log*
 research/.daily-adventure-handoff.md
+research/.notable-sightings-seen.json

@@ -33,6 +33,7 @@ Keep the phone guide fresh with one strong answer fast. Find materially useful c
 - **4:50am · adventure research:** `scripts/cron-adventure-research.sh` asks Agy for current leads and falls back once to Claude Code plan mode. It writes an ignored, date-stamped handoff and never edits published data.
 - **5:35am · evidence + publish:** the OpenClaw/Codex scout consumes the handoff, independently verifies sources, makes minimal site changes, runs the full verification suite, and publishes only meaningful work.
 - **6:30am · live QA:** `scripts/cron-live-qa.sh` asks Claude Code for a read-only check of the deployed site and Pages state. It cannot edit, commit, push, or trigger workflows.
+- **7:00am · notable-sightings alert:** `scripts/cron-notable-sightings.sh` (wraps `scripts/check-notable-sightings.mjs`) scans recent iNaturalist activity within ~60km of Mana Kai for a curated watchlist of exciting species plus a rarity/threatened/endemic fallback (introduced species never trigger the fallback — see `scripts/lib/notable-sightings.mjs`), and sends a Telegram message only when something new and genuinely notable turns up. It never edits site data, commits, or pushes; dedup state lives in the gitignored `research/.notable-sightings-seen.json`.
 
 ## Seasonal questions
 
