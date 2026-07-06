@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-07-06",
+    title: "Beach Buddies becomes the close animal-rescue mission",
+    note: "The Events page now adds Maui Humane Society's Beach Buddies as a Thu-Sat support option: $75 directly supports shelter care, kids can join if listed on registration, adults handle the dog, and the guide warns that many outing dogs are young, large, or energetic.",
+    experienceIds: [],
+  },
+  {
     date: "2026-07-05",
     title: "The 38-card wildlife reel now opens into a 900-species atlas",
     note: "A dark gallery handoff at the end of the creature directory opens six live, species-first iNaturalist paths: all animals, reef fish, nudibranchs, birds, threatened wildlife, and a plants-and-fungi detour. Each carries a cached local species count, a kid-readable field prompt, and explicit privacy and no-guarantee framing.",

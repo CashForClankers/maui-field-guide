@@ -1,18 +1,19 @@
 import type { DailyBrief } from "./types";
 
 export const dailyBrief = {
-  date: "2026-07-05",
-  dateLabel: "Sun · Jul 5",
-  countdown: "3 days to arrival",
-  headline: "Surfing Goat is now the cleanest hands-on farm chore slot.",
+  date: "2026-07-06",
+  dateLabel: "Mon · Jul 6",
+  countdown: "2 days to arrival",
+  headline:
+    "Beach Buddies turns a beach day into a shelter-dog rescue mission.",
   summary:
-    "Today’s publisher consumed the same-day handoff, reverified the calendar against primary sources, and promoted only the one lead with public trip-window evidence: Surfing Goat Dairy’s 3pm Evening Chore & Milking tour, Wed-Sat. Kō‘ie‘ie Fishpond and Honu Watch remain useful call-ahead leads because their direct pages do not publish exact July 8–12 slots.",
+    "Today’s publisher consumed the same-day handoff, reverified the calendar against primary sources, and added the one lead with fresh support value that was not already covered: Maui Humane Society’s Beach Buddies outing, Thu-Sat by reservation. Kīpuka Olowalu, Waiheʻe, GOAT movie night, ʻĪao closure, and the Haleakalā Pools of ʻOheʻo warning remain current checks.",
   topFinding: {
-    title: "Surfing Goat evening milking tour",
+    title: "Maui Humane Society Beach Buddies",
     detail:
-      "Wed-Sat Jul 8–11 · 3pm · 45–60 min · $41.50 adult / $33 child age 3–11 · about 38 min from Mana Kai",
-    eventId: "surfing-goat-evening-milking",
-    action: "Book the 3pm milking tour",
+      "Thu-Sat Jul 9–11 · by reservation · $75 fee supports shelter care · kids may join while adults 18+ handle the dog · about 18 min from Mana Kai",
+    eventId: "maui-humane-beach-buddies",
+    action: "Check Beach Buddies slots",
   },
   adventure: {
     experienceId: "kealia-pond",
@@ -44,15 +45,15 @@ export const dailyBrief = {
       lane: "experience",
       status: "new",
       finding:
-        "Surfing Goat Dairy posts the Evening Chore & Milking tour Tue-Sat at 3pm, with a 45-60 minute duration, cheese tasting, hands-on milking, and family pricing.",
-      sourceLabel: "Surfing Goat Dairy",
-      sourceUrl: "https://surfinggoatdairy.com/pages/our-tours",
+        "Maui Humane Society’s Beach Buddies page now gives the actionable rules: $75 fee, kids welcome if noted on registration, adults handle the dog, Wednesday/Sunday closed, and new slots may open 10 days out.",
+      sourceLabel: "Maui Humane Society",
+      sourceUrl: "https://www.mauihumanesociety.org/beachbuddies/",
     },
     {
       lane: "give-back",
       status: "confirmed",
       finding:
-        "Kīpuka Olowalu stays the strongest early-trip stewardship option already on the calendar; today’s handoff did not surface a better dated give-back replacement.",
+        "Kīpuka Olowalu still posts Wednesday/Thursday volunteer days, 7:30-11:30am, with email confirmation and weather caveats, so it remains the best early-trip land-stewardship option.",
       sourceLabel: "Kīpuka Olowalu",
       sourceUrl: "https://kipukaolowalu.org/volunteer",
     },
@@ -85,12 +86,12 @@ export const dailyBrief = {
         "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/grey-reef-shark/",
     },
     {
-      label: "Best new dated lead",
+      label: "Best new support lead",
       status: "new",
       detail:
-        "Surfing Goat Dairy now has a calendar card for Wed-Sat Jul 8-11 because the official pages publish the 3pm tour schedule, 45-60 minute duration, and $41.50/$33 pricing.",
-      sourceLabel: "Surfing Goat Dairy tour schedule",
-      sourceUrl: "https://surfinggoatdairy.com/pages/our-tour-schedule",
+        "Beach Buddies clears the calendar bar because the direct page explains the fee, booking path, kid fit, adult-handler rule, supplies, and shelter-support purpose.",
+      sourceLabel: "Maui Humane Society",
+      sourceUrl: "https://www.mauihumanesociety.org/beachbuddies/",
     },
     {
       label: "Calendar recheck",
@@ -101,12 +102,12 @@ export const dailyBrief = {
       sourceUrl: "https://www.mauicounty.gov/calendar.aspx",
     },
     {
-      label: "Farm chore details",
-      status: "new",
+      label: "Farm tour handoff lead",
+      status: "confirmed",
       detail:
-        "The direct tours page says the evening chore tour includes feeding, learning the milking process, trying milking, fresh cheese, and an optional cheese flight.",
-      sourceLabel: "Surfing Goat Dairy tours",
-      sourceUrl: "https://surfinggoatdairy.com/pages/our-tours",
+        "Oʻo Farm is legitimate and direct, with Monday-Friday tours, but it did not beat already-covered Upcountry farm choices for this run because it is another paid farm slot rather than a new support lane.",
+      sourceLabel: "Oʻo Farm",
+      sourceUrl: "https://oofarm.com/tours",
     },
     {
       label: "Closest exact event",
@@ -161,11 +162,11 @@ export const dailyBrief = {
   ],
   watch: [
     {
-      title: "Kō‘ie‘ie Fishpond needs a dated confirmation",
+      title: "Beach Buddies requires the right dog-handler fit",
       detail:
-        "Maui Fishpond Association is a strong near-base service lead, but the direct volunteer page did not publish a July 8–12 family workday in today’s check.",
-      sourceLabel: "Maui Fishpond Association",
-      sourceUrl: "https://mauifishpondassociation.org/volunteer",
+        "Maui Humane Society says Beach Buddies dogs are often young, large, energetic, or still learning manners; skip it if an adult cannot confidently handle that dog.",
+      sourceLabel: "Maui Humane Society",
+      sourceUrl: "https://www.mauihumanesociety.org/beachbuddies/",
     },
     {
       title: "Honu Watch is a conservation watch item, not a plan yet",
