@@ -1,19 +1,19 @@
 import type { DailyBrief } from "./types";
 
 export const dailyBrief = {
-  date: "2026-07-06",
-  dateLabel: "Mon · Jul 6",
-  countdown: "2 days to arrival",
+  date: "2026-07-07",
+  dateLabel: "Tue · Jul 7",
+  countdown: "1 day to arrival",
   headline:
-    "Beach Buddies turns a beach day into a shelter-dog rescue mission.",
+    "Honu Hero turns any beach hour into a real reef-protection mission.",
   summary:
-    "Today’s publisher consumed the same-day handoff, reverified the calendar against primary sources, and added the one lead with fresh support value that was not already covered: Maui Humane Society’s Beach Buddies outing, Thu-Sat by reservation. Kīpuka Olowalu, Waiheʻe, GOAT movie night, ʻĪao closure, and the Haleakalā Pools of ʻOheʻo warning remain current checks.",
+    "Today’s publisher consumed the same-day Agy handoff, reverified the calendar against primary sources, and added the strongest uncovered support lead: MOC Marine Institute’s free Honu Hero cleanup kit, usable any trip day without turning the guide into a generic attraction list. Kīpuka Olowalu, GOAT movie night, Beach Buddies, ʻĪao closure, and the wildlife evidence refresh remain current checks.",
   topFinding: {
-    title: "Maui Humane Society Beach Buddies",
+    title: "Honu Hero beach cleanup kit",
     detail:
-      "Thu-Sat Jul 9–11 · by reservation · $75 fee supports shelter care · kids may join while adults 18+ handle the dog · about 18 min from Mana Kai",
-    eventId: "maui-humane-beach-buddies",
-    action: "Check Beach Buddies slots",
+      "Jul 8–12 · free kit pickup 10am–2pm at Maui Ocean Center · choose a beach, collect debris, and return the data sheet · about 22 min from Mana Kai",
+    eventId: "moc-honu-hero-cleanup",
+    action: "Arrange a Honu Hero kit",
   },
   adventure: {
     experienceId: "kealia-pond",
@@ -35,9 +35,9 @@ export const dailyBrief = {
   researchPulse: [
     {
       lane: "adventure",
-      status: "new",
+      status: "confirmed",
       finding:
-        "Keālia now has an explicit dawn field plan built around resident aeʻo and ʻalae keʻokeʻo, not an unrealistic summer migrant checklist.",
+        "Keālia remains the best dawn wildlife mission; July framing stays focused on resident aeʻo and ʻalae keʻokeʻo rather than winter migrants.",
       sourceLabel: "U.S. Fish & Wildlife Service",
       sourceUrl: "https://www.fws.gov/refuge/kealia-pond/species",
     },
@@ -45,15 +45,15 @@ export const dailyBrief = {
       lane: "experience",
       status: "new",
       finding:
-        "Maui Humane Society’s Beach Buddies page now gives the actionable rules: $75 fee, kids welcome if noted on registration, adults handle the dog, Wednesday/Sunday closed, and new slots may open 10 days out.",
-      sourceLabel: "Maui Humane Society",
-      sourceUrl: "https://www.mauihumanesociety.org/beachbuddies/",
+        "Maui Ocean Center’s volunteer page confirms free Honu Hero cleanup kits with bucket or bag, data sheet, clipboard, pencils, gloves, beach choice, and 10am–2pm pickup.",
+      sourceLabel: "Maui Ocean Center",
+      sourceUrl: "https://mauioceancenter.com/volunteer-opportunities/",
     },
     {
       lane: "give-back",
       status: "confirmed",
       finding:
-        "Kīpuka Olowalu still posts Wednesday/Thursday volunteer days, 7:30-11:30am, with email confirmation and weather caveats, so it remains the best early-trip land-stewardship option.",
+        "Kīpuka Olowalu still posts Wednesday/Thursday volunteer days, 7:30-11:30am, with email confirmation and weather caveats, so it remains the strongest early-trip land-stewardship option.",
       sourceLabel: "Kīpuka Olowalu",
       sourceUrl: "https://kipukaolowalu.org/volunteer",
     },
@@ -69,45 +69,44 @@ export const dailyBrief = {
   ],
   checks: [
     {
-      label: "Wildlife guide opens wider",
+      label: "Wildlife evidence refresh",
       status: "new",
       detail:
-        "The curated creature cards now end with six species-first iNaturalist doors covering the full local animal atlas, reef fish, nudibranchs, birds, threatened wildlife, and plants plus fungi.",
-      sourceLabel: "iNaturalist search URL guide",
-      sourceUrl: "https://www.inaturalist.org/pages/search+urls",
+        "The iNaturalist refresh moved the local animal atlas to 926 species and the plants-plus-fungi trail to 868 species, with dated URLs regenerated for July 7.",
+      sourceLabel: "iNaturalist API",
+      sourceUrl: "https://api.inaturalist.org/v1/docs/",
     },
     {
-      label: "Wildlife signal → field story",
+      label: "Handoff lead accepted",
       status: "new",
       detail:
-        "Recent grey reef shark, kole, and nēnē records now open into identification clues, deeper agency or museum research, and one realistic family experience instead of ending at an observation link.",
-      sourceLabel: "Florida Museum grey reef shark profile",
-      sourceUrl:
-        "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/grey-reef-shark/",
+        "Honu Hero cleared the bar because the direct source gives the supply list, pickup window, beach-choice model, data sheet, and free family mission; it is not tied to aquarium admission.",
+      sourceLabel: "Maui Ocean Center",
+      sourceUrl: "https://mauioceancenter.com/volunteer-opportunities/",
     },
     {
-      label: "Best new support lead",
-      status: "new",
+      label: "Handoff lead already covered",
+      status: "confirmed",
       detail:
-        "Beach Buddies clears the calendar bar because the direct page explains the fee, booking path, kid fit, adult-handler rule, supplies, and shelter-support purpose.",
-      sourceLabel: "Maui Humane Society",
-      sourceUrl: "https://www.mauihumanesociety.org/beachbuddies/",
+        "Kīpuka Olowalu’s direct page still supports the existing Wed/Thu workday card, so today improved the calendar with a different ocean-support lane instead of duplicating that lead.",
+      sourceLabel: "Kīpuka Olowalu",
+      sourceUrl: "https://kipukaolowalu.org/volunteer",
     },
     {
       label: "Calendar recheck",
       status: "confirmed",
       detail:
-        "Maui County still lists the July 10 South District GOAT movie at Kamaʻole III; Hawaiʻi Land Trust still lists the July 11 Waiheʻe loko iʻa kalo workday.",
+        "Maui County still lists the July 10 South District GOAT movie at Kamaʻole III, while the existing Beach Buddies card remains backed by Maui Humane Society’s direct rules.",
       sourceLabel: "Maui County calendar",
       sourceUrl: "https://www.mauicounty.gov/calendar.aspx",
     },
     {
-      label: "Farm tour handoff lead",
-      status: "confirmed",
+      label: "Farm handoff lead held",
+      status: "watch",
       detail:
-        "Oʻo Farm is legitimate and direct, with Monday-Friday tours, but it did not beat already-covered Upcountry farm choices for this run because it is another paid farm slot rather than a new support lane.",
-      sourceLabel: "Oʻo Farm",
-      sourceUrl: "https://oofarm.com/tours",
+        "Hua Momona’s Voluntour is legitimate and mission-aligned, but it adds a higher-friction West Maui farm slot; it did not beat the free, close, flexible Honu Hero lead today.",
+      sourceLabel: "Hua Momona Farms",
+      sourceUrl: "https://www.huamomonafarms.com/voluntour",
     },
     {
       label: "Closest exact event",

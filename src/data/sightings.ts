@@ -5,7 +5,7 @@
 // guarantee or an exact location.
 import type { CreatureSighting } from "./types";
 
-export const sightingsGeneratedAt = "2026-07-06";
+export const sightingsGeneratedAt = "2026-07-07";
 
 export const creatureSightings = [
   {
@@ -15,7 +15,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, US-HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378218615",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "yellow-tang",
@@ -24,7 +24,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Alalakeiki Channel, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/377956241",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "reef-triggerfish",
@@ -33,7 +33,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Nāpili-Honokōwai, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374777807",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "hawaiian-monk-seal",
@@ -42,7 +42,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, US-HI, US",
     observationUrl: "https://www.inaturalist.org/observations/377908761",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "hawaiian-stilt",
@@ -51,7 +51,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Dike Trail, Maalaea, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/377267671",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "spinner-dolphin",
@@ -60,7 +60,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maʻalaea Rd, Maalaea, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/370487150",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "day-octopus",
@@ -69,7 +69,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374792487",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "wedge-tailed-shearwater",
@@ -78,7 +78,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui, Kihei, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/377955073",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "hawaiian-hoary-bat",
@@ -87,25 +87,25 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, US-HI, US",
     observationUrl: "https://www.inaturalist.org/observations/328724879",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "red-junglefowl",
-    recentObservations: 265,
-    mostRecentDate: "2026-07-05",
-    mostRecentPlaceGuess: "Alamaha St, Kahului, HI, US",
-    observationUrl: "https://www.inaturalist.org/observations/378694447",
+    recentObservations: 266,
+    mostRecentDate: "2026-07-06",
+    mostRecentPlaceGuess: "Kapalua Dr, Lahaina, HI, US",
+    observationUrl: "https://www.inaturalist.org/observations/378954171",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "zebra-dove",
-    recentObservations: 276,
+    recentObservations: 274,
     mostRecentDate: "2026-07-04",
     mostRecentPlaceGuess: "Kaanapali, HI, USA",
     observationUrl: "https://www.inaturalist.org/observations/378474146",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "moorish-idol",
@@ -114,7 +114,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Alalakeiki Channel, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/377958450",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "hawaiian-cleaner-wrasse",
@@ -123,7 +123,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/373128034",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "rock-boring-urchin",
@@ -132,7 +132,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "RT-30, Lahaina, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/376631221",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "achilles-tang",
@@ -141,7 +141,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, HI, USA",
     observationUrl: "https://www.inaturalist.org/observations/371043821",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "convict-tang",
@@ -150,7 +150,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, HI, USA",
     observationUrl: "https://www.inaturalist.org/observations/378238918",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "orangespine-unicornfish",
@@ -159,7 +159,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378157524",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "milletseed-butterflyfish",
@@ -168,7 +168,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374791324",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "raccoon-butterflyfish",
@@ -177,7 +177,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378160297",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "saddle-wrasse",
@@ -186,7 +186,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374793463",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "bird-wrasse",
@@ -195,7 +195,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374790031",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "hawaiian-sergeant",
@@ -204,7 +204,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, US-HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374822460",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "hawaiian-dascyllus",
@@ -213,7 +213,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374793271",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "bluespotted-cornetfish",
@@ -222,7 +222,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378156513",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "spotted-eagle-ray",
@@ -231,7 +231,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Wailea-Makena, HI, USA",
     observationUrl: "https://www.inaturalist.org/observations/371061530",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "shingle-urchin",
@@ -240,7 +240,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Kapalua Coastal Trail, Lahaina, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/376337180",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "cushion-star",
@@ -249,7 +249,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "North Pacific Ocean, Kapalua, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/375095534",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "long-spine-porcupinefish",
@@ -258,7 +258,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, US-HI, US",
     observationUrl: "https://www.inaturalist.org/observations/372961256",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "snowflake-moray",
@@ -267,7 +267,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Oneloa Bay, Lahaina, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/372171872",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "whitemouth-moray",
@@ -276,7 +276,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378158105",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "black-sea-cucumber",
@@ -285,7 +285,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Kihei, HI 96753, USA",
     observationUrl: "https://www.inaturalist.org/observations/377516509",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "cauliflower-coral",
@@ -294,7 +294,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/373455633",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "whitetip-reef-shark",
@@ -303,7 +303,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374792664",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "dussumiers-surgeonfish",
@@ -312,7 +312,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378156598",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "orange-lined-triggerfish",
@@ -325,7 +325,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Lāhainā, HI, US",
     observationUrl: "https://www.inaturalist.org/observations/374789576",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "grey-reef-shark",
@@ -334,7 +334,7 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Hawaii, US",
     observationUrl: "https://www.inaturalist.org/observations/378157889",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
   {
     creatureId: "teated-sea-cucumber",
@@ -343,6 +343,6 @@ export const creatureSightings = [
     mostRecentPlaceGuess: "Maui County, US-HI, US",
     observationUrl: "https://www.inaturalist.org/observations/378325903",
     radiusKm: 50,
-    generatedAt: "2026-07-06",
+    generatedAt: "2026-07-07",
   },
 ] satisfies CreatureSighting[];

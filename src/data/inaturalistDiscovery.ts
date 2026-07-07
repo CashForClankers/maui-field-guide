@@ -3,7 +3,7 @@
 // no observation coordinates are stored here.
 import type { INaturalistDiscoveryTrail } from "./types";
 
-export const inaturalistDiscoveryGeneratedAt = "2026-07-06";
+export const inaturalistDiscoveryGeneratedAt = "2026-07-07";
 
 export const inaturalistDiscoveryTrails = [
   {
@@ -15,9 +15,9 @@ export const inaturalistDiscoveryTrails = [
     fieldPrompt:
       "Pick the strangest silhouette, then learn one field mark before opening its observations.",
     accent: "tidepool",
-    speciesCount: 924,
-    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-06&quality_grade=research&captive=false&photos=true&taxon_id=1&view=species&subview=grid",
-    generatedAt: "2026-07-06",
+    speciesCount: 926,
+    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_id=1&view=species&subview=grid",
+    generatedAt: "2026-07-07",
   },
   {
     id: "reef-fish",
@@ -29,8 +29,8 @@ export const inaturalistDiscoveryTrails = [
       "Choose one body shape—disc, needle, ribbon, or torpedo—and see how many variations the reef made.",
     accent: "mango",
     speciesCount: 192,
-    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-06&quality_grade=research&captive=false&photos=true&taxon_id=47178&view=species&subview=grid",
-    generatedAt: "2026-07-06",
+    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_id=47178&view=species&subview=grid",
+    generatedAt: "2026-07-07",
   },
   {
     id: "nudibranchs",
@@ -42,8 +42,8 @@ export const inaturalistDiscoveryTrails = [
       "Find one that looks like coral, one like a leaf, and one like something from another planet.",
     accent: "coral",
     speciesCount: 32,
-    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-06&quality_grade=research&captive=false&photos=true&taxon_id=47113&view=species&subview=grid",
-    generatedAt: "2026-07-06",
+    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_id=47113&view=species&subview=grid",
+    generatedAt: "2026-07-07",
   },
   {
     id: "birds",
@@ -55,8 +55,8 @@ export const inaturalistDiscoveryTrails = [
       "Sort by color in your head: red forest bird, black-and-white wetland bird, brown ground bird.",
     accent: "bird",
     speciesCount: 81,
-    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-06&quality_grade=research&captive=false&photos=true&taxon_id=3&view=species&subview=grid",
-    generatedAt: "2026-07-06",
+    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_id=3&view=species&subview=grid",
+    generatedAt: "2026-07-07",
   },
   {
     id: "conservation-watch",
@@ -68,8 +68,8 @@ export const inaturalistDiscoveryTrails = [
       "Read the species story first; treat the map as regional evidence and keep every encounter low-impact.",
     accent: "mist",
     speciesCount: 56,
-    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-06&quality_grade=research&captive=false&photos=true&taxon_id=1&threatened=true&view=species&subview=grid",
-    generatedAt: "2026-07-06",
+    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_id=1&threatened=true&view=species&subview=grid",
+    generatedAt: "2026-07-07",
   },
   {
     id: "plants-and-fungi",
@@ -80,8 +80,8 @@ export const inaturalistDiscoveryTrails = [
     fieldPrompt:
       "Look for three textures—silver, waxy, and lace-like—without picking or leaving the trail.",
     accent: "leaf",
-    speciesCount: 865,
-    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-06&quality_grade=research&captive=false&photos=true&taxon_ids=47126%2C47170&view=species&subview=grid",
-    generatedAt: "2026-07-06",
+    speciesCount: 868,
+    url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_ids=47126%2C47170&view=species&subview=grid",
+    generatedAt: "2026-07-07",
   },
 ] satisfies INaturalistDiscoveryTrail[];

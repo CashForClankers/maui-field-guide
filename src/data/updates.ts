@@ -2,6 +2,12 @@ import type { DailyUpdate } from "./types";
 
 export const updates = [
   {
+    date: "2026-07-07",
+    title: "Honu Hero becomes the flexible ocean give-back",
+    note: "The Events page now adds MOC Marine Institute's free Honu Hero cleanup kit for Jul 8-12: pick up supplies at Maui Ocean Center, choose a beach, log debris on the data sheet, and keep wildlife distance while helping protect the reef.",
+    experienceIds: ["keawakapu-reef-ritual", "maui-ocean-center"],
+  },
+  {
     date: "2026-07-06",
     title: "Beach Buddies becomes the close animal-rescue mission",
     note: "The Events page now adds Maui Humane Society's Beach Buddies as a Thu-Sat support option: $75 directly supports shelter care, kids can join if listed on registration, adults handle the dog, and the guide warns that many outing dogs are young, large, or energetic.",
