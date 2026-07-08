@@ -80,7 +80,7 @@ export const inaturalistDiscoveryTrails = [
     fieldPrompt:
       "Look for three textures—silver, waxy, and lace-like—without picking or leaving the trail.",
     accent: "leaf",
-    speciesCount: 868,
+    speciesCount: 870,
     url: "https://www.inaturalist.org/observations?lat=20.7049&lng=-156.4465&radius=50&d1=2025-07-07&quality_grade=research&captive=false&photos=true&taxon_ids=47126%2C47170&view=species&subview=grid",
     generatedAt: "2026-07-07",
   },

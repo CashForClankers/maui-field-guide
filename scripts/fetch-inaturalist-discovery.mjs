@@ -6,6 +6,7 @@
 import { renameSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { hawaiiDate } from "./lib/local-date.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
@@ -16,7 +17,7 @@ const HEADERS = {
     "maui-field-guide-discovery/1.0 (static family field-guide links)",
 };
 const CENTER = { lat: "20.7049", lng: "-156.4465", radius: "50" };
-const d1 = new Date(Date.now() - 365 * 86_400_000).toISOString().slice(0, 10);
+const d1 = hawaiiDate(new Date(Date.now() - 365 * 86_400_000));
 
 const trails = [
   {
@@ -116,7 +117,7 @@ async function getSpeciesCount(filters) {
 }
 
 async function main() {
-  const generatedAt = new Date().toISOString().slice(0, 10);
+  const generatedAt = hawaiiDate();
   const enriched = [];
   for (const trail of trails) {
     process.stderr.write(`Fetching ${trail.id} species count...\n`);
