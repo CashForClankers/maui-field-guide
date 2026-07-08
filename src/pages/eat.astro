@@ -1,0 +1,332 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  condoPantryHunt,
+  driveEats,
+  eatSpots,
+  kitchenMissions,
+} from "../data/eats";
+
+const near = eatSpots.filter((spot) => spot.driveMinutes <= 20);
+const route = eatSpots.filter((spot) => spot.driveMinutes > 20);
+const groups = [
+  {
+    id: "near",
+    label: "Near Mana Kai",
+    note: "Worth leaving the beach for",
+    spots: near,
+  },
+  {
+    id: "route",
+    label: "Route moves",
+    note: "Eat them when the drive already exists",
+    spots: route,
+  },
+];
+---
+
+<Layout
+  title="Eat"
+  description="A researched Maui eat list: exact must-order dishes, fresh local food, good-value gems, and low-friction stops from Mana Kai."
+>
+  <section class="eat-hero wrap">
+    <div>
+      <p class="eyebrow">Exact orders · not generic restaurant rankings</p>
+      <h1>Eat the thing this place does differently.</h1>
+      <p>
+        Ten high-signal orders: fresh poke, a real Hawaiian plate, sharp
+        tropical shave ice, hot malasadas, curry, and two wildcards. Distances
+        start at Mana Kai; prices and catch change, so every card shows the
+        move—not a promise.
+      </p>
+    </div>
+    <aside class="eat-rule">
+      <span class="trip-card-label">The three-question counter test</span>
+      <ol>
+        <li><strong>What was made or cut most recently?</strong></li>
+        <li><strong>What ingredient came from Maui today?</strong></li>
+        <li><strong>What sells out first?</strong></li>
+      </ol>
+    </aside>
+  </section>
+
+  <nav class="eat-jump wrap" aria-label="Eat guide sections">
+    <a href="#near">Near base · {near.length}</a>
+    <a href="#route">On a route · {route.length}</a>
+    <a href="#worth-drive">Worth the drive · {driveEats.length}</a>
+    <a href="#cook">Cook at Mana Kai · {kitchenMissions.length}</a>
+    <a href="#field-rules">Freshness rules</a>
+  </nav>
+
+  {
+    groups.map((group) => (
+      <section class="section wrap eat-section" id={group.id}>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">{group.note}</p>
+            <h2>{group.label}</h2>
+          </div>
+        </div>
+        <div class="eat-grid">
+          {group.spots.map((spot, index) => (
+            <article class="eat-card" id={spot.id}>
+              <div class="eat-card-topline">
+                <span>{spot.kind}</span>
+                <span>≈ {spot.driveMinutes} min</span>
+              </div>
+              <p class="eat-rank">
+                {String(index + 1).padStart(2, "0")} · {spot.area}
+              </p>
+              <h3>{spot.name}</h3>
+              <div class="eat-order">
+                <span>Order this</span>
+                <strong>{spot.order}</strong>
+              </div>
+              <p>{spot.why}</p>
+              <p class="eat-move">
+                <strong>The move:</strong> {spot.move}
+              </p>
+              <dl>
+                <div>
+                  <dt>Cost</dt>
+                  <dd>{spot.cost}</dd>
+                </div>
+                <div>
+                  <dt>Freshness</dt>
+                  <dd>{spot.freshness}</dd>
+                </div>
+                <div>
+                  <dt>Family fit</dt>
+                  <dd>{spot.familyFit}</dd>
+                </div>
+              </dl>
+              <div class="eat-tags">
+                {spot.tags.map((tag) => (
+                  <span>{tag}</span>
+                ))}
+              </div>
+              <details>
+                <summary>Why it cleared the guide</summary>
+                <p>{spot.localSignal}</p>
+                <p>
+                  Verified {spot.verifiedAt} ·{" "}
+                  {spot.confidence === "primary"
+                    ? "direct source"
+                    : "direct menu plus secondary freshness evidence"}
+                  .
+                </p>
+              </details>
+              <div class="eat-actions">
+                <a
+                  class="button primary"
+                  href={spot.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Map it
+                </a>
+                <a
+                  class="source-link"
+                  href={spot.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {spot.sourceLabel} →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section wrap drive-eats" id="worth-drive">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">
+          The food is not enough · the route must earn itself
+        </p>
+        <h2>Five real reasons to cross the island.</h2>
+      </div>
+    </div>
+    <div class="drive-eat-grid">
+      {
+        driveEats.map((spot, index) => (
+          <article class="drive-eat-card" id={spot.id}>
+            <div class="drive-eat-head">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <p>
+                  {spot.area} · ≈ {spot.driveMinutes} min
+                </p>
+                <h3>{spot.name}</h3>
+              </div>
+            </div>
+            <div class="eat-order">
+              <>
+                <span>Order this</span>
+                <strong>{spot.order}</strong>
+              </>
+            </div>
+            <dl>
+              <div>
+                <>
+                  <dt>Why this food</dt>
+                  <dd>{spot.foodReason}</dd>
+                </>
+              </div>
+              <div>
+                <>
+                  <dt>Why this drive</dt>
+                  <dd>{spot.routeReason}</dd>
+                </>
+              </div>
+              <div>
+                <>
+                  <dt>Pair it with</dt>
+                  <dd>{spot.pairWith}</dd>
+                </>
+              </div>
+              <div>
+                <>
+                  <dt>Timing</dt>
+                  <dd>{spot.timing}</dd>
+                </>
+              </div>
+            </dl>
+            <div class="eat-actions">
+              <a
+                class="button primary"
+                href={spot.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Map the route
+              </a>
+              <a
+                class="source-link"
+                href={spot.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Verify before driving →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section eat-cook" id="cook">
+    <div class="wrap">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Grocery missions · one pan, real ingredients</p>
+          <h2>Make Mana Kai part of the food guide.</h2>
+        </div>
+      </div>
+      <div class="kitchen-grid">
+        {
+          kitchenMissions.map((mission, index) => (
+            <article class="kitchen-card" id={mission.id}>
+              <div class="kitchen-number">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+              <div>
+                <p class="eyebrow">
+                  ≈ {mission.driveMinutes} min · {mission.sourceName}
+                </p>
+                <h3>{mission.title}</h3>
+                <p>{mission.why}</p>
+                <h4>Buy</h4>
+                <ul>
+                  {mission.buy.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+                <h4>At the condo</h4>
+                <p>{mission.method}</p>
+                <div class="kitchen-check">
+                  <>
+                    <strong>Best timing</strong>
+                    <span>{mission.timing}</span>
+                  </>
+                  <>
+                    <strong>Ask first</strong>
+                    <span>{mission.verify}</span>
+                  </>
+                </div>
+                <p class="kitchen-source-note">{mission.sourceNote}</p>
+                <div class="eat-actions">
+                  <a
+                    class="button primary"
+                    href={mission.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Map the shop
+                  </a>
+                  <a
+                    class="source-link"
+                    href={mission.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Direct source →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <aside class="pantry-hunt">
+        <div>
+          <p class="eyebrow">The label-reading scavenger hunt</p>
+          <h3>Eight small things to look for.</h3>
+          <p>
+            “Hawaiian” can describe a flavor or a marketing story. Find the
+            maker and origin on the label; buy the version with a real Hawaiʻi
+            producer when available.
+          </p>
+        </div>
+        <ul>{condoPantryHunt.map((item) => <li>{item}</li>)}</ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="eat-field-rules wrap" id="field-rules">
+    <div>
+      <p class="eyebrow">Fresh beats famous</p>
+      <h2>Four rules that improve every order.</h2>
+    </div>
+    <ol>
+      <li>
+        <span>01</span><p>
+          <strong>Poke:</strong> ask what is fresh, local, and cut today. “Ahi” alone
+          does not answer any of those.
+        </p>
+      </li>
+      <li>
+        <span>02</span><p>
+          <strong>Sell-outs are evidence.</strong> Go early instead of treating an
+          empty pan as bad service.
+        </p>
+      </li>
+      <li>
+        <span>03</span><p>
+          <strong>Share the first plate.</strong> Maui portions leave room to try
+          one more singular thing.
+        </p>
+      </li>
+      <li>
+        <span>04</span><p>
+          <strong>Route-match.</strong> Tin Roof and Kalei’s are excellent only when
+          Kahului or Wailuku already belongs in the day.
+        </p>
+      </li>
+    </ol>
+  </section>
+</Layout>

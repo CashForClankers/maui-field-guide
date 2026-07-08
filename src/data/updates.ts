@@ -3,6 +3,13 @@ import type { DailyUpdate } from "./types";
 export const updates = [
   {
     date: "2026-07-07",
+    title:
+      "EAT opens with exact orders, kitchen missions, and drive-worthy routes",
+    note: "A new food field guide ranks the move, not the hype: nearby fresh poke, Hawaiian plates, shave ice, malasadas, and curry; five grocery missions to cook at Mana Kai; and five farther bets that explain why both the dish and the West Maui or Upcountry route earn the drive.",
+    experienceIds: [],
+  },
+  {
+    date: "2026-07-07",
     title: "Honu Hero becomes the flexible ocean give-back",
     note: "The Events page now adds MOC Marine Institute's free Honu Hero cleanup kit for Jul 8-12: pick up supplies at Maui Ocean Center, choose a beach, log debris on the data sheet, and keep wildlife distance while helping protect the reef.",
     experienceIds: ["keawakapu-reef-ritual", "maui-ocean-center"],

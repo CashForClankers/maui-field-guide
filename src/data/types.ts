@@ -28,6 +28,61 @@ export type CalendarKind =
 
 export type CostBand = "free" | "budget" | "paid" | "splurge";
 
+export type EatKind =
+  "poke" | "plate lunch" | "sweet" | "bakery" | "fresh" | "wild card";
+
+export interface EatSpot {
+  id: string;
+  name: string;
+  kind: EatKind;
+  area: string;
+  driveMinutes: number;
+  order: string;
+  why: string;
+  move: string;
+  cost: string;
+  freshness: string;
+  familyFit: string;
+  localSignal: string;
+  confidence: Confidence;
+  verifiedAt: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  mapUrl: string;
+  tags: string[];
+}
+
+export interface KitchenMission {
+  id: string;
+  title: string;
+  buy: string[];
+  method: string;
+  why: string;
+  sourceName: string;
+  sourceNote: string;
+  sourceUrl: string;
+  mapUrl: string;
+  driveMinutes: number;
+  timing: string;
+  verify: string;
+}
+
+export interface DriveEat {
+  id: string;
+  name: string;
+  area: string;
+  driveMinutes: number;
+  order: string;
+  foodReason: string;
+  routeReason: string;
+  pairWith: string;
+  timing: string;
+  confidence: Confidence;
+  verifiedAt: string;
+  sourceUrl: string;
+  mapUrl: string;
+}
+
 export interface CalendarOption {
   id: string;
   experienceId?: string;

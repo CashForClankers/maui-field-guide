@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { experiences } from "../src/data/experiences";
+import { driveEats, eatSpots, kitchenMissions } from "../src/data/eats";
 import { creaturePlaces, creatures } from "../src/data/creatures";
 import { dailyBrief } from "../src/data/daily";
 import { calendarOptions } from "../src/data/events";
@@ -34,6 +35,41 @@ test("experience identifiers and source URLs are safe and unique", () => {
     ids.add(experience.id);
     assert.match(experience.sourceUrl, /^https:\/\//);
     assert.match(experience.mapUrl, /^https:\/\//);
+  }
+});
+
+test("eat guide keeps exact orders, direct checks, and practical kitchen missions", () => {
+  assert.ok(eatSpots.length >= 8);
+  assert.ok(kitchenMissions.length >= 4);
+  assert.ok(driveEats.length >= 4);
+  const ids = new Set<string>();
+  for (const spot of eatSpots) {
+    assert.match(spot.id, /^[a-z0-9-]+$/);
+    assert.equal(ids.has(spot.id), false, `duplicate eat spot: ${spot.id}`);
+    ids.add(spot.id);
+    assert.ok(spot.order.length >= 12);
+    assert.ok(spot.move.length >= 30);
+    assert.ok(spot.freshness.length >= 25);
+    assert.ok(spot.driveMinutes >= 0 && spot.driveMinutes <= 90);
+    assert.match(spot.sourceUrl, /^https:\/\//);
+    assert.match(spot.mapUrl, /^https:\/\//);
+    assert.match(spot.verifiedAt, /^2026-\d{2}-\d{2}$/);
+  }
+  for (const mission of kitchenMissions) {
+    assert.match(mission.id, /^[a-z0-9-]+$/);
+    assert.ok(mission.buy.length >= 3);
+    assert.ok(mission.method.length >= 80);
+    assert.ok(mission.verify.length >= 30);
+    assert.match(mission.sourceUrl, /^https:\/\//);
+    assert.match(mission.mapUrl, /^https:\/\//);
+  }
+  for (const spot of driveEats) {
+    assert.ok(spot.driveMinutes >= 35, `${spot.id} is not a drive decision`);
+    assert.ok(spot.foodReason.length >= 80);
+    assert.ok(spot.routeReason.length >= 80);
+    assert.ok(spot.pairWith.length >= 50);
+    assert.match(spot.sourceUrl, /^https:\/\//);
+    assert.match(spot.mapUrl, /^https:\/\//);
   }
 });
 

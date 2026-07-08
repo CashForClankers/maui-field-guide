@@ -8,6 +8,7 @@ import { experiences } from "../data/experiences";
 import { site, tripRhythm } from "../data/site";
 import { updates } from "../data/updates";
 import { localAnchors } from "../data/locals";
+import { eatSpots } from "../data/eats";
 import { basePath } from "../lib/paths";
 import {
   rankedCalendarOptions,
@@ -132,6 +133,34 @@ const latestUpdate = updates[0]!;
       </div>
       <a href={`${basePath}daily/`}>Open today’s brief →</a>
     </div>
+  </section>
+
+  <section class="eat-home wrap">
+    <div>
+      <p class="eyebrow">New · exact-order eat guide</p>
+      <h2>Ten things worth leaving the beach for.</h2>
+      <p>
+        Fresh poke, Hawaiian plate, tart tropical shave ice, hot malasadas,
+        curry, and a few wildcards—each with the exact order, freshness move,
+        value signal, and drive from Mana Kai.
+      </p>
+      <a class="button primary" href={`${basePath}eat/`}>Open the EAT list</a>
+    </div>
+    <ol>
+      {
+        eatSpots.slice(0, 3).map((spot, index) => (
+          <li>
+            <span>0{index + 1}</span>
+            <div>
+              <strong>{spot.order}</strong>
+              <small>
+                {spot.name} · ≈ {spot.driveMinutes} min
+              </small>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
   </section>
 
   <section
